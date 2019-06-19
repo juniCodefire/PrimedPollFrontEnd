@@ -1,0 +1,137 @@
+.upgrade-interests-con{
+	
+}
+.user-page-interests{
+	border-radius: 4px;
+	height:25vh;
+}
+.update-interests{
+	height:55vh;
+	overflow-y: scroll;
+}
+.user-page-interests div{
+	max-height: 4vh;
+	border-radius: 4px;
+}
+.update-interests div{
+	cursor: pointer;
+	height: 5vh;
+	border-radius: 4px;
+}
+.update-interests span{
+	z-index: 1;
+}
+.update-interests i{
+	display:none;
+	z-index: 2;
+	font-size: 18px;
+}
+.update-interests i{
+	position: relative;
+	bottom: 2.5vh;
+}
+.update-interests div:hover{
+	background-color: #f58710;
+	color:white;
+}
+.edit-interests-div{
+	cursor: pointer;
+}
+/* .interest-selected{
+	background-color: #f58731;
+	color:white;
+}
+.interest-selected span{
+	font-weight: lighter;
+}
+.interest-selected i{
+	display: block;
+} */
+/* .update-interests div:focus {
+	display:block;
+} */
+
+/*.user-poll-stats{
+	min-height: 10vh;
+}*/
+/*.asked-poll{
+	vertical-align: middle;
+}
+.answered-poll{
+	vertical-align: middle;
+}*/
+.bio-field .list-group-item{
+	border:none;
+}
+.edit-bio-icon{
+	cursor: pointer;
+}
+#editBioModal{
+	margin-top: 20vh;
+}
+#inputBio{
+}
+.recent-polls-card{
+	min-height:15vh;
+}
+.recent-polls-box{
+	max-height: 30vh;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+.scroller-brand{
+	scrollbar-color:  #f58731 white;
+    scrollbar-width: thin;
+}
+.normal-weight{
+	font-weight: 500;
+}
+.heavy{
+	font-weight: bold;
+}
+.color-brand{
+	color:#f58731;
+}
+.color-grey{
+	color:grey;
+}
+.color-dark{
+	color:#5a6169
+}
+.btn-brand{
+	color: white;
+	background-color: #f58731;
+}
+.recent-polls-card img{
+	border-radius: 20px;
+}
+.recent-polls-button button{
+	margin-left: 6vh;
+}
+.btn-outline-brand{
+	border:1px solid #f58731;
+	color: #f58731;
+	background-color: white;
+}
+.btn-outline-brand:hover{
+	color: white;
+	background-color: #f58731;
+}
+.user-page-interests div{
+	border: 1px solid #f58731;
+	background-color:white;
+	color:#f58731;
+	font-weight: bold;
+}
+.update-interests div{
+	border: 1px solid #f58731;
+	background-color:white;
+	color:#f58731;
+	font-weight: bold;
+}
+.nav-item a{
+	color:#f58731;
+}
+.vert-middle{
+	vertical-align: -moz-middle-with-baseline;
+}

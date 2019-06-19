@@ -1,0 +1,114 @@
+
+.err_signup {
+	color: tomato;
+	font-size: 10px;
+	padding-left: 10px;
+	margin: 0;
+}
+.err_signup_input {
+	border: 1px solid red;
+}
+.err_signup_color{
+	color: red;
+}
+#confirm_acct {
+	color: grey;
+	cursor: pointer;
+}
+#token_modal{
+	font-size: 12px;
+}
+#token {
+	height: 220px;
+}
+.comfirm_token {
+	width: 100%;
+	padding: 5px;
+	border: 1px solid grey;
+	border-radius: 20px;
+}
+
+.juni_spin_center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+.juni_spin {
+	background: #f58731;
+	display: none;
+	margin: 0;
+}
+.juni_spin_verify_code {
+	background: #f58731;
+	display: none;
+}
+.get_reqeust_spin {
+	background: #f58731;
+	width: 80px;
+	height: 80px;	
+}
+.mid_spin {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	z-index: 99;
+	left: 20%;
+	top: 45%;
+}
+.interest_sty {
+	cursor: pointer;
+}
+.juni_interest_info {
+	display: none;
+}
+.juni_interest_submit {
+	display: none;
+	width: 100%;
+	background-color: #f58731;
+    color: white;
+    margin-top: 2vh;
+    border-radius: 20px;
+     font-weight: bold;
+}
+.check_interest {
+	position: absolute;
+	left: 85%;
+	top: 50%;
+	display: none;
+}
+#juni_info {
+	color: black;
+}
+#proceed_box {
+   width: 20%;
+   margin: auto;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+@media screen and (max-width: 900px) {
+	 #proceed_box {
+	   width: 40%;
+	 }
+}
+@media screen and (max-width: 767px) {
+  .mid_spin {
+		position: fixed;
+		left: 0%;
+		top: 35%;
+		position: absolute;
+  }
+  .interests-box {
+  	margin: 0;
+
+  }
+  .full-body{
+    margin: 0;
+  }
+  #proceed_box {
+   width: 30%;
+ }
+}

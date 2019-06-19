@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PrimedPoll | Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Assets/css/ec_style.css">
+</head>
+
+<body class="ec_profile-body">
+    <nav class="navbar navbar-expand-lg ec_primedpoll-nav navbar-light">
+        <img src="../Assets/images/PrimedsoftOriginal.png" style="width:10vw">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="nav-font navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav nav-font ml-auto nav-utility">
+                <li class="nav-item active mx-3">
+                    <span class="ec_text-brand">Feed</span>
+                </li>
+                <li class="nav-item mx-3">
+                    <span class="ec_text-brand">Notifications</span>
+                </li>
+                <li class="nav-item dropdown mx-3">
+                    <span class="ec_text-brand">Settings</span>
+                </li>
+                <li class="nav-item dropdown mx-3">
+                    <img src="/images/profile-default.svg" style="width: 30px">
+                </li>
+            </ul>
+
+        </div>
+
+    </nav>
+
+    <div class="container-fluid ec_profile-content">
+        <div class="row">
+            <div class="col-5 ec_border-right-brand ec_brand-bg">
+                <!-- <img src="/images/pencil-white.svg" style="width:20px"> -->
+                <!-- <div class="edit-profile col-12 text-right">
+                    <button class="btn btn-warning mt-5">Edit</button>
+                </div> -->
+                <div class="col-12 text-right mt-2">
+                    <button class="btn ec_edit-btn ec_white-bg" data-toggle="modal" data-target="#edit-profile-modal">
+                        <img class="ec_edit-pencil text-right" src="../Assets/images/pencil-brand.svg" style="width:20px">
+                    </button>
+                </div>
+                <div class="modal fade" id="edit-profile-modal" tabindex="-1" role="dialog"
+                    aria-labelledby="edit-profile-label" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header p-2">
+                                <h5 class="modal-title ec_text-brand ml-3" id="edit-profile-label">Edit Your Profile</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="mx-auto col-12">
+                                        <div id="error-edit" class="alert alert-danger d-none" role="danger">
+
+                                        </div>
+                                        <form id="editForm col-12">
+                                            <div class="row">
+                                                <div class="form-group col-12 text-center">
+                                                    <label id="upload-image-label" for="upload-image">
+                                                        <img id="user-image" class="ec_white-bg ec_border-grey"
+                                                            src="../Assets/images/profile-default.svg" style="width:180px">
+
+                                                        <img class="edit-image-btn" src="../Assets/images/edit-image-btn.svg"
+                                                            style="width:30px">
+                                                    </label>
+                                                </div>
+
+                                                <input class="d-none" id="upload-image" value="profile-default.svg"
+                                                    type="file">
+
+
+                                                <div class="form-group col-6 mb-1">
+                                                    <label class="ec_med-text" for="fname" id="fname-label">First Name</label>
+                                                    <input type="text" class="form-control col-12" id="fname"
+                                                        aria-describedby="" placeholder="Wanda">
+                                                    <!-- <p id="err-email" class="text-danger tiny-text"></p> -->
+                                                </div>
+                                                <div class="form-group col-6 mb-1">
+                                                    <label class="ec_med-text" for="lname" id="lname-label">Last Name</label>
+                                                    <input type="text" class="form-control col-12" id="lname"
+                                                        aria-describedby="" placeholder="Maximoff">
+                                                    <!-- <p id="err-email" class="text-danger tiny-text"></p> -->
+                                                </div>
+                                                <div class="form-group col-12 mb-1">
+                                                    <label class="ec_med-text" for="user-bio" id="user-bio-label">Bio</label>
+                                                    <textarea type="password" class="form-control col-12" id="user-bio"
+                                                        placeholder="A short user created bio can go here along with any other clever thing they can think of to show how smart they are"></textarea>
+                                                    <!-- <p id="err-pwd" class="text-danger tiny-text"></p> -->
+                                                </div>
+                                                <div class="form-group col-6 mb-1">
+                                                    <label class="ec_med-text" for="phone" id="phone-label">Phone Number</label>
+                                                    <input type="tel" class="form-control col-12" id="phone"
+                                                        aria-describedby="" value="+234">
+                                                    <!-- <p id="err-email" class="text-danger tiny-text"></p> -->
+                                                </div>
+                                                <div class="form-group col-6 mb-1">
+                                                    <label class="ec_med-text" for="dob"
+                                                        id="dob-label">Date of Birth</label>
+                                                    <input type="date" class="form-control col-12" id="dob"
+                                                        aria-describedby="" placeholder="Date of Birth">
+                                                    <!-- <p id="err-email" class="text-danger tiny-text"></p> -->
+                                                </div>
+                                            </div>
+                                            
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer p-2">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary ec_brand-bg border-0">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 user-info text-center">
+
+                    <img id="user-image" class="ec_white-bg" src="../Assets/images/profile-default.svg" style="width:180px">
+                    <h4 id="username" class="mb-2 mt-4 text-white">Wanda Maximoff</h4>
+                    <p id="user-bio" class="mt-4 mx-auto col-10 text-white">A short user created bio can go here along
+                        with
+                        any other clever thing they
+                        can think of to show how smart they are
+                    </p>
+                </div>
+                <div class="row poll-history mt-5 col-12">
+                    <div class="asked-poll text-center text-white col-6">
+                        <p><b>Asked Polls</b></p>
+                        <p>102</p>
+                    </div>
+                    <div class="answered-poll text-center text-white col-6">
+                        <p><b>Answered Polls</b></p>
+                        <p>300</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-7 ec_poll-info">
+                <div class="poll-listing border border-top-0 mt-3">
+                    <nav>
+                        <div class="nav nav-tabs col-12" id="nav-tab" role="tablist">
+                            <a class="nav-item nav-link active col-6" id="created-polls-nav" data-toggle="tab"
+                                href="#created-polls" role="tab" aria-controls="nav-home" aria-selected="true">Created
+                                Polls</a>
+                            <a class="nav-item nav-link col-6" id="answered-polls-nav" data-toggle="tab"
+                                href="#answered-polls" role="tab" aria-controls="nav-profile"
+                                aria-selected="false">Answered Polls</a>
+                        </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                        <div class="tab-pane fade show active ml-2 ec_text-grey" id="created-polls" role="tabpanel"
+                            aria-labelledby="created-polls-nav">
+                            Your list of created polls will appear here</div>
+                        <div class="tab-pane fade ml-2 ec_text-grey" id="answered-polls" role="tabpanel"
+                            aria-labelledby="answered-polls-nav">
+                            Your list of answered polls will appear here</div>
+
+                    </div>
+                </div>
+
+                <div class="interests mt-3">
+                    <h6 class="ec_brand-color">Interests</h6>
+                    <div id="interests-list" class="border row mt-3 col-12 mx-auto scroller">
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Art</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto">  -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Architecture</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Soccer</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Geography</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Sports</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Politics</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Music</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Entertainment</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Culture</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Technology</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Space</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Travel</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Nigeria</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Photography</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Technology</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Space</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Travel</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Nigeria</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Photography</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <span class="interest-words">Soccer</span>
+                            <!-- <img src="images/delete-interest.svg" style="width: 20px" class="delete-interest mx-auto"> -->
+                        </div>
+                        <div class="interest bg-white text-center mt-2 ml-5 mb-1 col-3 px-0">
+                            <img src="images/add-interest-brand.svg" style="width:20px">
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <script src="../Assets/js/jquery.min.js"></script>
+    <script src="../Assets/js/bootstrap.min.js"></script>
+    <!-- <script src="../Assets/js/profile.js"></script> -->
+</body>
+
+</html>

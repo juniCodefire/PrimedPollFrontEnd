@@ -1,0 +1,30 @@
+.interest-name{
+}
+.interest-numbers{
+}
+.interests-list{
+    height: 70vh;
+    overflow-y: scroll;
+}
+.users-list{
+    height: 70vh;
+    overflow-y: scroll;
+}
+.scrollable-white{
+	scrollbar-color:  black white;
+    scrollbar-width: thin;
+}
+.scrollable-black{
+	scrollbar-color:  white black;
+    scrollbar-width: thin;
+}
+.view-user-btn{
+	max-height:20px;
+	border:0;
+	border-radius: 3px;
+	background-color: green;
+	color:white;
+	font-size: 12px;
+	padding:1.5px 8px;
+	cursor: pointer;
+}

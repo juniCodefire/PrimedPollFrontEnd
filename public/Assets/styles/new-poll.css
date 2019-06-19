@@ -1,0 +1,47 @@
+.new-poll-card {
+	min-height: 100vh;
+}
+
+.poll-option-group {
+	min-height: 5vh;
+}
+
+.add-image-input {
+	display: none;
+}
+
+#textPollCollapse {
+	display: none;
+}
+
+#imagePollCollapse {
+	display: none;
+
+}
+
+#imagePollCollapse .card {
+	min-height: 30vh;
+}
+
+#inputImage {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#imagePollCollapse label i {
+	font-size: 10vh;
+}
+
+.fancy-card {
+	background-color: #fff;
+	border: none;
+	border-radius: 0.625rem;
+	box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+		0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+		0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+		0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}

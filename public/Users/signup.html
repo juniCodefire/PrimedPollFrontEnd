@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polled | Forgot Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Assets/css/ec_style.css">
+    <link rel="stylesheet" href="../Assets/css/juni_style.css">
+</head>
+
+<body class="ec_sign-in-body">
+
+    <div class="container-fluid ec_auth-body">
+        <div class="row">
+            <h4 class="mt-2 ml-5 text-white">Polled</h4>
+             <div class="d-flex justify-content-center juni_spin_center">
+               <div class="spinner-grow text-dark juni_spin" role="status"></div>
+             </div>
+            <div class="col-lg-6 col-md-8 col-sm-10 col-12 row ec_signup-form">
+                <form action="" class="col-12 ec_form ml-3 mt-5" id="signup-form">
+                    <p class="text-center ec_lg-text" style="color: #f58731; font-weight: bold;" >Sign Up</p>
+                    <div class="form-group row">
+                        <label for="email" class="text-white col-2 mt-2">Email</label>
+                        <div class=" ml-3 col-8">
+                            <input type="email" class="form-control form-control" id="ec_email" placeholder="joe@mail.com">
+                            <p class="err_signup" id="juni_err_email"></p>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="password" class="text-white col-2 mt-2">Password</label>
+                        <div class="ml-3 col-8">
+                            <input type="password" class="form-control form-control" id="ec_password"
+                                placeholder="Enter Password">
+                                <p class="err_signup" id="juni_err_password"></p>
+                        </div>
+                    </div>
+                    <div class="form-group ec_confirm_password row mb-0">
+                        <label for="ec_confirm_password" class="text-white col-2">Confirm Password</label>
+                        <div class="ml-3 col-8">
+                            <input type="password" class="form-control form-control" id="ec_confirm_password"
+                                placeholder="Re-enter your Password">
+                        </div>
+                    </div>
+                    <div class="form-check text-center">
+                        <input class="form-check-input" type="checkbox" name="tccheckbox" id="ec_tccheckbox"
+                            value="option1" unchecked>
+                        <label class="form-check-label ec_text-grey" for="ec_tccheckbox">
+                            <small>By clicking, you accept our terms and conditions</small>
+                        </label>
+   
+                    </div>
+                    <button class="btn ec_sign-in-btn col-8 px-0 mt-2 mb-2" type="submit">Sign Up Now  </button>
+                    <div class="ec_sign-in-utilities row">
+                        <p class="ec_med-text col-7 offset-3 ec_text-grey">Already have an account? <a href="signin.html">Sign in here</a>
+                        </p>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+<!-- Modal For Cormfim token-->
+<!-- <div id="token" class="modal">
+ <div class="d-flex justify-content-center juni_spin_center">
+   <div class="spinner-grow text-dark juni_spin_verify_code" role="status"></div>
+ </div>
+    <p id="reg_success"></p>
+    <p>Insert your Verification token to cormfim account. <a style="float: right; color: grey; text-decoration: none;" href="#" rel="modal:close">Close</a></p>
+    <form id="token_verify">
+      <input type="text" class="comfirm_token" id="verifycode">
+      <p class="err_signup" id="juni_err_verifytoken"></p>
+      <button class="btn ec_sign-in-btn col-7 px-0 mt-2 mb-2" type="submit">Verify Token</button>
+    </form>
+</div> -->
+<!-- Link to open the modal -->
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script type="text/javascript" src="../Assets/js/customjs/signUp.js"></script>
+<script type="text/javascript" src="../Assets/js/customjs/token_verify.js"></script>
+
+</body>
+
+</html>

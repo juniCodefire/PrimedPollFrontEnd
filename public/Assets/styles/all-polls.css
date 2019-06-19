@@ -1,0 +1,78 @@
+#poll-card{
+    /* height:40vh; */
+}
+#poll-card #user-image{
+    /* border-radius: 20px; */
+}
+.ec_poll-interest{
+    float:right;
+}
+.ec_med-text{
+	font-size: 16px;
+}
+/* .vote-button{
+    float:right;
+    margin-right:50px;
+} */
+.card-name{
+	font-size: 14px;
+	vertical-align: bottom;
+}
+.ec_poll-question{
+	margin-left: 4.2vw;
+}
+.ec_poll-answers{
+	margin-left: 2.1vw;
+}
+.ec_poll-misc{
+	margin-left: 3vw;
+}
+.ec_poll-misc span{
+	vertical-align: -moz-middle-with-baseline;
+}
+.scrollable-black{
+	scrollbar-color:  white black;
+    scrollbar-width: thin;
+}
+.scrollable-white{
+	scrollbar-color:  black white;
+    scrollbar-width: thin;
+}
+.scrollable-brand{
+	scrollbar-color:  #f58731 white;
+    scrollbar-width: thin;
+}
+.nav-link span{
+	font-size: 14px;
+}
+.nav .sticky-top{
+	background-color: #f58731;
+}
+.nav .sticky-top span{
+	color: white;
+}
+.brand-bg{
+	background-color: #f58731;
+}
+.text-brand{
+	color: #f58731;
+}
+.btn-brand{
+	background-color:#f58731;
+	border:1px solid #f58731;
+	color:white;
+}
+.btn-brand:hover{
+	background-color: white;
+	color:#f58731;
+	border:1px solid #f58731;
+}
+.btn-outline-brand{
+	color:#f58731;
+	border:1px solid #f58731;
+}
+.btn-outline-brand:hover{
+	background-color: #f58731;
+	color:white;
+	border:1px solid #f58731;
+}

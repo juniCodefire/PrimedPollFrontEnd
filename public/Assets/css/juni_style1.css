@@ -1,0 +1,180 @@
+.feeds_body {
+  overflow: hidden;
+  height: 100vh;
+}
+#feeds_box {
+  overflow: auto;
+  height: 90vh;
+  width: 80%;
+}
+.feed_loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+}
+.feed_loader_2 {
+    position: absolute;
+    left: 50%;
+    bottom: 0%;
+    margin-bottom: 30px;
+}
+.dynamic_feed_loader {
+  display: none;
+}
+.add_poll_alert_box {
+  display: none;
+}
+.juni_spin {
+   color: #f58731;
+   font-size: 150px;
+   width: 50px;
+   height: 50px;
+   max-width: 50px;
+   max-height: 50px;
+   margin-left: -50px;
+   z-index: 9999;
+}
+.dynamic_spin_text {
+   color: grey;
+   font-style: italic;
+   font-size: 15px;
+   z-index: 999;
+   margin-left: -140px;
+}
+.add_interest_spin {
+    display: none;
+    align-content: center;
+    justify-content: center;
+}
+.delete-option-btn{
+    border:1px solid tomato;
+}.delete-option-btn:hover{
+    background-color: #e6e6e6;
+    color:white;
+}
+.add-option-btn{
+    border:1px solid lightgreen;
+}.add-option-btn:hover{
+    background-color: #e6e6e6;
+    color:white;
+}
+.err_signup_input {
+  border: 1px solid red;
+}
+.err_signup {
+  color: tomato;
+  font-size: 10px;
+  padding-left: 10px;
+  margin: 0;
+}
+.written_option::placeholder {
+    color: tomato;
+}
+.add_poll_err {
+    color:tomato; font-size: 10px;
+    display: none;
+}
+.marginlize {
+  border-bottom: 1px solid #e6e6e6;
+}
+.alert_default {
+  display: none;
+}
+.update_profile_spin {
+  display: none;
+}
+.update_bio_spin {
+  display: none;
+}
+#image_power {
+  cursor: pointer;
+  
+}
+.user_photo {
+    transition: 1s all ease;
+}
+.img_preview {
+  width: 100%;
+  height: 100%;
+}
+.image_click {
+  font-size: 30px; margin-top:40px; position:absolute; margin-left:-15px;
+  display: none;
+}
+.image_click_box:hover {
+   background:#f58731;
+}
+#img_text {
+  visibility: hidden;
+}
+#image_power:hover .image_click {
+  display: block;
+  margin-left: 40px;
+}
+#image_power:hover .user_photo{
+  opacity:0.4;
+  transform: scale(1.02);
+
+}
+#image_power:hover #img_text {
+  visibility: visible;
+}
+
+#phone_btn {
+  display: none;
+}
+.interest_input {
+  font-size:10px; 
+  cursor: pointer;
+}
+.interest_holder {
+  transition:  1s all ease;
+}
+#interest_manage {
+  display: none;
+}
+.interest_holder:hover {
+  transform: scale(1.03);
+  background: white;
+  border-color: grey;
+
+}
+.interest_holder:hover #interest_title{
+ display: none;
+}
+.interest_holder:hover #interest_manage {
+  display: block;
+}
+#add_interest {
+  transition:  1s all ease;
+}
+#add_interest:hover {
+  transform: scale(1.03);
+  background: white;
+  border-color: grey;
+}
+@media (max-width: 900px) {
+  .feed_loader_2 {
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 768px){
+    #phone_btn {
+      display: block;
+    }
+    .juni_spin {
+        color: #f58731;
+        font-size: 150px;
+        width: 50px;
+        height: 50px;
+        max-width: 50px;
+        max-height: 50px;
+        margin-left: -10px;
+
+    }
+    #feeds_box {
+    overflow: auto;
+    width: 105%;
+    height: 90vh;
+  }
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Polled | Sign In Password</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../Assets/css/ec_style.css">
+    <link rel="stylesheet" href="../Assets/css/juni_style.css">
+</head>
+<body class="ec_sign-in-body">
+    <div class="container-fluid ec_auth-body">
+        <div class="row">
+            <h4 class="mt-2 ml-5 text-white">Polled</h4>
+             <div class="d-flex justify-content-center juni_spin_center">
+               <div class="spinner-grow text-dark juni_spin" role="status"></div>
+               <div id="juni_info"></div>
+             </div>
+            <div style="height: 45vh;" class="col-lg-6 col-md-8 col-sm-10 col-12 row ec_signin-form"> 
+                <form action="" class="col-12 ec_form ml-3 mt-5" id="token_verify">
+                    <p  style="color: #f58731; font-weight: bold;" class="text-center ec_lg-text">Confirm Account</p>
+                    <div class="form-group row">
+                        <label for="email" class="text-white col-2 mt-2">Verification Code</label>
+                        <div class=" ml-3 col-8">
+                            <input type="text" class="form-control form-control" id="verifycode" placeholder="Enter verification code">
+                            <p class="err_signup" id="juni_err_verifytoken"></p>
+                        </div>
+                    </div>
+                    <button class="btn ec_sign-in-btn col-8 px-0 mb-4" type="submit">Confirm Account</button>
+                </form>
+            </div>
+            
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+   <script type="text/javascript" src="../Assets/js/customjs/token_verify.js"></script>
+</body>
+
+</html>

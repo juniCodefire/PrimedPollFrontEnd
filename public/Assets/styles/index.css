@@ -1,0 +1,37 @@
+body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: url("../images/marcelo-cidrack-1514289-unsplash.jpg")
+}
+nav{
+    background: #2a1307ab;
+    height: 8vh;
+    position: absolute;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    float: right;
+    width:20%;
+  }
+  
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: #f30100;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+  
+  li a:hover {
+    background-color: #111;
+    color: #fff;
+    text-decoration: none;
+  }
