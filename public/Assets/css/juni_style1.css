@@ -12,6 +12,9 @@
     left: 50%;
     top: 50%;
 }
+.upload_spin {
+  display: none;
+}
 .feed_loader_2 {
     position: absolute;
     left: 50%;
@@ -88,7 +91,7 @@
 }
 #image_power {
   cursor: pointer;
-  
+
 }
 .user_photo {
     transition: 1s all ease;
@@ -102,7 +105,7 @@
   display: none;
 }
 .image_click_box:hover {
-   background:#f58731;
+   background:lightgrey;
 }
 #img_text {
   visibility: hidden;
@@ -112,7 +115,7 @@
   margin-left: 40px;
 }
 #image_power:hover .user_photo{
-  opacity:0.4;
+  opacity:0.5;
   transform: scale(1.02);
 
 }
@@ -124,7 +127,7 @@
   display: none;
 }
 .interest_input {
-  font-size:10px; 
+  font-size:10px;
   cursor: pointer;
 }
 .interest_holder {

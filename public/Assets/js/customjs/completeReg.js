@@ -22,14 +22,14 @@ $(document).ready( function() {
         }else{
           $("#show_total_interest").show();
           $("#show_total_interest").html(interests.length);
-        } 
+        }
         if (interests.length >= 5) {
           $(".juni_interest_info").hide();
           $(".juni_interest_submit").show();
         }else{
           $(".juni_interest_info").show();
           $(".juni_interest_submit").hide();
-        }       
+        }
     });
 
 	$("#proceed").on('click', function(e) {
@@ -62,10 +62,10 @@ $(document).ready( function() {
       $(".juni_spin").hide();
       return false;
     }else {
-      
+
     $(".err_signup").html('');
     $(".complete_inputs").removeClass('err_signup_input');
-  
+
     interests = interests.map(function (x) {
                     return {
                       "interest_id": x
@@ -91,20 +91,19 @@ $(document).ready( function() {
         $.ajax(settings).done(function (response) {
           if (response) {
               $(".juni_spin").hide();
-              console.log(response);
               const user  = response.user;
+              let wrapImage = response.image_link + user.image;
 
               localStorage.setItem('user_firstname', user.first_name);
               localStorage.setItem('user_lastname', user.last_name);
               localStorage.setItem('user_email', user.email);
-              localStorage.setItem('user_image', user.image);
+              localStorage.setItem('user_image', wrapImage);
               localStorage.setItem('user_dob', user.dob);
               localStorage.setItem('user_phone', user.phone);
-              
+
               location.replace("../Users/user-profile-lite.html");
-          }         
+          }
         }).fail( function(err) {
-          console.log(err);
           if (err) {
             $(".juni_spin").hide();
             if (err.status === 422) {
@@ -125,14 +124,11 @@ $(document).ready( function() {
                 $("#juni_err_dob").html(err.responseJSON.dob[0]);
                 $("#dob").addClass('err_signup_input');
               }
-              
+
             }
           }
-          
+
         });
     }
 	});
 });
-
-
-

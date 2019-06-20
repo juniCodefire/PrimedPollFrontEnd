@@ -7,6 +7,7 @@ var user_image = localStorage.getItem('user_image');
 var user_phone = localStorage.getItem('user_phone');
 var user_dob = localStorage.getItem('user_dob');
 var user_bio = localStorage.getItem('bio');
+console.log(user_image);
 
 var nav_user_firstname = user_firstname.charAt(0).toUpperCase();
 var nav_user_lastname = user_lastname.charAt(0).toUpperCase();
@@ -15,7 +16,7 @@ var user_bio = user_bio.charAt(0).toUpperCase() + user_bio.slice(1);
 
 $("#nav_name").html(nav_user_firstname + "" + nav_user_lastname);
 
-var nav_image = `<img class="user-avatar rounded-circle mr-2" src="${user_image}" alt="User Avatar">`;
+var nav_image = `<img class="user-avatar rounded-circle mr-2 navImg" src="${user_image}" alt="User Avatar">`;
 $("#nav_image").html(nav_image);
 
 $(document).on('click', '.logout', function() {

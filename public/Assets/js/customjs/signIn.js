@@ -7,7 +7,7 @@ $(document).ready( function() {
 		var email     = $("#ec_email").val();
 		var password  = $("#ec_password").val();
 
-    
+
     if (email == "") {
       $("#juni_err_email").html('email is required');
       $("#ec_email").addClass('err_signup_input');
@@ -38,9 +38,13 @@ $(document).ready( function() {
               $(".juni_spin").hide();
               $("#reg_success").html(response.success);
               $('#signin-form')[0].reset();
-              
+
+
               const token = response.data.token;
-              const user = response.data.user;
+              const user  = response.data.user;
+
+							//Creating the image link
+							let wrapImage = response.data.image_link + user.image;
 
               localStorage.setItem('token', token);
 
@@ -48,13 +52,13 @@ $(document).ready( function() {
               localStorage.setItem('user_lastname', user.last_name);
               localStorage.setItem('user_lastname', user.last_name);
               localStorage.setItem('user_email', user.email);
-              localStorage.setItem('user_image', user.image);
+              localStorage.setItem('user_image', wrapImage);
               localStorage.setItem('user_dob', user.dob);
               localStorage.setItem('user_phone', user.phone);
               localStorage.setItem('bio', user.bio);
-              location.replace("../Users/user-profile-lite.html"); 
+              location.replace("../Users/user-profile-lite.html");
 
-          }         
+          }
         }).fail( function(err) {
           if (err) {
             $(".juni_spin").hide();
@@ -77,7 +81,7 @@ $(document).ready( function() {
 
               if (err.responseJSON.data.message == "Not confirmed yet") {
 
-                 location.replace("../Users/confirmation.html?success=polled_member"); 
+                 location.replace("../Users/confirmation.html?success=polled_member");
               }
             }
             if (err.status === 404) {
@@ -85,13 +89,10 @@ $(document).ready( function() {
                 $("#ec_email").addClass('err_signup_input');
             }
           }
-          
+
         });
     }
 
-	
+
 	});
 });
-
-
-

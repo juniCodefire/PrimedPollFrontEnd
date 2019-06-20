@@ -156,15 +156,15 @@ $("#update_profile").on('submit', function(e) {
     //Update User Photo
     $(document).on('change', '#uploadImage', function(e) {
         e.preventDefault();
-				$(".alert_note").html(`Click "Change" to choose another image.`);
-				$(".alert_note").css('color', 'lightgrey');
-				$("#img_text").html('Upload an image (jpeg, jpg, png format only)');
 
+        // $("#img_text").css('visibility', 'visible');
+        // $("#img_text").html('')
         if (uploadKey == 0) {
            $("#uploadImageModal").modal("toggle");
         }
 
-         let image = $('#uploadImage')[0].files[0];
+        let image = $('#uploadImage')[0].files[0];
+        let fd = new FormData();
          if (image) {
             var reader = new FileReader();
             console.log(reader);
@@ -184,28 +184,54 @@ $("#update_profile").on('submit', function(e) {
 
     $(document).on('click', '.saveImage', function(e) {
       e.preventDefault();
-			let data = document.querySelector("#uploadImage");
-      let image = data.files[0];
+      let image = $('#uploadImage')[0].files[0];
 			$(".upload_spin").show();
+			console.log(image);
 
-				checkFormat(image.type);
-			  let totalSizeMB = image.size / Math.pow(1024,2);
-				if (totalSizeMB > 2) {
-					$(".upload_spin").hide();
-					$(".alert_note").html("(Image too large!, Please choose image size below 2MB.)");
-					$(".alert_note").css('color', 'tomato');
-					return false;
-				}
+			 let totalSizeMB = image.size / Math.pow(1024,2);
+			 console.log(totalSizeMB);
+			 // let form = new FormData();
+			 // form.append('image', image);
+			 //
+				// var settings = {
+				//   "url": "https://polledapp.herokuapp.com/api/upload",
+				//   "method": "POST",
+				//   "timeout": 0,
+				// 	"headers": {
+				// 		"Authorization": "Bearer " + token,
+				// 		'Content-type': 'multipart/form-data'
+				// 	},
+				//   "processData": false,
+				//   "mimeType": "multipart/form-data",
+				//   "contentType": false,
+				//   "data": form
+				// };
+				// console.log(settings);
+				// $.ajax(settings).done(function (response) {
+				// 	  console.log(response);
+				// 		if (response) {
+				// 			$(".upload_spin").hide();
+				// 			uploadKey = 0;
+			 //
+				// 		}
+				// }).fail( function(err) {
+       //     console.log(err);
+       //      if (err) {
+       //       $(".upload_spin").hide();
+			 //
+       //    }
+			 //
+       //  });
 			  var form = new FormData();
 				form.append("image", image);
-				console.log(token)
 
 				var settings = {
 				  "url": "https://polledapp.herokuapp.com/api/upload",
 				  "method": "POST",
 				  "timeout": 0,
 						"headers": {
-							"Authorization": "Bearer " + token
+							"Authorization": "Bearer " + token,
+							'Content-type': 'multipart/form-data'
 						},
 				  "processData": false,
 				  "mimeType": "multipart/form-data",
@@ -214,17 +240,7 @@ $("#update_profile").on('submit', function(e) {
 				};
 
 				$.ajax(settings).done(function (response) {
-					$(".upload_spin").hide();
-				  let data = JSON.parse(response);
-					let prop = data.image_prop;
-					let wrapImage = `${data.image_link}${prop.widthThumb},${prop.imageStyle},${prop.aspectRatio},${prop.cropType2}/${data.image}`;
-
-
-					$(".user_photo").attr('src', wrapImage);
-					$(".navImg").attr('src', wrapImage);
-					localStorage.setItem('user_image', wrapImage);
-					$("#uploadImageModal").modal("toggle");
-					uploadKey = 0;
+				  console.log(response);
 				}).fail( function(err) {
            console.log(err);
             if (err) {
@@ -233,15 +249,17 @@ $("#update_profile").on('submit', function(e) {
         });
     });
 
-		function checkFormat($formatType) {
-			 let formats = ['image/jpeg', 'image/png', 'image/jpg'];
-			 if(!formats.includes($formatType)) {
-				 $(".upload_spin").hide();
-				 $("#img_text").css('visibility', 'visible');
-				 $("#img_text").css('color', 'tomato');
-				 $("#img_text").html("(Please use only valid format [jpeg, png, jpg].)");
-				 $(".alert_note").html("(Image format type not allowed!, Please use only[image/jpeg, image/png, image/jpg].)");
-				 $(".alert_note").css('color', 'tomato');
-				 return false;
-			 }
-		}
+//     var formData = new FormData();
+// formData.append('file', $('#file')[0].files[0]);
+
+// $.ajax({
+//        url : 'upload.php',
+//        type : 'POST',
+//        data : formData,
+//        processData: false,  // tell jQuery not to process the data
+//        contentType: false,  // tell jQuery not to set contentType
+//        success : function(data) {
+//            console.log(data);
+//            alert(data);
+//        }
+// });

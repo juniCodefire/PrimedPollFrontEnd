@@ -14,7 +14,7 @@ var member_image = `
                   <div>
                      <i class="fa fa-camera image_click" aria-hidden="true"></i>
                       <form id="data" enctype="multipart/form-data">
-                        <input style="display:none;" type="file" id="uploadImage"  accept="image/png, image/jpeg, Image/jpg" value="user.jpg" />
+                        <input style="display:none;" type="file" id="uploadImage"  accept="image/png, image/jpeg, Image/jpg" value="noImage.png" />
                       </form>
                   </div>
                   <img class="rounded-circle user_photo" src="${user_image}" alt="User Avatar" width="110">
@@ -45,7 +45,7 @@ setInterval(function(){
     const loadProfile = (seize_spinner = "open") => {
 
         if (seize_spinner == "open") {
-           $("#user_interest_loader").show();   
+           $("#user_interest_loader").show();
         }
 
     var settings = {
@@ -69,17 +69,17 @@ setInterval(function(){
                        Add New <i class='fa fa-plus check_interest'></i>
                     </p>
                 </div>`);
-                for (var i = 0; i < response.length; i++) { 
+                for (var i = 0; i < response.length; i++) {
                     let interest_title = response[i].title.charAt(0).toUpperCase() + response[i].title.slice(1);
                     let interest_hanger = `
                           <p class="interest_input" id="interest_title" style='font-size:10px;'>
                              ${interest_title}
                           </p>`;
-     
+
                     $("#user_interest_box").append(`
-                        <div class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder" 
-                            id="interest_holder${response[i].id}" style="padding: 0; margin-top:4px;" 
-                            data-interestid = "${response[i].id}" 
+                        <div class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
+                            id="interest_holder${response[i].id}" style="padding: 0; margin-top:4px;"
+                            data-interestid = "${response[i].id}"
                             data-interesttitle = "${interest_title}">
 
                             ${interest_hanger}
@@ -90,15 +90,15 @@ setInterval(function(){
                         </div>
                         `);
                     if (interest_title > 12) {
-                        $(`#interest_holder${response[i].id}`).removeClass('col-lg-3'); 
-                        $(`#interest_holder${response[i].id}`).addClass('col-lg-4');   
+                        $(`#interest_holder${response[i].id}`).removeClass('col-lg-3');
+                        $(`#interest_holder${response[i].id}`).addClass('col-lg-4');
                     }
                 }
             }
         });
-          
+
     }
-   
+
     //This pops up the modal that add new interest
     $(document).on('click', '#add_interest', function() {
         $("#newInterestModal").modal("toggle");
@@ -129,12 +129,9 @@ setInterval(function(){
         console.log("approval");
         let interest_id = $(`#id_holder`).val();
         window.open(`user-feed.html?interest_id=${interest_id}`, '_self');
-        // location.replace();   
+        // location.replace();
 
     });
 
 
     loadProfile();
-
-
-
