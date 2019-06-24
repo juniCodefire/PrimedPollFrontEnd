@@ -1,5 +1,4 @@
 $(document).ready(function () {
-  $("#newPollModal").modal("toggle");
     //Declare the option array global
     let options = [];
 

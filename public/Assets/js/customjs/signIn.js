@@ -33,6 +33,7 @@ $(document).ready( function() {
             "password": password,
           }
         };
+
         $.ajax(settings).done(function (response) {
           if (response.data.success) {
               $(".juni_spin").hide();
