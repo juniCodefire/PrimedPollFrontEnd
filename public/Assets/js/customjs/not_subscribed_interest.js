@@ -5,7 +5,7 @@
 
   const NotSubscribedInterest = () => {
     var settings = {
-      "url": "https://polledapp.herokuapp.com/api/not/subscribed/interest",
+      "url": `${baseUrl}api/not/subscribed/interest`,
       "method": "GET",
          "headers": {
               "Authorization": "Bearer " + token,
@@ -25,7 +25,7 @@
         for (var i = 0; i < interest.length; i++) {
           let interest_title = interest[i].title.charAt(0).toUpperCase() + interest[i].title.slice(1);
           $("#not_subscribed_box").append(`
-             <div class="col-sm-5 col-lg-4 col-md-5 mx-3 my-1 text-center get_interest_id" 
+             <div class="col-sm-5 col-lg-4 col-md-5 mx-3 my-1 text-center get_interest_id"
              id="ns_interest${interest[i].id}" data-getinterestid="${interest[i].id}" style="padding: 0;">
                 <p class="interest_input" id="interest_title">
                   ${interest_title}
@@ -43,7 +43,7 @@
     $(".add_interest").attr("disabled", true);
 
       var settings = {
-        "url": "https://polledapp.herokuapp.com/api/add/interest",
+        "url": `${baseUrl}api/add/interest`,
         "method": "POST",
            "headers": {
                 "Authorization": "Bearer " + token,
@@ -69,7 +69,7 @@
         }
       }).fail( function(err) {
             $(".not_subscribed_spin").hide();
-            console.log(err);       
+            console.log(err);
       });
     });
 
@@ -99,4 +99,3 @@
     });
 
     NotSubscribedInterest();
-

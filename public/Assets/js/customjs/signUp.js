@@ -26,7 +26,7 @@ $(document).ready( function() {
     $("#juni_err_password").html('');
 
      var settings = {
-          "url": "https://polledapp.herokuapp.com/api/register",
+          "url": `${baseUrl}api/register`,
           "method": "POST",
           "timeout": 0,
           "data": {
@@ -40,10 +40,10 @@ $(document).ready( function() {
               $(".juni_spin").hide();
               $("#reg_success").html(response.success);
               $('#signup-form')[0].reset();
-              location.replace("../Users/confirmation.html?success=new_member"); 
-          }         
+              location.replace("../Users/confirmation.html?success=new_member");
+          }
         }).fail( function(err) {
-          
+
           if (err) {
             $(".juni_spin").hide();
             if (err.status === 422) {
@@ -55,16 +55,13 @@ $(document).ready( function() {
                 $("#juni_err_password").html(err.responseJSON.password[0]);
                 $("#ec_password").addClass('err_signup_input');
               }
-              
+
             }
           }
-          
+
         });
     }
 
-		
+
 	});
 });
-
-
-

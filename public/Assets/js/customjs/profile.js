@@ -49,7 +49,7 @@ setInterval(function(){
         }
 
     var settings = {
-        "url": "https://polledapp.herokuapp.com/api/user/interest",
+        "url": `${baseUrl}api/user/interest`,
         "method": "GET",
         "headers": {
             "Authorization": "Bearer " + token,

@@ -3,7 +3,7 @@ $(document).ready(function () {
   $(".get_reqeust_spin").show();
 
   var settings = {
-    "url": "https://polledapp.herokuapp.com/api/interest",
+    "url": `${baseUrl}api/interest`,
     "method": "GET",
     "timeout": 0,
   };
@@ -20,11 +20,10 @@ $(document).ready(function () {
           class='fa fa-check check_interest' aria-hidden='true'></i>${interest_title}</span></div>`);
 
         $(".juni_interest_info").show();
-       
+
 
       }
     }
   });
 
 });
-

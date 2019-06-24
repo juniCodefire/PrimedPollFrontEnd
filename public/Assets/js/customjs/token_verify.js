@@ -15,7 +15,7 @@ $(document).ready( function() {
 		var verifycode    = $("#verifycode").val();
 
 		 var settings = {
-          "url": "https://polledapp.herokuapp.com/api/register/verify",
+          "url": `${baseUrl}api/register/verify`,
           "method": "POST",
           "timeout": 0,
           "data": {
@@ -24,26 +24,26 @@ $(document).ready( function() {
         };
         $.ajax(settings).done(function (response) {
           if (response) {
-        
+
             $(".juni_spin").hide();
 
               if (response.verified == "true"){
                 localStorage.setItem('token', response.token);
-                location.replace("../Users/complete-registration.html"); 
-                
+                location.replace("../Users/complete-registration.html");
+
             }else if(response.verified == "done"){
                 $("#juni_err_verifytoken").html("Account verified already, try logging in.");
                 $("#juni_err_verifytoken").css('color', 'red');
 
                 setInterval(() => {
-                    location.replace("../Users/signin.html"); 
+                    location.replace("../Users/signin.html");
                 }, 2000);
             }else{
                 $("#juni_err_verifytoken").html("Verificaion Code does not match.");
                 $("#juni_err_verifytoken").css('color', 'red');
                 $("#verifycode").css('border', '1px solid red');
             }
-          }        
+          }
         }).fail( function(err) {
         	if (err) {
         		if (err.status === 422) {
@@ -52,12 +52,10 @@ $(document).ready( function() {
         				$("#verifycode").addClass('err_signup_input');
                         $(".juni_spin").hide();
         			}
-        			
+
         		}
         	}
-        	
+
         });
 	});
 });
-
-

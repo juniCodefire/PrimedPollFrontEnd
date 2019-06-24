@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $("#newPollModal").modal("toggle");
     //Declare the option array global
     let options = [];
 
@@ -31,7 +32,7 @@ $(document).ready(function () {
             return false;
         }
         if (options.length < 2) {
-            $("#written_option").attr('placeholder', 'Your options must be more than 2!');
+            $("#written_option").attr('placeholder', 'Your options must be 2 more!');
             $("#written_option").addClass('written_option');
             $("#textPollCollapse").show();
             return false;
@@ -51,7 +52,7 @@ $(document).ready(function () {
         $(".add_interest_spin").css('display', 'flex');
         $("#add_interest_btn").hide();
         var settings = {
-            "url": `https://polledapp.herokuapp.com/api/${user_interest_id}/poll`,
+            "url": `${baseUrl}api/${user_interest_id}/poll`,
             "method": "POST",
             "timeout": 0,
             "headers": {
@@ -155,5 +156,8 @@ $(document).ready(function () {
     });
     $(document).on('click', '.close_add_poll_alert', function() {
          $(".add_poll_alert_box").hide();
+    });
+    $(document).on('click', '.addFastPoll', function() {
+          $("#newPollModal").modal("toggle");
     });
 });

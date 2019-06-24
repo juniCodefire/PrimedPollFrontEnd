@@ -15,7 +15,7 @@
 	    $('.alert_note_text').css('color', 'tomato');
 
 	      var settings = {
-	        "url": `https://polledapp.herokuapp.com/api/user/${interest_id}`,
+	        "url": `${baseUrl}api/user/${interest_id}`,
 	        "method": "DELETE",
 	           "headers": {
 	                "Authorization": "Bearer " + token,
@@ -31,7 +31,7 @@
 	           $("#manageInterestModal").modal("toggle");
 	           $('.alert_note').html('You can add or remove this interest from your list');
 	           $('.alert_note_text').css('color', 'lightgrey');
-	           
+
 	           $('.alert_default').show();
 	           $('.alert_default').html(`Done (Deleted 1 Interest!)`);
 	           del_control_key ="open";
@@ -43,6 +43,6 @@
 	            $(".not_subscribed_spin").hide();
 	            $(".del_interest").attr("disabled", false);
 	            del_control_key ="open";
-	            console.log(err);       
+	            console.log(err);
 	      });
     });

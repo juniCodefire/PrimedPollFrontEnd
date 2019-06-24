@@ -43,7 +43,7 @@ $("#update_profile").on('submit', function(e) {
     }else{
 
      var settings = {
-       "url": "https://polledapp.herokuapp.com/api/edit",
+       "url": `${baseUrl}api/edit`,
           "method": "PUT",
           "timeout": 0,
           "headers": {
@@ -119,7 +119,7 @@ $("#update_profile").on('submit', function(e) {
         }else{
 
          var settings = {
-           "url": "https://polledapp.herokuapp.com/api/bio",
+           "url": `${baseUrl}api/bio`,
               "method": "PUT",
               "timeout": 0,
               "headers": {
@@ -201,7 +201,7 @@ $("#update_profile").on('submit', function(e) {
 				console.log(token)
 
 				var settings = {
-				  "url": "https://polledapp.herokuapp.com/api/upload",
+				  "url": `${baseUrl}api/upload`,
 				  "method": "POST",
 				  "timeout": 0,
 						"headers": {

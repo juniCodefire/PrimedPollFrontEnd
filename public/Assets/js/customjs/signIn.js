@@ -25,7 +25,7 @@ $(document).ready( function() {
     $("#juni_err_password").html('');
 
      var settings = {
-       "url": "https://polledapp.herokuapp.com/api/login",
+       "url": `${baseUrl}api/login`,
           "method": "POST",
           "timeout": 0,
           "data": {

@@ -7,7 +7,7 @@ $(document).ready(function () {
 const triggerStaticFeeds = () => {
        $("#feed_loader").show();
        var settings = {
-        "url": "https://polledapp.herokuapp.com/api/feeds",
+        "url": `${baseUrl}api/feeds`,
         "method": "GET",
         "headers": {
             "Authorization": "Bearer " + token,
@@ -30,7 +30,7 @@ const triggerStaticFeeds = () => {
 const triggerDynamicFeeds = () => {
     key = "close";
    var settings = {
-    "url": `https://polledapp.herokuapp.com/api/feeds/${offset}`,
+    "url": `${baseUrl}api/feeds/${offset}`,
     "method": "GET",
     "headers": {
         "Authorization": "Bearer " + token,
@@ -43,7 +43,8 @@ const triggerDynamicFeeds = () => {
             if (response) {
                 console.log(response);
                 $(".dynamic_feed_loader").hide();
-                var feedsData = response.data.scrolled_feeds;
+                let feedsData = response.data.scrolled_feeds;
+
                 if (feedsData.length == 0) {
                     key = "open";
                     return console.log("No more feeds to load...");
@@ -67,7 +68,7 @@ const triggerDynamicFeeds = () => {
 
 const loadFeeds = () => {
     if (feeds != []) {
-        $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 open_new_poll" style="margin-top:30px;">
+        $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
                  <h4 style="font-weight:bold; font-size:20px; cursor:pointer; margin-left:20px; margin-top:10px;">
@@ -80,11 +81,12 @@ const loadFeeds = () => {
 
     for (var v = 0; v < feeds.length; v++) {
         for (var i = 0; i < feeds[v].length; i++) {
+              let wrapImage = `${feeds[v][i].image_link}${feeds[v][i].image}`;
               $(`#feeds_box`).append(`
                 <div class="col-lg-12 col-sm-12 mt-2 mb-2">
                     <div class="card card-post card-post--aside card-post--1" id="poll-card">
                         <div class="col-11 ml-1">
-                            <img src="${feeds[v][i].image}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
+                            <img src="${wrapImage}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
                             <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:20px;">${feeds[v][i].firstname + " " + feeds[v][i].lastname}</span>
                             <a href="#" class="card-post_category badge badge-pill badge-info mt-3 ec_poll-interest" >${feeds[v][i].interest}</a>
                         </div>
@@ -129,7 +131,7 @@ const loadFeeds = () => {
         $("#feeds_box").html(`
               <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
                  <p> You have no feed at this time, you can start by creating a poll
-                  <span  ${onclick="location.href='new-poll.html'"}>Create Poll</span><p>
+                  <span  class="addFastPoll">Create Poll</span><p>
               </div>
         `);
     }
@@ -153,7 +155,4 @@ const loadFeeds = () => {
        }
     });
     triggerStaticFeeds();
-});
-$(document).on('click', '.open_new_poll', function() {
-  location.replace('new-poll.html');
 });

@@ -73,7 +73,7 @@ $(document).ready( function() {
                   });
     console.log(interests);
      var settings = {
-          "url": "https://polledapp.herokuapp.com/api/complete/registration",
+          "url": `${baseUrl}api/complete/registration`,
           "method": "PUT",
           "timeout": 0,
           "headers": {

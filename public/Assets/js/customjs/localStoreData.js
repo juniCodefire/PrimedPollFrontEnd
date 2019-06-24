@@ -20,14 +20,14 @@ var nav_image = `<img class="user-avatar rounded-circle mr-2 navImg" src="${user
 $("#nav_image").html(nav_image);
 
 $(document).on('click', '.logout', function() {
-  localStorage.setItem('token', '');
-  localStorage.setItem('user_firstname',  '');
-  localStorage.setItem('user_lastname', '');
-  localStorage.setItem('user_email', '');
-  localStorage.setItem('user_image', '');
-  localStorage.setItem('user_dob',  '');
-  localStorage.setItem('user_phone',  '');
-  localStorage.setItem('bio',  '');
+  localStorage.removeItem('token');
+  localStorage.removeItem('user_firstname');
+  localStorage.removeItem('user_lastname');
+  localStorage.removeItem('user_email');
+  localStorage.removeItem('user_image');
+  localStorage.removeItem('user_dob');
+  localStorage.removeItem('user_phone');
+  localStorage.removeItem('bio');
 
   location.replace("../Users/signin.html");
 });
