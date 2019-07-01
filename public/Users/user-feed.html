@@ -4,7 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Feeds | Polled</title>
+  <link rel="icon" type="image/x-icon" href="../Assets/images/primed.png">
+  <title class="site_titles">Feeds | </title>
   <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
@@ -22,6 +23,7 @@
   <link rel="stylesheet" href="../Assets/styles/all-polls.css">
   <link rel="stylesheet" href="../Assets/css/ec_style.css">
   <link rel="stylesheet" href="../Assets/css/juni_style1.css">
+  <link rel="stylesheet" href="../Assets/css/favour.css">
   <script type="text/javascript" src="../Assets/js/customjs/preloader.js"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
@@ -29,59 +31,6 @@
 <body class="h-100 feeds_body">
   <!--Preloader Bloder -->
   <div class="se-pre-con"><p align='center'></p></div>
-  <!-- End -->
-  <!-- <div class="color-switcher animated">
-    <h5>Accent Color</h5>
-    <ul class="accent-colors">
-      <li class="accent-primary active" data-color="primary">
-        <i class="material-icons">check</i>
-      </li>
-      <li class="accent-secondary" data-color="secondary">
-        <i class="material-icons">check</i>
-      </li>
-      <li class="accent-success" data-color="success">
-        <i class="material-icons">check</i>
-      </li>
-      <li class="accent-info" data-color="info">
-        <i class="material-icons">check</i>
-      </li>
-      <li class="accent-warning" data-color="warning">
-        <i class="material-icons">check</i>
-      </li>
-      <li class="accent-danger" data-color="danger">
-        <i class="material-icons">check</i>
-      </li>
-    </ul>
-    <div class="actions mb-4">
-      <a class="mb-2 btn btn-sm btn-primary w-100 d-table mx-auto extra-action"
-        href="https://designrevision.com/downloads/shards-dashboard-lite/">
-        <i class="material-icons">cloud</i> Download</a>
-      <a class="mb-2 btn btn-sm btn-white w-100 d-table mx-auto extra-action"
-        href="https://designrevision.com/docs/shards-dashboard-lite">
-        <i class="material-icons">book</i> Documentation</a>
-    </div>
-    <div class="social-wrapper">
-      <div class="social-actions">
-        <h5 class="my-2">Help us Grow</h5>
-        <div class="inner-wrapper">
-          <a class="github-button" href="https://github.com/DesignRevision/shards-dashboard" data-icon="octicon-star"
-            data-show-count="true" aria-label="Star DesignRevision/shards-dashboard on GitHub">Star</a>
-        </div>
-      </div>
-      <div id="social-share" data-url="https://designrevision.com/downloads/shards-dashboard-lite/"
-        data-text="🔥 Check out Shards Dashboard Lite, a free and beautiful Bootstrap 4 admin dashboard template!"
-        data-title="share"></div>
-      <div class="loading-overlay">
-        <div class="spinner"></div>
-      </div>
-    </div>
-    <div class="close">
-      <i class="material-icons">close</i>
-    </div>
-  </div>
-  <div class="color-switcher-toggle animated pulse infinite">
-    <i class="material-icons">settings</i>
-  </div> -->
   <div class="container-fluid">
     <div class="row">
       <!-- Main Sidebar -->
@@ -89,12 +38,7 @@
         <div class="main-navbar brand-bg">
           <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
             <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
-              <div class="d-table m-auto" style="color:#f58731; font-size: 25px;">
-                <!-- <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;"
-                  src="images/shards-dashboards-logo.svg" alt="Shards Dashboard">
-                 <span class="d-none d-md-inline ml-1">Shards Dashboard</span> -->
-                  <span class="d-none d-md-inline ml-1" style="color:#f58731; font-size: 30px;">Polled</span>
-              </div>
+                  <div class="site_logo" ></div>
             </a>
             <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
               <i class="material-icons">&#xE5C4;</i>
@@ -281,22 +225,6 @@
                                          </div>
                                        </div>
                                      </div>
-                                     <!-- <div class="ml-3 animated fadeInDown collapse row" id="imagePollCollapse">
-                                       <div class="fancy-card card-body row col-12">
-                                         <div class="col-3 border-right">
-                                             <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                                             <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                                         </div>
-                                         <div class="col-3 border-right">
-                                             <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                                             <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                                         </div>
-                                         <div class="col-3 border-right">
-                                             <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                                             <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                                         </div>
-                                       </div>
-                                     </div> -->
                                    </div>
                                    <div class="add_interest_spin">
                                      <div class="spinner-grow" role="status" style="color:#f58731;" id="add_interest_spin"></div>
@@ -317,46 +245,20 @@
             </div>
           </div>
         <!-- / .main-navbar -->
-        <main class="main-content-container container-fluid px-4">
-          <!-- Page Header -->
-        <!--   <div class="page-header row no-gutters " style="background: red;">
-            <div class="col-5">
-              <span class="text-uppercase page-subtitle">Your Feeds</span>
-              <h3 class="page-title text-brand">Recent Polls</h3>
-            </div>
-            <div class="col-3 offset-4 mt-2" style="float: right;">
-              <button type="submit" class="btn btn-default brand-bg">New Poll</button>
-              <button type="submit" type="button" class="mb-2 btn btn-pill btn-lg btn-brand btn-outline-warning mr-2"
-                onclick="location.href='new-poll.html'" style="padding: 10px; font-size: 12px; f">
-                <i class="material-icons mr-1">person_add</i>New Poll</button>
-            </div>
-          </div> -->
+        <main class="" style="background:brown;">
           <!-- End Page Header -->
 
-          <div class="row" id="feeds_box">
+          <div class=" " id="feeds_box">
             <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
-              <div class="spinner-grow juni_spin" id="feed_loader" role="status"></div>
+              <div class="double" id="feed_loader" role="status"></div>
             </div>
           </div>
+          <div id="option_box">
+            
+          </div>
+        </main>
+  </main>
 
-
-          <!-- <div class="promo-popup animated">
-            <a href="http://bit.ly/shards-dashboard-pro" class="pp-cta extra-action">
-              <img src="https://dgc2qnsehk7ta.cloudfront.net/uploads/sd-blog-promo-2.jpg"> </a>
-            <div class="pp-intro-bar"> Need More Templates?
-              <span class="close">
-                <i class="material-icons">close</i>
-              </span>
-              <span class="up">
-                <i class="material-icons">keyboard_arrow_up</i>
-              </span>
-            </div>
-            <div class="pp-inner-content">
-              <h2>Shards Dashboard Pro</h2>
-              <p>A premium & modern Bootstrap 4 admin dashboard template pack.</p>
-              <a class="pp-cta extra-action" href="http://bit.ly/shards-dashboard-pro">Download</a>
-            </div>
-          </div> -->
 
           <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
@@ -376,6 +278,7 @@
           <script src="../Assets/scripts/extras.1.1.0.min.js"></script>
           <script src="../Assets/scripts/shards-dashboards.1.1.0.min.js"></script>
           <script  type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
+          <script src="../Assets/js/customjs/base.js"></script>
           <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
           <script src="../Assets/js/new-poll.js"></script>
           <script src="../Assets/js/polls.js"></script>
@@ -383,7 +286,7 @@
           <script type="text/javascript" src="../Assets/js/customjs/fetch_user_polls.js"></script>
           <script type="text/javascript" src="../Assets/js/customjs/userInterest.js"></script>
           <script type="text/javascript" src="../Assets/js/customjs/addPoll.js"></script>
-
+  
 </body>
 
 </html>

@@ -186,12 +186,12 @@ $("#update_profile").on('submit', function(e) {
       e.preventDefault();
 			let data = document.querySelector("#uploadImage");
       let image = data.files[0];
-			$(".upload_spin").show();
+			$(".se-pre").show();
 
 				checkFormat(image.type);
 			  let totalSizeMB = image.size / Math.pow(1024,2);
 				if (totalSizeMB > 2) {
-					$(".upload_spin").hide();
+					$(".se-pre").hide();
 					$(".alert_note").html("(Image too large!, Please choose image size below 2MB.)");
 					$(".alert_note").css('color', 'tomato');
 					return false;
@@ -214,7 +214,7 @@ $("#update_profile").on('submit', function(e) {
 				};
 
 				$.ajax(settings).done(function (response) {
-					$(".upload_spin").hide();
+					$(".se-pre").hide();
 				  let data = JSON.parse(response);
 					let prop = data.image_prop;
 					let wrapImage = `${data.image_link}${prop.widthThumb},${prop.imageStyle},${prop.aspectRatio},${prop.cropType2}/${data.image}`;
@@ -228,7 +228,7 @@ $("#update_profile").on('submit', function(e) {
 				}).fail( function(err) {
            console.log(err);
             if (err) {
-             $(".upload_spin").hide();
+             $(".se-pre").hide();
           }
         });
     });
@@ -236,7 +236,7 @@ $("#update_profile").on('submit', function(e) {
 		function checkFormat($formatType) {
 			 let formats = ['image/jpeg', 'image/png', 'image/jpg'];
 			 if(!formats.includes($formatType)) {
-				 $(".upload_spin").hide();
+				 $(".se-pre").hide();
 				 $("#img_text").css('visibility', 'visible');
 				 $("#img_text").css('color', 'tomato');
 				 $("#img_text").html("(Please use only valid format [jpeg, png, jpg].)");

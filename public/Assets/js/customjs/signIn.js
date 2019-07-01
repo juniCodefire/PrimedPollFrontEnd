@@ -2,7 +2,7 @@ $(document).ready( function() {
 	$("#signin-form").on('submit', function(e) {
 		e.preventDefault();
 
-		$(".juni_spin").show();
+		$(".se-pre").show();
 
 		var email     = $("#ec_email").val();
 		var password  = $("#ec_password").val();
@@ -11,12 +11,12 @@ $(document).ready( function() {
     if (email == "") {
       $("#juni_err_email").html('email is required');
       $("#ec_email").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else if(password == "") {
       $("#juni_err_password").html('password cannot be empty');
       $("#ec_password").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else{
         $("#ec_email").removeClass('err_signup_input');
@@ -36,10 +36,9 @@ $(document).ready( function() {
 
         $.ajax(settings).done(function (response) {
           if (response.data.success) {
-              $(".juni_spin").hide();
+
               $("#reg_success").html(response.success);
               $('#signin-form')[0].reset();
-
 
               const token = response.data.token;
               const user  = response.data.user;
@@ -57,12 +56,13 @@ $(document).ready( function() {
               localStorage.setItem('user_dob', user.dob);
               localStorage.setItem('user_phone', user.phone);
               localStorage.setItem('bio', user.bio);
+              $(".se-pre").hide();
               location.replace("../Users/user-profile-lite.html");
 
           }
         }).fail( function(err) {
           if (err) {
-            $(".juni_spin").hide();
+            $(".se-pre").hide();
             if (err.status === 422) {
               if (err.responseJSON.email) {
                 $("#juni_err_email").html(err.responseJSON.email[0]);

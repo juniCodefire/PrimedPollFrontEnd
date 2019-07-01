@@ -1,0 +1,33 @@
+
+.se-pre{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    background: url("../images/rippleloader.gif") center no-repeat rgba(8, 8, 8, 0.157);
+    background-size: 100px 100px;
+    display: none;
+}
+.se-pre p{
+    position: fixed;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    z-index: 9999999;
+    color: rgb(163,73,164);
+    font-weight: bold;
+    font-family: cursive;
+}
+.double{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    background: url("../images/rippleloader.gif") center no-repeat rgba(8, 8, 8, 0.157);
+    background-size: 100px 100px;
+    display: none;
+}
