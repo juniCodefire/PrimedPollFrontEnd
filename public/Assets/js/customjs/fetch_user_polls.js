@@ -71,9 +71,9 @@ const loadFeeds = () => {
         $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
-                 <h4 style="font-weight:bold; font-size:20px; cursor:pointer; margin-left:20px; margin-top:10px;">
+                 <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:10px;">
                  What do you want ask... ?
-                 <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size: 20px;"></i> New Poll</span>
+                 <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:10px;"></i> New Poll</span>
                  </h4>
                  <br>
             </div>
@@ -87,7 +87,7 @@ const loadFeeds = () => {
                     <div class="card card-post card-post--aside card-post--1" id="poll-card">
                         <div class="col-11 ml-1">
                             <img src="${wrapImage}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
-                            <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:20px;">${feeds[v][i].firstname + " " + feeds[v][i].lastname}</span>
+                            <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${feeds[v][i].firstname + " " + feeds[v][i].lastname}</span>
                             <a href="#" class="card-post_category badge badge-pill badge-info mt-3 ec_poll-interest" >${feeds[v][i].interest}</a>
                         </div>
                         <div class="col-10 ec_poll-question mt-2">

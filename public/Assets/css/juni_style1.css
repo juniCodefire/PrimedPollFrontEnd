@@ -28,7 +28,16 @@
 #feeds_box {
   overflow: auto;
   height: 90vh;
-  width: 80%;
+  width: 75%;
+  float:left;
+  font-size:10px;
+}
+#option_box {
+  width: 25%;
+  height: 90vh;
+  float: right;
+  background: #fff;
+  box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.096);
 }
 .feed_loader {
     position: absolute;
