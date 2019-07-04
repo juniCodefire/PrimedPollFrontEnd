@@ -34,7 +34,7 @@ $(document).ready( function() {
 
 	$("#proceed").on('click', function(e) {
 		e.preventDefault();
-		$(".juni_spin").show();
+		$(".se-pre").show();
 
 		var firstName        = $("#firstName").val();
 		var lastName         = $("#lastName").val();
@@ -44,22 +44,22 @@ $(document).ready( function() {
     if (firstName == "") {
       $("#juni_err_firstName").html('fisrtname cannot be empty');
       $("#firstName").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else if(lastName == "") {
       $("#juni_err_lastName").html('lastname cannot be empty');
       $("#lastname").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else if(phoneNumber == "") {
       $("#juni_err_phoneNumber").html('phoneNumber cannot be empty');
       $("#phoneNumber").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else if(dob == "") {
       $("#juni_err_dob").html('date of birth is required');
       $("#dob").addClass('err_signup_input');
-      $(".juni_spin").hide();
+      $(".se-pre").hide();
       return false;
     }else {
 
@@ -90,7 +90,7 @@ $(document).ready( function() {
         };
         $.ajax(settings).done(function (response) {
           if (response) {
-              $(".juni_spin").hide();
+              $(".se-pre").hide();
               const user  = response.user;
               let wrapImage = response.image_link + user.image;
 
@@ -105,7 +105,7 @@ $(document).ready( function() {
           }
         }).fail( function(err) {
           if (err) {
-            $(".juni_spin").hide();
+            $(".se-pre").hide();
             if (err.status === 422) {
               $(".err_signup").css('color', 'white');
               if (err.responseJSON.first_name) {
