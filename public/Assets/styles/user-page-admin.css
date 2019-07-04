@@ -1,9 +1,8 @@
-.upgrade-interests-con{
-	
-}
+
 .user-page-interests{
 	border-radius: 4px;
 	height:25vh;
+	align-content: start;
 }
 .update-interests{
 	height:55vh;
@@ -91,12 +90,18 @@
 }
 .color-brand{
 	color:#f58731;
+	margin: 0;
+	padding: 0;
 }
 .color-grey{
 	color:grey;
+	margin: 0;
+	padding: 0;
 }
 .color-dark{
-	color:#5a6169
+	color:#5a6169;
+	margin: 0;
+	padding: 0;
 }
 .btn-brand{
 	color: white;
@@ -122,6 +127,7 @@
 	background-color:white;
 	color:#f58731;
 	font-weight: bold;
+	height: 25vh;
 }
 .update-interests div{
 	border: 1px solid #f58731;

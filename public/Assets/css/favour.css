@@ -20,6 +20,25 @@
     font-weight: bold;
     font-family: cursive;
 }
+.preload_interest{
+    position: absolute;
+    width: 95%;
+    max-height: 22vh !important;
+    border: none !important;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat !important;
+    background-size: 100px 100px !important;
+} 
+
+.preload_update{
+    width: 100%;
+    height: 5vh;
+    display: block;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat #fff;
+    background-size: 50px 50px;
+    display: none;
+}
 .double{
     position: fixed;
     left: 0px;

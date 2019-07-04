@@ -21,6 +21,44 @@
     font-weight: bold;
     font-family: cursive;
 }
+.button-custom {
+  background: #f58731;
+  font-weight: bold;
+  color:white;
+  border: 1px solid #fff;
+}
+.button-custom:hover {
+  background: white;
+  font-weight: bold;
+  border: 1px solid #f58731;
+  color:#f58731 !important; 
+}
+#username {
+  margin: 0;
+  padding: 0;
+  color: grey;
+}
+.button-custom2 {
+  background: tomato; 
+  font-weight: bold;
+  color:white;
+  border: 1px solid #fff;
+}
+.button-custom2:hover {
+  background: white;
+  font-weight: bold;
+  border: 1px solid tomato;
+  color:tomato !important; 
+}
+.bioBox{
+  height:26vh;
+  border-radius: 0px 0px 10% 10% !important;
+}
+.google-font-commom {
+  font-family: 'Tangerine', cursive;
+  font-weight: bold;
+  font-size: 20px;
+}
 .feeds_body {
   overflow: hidden;
   height: 100vh;
@@ -28,12 +66,11 @@
 #feeds_box {
   overflow: auto;
   height: 90vh;
-  width: 75%;
+  width: 70%;
   float:left;
-  font-size:10px;
 }
 #option_box {
-  width: 25%;
+  width: 30%;
   height: 90vh;
   float: right;
   background: #fff;
@@ -80,6 +117,9 @@
     display: none;
     align-content: center;
     justify-content: center;
+}
+.del_interest_spin {
+  display: none;
 }
 .delete-option-btn{
     border:1px solid tomato;
