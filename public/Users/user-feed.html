@@ -15,7 +15,8 @@
     crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
     crossorigin="anonymous">
-  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
+    crossorigin='anonymous'>
   <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../Assets/styles/shards-dashboards.1.1.0.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../Assets/styles/extras.1.1.0.min.css">
@@ -30,7 +31,9 @@
 
 <body class="h-100 feeds_body">
   <!--Preloader Bloder -->
-  <div class="se-pre-con"><p align='center'></p></div>
+  <div class="se-pre-con">
+    <p align='center'></p>
+  </div>
   <div class="container-fluid">
     <div class="row">
       <!-- Main Sidebar -->
@@ -38,7 +41,7 @@
         <div class="main-navbar brand-bg">
           <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
             <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
-                  <div class="site_logo" ></div>
+              <div class="site_logo"></div>
             </a>
             <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
               <i class="material-icons">&#xE5C4;</i>
@@ -59,7 +62,9 @@
           <ul class="nav flex-column">
             <li class="sticky-top hover-0">
               <a class="nav-link " href="index.html">
-               <span class="ml-3"><div class="col-2" role="status" style="color:#ffffff;" id="user_interest_loader"></div>Your Interest</span>
+                <span class="ml-3">
+                  <div class="col-2" role="status" style="color:#ffffff;" id="user_interest_loader"></div>Your Interest
+                </span>
               </a>
             </li>
             <li class="nav-item">
@@ -81,7 +86,7 @@
             <ul class="navbar-nav flex-row">
               <li class="feeds-nav">
                 <button class="feeds-btn-nav btn btn-outline-secondary border-0 ec_med-text addFastPoll" style="color: white; font-size: 20px;">
-                 <i class="fas fa-poll" style="font-size: 20px;"></i> New Poll
+                  <i class="fas fa-poll" style="font-size: 20px;"></i> New Poll
                 </button>
               </li>
               <li class="nav-item dropdown notifications">
@@ -144,8 +149,8 @@
                     <i class="fas fa-search"></i>
                   </div>
                 </div>
-                <input class="navbar-search form-control" type="text" placeholder="Search poll ..."
-                  aria-label="Search" style="background: #e6e6e6; height: 40px; margin-top: 10px;">
+                <input class="navbar-search form-control" type="text" placeholder="Search poll ..." aria-label="Search"
+                  style="background: #e6e6e6; height: 40px; margin-top: 10px;">
               </div>
             </form>
             <nav class="nav" id="phone_btn">
@@ -159,92 +164,96 @@
 
         <!--This is the modal that adds new interest-->
         <div class="modal fade" id="newPollModal" role="dialog" aria-labelledby="newPollModal" aria-hidden="true" style="z-index: 99999;">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
-                      <div class="form-group">
-                         <div class="ml-1 border user-page-interests" id="not_subscribed_box">
-                           <div class="col-12">
-                             <div class="col-12">
-                               <div class="alert alert-success add_poll_alert_box" style="position: absolute; top: 30%;
-                               left: 0%; width: 100%; margin: auto; z-index: 9999;" role="alert">
-                               A new poll has been successfully created!
-                               <span class="close_add_poll_alert" style="float: right; cursor: pointer; padding: 2px 20px 2px 20px;"><i style="color:tomato;" class="fa fa-close" style="font-size:36px"></i></span>
-                              </div>
-                               <h4 class="text-center">Add a new poll</h4>
-                                 <form class="mt-5" id='addInterest'>
-                                   <div class="form-group">
-                                     <div class="input-group mb-1">
-                                       <label class="col-12" for="selectCategory">Category <i class="fa fa-spinner fa-spin choose_interest_spin" style="font-size:15px; color: #f58731;"></i></label><br>
-                                       <select id="user_interest_id" class="custom-select selectInterest"  disabled>
-                                         <option value="" selected>Loading Interest</option>
-                                       </select>
-                                     </div>
-                                     <p id="interest_err" class="add_poll_err"></p>
-                                   </div>
-                                   <div class="form-group">
-                                     <label for="pollQuestion">Poll Question</label>
-                                     <input type="text" class="form-control" id="pollQuestion" placeholder="What do you want to ask?">
-                                     <p  id="question_err" class="add_poll_err"></p>
-                                   </div>
-                                   <div class="form-group">
-                                       <div class="form-group col-6 mb-2" style="float: left;">
-                                         <label for="startDate">Start Date</label>
-                                         <input type="date" class="form-control" id="startDate">
-                                       </div>
-                                       <div class="form-group col-6 mb-2" style="float: right;">
-                                         <label for="dueDate">End Date</label>
-                                         <input type="date" class="form-control" id="dueDate">
-                                       </div>
-                                       <div class="form-group" style="width: 98%; margin: auto;">
-                                         <p id="date_err" class="add_poll_err"></p>
-                                       </div>
-                                   </div>
-                                   <div class="container-fluid">
-                                     <p>
-                                       <button class="btn btn-outline-brand" id="textPollBtn" type="button" data-toggle="collapse" data-target="collapse"
-                                         aria-expanded="false" aria-controls="collapseExample">
-                                         Text Poll
-                                       </button>
-                                       <button class="btn btn-outline-brand" id="imagePollBtn" type="button" data-toggle="collapse" data-target="collapse"
-                                         aria-expanded="false" aria-controls="collapseExample">
-                                         Image Poll
-                                       </button>
-                                     </p>
-                                     <div class="animated fadeInDown collapse row" id="textPollCollapse">
-                                       <div class="card card-body">
-                                         <div class="input-group mb-3 ">
-                                           <input type="text" class="form-control" placeholder="Type in your option" aria-label="Example text with button addon"
-                                             aria-describedby="button-addon1" id="written_option">
-                                           <div class="input-group-append">
-                                             <button class="btn add-option-btn join_option" type="button">
-                                               <i style="color:lightgreen;" class="fa fa-plus" style="font-size:36px"></i></button>
-                                           </div>
-                                         </div>
-                                         <div class="option_all">
-                                         </div>
-                                       </div>
-                                     </div>
-                                   </div>
-                                   <div class="add_interest_spin">
-                                     <div class="spinner-grow" role="status" style="color:#f58731;" id="add_interest_spin"></div>
-                                   </div>
-                                   <div class="add_interest_spin">Creating Poll...</div>
-                                   <button type="submit" style="background-color:#f58731; border-color:#f58731; color: white;" class="btn btn-primary btn-brand mt-3" id="add_interest_btn" disabled>
-                                     Create
-                                   </button><br><br>
-          
-                                  </form>
-                               </div>
-                             </div>
-
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <div class="form-group">
+                  <div class="ml-1 border user-page-interests" id="not_subscribed_box">
+                    <div class="col-12">
+                      <div class="col-12">
+                        <div class="alert alert-success add_poll_alert_box" style="position: absolute; top: 30%;
+                               left: 0%; width: 100%; margin: auto; z-index: 9999;"
+                          role="alert">
+                          A new poll has been successfully created!
+                          <span class="close_add_poll_alert" style="float: right; cursor: pointer; padding: 2px 20px 2px 20px;"><i
+                              style="color:tomato;" class="fa fa-close" style="font-size:36px"></i></span>
+                        </div>
+                        <h4 class="text-center">Add a new poll</h4>
+                        <form class="mt-5" id='addInterest'>
+                          <div class="form-group">
+                            <div class="input-group mb-1">
+                              <label class="col-12" for="selectCategory">Category <i class="fa fa-spinner fa-spin choose_interest_spin"
+                                  style="font-size:15px; color: #f58731;"></i></label><br>
+                              <select id="user_interest_id" class="custom-select selectInterest" disabled>
+                                <option value="" selected>Loading Interest</option>
+                              </select>
+                            </div>
+                            <p id="interest_err" class="add_poll_err"></p>
                           </div>
-                          <small id="BioHelp" class="form-text text-muted alert_note">Click to select interest</small>
+                          <div class="form-group">
+                            <label for="pollQuestion">Poll Question</label>
+                            <input type="text" class="form-control" id="pollQuestion" placeholder="What do you want to ask?">
+                            <p id="question_err" class="add_poll_err"></p>
+                          </div>
+                          <div class="form-group">
+                            <div class="form-group col-6 mb-2" style="float: left;">
+                              <label for="startDate">Start Date</label>
+                              <input type="date" class="form-control" id="startDate">
+                            </div>
+                            <div class="form-group col-6 mb-2" style="float: right;">
+                              <label for="dueDate">End Date</label>
+                              <input type="date" class="form-control" id="dueDate">
+                            </div>
+                            <div class="form-group" style="width: 98%; margin: auto;">
+                              <p id="date_err" class="add_poll_err"></p>
+                            </div>
+                          </div>
+                          <div class="container-fluid">
+                            <p>
+                              <button class="btn btn-outline-brand" id="textPollBtn" type="button" data-toggle="collapse"
+                                data-target="collapse" aria-expanded="false" aria-controls="collapseExample">
+                                Text Poll
+                              </button>
+                              <button class="btn btn-outline-brand" id="imagePollBtn" type="button" data-toggle="collapse"
+                                data-target="collapse" aria-expanded="false" aria-controls="collapseExample">
+                                Image Poll
+                              </button>
+                            </p>
+                            <div class="animated fadeInDown collapse row" id="textPollCollapse">
+                              <div class="card card-body">
+                                <div class="input-group mb-3 ">
+                                  <input type="text" class="form-control" placeholder="Type in your option" aria-label="Example text with button addon"
+                                    aria-describedby="button-addon1" id="written_option">
+                                  <div class="input-group-append">
+                                    <button class="btn add-option-btn join_option" type="button">
+                                      <i style="color:lightgreen;" class="fa fa-plus" style="font-size:36px"></i></button>
+                                  </div>
+                                </div>
+                                <div class="option_all">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="add_interest_spin">
+                            <div class="spinner-grow" role="status" style="color:#f58731;" id="add_interest_spin"></div>
+                          </div>
+                          <div class="add_interest_spin">Creating Poll...</div>
+                          <button type="submit" style="background-color:#f58731; border-color:#f58731; color: white;"
+                            class="btn btn-primary btn-brand mt-3" id="add_interest_btn" disabled>
+                            Create
+                          </button><br><br>
+
+                        </form>
                       </div>
+                    </div>
+
+                  </div>
+                  <small id="BioHelp" class="form-text text-muted alert_note">Click to select interest</small>
                 </div>
               </div>
             </div>
           </div>
+        </div>
         <!-- / .main-navbar -->
         <main class="">
           <!-- End Page Header -->
@@ -255,155 +264,155 @@
             </div>
           </div>
           <div id="option_box">
-           <div class="option_box1 scroller">
+            <div class="option_box1 scroller">
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">John Doe</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">John Doe</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
               <div class="row col-12 mt-2 px-0 option">
-                  <div class="col-3">
-                    <a href=""></a>
-                    <i class="fa fa-user-circle"></i>
-                  </div>
-                  <div class="col-9">
-                    <div class="row">
-                        <div class="col-12">
-                            <p class="name"><a href="John Doe">favour vivian emma</a></p>
-                          </div>
-                          <div class="col-12">
-                           <p><a class="follow" href="">Follow</a></p>
-                          </div>
+                <div class="col-3">
+                  <a href=""></a>
+                  <i class="fa fa-user-circle"></i>
+                </div>
+                <div class="col-9">
+                  <div class="row">
+                    <div class="col-12">
+                      <p class="name"><a href="John Doe">favour vivian emma</a></p>
+                    </div>
+                    <div class="col-12">
+                      <p><a class="follow" href="">Follow</a></p>
                     </div>
                   </div>
+                </div>
               </div>
-           </div>
-           <div class="option_box2 scroller">
-             
-           </div>
+            </div>
+            <div class="option_box2 scroller">
+
+            </div>
           </div>
         </main>
-  </main>
+      </main>
 
 
-          <!-- <script src="js/jquery.min.js"></script>
+      <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
-          <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-          <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous">
-            </script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous">
-            </script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-          <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-          <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-          <script src="../Assets/scripts/extras.1.1.0.min.js"></script>
-          <script src="../Assets/scripts/shards-dashboards.1.1.0.min.js"></script>
-          <script  type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
-          <script src="../Assets/js/customjs/base.js"></script>
-          <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
-          <script src="../Assets/js/new-poll.js"></script>
-          <script src="../Assets/js/polls.js"></script>
-          <script type="text/javascript" src="../Assets/js/customjs/localStoreData.js"></script>
-          <script type="text/javascript" src="../Assets/js/customjs/fetch_user_polls.js"></script>
-          <script type="text/javascript" src="../Assets/js/customjs/userInterest.js"></script>
-          <script type="text/javascript" src="../Assets/js/customjs/addPoll.js"></script>
-  
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous">
+        </script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous">
+        </script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+      <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      <script src="../Assets/scripts/extras.1.1.0.min.js"></script>
+      <script src="../Assets/scripts/shards-dashboards.1.1.0.min.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
+      <script src="../Assets/js/customjs/base.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
+      <script src="../Assets/js/new-poll.js"></script>
+      <script src="../Assets/js/polls.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/localStoreData.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/fetch_user_polls.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/userInterest.js"></script>
+      <script type="text/javascript" src="../Assets/js/customjs/addPoll.js"></script>
+
 </body>
 
 </html>

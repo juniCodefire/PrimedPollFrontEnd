@@ -21,6 +21,22 @@
     font-weight: bold;
     font-family: cursive;
 }
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: rgba(24, 23, 23, 0.37); 
+  border-radius: 10px;
+}
 .button-custom {
   background: #f58731;
   font-weight: bold;
@@ -68,6 +84,22 @@
   height: 90vh;
   width: 70%;
   float:left;
+}
+#feeds_box::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+#feeds_box::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+  display: none;
+}
+
+/* Handle */
+#feeds_box::-webkit-scrollbar-thumb {
+  background: rgba(24, 23, 23, 0.37); 
+  border-radius: 10px;
 }
 #option_box {
   width: 30%;
