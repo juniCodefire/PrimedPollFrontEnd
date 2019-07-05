@@ -62,6 +62,7 @@ $(document).ready(function ()
           localStorage.setItem('user_dob', user.dob);
           localStorage.setItem('user_phone', user.phone);
           localStorage.setItem('bio', user.bio);
+          localStorage.setItem('username', user.username);
           location.replace("../Users/user-profile-lite.html");
 
         }

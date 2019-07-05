@@ -80,7 +80,7 @@ $(document).on('click', '.add_interest', function (e)
       $("#newInterestModal").modal("toggle");
 
       $('.alert_default').show();
-      $('.alert_default').html(`Done (Added 1 Interest!)`);
+      $('.alert_default').html(`Done (Added ${ new_interests.length } Interest!)`);
 
       loadProfile();
       NotSubscribedInterest();

@@ -252,15 +252,16 @@
                           <div class="form-group">
                             <label for="oldPassword">Old Password</label>
                             <input type="password" class="form-control" id="oldPassword">
+                            <p class="err_signup" id="oldPass_err"></p>
                             <label for="NewPassword">New Password</label>
                             <input type="password" class="form-control" id="newPassword">
+                            <p class="err_signup" id="newPass_err"></p>
                             <label for="ConfirmPassword">Confirm Password</label>
                             <input type="password" class="form-control" id="confirmPassword">
                             <p class="err_signup" id="password_err"></p>
                             <small id="BioHelp" class="form-text text-muted" style="color:tomato !important;">Please
-                              use at least
-                              one uppercase,
-                              lowercase and a numerical value! </small>
+                              Passwords must contain at least six characters, including uppercase, lowercase letters
+                              and numbers! </small>
                           </div>
                           <div class="preload_update update_password_spin float-left" role="status">
                           </div>
@@ -277,12 +278,12 @@
                         <div class="modal-body">
                           <div class="form-group">
                             <label for="inputBio">New Username</label>
-                            <input type="password" class="form-control" id="newuserName">
+                            <input type="text" class="form-control" id="newuserName">
                             <p class="err_signup" id="username_err"></p>
                           </div>
-                          <div class="preload_update update_password_spin float-left" role="status">
+                          <div class="preload_update update_username_spin float-left" role="status">
                           </div>
-                          <button type="submit" id="addPassword" class="btn button-custom">Change Username</button>
+                          <button type="submit" id="addUsername" class="btn button-custom">Change Username</button>
                         </div>
                       </div>
                     </div>
@@ -426,7 +427,7 @@
                           <div class="form-row">
                             <div class="form-group col-md-6">
                               <label for="feEmailAddress" class="color-brand">Date of Birth</label>
-                              <input type="date" class="form-control" id="fedob" placeholder="" value="">
+                              <input type="date" class="form-control" id="fedob" placeholder="" value="" style="margin-bottom:10px;">
                               <p class="err_signup" id="dob_err"></p>
                               <small id="changePassword" style="cursor: pointer;" data-target="#changePassword"
                                 data-toggle="modal" title="Change Password">
@@ -490,6 +491,8 @@
         <script type="text/javascript" src="../Assets/js/customjs/not_subscribed_interest.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/delete_interest.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/update_profile.js"></script>
+        <script type="text/javascript" src="../Assets/js/customjs/changePassword.js"></script>
+        <script type="text/javascript" src="../Assets/js/customjs/changeUsername.js"></script>
 
 </body>
 
