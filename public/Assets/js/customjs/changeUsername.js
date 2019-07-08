@@ -2,23 +2,24 @@
 $(document).on('click', '#addUsername', function (e)
 {
     e.preventDefault();
-    console.log('really')
 
-    $(".update_username_spin").show();
-    $("#addUsername").hide();
     let username = $("#newuserName").val();
     $("#oldPass_err").hide();
     $("#newPass_err").hide();
+    $("#username_err").removeClass('err_signup_input');
 
-    re = /(?=.*\d)(?=.*[a-z]){6,}/;
+    re = /(?=.*[a-z]){6,}/;
     if (!re.test(username))
     {
         $("#username_err").show();
+        $("#username_err").addClass('err_signup_input');
         $("#username_err").html(`Username must contain at least six characters, 
         including lowercase letters and numbers!`);
         return false;
     } else
     {
+        $(".update_username_spin").show();
+        $("#addUsername").hide();
         var settings = {
             "url": `${ baseUrl }api/username`,
             "method": "PUT",
@@ -36,14 +37,15 @@ $(document).on('click', '#addUsername', function (e)
             console.log(response);
             if (response)
             {
+                const data = response.user;
                 $(".update_username_spin").hide();
                 $("#addUsername").show();
 
-                $("#username").html(`${ user_name } <i class="edit-bio-icon fas fa-pencil-alt"></i>`);
+                $("#username").html(`${ data.username } <i class="edit-bio-icon fas fa-pencil-alt"></i>`);
                 //Insert Into the Usernmae Input
-                $("#newuserName").val(user_name);
+                $("#newuserName").val(data.username);
 
-                localStorage.setItem('username', username)
+                localStorage.setItem('username', data.username)
 
                 $('.alert_default').show();
                 $('.alert_default').html(`Done (Username Changed Successfully!)`);
@@ -57,6 +59,15 @@ $(document).on('click', '#addUsername', function (e)
             {
                 $(".update_username_spin").hide();
                 $("#addUsername").show();
+                if (err.status === 422)
+                {
+                    if (err.responseJSON.username)
+                    {
+                        $("#username_err").show();
+                        $("#username_err").html.html(err.responseJSON.username[0]);
+                        $("#username_err").addClass('err_signup_input');
+                    }
+                }
             }
 
         });

@@ -1,3 +1,59 @@
+/*preloader public Profile */
+.back_bar-1 {
+  position: fixed;
+  background: #f58731;
+  width: 100%;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  z-index: 9999999999;
+}
+.back_bar-2 {
+  background: #f58731;
+    width: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+.bar {
+  position: relative;
+  height: 2px;
+  width: 500px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 250px;
+}
+
+.circle {
+  position: absolute;
+  top: -30px;
+  margin-left: -30px;
+  height: 60px;
+  width: 60px;
+  left: 0;
+  background: #fff;
+  border-radius: 30%;
+  -webkit-animation: move 5s infinite;
+}
+
+.preloader_text {
+  position: absolute;
+  top: -35px;
+  right: -85px;
+  text-transform: uppercase;
+  color: skyblue;
+  font-family: helvetica, sans-serif;
+  font-weight: bold;
+}
+
+@-webkit-keyframes move {
+  0% {left: 0;}
+  50% {left: 100%; -webkit-transform: rotate(450deg); width: 150px; height: 150px;}
+  75% {left: 100%; -webkit-transform: rotate(450deg); width: 150px; height: 150px;}
+  100 {right: 100%;}
+} 
+
+
+
 /*preloader*/
 .no-js #loader {  display: none;  }
 .js #loader {     display: block; position: absolute; left: 100px; top: 0; }
@@ -20,6 +76,21 @@
     color: rgb(163,73,164);
     font-weight: bold;
     font-family: cursive;
+}
+
+.site_name {
+  width: 50%;
+  height: 5vh;
+}
+.site_name img {
+  width: 50%;
+}
+.user-page-interests {
+  height: 30vh;
+  overflow: auto;
+}
+.public_profile_interest {
+  height:12vh;
 }
 body::-webkit-scrollbar {
   width: 5px;
@@ -108,6 +179,7 @@ body::-webkit-scrollbar-thumb {
   background: #fff;
   box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.096);
 }
+
 .feed_loader {
     position: absolute;
     left: 50%;
@@ -137,6 +209,9 @@ body::-webkit-scrollbar-thumb {
    max-height: 50px;
    margin-left: -50px;
    z-index: 9999;
+}
+.bio_box {
+  font-size: 12px;
 }
 .dynamic_spin_text {
    color: grey;
@@ -260,15 +335,48 @@ body::-webkit-scrollbar-thumb {
   background: white;
   border-color: grey;
 }
+/*Public profile Styling */
+.public_site_name {
+  cursor: pointer;
+}
+.public_site_name img {
+  width: 100%;
+}
+
+
+.error_btn_redirect {
+  height: auto; width: 60%; margin: 0 auto;
+}
+.error_btn_redirect button:hover {
+  background:#e6e6e6;
+  border: 1px solid #f58731;
+  color: #f58731;
+}
+.error_redirect-1 {
+  background:#f58731; font-weight: bold;
+  font-size: 20px; border:none; float: left;
+  width:47.5%;
+}
+.error_redirect-2 {
+  background:#f58731; font-weight: bold; font-size: 20px;
+  border:none; float:right;
+  width:47.5%;
+}
 @media (max-width: 900px) {
   .feed_loader_2 {
     margin-bottom: 50px;
   }
+  .public_profile_interest {
+  height:25vh;
+}
 }
 @media (max-width: 768px){
     #phone_btn {
       display: block;
     }
+    .error_btn_redirect {
+  height: auto; width: 90%; margin: 0 auto;
+}
     .juni_spin {
         color: #f58731;
         font-size: 150px;
@@ -284,4 +392,26 @@ body::-webkit-scrollbar-thumb {
     width: 105%;
     height: 90vh;
   }
+  .bar {
+  position: relative;
+  height: 2px;
+  width: 320px;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 300px;
+}
+
+}
+@media (max-width: 450px){
+
+  .bar {
+  position: relative;
+  height: 2px;
+  width: 180px;
+  margin: 0;
+  margin-left: 50px;
+  background: #fff;
+  margin-top: 300px;
+}
+
 }

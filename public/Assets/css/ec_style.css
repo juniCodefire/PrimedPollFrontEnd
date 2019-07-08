@@ -14,7 +14,9 @@ body {
     border: 1px solid #f58731;
     color: white;
 }
-
+.ec_banner-content {
+    margin-top: 15vh;
+}
 .btn-brand:hover {
     background-color: white;
     color: #f58731;

@@ -1,48 +1,23 @@
-<!DOCTYPE html>
-<html class="no-js h-100" lang="en">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="../Assets/images/primed.png">
-    <title class="site_title">Public Profile | </title>
-    <meta name="description" content="Profile Page Polled App">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-        crossorigin="anonymous">
-    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ'
-        crossorigin='anonymous'>
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../Assets/styles/shards-dashboards.1.1.0.css">
-    <link href="https://fonts.googleapis.com/css?family=Tangerine&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Assets/styles/extras.1.1.0.min.css">
-    <link rel="stylesheet" type="text/css" href="../Assets/styles/user-page-admin.css">
-    <link rel="stylesheet" href="../Assets/css/juni_style1.css">
-    <link rel="stylesheet" href="../Assets/css/favour.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
-    <script type="text/javascript" src="../Assets/js/customjs/preloader.js"></script>
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
-</head>
-
-<body class="h-100">
-    <!--Preloader Bloder -->
-    <div class="se-pre-con">
-        <p align='center'></p>
-    </div>
-    <!-- End -->
+const publicProfile =
+    `<!--Public Preloader-->
+	<section class="back_bar-1">
+		<div class="back_bar-2">
+			<div class="bar">
+				<div class="circle"></div>
+				<p class="preloader_text">Loading...</p>
+			</div>
+		</div>
+	</section>
     <div class="container-fluid">
         <div class="alert alert-secondary alert_default" role="alert" style="position: absolute; bottom: 0; z-index: 999999;"></div>
         <div class="row">
             <!-- Main Sidebar -->
             <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
                 <div class="main-navbar">
-                    <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-                        <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
-                            <div class="site_logo"></div>
+                    <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0" style="border:none;">
+                        <a class="navbar-brand w-100" style="line-height: 5px;">
+                            <div class="site_name public_site_name" style="width:60%; margin:auto;"></div>
                         </a>
                         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
                             <i class="material-icons">&#xE5C4;</i>
@@ -61,13 +36,13 @@
                     </div>
                 </form>
                 <div class="nav-wrapper">
-                    <ul class="nav flex-column">
-                        <!-- <li class="nav-item">
-                <a class="nav-link " href="index.html">
-                  <i class="material-icons">edit</i>
-                  <span>Blog Dashboard</span>
-                </a>
-              </li> -->
+                    <ul class="nav flex-column" id="profileSideBar">
+                    <!-- <li class="nav-item">
+                            <a class="nav-link " href="index.html">
+                            <i class="material-icons">edit</i>
+                            <span>Blog Dashboard</span>
+                            </a>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link " href="user-feed.html">
                                 <i class="material-icons">vertical_split</i>
@@ -97,7 +72,7 @@
             </aside>
             <!-- End Main Sidebar -->
             <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
-                <div class="main-navbar mb-5 sticky-top bg-white">
+                <div class="main-navbar mb-5 sticky-top bg-white"  style="border:none;">
                     <!-- Main Navbar -->
                     <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
                         <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
@@ -111,7 +86,7 @@
                                     aria-label="Search">
                             </div>
                         </form>
-                        <ul class="navbar-nav border-left flex-row ">
+                        <ul class="navbar-nav border-left flex-row" id="profileNavLeft">
                             <li class="nav-item border-right dropdown notifications">
                                 <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -192,10 +167,13 @@
                         <div class="col-lg-4">
                             <div class="card card-small mb-4 pt-3" style="background:#e6e6e6;">
                                 <div class="card-header text-center">
-                                    <div class="mx-auto" id="member_image"></div>
+                                    <div class="mx-auto" id="profileImage">
+                                     
+                                    </div
+                                    </div>
                                     <h4 class="color-brand" id="member_name"></h4>
                                     <div style="width:100%;">
-                                        <small id="public_username" title="Change Username">
+                                        <small id="profileUsername" title="Change Username">
                                             @juniCodefire2019
                                         </small>
                                     </div>
@@ -221,10 +199,10 @@
                                     </div>
                                 </div>
                                 <ul class="list-group bio-field list-group-flush">
-                                    <li class="list-group-item p-4 bioBox">
+                                    <li class="list-group-item p-4 bioBox" style=" height:36vh;">
                                         <strong class="d-block mb-2 color-brand">Bio
                                         </strong>
-                                        <span class="normal-weight bio_box" id="member_bio">Lorem ipsum dolor sit amet
+                                        <span class="normal-weight bio_box" id="profileBio">Lorem ipsum dolor sit amet
                                             consectetur adipisicingelit. Odio eaque,quidem, commodi soluta qui quae
                                             minima obcaecati quod dolorum sint alias, possimus illum assumenda eligendi
                                             cumque?</span>
@@ -370,213 +348,14 @@
                             <div class=" col-12 card card-small mb-4">
                                 <div class="col-12 card-header row border-bottom pb-0" style="border-radius:20px;">
                                     <div class="row">
-                                        <span class="col-12 csaolor-brand">
+                                        <span class="col-md-9 col-sm-3 csaolor-brand"> 
                                             <strong class="color-brand">Recent Polls</strong>
                                         </span>
-                                        <div class="recent-polls-box scroller-brand">
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">PHOTOGRAPHY</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                    <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">Science
-                                                                        Fiction</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                        <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">Fiction</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                            <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">Fiction</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                                <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">Fiction</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                                    <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-
-
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
-                                                <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
-                                                    id="poll-card">
-                                                    <div class="row recent-polls-card">
-                                                        <div class="col-1">
-                                                            <img src="../Assets/images/avatars/0.jpg" style="width:40px;"
-                                                                class="my-2" id="user-image">
-                                                        </div>
-                                                        <div class="col-11 ml-2 mt-2 ec_poll-question row">
-                                                            <div class="col-12 row">
-                                                                <p class="card-name col-10 mt-3 heavy mb-0">
-                                                                    Sierra
-                                                                    Brooks</p><br>
-                                                                <div class="col-2 mx-auto">
-                                                                    <a href="#" class="card-post__category badge  badge-info ec_poll-interest">Fiction</a>
-                                                                </div>
-                                                                <div class="col-9">
-                                                                    <p class="normal-weight mb-0">This isn't
-                                                                        really
-                                                                        a question but i want to see how it
-                                                                        looks?</p>
-                                                                    <!-- <span class="heavy">503</span>
-                                                                        <span class="">Votes</span> -->
-                                                                </div>
-                                                                <div class="col-3 mx-auto recent-polls-button">
-                                                                    <button class="btn btn-brand">View</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                         <span class="col-md-3 col-sm-3 csaolor-brand" style="text-align:left;">
+                                            <strong class="color-brand">Total Polls: <span id="profileTotalPolls"></span></strong>
+                                        </span>
+                                        <div class="recent-polls-box scroller-brand" id="profilePolls">
+                                        
                                         </div>
                                     </div>
                                     <div class="form-row col-12 px-0">
@@ -600,28 +379,5 @@
                 </div>
                 <!-- End Default Light Table -->
         </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
-            crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-            crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-        <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-        <script src="../Assets/scripts/extras.1.1.0.min.js"></script>
-        <script src="../Assets/scripts/shards-dashboards.1.1.0.min.js"></script>
-        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
-        <script src="../Assets/js/customjs/base.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/getInterest.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/localStoreData.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/profile.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/not_subscribed_interest.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/delete_interest.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/update_profile.js"></script>
+ `;
 
-</body>
-
-</html>

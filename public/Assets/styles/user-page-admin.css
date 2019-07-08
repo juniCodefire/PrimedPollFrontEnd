@@ -90,7 +90,7 @@
 	min-height:15vh;
 }
 .recent-polls-box{
-	max-height: 30vh;
+	max-height: 55vh;
 	overflow-x: hidden;
 	overflow-y: scroll;
 }

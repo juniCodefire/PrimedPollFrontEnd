@@ -17,8 +17,9 @@ let user_bio = get_user_bio.charAt(0).toUpperCase() + get_user_bio.slice(1);
 $("#nav_name").html(`${ nav_user_firstname } ${ nav_user_lastname }`);
 //Insert Into the username Block
 $("#username").html(`${ user_name } <i class="edit-bio-icon fas fa-pencil-alt"></i>`);
-//Insert Into the Usernmae Input
-$("#newuserName").val(user_name);
+//Insert Into the Username Input
+
+$("#newuserName").val(user_name.substr(1, user_name.length - 1));
 
 let nav_image = `<img class="user-avatar rounded-circle mr-2 navImg" src="${ user_image }" alt="User Avatar">`;
 $("#nav_image").html(nav_image);

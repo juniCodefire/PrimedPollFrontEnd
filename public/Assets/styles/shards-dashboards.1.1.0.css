@@ -2430,7 +2430,6 @@ a.badge {
 .badge-info {
   color: #fff;
   background-color: #00b8d8;
-  margin-left: -100%;
  }
   .badge-info[href]:hover, .badge-info[href]:focus {
     color: #fff;
