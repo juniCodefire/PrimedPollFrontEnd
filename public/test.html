@@ -239,10 +239,8 @@
 								<div class="card card-small mb-4 pt-3" style="background:#e6e6e6;">
 									<div class="card-header text-center">
 										<div class="mx-auto" id="profileImage">
-											<img data-toggle="modal" data-target="#imageModal"
-												class="rounded-circle user_photo"
-												src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/yq2uo0fn9igf7qwq1vks.jpg"
-												alt="User Avatar" width="110">
+											<img class="rounded-circle user_photo" src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/yq2uo0fn9igf7qwq1vks.jpg" alt="User Avatar"
+												width="110">
 											<h4 class="color-brand" id="member_name">
 											</h4>
 											<div style="width:100%;">
@@ -316,57 +314,54 @@
 										</ul>
 									</div>
 								</div>
-							</div>
-							<div class="col-lg-8 container" style="height: 85vh">
-								<div class=" col-12 card card-small mb-4">
-									<div class="col-12 card-header row border-bottom pb-0" style="border-radius:20px;">
-										<div class="col-12">
-											<div class="row col-12">
-												<span class="col-6 csaolor-brand">
-													<strong class="color-brand">Recent Polls</strong>
-												</span>
-												<span class="text-right col-6 csaolor-brand" style="text-align:left;">
-													<strong class="color-brand">Total Polls: <span
-															id="profileTotalPolls"></span></strong>
-												</span>
-											</div>
-											<div class="recent-polls-box scroller-brand" style="height: 47.5vh"
-												id="profilePolls">
-												<h4 class="text-center color-grey" style="margin-top: 23.75vh">No recent
-													polls</h4>
-											</div>
-										</div>
-										<div class="form-row col-12 px-0">
-											<div class="form-group col-md-12 px-0">
-												<div class="se-pre" role="status" id="user_interest_loader">
-												</div>
-												<hr>
-												<label for="userbio" class="color-brand">My Interests</label>
-												<div class="row col-12 ml-1 border user-page-interests public_profile_interest"
-													id="user_interest_box">
-													<div data-target="#publicInterestsModal" data-toggle="modal"
-														class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
-														id="interest_holder${interest.id }"
-														style="padding: 0; margin-top:4px;"
-														data-interestid="${interest.id }"
-														data-interesttitle="${interest_title }">
-														Literature
-														<p class="interest_input" id="interest_manage">
-															View feeds <i
-																class="fas fa-ring fa-spin check_interest"></i>
-														</p>
-													</div>
+                            </div>
+                            <div class="col-lg-8 container" style="height: 85vh">
+                                <div class=" col-12 card card-small mb-4">
+                                    <div class="col-12 card-header row border-bottom pb-0"
+                                        style="border-radius:20px;">
+                                        <div class="row">
+                                            <span class="col-md-9 col-sm-3 csaolor-brand">
+                                                <strong class="color-brand">Recent Polls</strong>
+                                            </span>
+                                            <span class="col-md-3 col-sm-3 csaolor-brand" style="text-align:left;">
+                                                <strong class="color-brand">Total Polls: <span
+                                                        id="profileTotalPolls"></span></strong>
+                                            </span>
+                                            <div class="recent-polls-box scroller-brand" id="profilePolls">
 
-												</div>
+                                            </div>
+                                        </div>
+                                        <div class="form-row col-12 px-0">
+                                            <div class="form-group col-md-12 px-0">
+                                                <div class="se-pre" role="status" id="user_interest_loader">
+                                                </div>
+                                                <hr>
+                                                <label for="userbio" class="color-brand">My Interests</label>
+                                                <div class="row col-12 ml-1 border user-page-interests public_profile_interest"
+                                                    id="user_interest_box">
+                                                    <div data-target="#publicInterestsModal" data-toggle="modal"
+                                                        class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
+                                                        id="interest_holder${interest.id }"
+                                                        style="padding: 0; margin-top:4px;"
+                                                        data-interestid="${interest.id }"
+                                                        data-interesttitle="${interest_title }">
+                                                        Literature
+                                                        <p class="interest_input" id="interest_manage">
+                                                            View feeds <i
+                                                                class="fas fa-ring fa-spin check_interest"></i>
+                                                        </p>
+                                                    </div>
 
-											</div>
-										</div>
-										</form>
-									</div>
-								</div>
-								</li>
-								</ul>
-							</div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                </li>
+                                </ul>
+                            </div>
 						</div>
 						<!-- End Default Light Table -->
 					</div>
@@ -375,35 +370,31 @@
 			<div class="modal fade" id="publicInterestsModal" role="dialog" aria-labelledby="" aria-hidden="true"
 				style="z-index: 9999">
 				<div style="max-width: 100vw;" class="col-12 modal-dialog" role="document">
-					<div style="max-height: 85vh; width: 60vw; overflow: auto" class="mx-auto modal-content">
-						<div class="modal-header col-12 row">
-							<h5 class="modal-title col-6" id="exampleModalLabel">Literature</h5>
-							<h5 class="">Subscribers: 3755</h5>
+					<div style="min-height: 50vh; width: 60vw" class="mx-auto modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Literature</h5>
+
 						</div>
-						<div class="modal-body scroller">
-							<div class="col-lg-11 col-sm-11 mx-auto mb-1 px-0">
-								<div class="card col-12 card-post card-post--aside card-post--1 px-0 mb-1 container-fluid"
+						<div class="modal-body">
+							<div class="col-lg-11 col-sm-11 mx-auto mb-1">
+								<div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
 									id="poll-card">
-									<div class="row recent-polls-card row px-0 col-12 m-auto">
-										<div class="col-2">
+									<div class="row recent-polls-card">
+										<div class="col-1">
 											<img src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/yq2uo0fn9igf7qwq1vks.jpg"
 												style="width:40px;" class="my-2" id="user-image">
 										</div>
-										<div class="col-10 ec_poll-question row">
+										<div class="col-11 ml-2 mt-2 ec_poll-question row">
 											<div class="col-12 row">
-													<p class="card-name col-12 mt-2 heavy mb-0">
-														${first_name }
-														${last_name }
-														wtf
-													</p>
+												<p class="card-name col-10 mt-3 heavy mb-0">
+													${first_name }
+													${last_name }
+												</p><br>
+												<div class="col-2 mx-auto">
+
+												</div>
 												<div class="col-9">
-													<div style="min-height: 5vh" class="recent-polls-question">
-														<p class="normal-weight col-12 mb-0"> ${question }?</p>
-													</div>
-													<div class="col-12 row">
-														<span class="col-6">Comments: 218</span>
-														<span class="col-6">Votes: 1665</span>
-													</div>
+													<p class="normal-weight mb-0"> ${question }?</p>
 												</div>
 												<div class="col-3 mx-auto recent-polls-button">
 													<button class="btn btn-brand">View</button>
@@ -414,18 +405,37 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="modal fade" id="imageModal" role="dialog" aria-labelledby="" aria-hidden="true"
-				style="z-index: 9999; background-color: rgba(0,0,0,0.5)">
-				<div style="max-width: 100vw;" class="col-12 modal-dialog" role="document">
-					<div style="min-height: 90vh; width: 60vw" class="mx-auto modal-content">
-						<div class="modal-body col-12">
-							<div style="height: 80vh" class="border col-12 modal-image-box">
 
+							</div>
+							<div class="col-lg-11 col-sm-11 mx-auto mb-1">
+								<div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
+									id="poll-card">
+									<div class="row recent-polls-card">
+										<div class="col-1">
+											<img src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/yq2uo0fn9igf7qwq1vks.jpg"
+												style="width:40px;" class="my-2" id="user-image">
+										</div>
+										<div class="col-11 ml-2 mt-2 ec_poll-question row">
+											<div class="col-12 row">
+												<p class="card-name col-10 mt-3 heavy mb-0">
+													${first_name }
+													${last_name }
+												</p><br>
+												<div class="col-2 mx-auto">
+
+												</div>
+												<div class="col-9">
+													<p class="normal-weight mb-0"> ${question }?</p>
+												</div>
+												<div class="col-3 mx-auto recent-polls-button">
+													<button class="btn btn-brand">View</button>
+												</div>
+											</div>
+
+
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
