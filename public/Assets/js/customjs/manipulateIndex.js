@@ -41,7 +41,7 @@ if (usernameURL !== "")
             //Insert the Image
             const image = `${ imageLink }${ imageProp.widthThumb },${ imageProp.imageStyle },${ imageProp.aspectRatio },${ imageProp.cropType2 }/${ user.image }`;
             profileImage.innerHTML = `
-                    <img class="rounded-circle user_photo"
+                    <img data-toggle="modal" data-target="#imageModal" class="rounded-circle user_photo"
                     src=${ image }
                     alt="User Avatar" width = "110" >   
                     `;
@@ -60,7 +60,7 @@ if (usernameURL !== "")
                                         ${interest_title }
                                     </p>`;
                 profileInterest.innerHTML += `
-                    <div class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
+                    <div data-target="#publicInterestsModal" data-toggle="modal" class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
                         id="interest_holder${interest.id }" style="padding: 0; margin-top:4px;"
                         data-interestid = "${interest.id }"
                         data-interesttitle = "${interest_title }">
@@ -86,28 +86,28 @@ if (usernameURL !== "")
                 const interest_type = poll.interest.title.charAt(0).toUpperCase() + poll.interest.title.slice(1);
 
                 profilePolls.innerHTML += `
-                    <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
+                    <div class="col-12 col-lg-11 mt-3 mx-auto px-0">
                         <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
                             id="poll-card">
-                            <div class="row recent-polls-card">
-                                <div class="col-1">
+                            <div class="row recent-polls-card mb-3">
+                                <div class="col-12 col-md-1">
                                     <img src="${ image }" style="width:40px;"
                                         class="my-2" id="user-image">
                                 </div>
-                                <div class="col-11 ml-2 mt-2 ec_poll-question row">
+                                <div class="col-12 col-md-11 ml-2 mt-2 ec_poll-question row">
                                     <div class="col-12 row">
-                                        <p class="card-name col-10 mt-3 heavy mb-0">
+                                        <p class="card-name col-9 col-md-10 heavy mb-0">
                                             ${first_name }
                                             ${last_name }
-                                            </p><br>
-                                        <div class="col-2 mx-auto">
+                                            </p>
+                                        <div class="col-3 col-md-2 mx-auto">
                                             <a href="#" class="card-post__category badge  badge-info ec_poll-interest">${interest_type }</a>
                                         </div>
-                                        <div class="col-9">
+                                        <div class="col-12 col-md-9">
                                             <p class="normal-weight mb-0"> ${question }?</p>
                                         </div>
-                                        <div class="col-3 mx-auto recent-polls-button">
-                                            <button class="btn btn-brand">View</button>
+                                        <div class="col-12 col-md-3 mb-2 mx-auto recent-polls-button">
+                                            <button class="btn btn-brand ml-auto">View</button>
                                         </div>
                                     </div>
 
