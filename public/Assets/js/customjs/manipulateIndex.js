@@ -25,7 +25,6 @@ if (usernameURL !== "")
     };
     $.ajax(settings).done(function (response)
     {
-        console.log(response);
         const user = response.data.user;
         const interests = response.data.interest;
         const polls = response.data.polls;
@@ -86,7 +85,7 @@ if (usernameURL !== "")
                 const interest_type = poll.interest.title.charAt(0).toUpperCase() + poll.interest.title.slice(1);
 
                 profilePolls.innerHTML += `
-                    <div class="col-lg-11 col-sm-11 mt-3 mx-auto">
+                    <div class="col-lg-11 col-sm-11 mt-1 mx-auto">
                         <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
                             id="poll-card">
                             <div class="row recent-polls-card">

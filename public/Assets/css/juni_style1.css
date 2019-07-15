@@ -90,7 +90,7 @@
   overflow: auto;
 }
 .public_profile_interest {
-  height:12vh;
+  height:18vh;
 }
 body::-webkit-scrollbar {
   width: 5px;

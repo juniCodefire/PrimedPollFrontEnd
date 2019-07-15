@@ -5,7 +5,7 @@ const error404 =
 		<div class="back_bar-2">
 			<div class="bar">
 				<div class="circle"></div>
-				<p class="preloader_text">Loading...</p>
+				<!--<p class="preloader_text">Loading...</p>-->
 			</div>
 		</div>
 	</section>

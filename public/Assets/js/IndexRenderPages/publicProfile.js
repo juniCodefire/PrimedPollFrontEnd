@@ -5,7 +5,7 @@ const publicProfile =
 		<div class="back_bar-2">
 			<div class="bar">
 				<div class="circle"></div>
-				<p class="preloader_text">Loading...</p>
+				<!--<p class="preloader_text">Loading...</p>-->
 			</div>
 		</div>
 	</section>
@@ -199,7 +199,7 @@ const publicProfile =
                                     </div>
                                 </div>
                                 <ul class="list-group bio-field list-group-flush">
-                                    <li class="list-group-item p-4 bioBox" style=" height:36vh;">
+                                    <li class="list-group-item p-4 bioBox" style=" height:34.5vh;">
                                         <strong class="d-block mb-2 color-brand">Bio
                                         </strong>
                                         <span class="normal-weight bio_box" id="profileBio">Lorem ipsum dolor sit amet
@@ -251,32 +251,6 @@ const publicProfile =
                                         </div>
                                     </div>
 
-                                    <!--Image Upload Block-->
-                                    <div class="modal fade" id="uploadImageModal" role="dialog" aria-labelledby="uploadImageModal"
-                                        aria-hidden="true" style="z-index: 9999">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-body">
-                                                    <div class="form-group">
-                                                        <div class="se-pre">
-                                                            <p align='center'></p>
-                                                        </div>
-
-                                                        <label for="inputBio">Profile Image Upload</label>
-                                                        <div class="row col-9 mx-auto border user-page-interests" style="height: auto;"
-                                                            id="ImagePreview">
-                                                            <!--  <div class="mx-auto border mt-3" style=" max-height: 50vh; height:17vh; width: 60%;border-radius: 50%; z-index: 9999; opacity: 0.8;">
-                                              </div>  -->
-                                                        </div>
-                                                        <small id="BioHelp" class="form-text text-muted alert_note">Click
-                                                            "Change" to choose another image.</small>
-                                                    </div>
-                                                    <button type="submit" class="btn btn-primary saveImage">Save</button>
-                                                    <label for="uploadImage" class="btn btn-primary" style="margin-top: 9px; background-color: #d1b7e2; border-color: #d1b7e2;">Change</label>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                     <!--This is the modal that manage the user interest-->
                                     <div class="modal fade" id="manageInterestModal" role="dialog" aria-labelledby="manageInterestModal"
                                         aria-hidden="true">
@@ -364,7 +338,7 @@ const publicProfile =
                                             </div>
                                             <hr>
                                             <label for="userbio" class="color-brand">My Interests</label>
-                                            <div class="row col-12 ml-1 border user-page-interests public_profile_interest"
+                                            <div class="row col-12 ml-1 border user-page-interests public_profile_interest scroller"
                                                 id="user_interest_box">
                                             </div>
                                         </div>

@@ -4,6 +4,7 @@ const siteLogo = `<img onclick="location.href='${ window.location.origin }'" cla
 
 document.querySelector('.site_title').innerHTML += `${ siteTitle }`;
 document.querySelector('.site_name').innerHTML = `${ siteLogo }`;
+document.querySelector('.site_logo').innerHTML = `${ siteLogo }`;
 
 
 
