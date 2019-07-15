@@ -1,5 +1,4 @@
-
-const publicProfile =
+onst publicProfile =
     `<!--Public Preloader-->
 	<section class="back_bar-1">
 		<div class="back_bar-2">
