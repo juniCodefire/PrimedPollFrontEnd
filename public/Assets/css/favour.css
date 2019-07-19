@@ -47,12 +47,13 @@
     display: none;
 }
 .preload_vote {
-  height: 5vh;
-  width: 20%;
+  height: 100%;
+  width: 100%;
   z-index: 999;
-  background: url("../images/rippleloader.gif") center no-repeat;
+  background: url("../images/rippleloader.gif") rgba(0, 0, 0, 0.5) center no-repeat;
   background-size: 50px 50px;
-  display: none;
+  position: absolute;
+  border-radius: 10px;
 }
 .double{
     position: fixed;

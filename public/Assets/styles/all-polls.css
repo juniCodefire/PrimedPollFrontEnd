@@ -1,102 +1,149 @@
-#poll-card{
-    /* height:40vh; */
+#poll-card {
+  /* height:40vh; */
 }
-#poll-card #user-image{
-    /* border-radius: 20px; */
+#poll-card #user-image {
+  /* border-radius: 20px; */
 }
-.ec_poll-interest{
-    float:right;
+.ec_poll-interest {
+  float: right;
 }
-.ec_med-text{
-	font-size: 16px;
+.ec_med-text {
+  font-size: 16px;
 }
 /* .vote-button{
     float:right;
     margin-right:50px;
 } */
-.card-name{
-	font-size: 14px;
-	vertical-align: bottom;
+.card-name {
+  font-size: 14px;
+  vertical-align: bottom;
 }
-.ec_poll-question{
-	margin-left: 4.2vw;
+.ec_poll-question {
+  margin-left: 4.2vw;
 }
-.ec_poll-answers{
-	margin-left: 2.1vw;
+.ec_poll-answers {
+  margin-left: 2.1vw;
 }
-.ec_poll-misc span{
-	vertical-align: -moz-middle-with-baseline;
+.ec_poll-misc span {
+  vertical-align: -moz-middle-with-baseline;
 }
-.scrollable-black{
-	scrollbar-color:  white black;
-    scrollbar-width: thin;
+.scrollable-black {
+  scrollbar-color: white black;
+  scrollbar-width: thin;
 }
-.scrollable-white{
-	scrollbar-color:  black white;
-    scrollbar-width: thin;
+.scrollable-white {
+  scrollbar-color: black white;
+  scrollbar-width: thin;
 }
-.scrollable-brand{
-	scrollbar-color:  #f58731 white;
-    scrollbar-width: thin;
+.scrollable-brand {
+  scrollbar-color: #f58731 white;
+  scrollbar-width: thin;
 }
-.nav-link span{
-	font-size: 14px;
+.nav-link span {
+  font-size: 14px;
 }
-.nav .sticky-top{
-	background-color: #f58731;
+.nav .sticky-top {
+  background-color: #f58731;
 }
-.nav .sticky-top span{
-	color: white;
+.nav .sticky-top span {
+  color: white;
 }
-.brand-bg{
-	background-color: #f58731;
+.brand-bg {
+  background-color: #f58731;
 }
-.text-brand{
-	color: #f58731;
+.text-brand {
+  color: #f58731;
 }
-.btn-brand{
-	background-color:#f58731;
-	border:1px solid #f58731;
-	color:white;
+.btn-brand {
+  background-color: #f58731;
+  border: 1px solid #f58731;
+  color: white;
 }
-.btn-brand:hover{
-	background-color: white;
-	color:#f58731;
-	border:1px solid #f58731;
+.btn-brand:hover {
+  background-color: white;
+  color: #f58731;
+  border: 1px solid #f58731;
 }
-.btn-outline-brand{
-	color:#f58731;
-	border:1px solid #f58731;
+.btn-outline-brand {
+  color: #f58731;
+  border: 1px solid #f58731;
 }
-.btn-outline-brand:hover{
-	background-color: #f58731;
-	color:white;
-	border:1px solid #f58731;
+.btn-outline-brand:hover {
+  background-color: #f58731;
+  color: white;
+  border: 1px solid #f58731;
 }
-#follow-con{
-	max-height: 90vh;
-	overflow: auto;
+#follow-con {
+  max-height: 90vh;
+  overflow: auto;
 }
-.follow-box{
-	min-height: 10vh;
+.follow-box {
+  min-height: 10vh;
 }
-.follow-user-image{
-	height: 100%;
-	border-radius: 50%;
+.follow-user-image {
+  height: 100%;
+  border-radius: 50%;
 }
-.follow-user-image img{
-	height: 100%;
-	width: 90%;
-	border-radius: 50%;
+.follow-user-image img {
+  height: 100%;
+  width: 90%;
+  border-radius: 50%;
 }
-.follow-user-name{
-	cursor: pointer;
-	font-size:16px
+.follow-user-name {
+  cursor: pointer;
+  font-size: 16px;
 }
-.follow-user-name:hover{
-	color: #f58731;
+.follow-user-name:hover {
+  color: #f58731;
 }
-.follow-box .btn-outline-brand{
-	border-radius: 20px;
-	height: 5vh;
+.follow-box .btn-outline-brand {
+  border-radius: 20px;
+  height: 5vh;
+}
+.follow-scroll{
+	overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.follow-con-2 {
+	display: block;
+  height: 30vh;
+  background-color: white;
+  border-radius: 10px;
+  overflow: auto;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(90, 97, 105, 0.1),
+    0 0.9375rem 1.40625rem rgba(90, 97, 105, 0.1),
+    0 0.25rem 0.53125rem rgba(90, 97, 105, 0.12),
+	0 0.125rem 0.1875rem rgba(90, 97, 105, 0.1);
+}
+.follow-box-2 {
+  height: 100%;
+  display: inline-block;
+  float: none;
+  animation-delay: .8s;
+}
+.follow-user-image-2 img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+.fun-box {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.fuid-box {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+@media screen and (max-width:991px){
+	#follow-con{
+		display: none;
+	}
+}
+@media screen and (min-width:992px){
+	.mobile-follow{
+		display: none;
+	}
 }
