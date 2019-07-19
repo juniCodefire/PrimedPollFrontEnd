@@ -1,8 +1,8 @@
 const root = document.querySelector('#root');
-
-if (location.pathname === '/' && location.hash === "")
+console.log('open')
+if ((location.pathname === '/' || location.pathname === '/index.html') && location.hash === "")
 {
-
+console.log('open')
 
 	root.innerHTML =
 		`<!--Preloader Block -->
@@ -22,7 +22,6 @@ if (location.pathname === '/' && location.hash === "")
 							<ul>
 								<li><a href="elements.html">Elements</a></li>
 							</ul>
-							</li>
 							<li class="menu-has-children"><a href="#">Blog</a>
 								<ul>
 									<li><a href="blog-home.html">Blog Home</a></li>
@@ -374,5 +373,5 @@ if (location.pathname === '/' && location.hash === "")
 			<a title="Go to Top" href="#"></a>
         </div>
         <!-- ####################### End Scroll to Top Area ####################### -->
-    
+
     `};

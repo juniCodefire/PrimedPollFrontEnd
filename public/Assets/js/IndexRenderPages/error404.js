@@ -1,11 +1,11 @@
 
 const error404 =
-    `<!--Public Preloader-->
+  `<!--Public Preloader-->
 	<section class="back_bar-1">
 		<div class="back_bar-2">
 			<div class="bar">
 				<div class="circle"></div>
-				<p class="preloader_text">Loading...</p>
+				<!--<p class="preloader_text">Loading...</p>-->
 			</div>
 		</div>
 	</section>
@@ -37,7 +37,7 @@ const error404 =
           <div class="error__content">
             <h2>404</h2>
             <h3>Page you are looking is not found!</h3>
-            <p>why am i getting this, url you enter does not exist or is invalid, you can try searching by username at
+            <p>Why am i getting this, url you enter does not exist or no internet connection, you can try searching by username at
               the search tab above.</p>
             <div class="error_btn_redirect">
               <button type="button" class="btn btn-accent error_redirect-1" onclick="location.href='${ window.location.origin } '">&larr;
