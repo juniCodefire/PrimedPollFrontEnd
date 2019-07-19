@@ -21,7 +21,8 @@
   <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../Assets/styles/shards-dashboards.1.1.0.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../Assets/styles/extras.1.1.0.min.css">
-  <link rel="stylesheet" href="../Assets/styles/animated.css">
+  <!-- <link rel="stylesheet" href="../Assets/styles/animated.css"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <link rel="stylesheet" href="../Assets/styles/all-polls.css">
   <link rel="stylesheet" href="../Assets/css/ec_style.css">
   <link rel="stylesheet" href="../Assets/css/juni_style1.css">
@@ -269,9 +270,140 @@
         <main class=" col-12 row">
           <!-- End Page Header -->
 
-          <div class="col-8" id="feeds_box">
-            <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
+          <div class="col-12 col-lg-8" id="feeds_boxs">
+            <!-- <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
               <div class="double" id="feed_loader" role="status"></div>
+            </div> -->
+            <div class="col-lg-12 col-sm-12 mt-2 mb-2">
+              <div class="card card-post card-post--aside card-post--1 px-0 mx-0" id="poll-card">
+                <div class="preload_vote float-right" id="preload_vote${ poll_id}" role="status">
+                </div>
+                <div class="col-12 ml-1">
+                  <img src="${ wrapImage}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
+                  <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${firstname + " " +
+                    lastname}</span>
+                  <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest">${ interest}</a>
+                </div>
+                <div class="col-10 ec_poll-questiocol-10 ec_poll-question mt-2">
+                  <span class="ec_med-text" style="font-weight:bold;">${ poll + " ?"}</span>
+                </div>
+                <div id="options_box${ poll_id}">
+                  <div class="ec_poll-answers mt-2 col-11">
+                    <div class="ec_poll-answers mt-2 col-11">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="poll1option${ option_id}" name="polloption"
+                          class="custom-control-input">
+                        <label class="custom-control-label poll1option" for="poll1option${option_id}"
+                          data-selected-option-id="${ option_id}" data-selected-poll-creator="${poll_owner_id}"
+                          data-selected-poll-id="${ poll_id}">
+                          ${ option}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ec_poll-answers mt-2 col-11">
+                    <div class="ec_poll-answers mt-2 col-11">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="poll1option${ option_id}" name="polloption"
+                          class="custom-control-input">
+                        <label class="custom-control-label poll1option" for="poll1option${option_id}"
+                          data-selected-option-id="${ option_id}" data-selected-poll-creator="${poll_owner_id}"
+                          data-selected-poll-id="${ poll_id}">
+                          ${ option}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="ec_poll-answers mt-2 col-11">
+                    <div class="ec_poll-answers mt-2 col-11">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="poll1option${ option_id}" name="polloption"
+                          class="custom-control-input">
+                        <label class="custom-control-label poll1option" for="poll1option${option_id}"
+                          data-selected-option-id="${ option_id}" data-selected-poll-creator="${poll_owner_id}"
+                          data-selected-poll-id="${ poll_id}">
+                          ${ option}
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 ec_poll-misc mt-3">
+                  <span class="text-muted col-12">29 February 2019</span>
+
+                  <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${ poll_id}"
+                    data-selected-vote="${ poll_id}" style="margin-bottom:10px;" data-toggle="popover"
+                    title="Not allowed!" data-content="Please select an option to vote">Vote!</button>
+                </div>
+              </div>
+            </div>
+            <div id="follow-scroll" class="col-12 follow-scroll">
+              <div class="follow-con-2 col-12 border row mx-0 px-0">
+                <div class="follow-box-2 wow fadeInRight col-4 border-right">
+                  <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
+                    <img class="" src="../Assets/img/girl-red.jpg" alt="" style="">
+                  </div>
+                  <div class="col-12" style="">
+                    <div style="" class="text-center fun-box">
+                      <span class="follow-user-name">Jane Austen</span>
+                    </div>
+                    <div class="text-center fuid-box">
+                      <a style="font-size: 18px" href=""><small>@janeausten</small></a>
+                    </div>
+                    <div class="text-center mt-2">
+                      <button class="btn btn-brand">Follow</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="follow-box-2 wow fadeInRight col-4 border-right">
+                    <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
+                      <img class="" src="../Assets/img/girl-red.jpg" alt="" style="">
+                    </div>
+                    <div class="col-12" style="">
+                      <div style="" class="text-center fun-box">
+                        <span class="follow-user-name">Jane Austen</span>
+                      </div>
+                      <div class="text-center fuid-box">
+                        <a style="font-size: 18px" href=""><small>@janeausten</small></a>
+                      </div>
+                      <div class="text-center mt-2">
+                        <button class="btn btn-brand">Follow</button>
+                      </div>
+                    </div>
+                  </div>
+                <div class="follow-box-2 wow fadeInRight col-4 border-right">
+                  <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
+                    <img class="" src="../Assets/img/girl-red.jpg" alt="" style="">
+                  </div>
+                  <div class="col-12" style="">
+                    <div style="" class="text-center fun-box">
+                      <span class="follow-user-name">Katarina Lyubimovina</span>
+                    </div>
+                    <div class="text-center fuid-box">
+                      <a style="font-size: 18px" href=""><small>@katya2019</small></a>
+                    </div>
+                    <div class="text-center mt-2">
+                      <button class="btn btn-brand">Follow</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="follow-box-2 wow fadeInRight col-4 border-right">
+                  <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
+                    <img class="" src="../Assets/img/girl-red.jpg" alt="" style="">
+                  </div>
+                  <div class="col-12" style="">
+                    <div style="" class="text-center fun-box">
+                      <span class="follow-user-name">Jane Austen</span>
+                    </div>
+                    <div class="text-center fuid-box">
+                      <a style="font-size: 18px" href=""><small>@janeausten</small></a>
+                    </div>
+                    <div class="text-center mt-2">
+                      <button class="btn btn-brand">Follow</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div id="follow-con" class="scroller col-4 border-left">
@@ -413,6 +545,11 @@
 
       <!-- <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script> -->
+      <script>
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
+      </script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -438,7 +575,10 @@
       <script type="text/javascript" src="../Assets/js/customjs/userInterest.js"></script>
       <script type="text/javascript" src="../Assets/js/customjs/addPoll.js"></script>
       <script type="text/javascript" src="../Assets/js/customjs/vote.js"></script>
-
+      <script src="../Assets/js/wow.min.js"></script>
+      <script>
+      new WOW().init();
+      </script>
 </body>
 
 </html>
