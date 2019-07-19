@@ -1,7 +1,7 @@
 /*preloader public Profile */
 .back_bar-1 {
   position: fixed;
-  background: #f58731;
+  background: lightgrey;
   width: 100%;
   height: 100vh;
   overflow-x: hidden;
@@ -9,17 +9,33 @@
   z-index: 9999999999;
 }
 .back_bar-2 {
-  background: #f58731;
+  background: lightgrey;
     width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
 }
+[data-feed-id] {
+  display:none;
+}
+[data-feeds-refresh] {
+height: 10vh;
+width: 30%;
+margin: auto;
+background: #f58731;
+text-align: center;
+font-weight: bold;
+color: white;
+display:none;
+}
+.imageBagDrop {
+   max-height: 50vh; height:17vh; width: 60%;border-radius: 50%; z-index: 9999; opacity: 0.8;
+}
 .bar {
   position: relative;
   height: 2px;
-  width: 500px;
+  width: 50%;
   margin: 0 auto;
-  background: #fff;
+  background: #f58731;
   margin-top: 250px;
 }
 
@@ -30,19 +46,22 @@
   height: 60px;
   width: 60px;
   left: 0;
-  background: #fff;
+  background: #f58731;
   border-radius: 30%;
   -webkit-animation: move 5s infinite;
 }
 
 .preloader_text {
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
   position: absolute;
-  top: -35px;
-  right: -85px;
+  margin-top: 20px;
+  left: 45%;
+  font-weight: bolder;
+  font-size: 30px;
   text-transform: uppercase;
-  color: skyblue;
-  font-family: helvetica, sans-serif;
+  color: #f58731;
   font-weight: bold;
+  z-index: 9999;
 }
 
 @-webkit-keyframes move {
@@ -50,10 +69,36 @@
   50% {left: 100%; -webkit-transform: rotate(450deg); width: 150px; height: 150px;}
   75% {left: 100%; -webkit-transform: rotate(450deg); width: 150px; height: 150px;}
   100 {right: 100%;}
-} 
+}
 
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
-
+.last-dot {
+  animation-name: blink;
+  animation-duration: 0.7s;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+}
+.preload_feeds{
+    width: 95%;
+    margin-top: 150px;
+    height: 25vh;
+    max-height: 25vh !important;
+    border: none !important;
+    z-index: 999 !important;
+    background: url("../images/rippleloader.gif") center no-repeat !important;
+    background-size: 100px 100px !important;
+}
 /*preloader*/
 .no-js #loader {  display: none;  }
 .js #loader {     display: block; position: absolute; left: 100px; top: 0; }
@@ -98,14 +143,14 @@ body::-webkit-scrollbar {
 
 /* Track */
 body::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
   display: none;
 }
 
 /* Handle */
 body::-webkit-scrollbar-thumb {
-  background: rgba(24, 23, 23, 0.37); 
+  background: rgba(24, 23, 23, 0.37);
   border-radius: 10px;
 }
 .button-custom {
@@ -118,7 +163,7 @@ body::-webkit-scrollbar-thumb {
   background: white;
   font-weight: bold;
   border: 1px solid #f58731;
-  color:#f58731 !important; 
+  color:#f58731 !important;
 }
 #username {
   margin: 0;
@@ -126,7 +171,7 @@ body::-webkit-scrollbar-thumb {
   color: grey;
 }
 .button-custom2 {
-  background: tomato; 
+  background: tomato;
   font-weight: bold;
   color:white;
   border: 1px solid #fff;
@@ -135,7 +180,7 @@ body::-webkit-scrollbar-thumb {
   background: white;
   font-weight: bold;
   border: 1px solid tomato;
-  color:tomato !important; 
+  color:tomato !important;
 }
 .bioBox{
   height:26vh;
@@ -162,14 +207,14 @@ body::-webkit-scrollbar-thumb {
 
 /* Track */
 #feeds_box::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
   display: none;
 }
 
 /* Handle */
 #feeds_box::-webkit-scrollbar-thumb {
-  background: rgba(24, 23, 23, 0.37); 
+  background: rgba(24, 23, 23, 0.37);
   border-radius: 10px;
 }
 #option_box {
@@ -189,10 +234,8 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .feed_loader_2 {
-    position: absolute;
-    left: 50%;
     bottom: 0%;
-    margin-bottom: 30px;
+    display: block;
 }
 .dynamic_feed_loader {
   display: none;
@@ -217,8 +260,9 @@ body::-webkit-scrollbar-thumb {
    color: grey;
    font-style: italic;
    font-size: 15px;
-   z-index: 999;
-   margin-left: -140px;
+   width: 100%;
+   height: 5vh;
+   text-align: center;
 }
 .add_interest_spin {
     display: none;
@@ -274,6 +318,10 @@ body::-webkit-scrollbar-thumb {
 }
 .user_photo {
     transition: 1s all ease;
+}
+.large-image {
+  width: 100%;
+  height: 100%;
 }
 .img_preview {
   width: 100%;
@@ -397,7 +445,6 @@ body::-webkit-scrollbar-thumb {
   height: 2px;
   width: 320px;
   margin: 0 auto;
-  background: #fff;
   margin-top: 300px;
 }
 
@@ -410,7 +457,6 @@ body::-webkit-scrollbar-thumb {
   width: 180px;
   margin: 0;
   margin-left: 50px;
-  background: #fff;
   margin-top: 300px;
 }
 

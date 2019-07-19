@@ -1,5 +1,4 @@
-$(document).ready(function ()
-{
+
 
     const feeds = [];
     let offset = 5;
@@ -21,11 +20,10 @@ $(document).ready(function ()
         {
             if (response)
             {
-                console.log(response);
                 $("#feed_loader").hide();
                 var feedsData = response.data.feeds;
 
-                feeds.push(feedsData);
+                feeds.push(...feedsData);
                 loadFeeds();
             }
         });
@@ -43,25 +41,21 @@ $(document).ready(function ()
             },
             "timeout": 0,
         };
-        console.log(settings);
         $.ajax(settings).done(function (response)
         {
             if (response)
             {
-                console.log(response);
+                key = "open";
                 $(".dynamic_feed_loader").hide();
                 let feedsData = response.data.scrolled_feeds;
 
                 if (feedsData.length == 0)
                 {
-                    key = "open";
-                    return console.log("No more feeds to load...");
+                    return $(".dynamic_spin_text").html("No more feeds to load...");
                 }
-                feeds.push(feedsData);
-                console.log(feeds);
+                feeds.push(...feedsData);
                 loadFeeds();
                 offset = response.data.new_offset;
-                key = "open";
             }
         }).fail(function (err)
         {
@@ -78,8 +72,14 @@ $(document).ready(function ()
 
     const loadFeeds = () =>
     {
+      let option_id = null;
+      let poll_owner_id = null;
+      let poll_id = null;
+
+      console.log(feeds)
         if (feeds != [])
         {
+          console.log(feeds);
             $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
@@ -91,58 +91,88 @@ $(document).ready(function ()
             </div>
           </div>`);
 
-            for (var v = 0; v < feeds.length; v++)
-            {
-                for (var i = 0; i < feeds[v].length; i++)
-                {
-                    let wrapImage = `${ feeds[v][i].image_link }${ feeds[v][i].image }`;
-                    $(`#feeds_box`).append(`
-                <div class="col-lg-12 col-sm-12 mt-2 mb-2">
-                    <div class="card card-post card-post--aside card-post--1 px-0 mx-0" id="poll-card">
-                        <div class="col-12 ml-1">
-                            <img src="${wrapImage }" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
-                            <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${feeds[v][i].firstname + " " + feeds[v][i].lastname }</span>
-                            <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${feeds[v][i].interest }</a>
-                        </div>
-                        <div class="col-10 ec_poll-question mt-2">
-                            <span class="ec_med-text" style="font-weight:bold;">${feeds[v][i].poll + " ?" }</span>
-                        </div>
-                        <div id="options_box${feeds[v][i].poll_id }">
-                        </div>
-                        <div class="col-12 ec_poll-misc mt-3">
-                            <span class="text-muted col-12">29 February 2019</span>
-                            <button type="submit" class="btn brand-bg text-white float-right" style="margin-bottom:10px;">Vote!</button>
+          //map all Feeds from the feeds array
+        feeds.map(feed => {
+          //Destrusturing feeds
+          const {image_link, image, firstname, lastname, interest, poll, poll_id, poll_owner_id, option} = feed;
+          let wrapImage = `${ image_link}${ image }`;
+
+              $(`#feeds_box`).append(`
+                    <div class="col-lg-12 col-sm-12 mt-2 mb-2">
+                        <div class="card card-post card-post--aside card-post--1 px-0 mx-0" id="poll-card">
+                            <div class="col-12 ml-1">
+                                <img src="${ wrapImage }" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
+                                <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${firstname + " " + lastname }</span>
+                                <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ interest }</a>
+                            </div>
+                            <div class="col-10 ec_poll-questiocol-10 ec_poll-question mt-2">
+                                <span class="ec_med-text" style="font-weight:bold;">${ poll + " ?" }</span>
+                            </div>
+                            <div id="options_box${ poll_id }">
+                            </div>
+                            <div class="col-12 ec_poll-misc mt-3">
+                                <span class="text-muted col-12">29 February 2019</span>
+                                <div class="preload_vote float-right" id="preload_vote${ poll_id }" role="status">
+                                </div>
+                                <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${ poll_id }"
+                                data-selected-vote="${ poll_id }" style="margin-bottom:10px;">Vote!</button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            `);
+             `)
 
-                    for (let j = 0; j < feeds[v][i].option.length; j++)
-                    {
-                        $(`#options_box${ feeds[v][i].poll_id }`).append(`
-                  <div class="ec_poll-answers mt-2 col-11">
-                    <div class="ec_poll-answers mt-2 col-11">
-                      <div class="custom-control custom-radio">
-                        <input type="radio" id="poll1option${feeds[v][i].option[j].option_id }" name="polloption" class="custom-control-input">
-                        <label class="custom-control-label poll1option" for="poll1option${feeds[v][i].option[j].option_id }"  data-selectedoption="${ feeds[v][i].option[j].option_id }">${ feeds[v][i].option[j].option }</label>
-                      </div>
-                    </div>
-                    </div>`);
+             //Here we map the options for the polls
+             option.map(opt => {
 
-                        $(document).on('click', '.poll1option', function ()
-                        {
-                            var option_data = $(this).data("selectedoption");
-                        });
+               const {option_id, option} = opt;
+               $(`#options_box${ poll_id }`).append(`
+                       <div class="ec_poll-answers mt-2 col-11">
+                         <div class="ec_poll-answers mt-2 col-11">
+                           <div class="custom-control custom-radio">
+                             <input type="radio" id="poll1option${ option_id }" name="polloption" class="custom-control-input">
+                             <label class="custom-control-label poll1option" for="poll1option${option_id }"
+                             data-selected-option-id="${ option_id }" data-selected-poll-creator="${ poll_owner_id}"
+                             data-selected-poll-id="${ poll_id}">
+                             ${ option }
+                             </label>
+                           </div>
+                         </div>
+                         </div>`
+                      );
+              })
 
-                    }
-                }
-            }
-            $(`#feeds_box`).append(`
-         <div class="d-flex justify-content-center feed_loader_2" style="height: 3vh;">
-           <div class="spinner-grow juni_spin dynamic_feed_loader" role="status"></div>
-           <span class="dynamic_spin_text dynamic_feed_loader">Loading more feeds please wait...</span>
-         </div>
-     `)
+        });
+        //Here we append the loader for the new feeds
+       $(`#feeds_box`).append(`
+            <div class="justify-content-center feed_loader_2 dynamic_feed_loader">
+              <div class="preload_more_feeds dynamic_feed_loader" role="status">
+              </div>
+              <div class="dynamic_spin_text">
+              Loading more feeds please wait...
+              </div>
+            </div>
+        `)
+        $(document).on('click', '.poll1option', function ()
+        {
+          option_id      = $(this).data("selected-option-id");
+          poll_owner_id  = $(this).data("selected-poll-creator");
+          poll_id        = $(this).data("selected-poll-id");
+        });
+
+        $(document).on('click', '.voteBtn', function () {
+          const check_poll_id = $(this).data("selected-vote");
+
+          if (check_poll_id == poll_id) {
+
+            $(`#voteBtn${check_poll_id}`).hide();
+            $(`#preload_vote${ check_poll_id }`).show();
+            voteTrigger(option_id,  poll_id, poll_owner_id);
+
+          }else {
+            console.log('You need to select an option first to vote!');
+          }
+        });
+
         } else
         {
             $("#feeds_box").html(`
@@ -167,7 +197,6 @@ $(document).ready(function ()
                 triggerDynamicFeeds();
             } else
             {
-                $(".dynamic_spin_text").css('margin-left', '-100px');
                 $(".dynamic_spin_text").html("Loading please wait");
             }
 
@@ -177,4 +206,3 @@ $(document).ready(function ()
         }
     });
     triggerStaticFeeds();
-});

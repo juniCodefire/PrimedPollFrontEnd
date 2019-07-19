@@ -22,7 +22,6 @@ console.log('open')
 							<ul>
 								<li><a href="elements.html">Elements</a></li>
 							</ul>
-							</li>
 							<li class="menu-has-children"><a href="#">Blog</a>
 								<ul>
 									<li><a href="blog-home.html">Blog Home</a></li>
@@ -374,5 +373,5 @@ console.log('open')
 			<a title="Go to Top" href="#"></a>
         </div>
         <!-- ####################### End Scroll to Top Area ####################### -->
-    
+
     `};

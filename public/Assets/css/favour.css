@@ -28,16 +28,31 @@
     z-index: 999;
     background: url("../images/rippleloader.gif") center no-repeat !important;
     background-size: 100px 100px !important;
-} 
+}
 
 .preload_update{
     width: 100%;
     height: 5vh;
-    display: block;
     z-index: 999;
     background: url("../images/rippleloader.gif") center no-repeat #fff;
     background-size: 50px 50px;
     display: none;
+}
+.preload_more_feeds{
+    width: 100%;
+    height: 5vh;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat;
+    background-size: 50px 50px;
+    display: none;
+}
+.preload_vote {
+  height: 5vh;
+  width: 20%;
+  z-index: 999;
+  background: url("../images/rippleloader.gif") center no-repeat;
+  background-size: 50px 50px;
+  display: none;
 }
 .double{
     position: fixed;
@@ -63,14 +78,14 @@
 
   /* Track */
   .scroller::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
     display: none;
   }
 
   /* Handle */
   .scroller::-webkit-scrollbar-thumb {
-    background: rgba(51, 50, 50, 0.384); 
+    background: rgba(51, 50, 50, 0.384);
     border-radius: 10px;
   }
 .option_box2{
@@ -86,11 +101,11 @@
     margin: auto;
 }
 .fa-user-circle{
-    margin-top: 55%;  
+    margin-top: 55%;
     font-size:40px;
 }
 .name{
-    margin-top:10%; 
+    margin-top:10%;
     font-weight: bold;
     font-size: 15px;
     margin-bottom: -2px;
@@ -105,7 +120,7 @@
     color:#f58731;
     font-size: 10px;
     float: right;
-   
+
    }
 .follow:hover{
     background: #00000013;
@@ -116,5 +131,5 @@ a{
 }
 p a{
     color: black;
-   
+
 }
