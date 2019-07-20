@@ -2,6 +2,8 @@ const usernameURL = location.hash;
 const preloader = document.querySelector('.back_bar-1');
 const seprecon = document.querySelector('.se-pre-con');
 const username = usernameURL.substr(1);
+const permission = 0;
+const onSession = null;
 
 
 
@@ -12,7 +14,7 @@ if (usernameURL !== "")
 
 
     //Call the Api That Check The Username and also emit reletive info
-    const api = `${ baseHome }api/profile/${ username }`;
+    const api = `${ baseHome }api/profile/${ username }/${ permission }/${ onSession }`;
 
     fetch(api)
         .then(response => response.json())
