@@ -54,6 +54,7 @@
   background-size: 50px 50px;
   position: absolute;
   border-radius: 10px;
+  display: none;
 }
 .double{
     position: fixed;

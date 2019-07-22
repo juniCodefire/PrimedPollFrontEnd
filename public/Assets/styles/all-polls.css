@@ -82,12 +82,18 @@
 }
 .follow-user-image {
   height: 100%;
-  border-radius: 50%;
 }
-.follow-user-image img {
-  height: 100%;
-  width: 90%;
-  border-radius: 50%;
+.open_member_link span{
+  color: #5A6169;
+}
+.open_member_link span:hover {
+  color: #f58731;
+}
+.open_member_link small{
+  color: #007bff;
+}
+.open_member_link small:hover {
+  color: #0056b3;
 }
 .follow-user-name {
   cursor: pointer;
@@ -121,6 +127,7 @@
   height: 100%;
   display: inline-block;
   float: none;
+  visibility: visible !important;
   animation-delay: .8s;
 }
 .follow-user-image-2 img {
