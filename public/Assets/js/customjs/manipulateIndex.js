@@ -2,10 +2,18 @@ const usernameURL = location.hash;
 const preloader = document.querySelector('.back_bar-1');
 const seprecon = document.querySelector('.se-pre-con');
 const username = usernameURL.substr(1);
-const permission = 0;
-const onSession = null;
+let permission = 0;
+let onSession = 'primedpolloff';
 
-
+// const permission =
+//
+// const token = location.getItem('token');
+// const permission = location.getItem('permission');
+// console.log(token);
+// if (token != "" && permission) {
+//   let permission = 1;
+//   let onSession = ;
+// }
 
 if (usernameURL !== "")
 {
@@ -14,12 +22,13 @@ if (usernameURL !== "")
 
 
     //Call the Api That Check The Username and also emit reletive info
-    const api = `${ baseHome }api/profile/${ username }/${ permission }/${ onSession }`;
+    const api = `${ baseHome }api/profile/${ permission }/${ onSession }/${ username }`;
 
     fetch(api)
         .then(response => response.json())
         .then(response =>
         {
+
             displayData(response.data)
 
         }).catch(error =>
@@ -28,7 +37,7 @@ if (usernameURL !== "")
             if (error)
             {
                 root.innerHTML = error404;
-                $(".back_bar-1").fadeOut("slow");
+                $(".publicPreloader").fadeOut("slow");
                 console.log(error.status)
             }
 
