@@ -1,4 +1,4 @@
-const displayData = ({ user, interest, polls, pollCount, notLogin, imageLink, imageProp }) =>
+const displayData = ({ user, interest, polls, pollCount, status, imageLink, imageProp }) =>
 {
 
     const profileImage = document.querySelector('#profileImage');
@@ -38,9 +38,9 @@ const displayData = ({ user, interest, polls, pollCount, notLogin, imageLink, im
     {
         let intr_title = intr.title.charAt(0).toUpperCase() + intr.title.slice(1);
         let intr_hanger = `
-                                    <p class="interest_input" id="interest_title" style='font-size:10px;'>
-                                        ${intr_title }
-                                    </p>`;
+                          <p class="interest_input" id="interest_title" style='font-size:10px;'>
+                              ${intr_title }
+                          </p>`;
         profileInterest.innerHTML += `
                     <div data-target="#publicInterestsModal" data-toggle="modal" class="col-sm-5 col-lg-3 col-md-5 mx-3 my-1 text-center interest_holder"
                         id="interest_holder${ intr.id }" style="padding: 0; margin-top:4px;"
@@ -103,7 +103,7 @@ const displayData = ({ user, interest, polls, pollCount, notLogin, imageLink, im
     profileTotalPolls.innerHTML = pollCount;
 
     //Change the side menu
-    if (notLogin)
+    if (status = false)
     {
         profileNavLeft.style.display = 'none';
 
@@ -123,7 +123,7 @@ const displayData = ({ user, interest, polls, pollCount, notLogin, imageLink, im
                 `;
     }
 
-    $(".back_bar-1").fadeOut("slow");
+    $(".publicPreloader").fadeOut("slow");
     //Trigger and event to show a particular interest feeds
     const interestBoxs = document.querySelectorAll(".interest_holder");
     const refresh = document.querySelector("[data-feeds-refresh]");

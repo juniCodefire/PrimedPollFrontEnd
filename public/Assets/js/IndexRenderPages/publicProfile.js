@@ -1,14 +1,18 @@
-
+// <section class="back_bar-1">
+//     <div class="back_bar-2">
+//         <div class="bar">
+//             <div class="circle"></div>
+//         </div>
+//         <p class="preloader_text">Loading..<span class="last-dot">.</span></p>
+//     </div>
+// </section>
 const publicProfile =
     `<!--Public Preloader-->
-    <section class="back_bar-1">
-        <div class="back_bar-2">
-            <div class="bar">
-                <div class="circle"></div>
-            </div>
-            <p class="preloader_text">Loading..<span class="last-dot">.</span></p>
-        </div>
-    </section>
+    <div class="publicPreloader">
+       <main>
+       <p class="preloader_text">Loading..<span class="last-dot">.</span></p>
+       </main>
+    </div>
     <div class="container-fluid">
         <div class="alert alert-secondary alert_default" role="alert"
             style="position: absolute; bottom: 0; z-index: 999999;"></div>
