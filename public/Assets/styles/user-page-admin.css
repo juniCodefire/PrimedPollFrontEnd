@@ -173,3 +173,43 @@
 .vert-middle{
 	vertical-align: -moz-middle-with-baseline;
 }
+#listFollowersModal .modal-dialog{
+	max-width: 100%;
+}
+#listFollowersModal .modal-content{
+	width: 60vw;
+	height: 80vh;
+}
+#listFollowingModal .modal-dialog{
+	max-width: 100%;
+}
+#listFollowingModal .modal-content{
+	width: 60vw;
+	height: 80vh;
+}
+.follow-stat-con{
+	height: 70vh;
+}
+.follow-stat-box{
+	height: 30vh;
+}
+.follow-stat-box div{
+	border-radius: 5px;
+}
+.follow-stat-box img{
+	height: 10vh;
+	width: 10vh;
+	border-radius: 50%;
+}
+.follow-stat-box p:hover, .follower-box span:hover{
+	text-decoration: underline;
+	cursor: pointer;
+}
+.asked-poll span:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
+.answered-poll span:hover{
+	cursor: pointer;
+	text-decoration: underline;
+}
