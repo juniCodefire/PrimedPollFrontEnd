@@ -44,11 +44,11 @@ const publicProfile =
                 <div class="nav-wrapper">
                     <ul class="nav flex-column" id="profileSideBar">
                         <!-- <li class="nav-item">
-                        <a class="nav-link " href="index.html">
-                        <i class="material-icons">edit</i>
-                        <span>Blog Dashboard</span>
-                        </a>
-                    </li> -->
+                            <a class="nav-link " href="index.html">
+                            <i class="material-icons">edit</i>
+                            <span>Blog Dashboard</span>
+                            </a>
+                        </li> -->
                         <li class="nav-item">
                             <a class="nav-link " href="user-feed.html">
                                 <i class="material-icons">vertical_split</i>
@@ -191,8 +191,9 @@ const publicProfile =
                                                 @juniCodefire2019
                                             </small>
                                         </div>
-                                        <button type="button" class="btn btn-sm btn-pill btn-outline-brand mr-2">
-                                            <i class="material-icons mr-1">person_add</i>Follow</button>
+                                        <div data-btn-follow>
+                                        
+                                        </div>
                                     <div class="user-poll-stats row text-center">
                                         <div class="col-6 asked-poll">
                                             <span class="color-brand">Followers</span><br>

@@ -2,7 +2,7 @@ const root = document.querySelector('#root');
 console.log('open')
 if ((location.pathname === '/' || location.pathname === '/index.html') && location.hash === "")
 {
-console.log('open')
+	console.log('open')
 
 	root.innerHTML =
 		`<!--Preloader Block -->
