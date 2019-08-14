@@ -148,7 +148,6 @@ display:none;
   width: 50%;
 }
 .user-page-interests {
-  height: 30vh;
   overflow: auto;
 }
 .public_profile_interest {
@@ -335,6 +334,9 @@ body::-webkit-scrollbar-thumb {
 }
 .user_photo {
     transition: 1s all ease;
+}
+.nav-item {
+  cursor: pointer !important;
 }
 .large-image {
   width: 100%;

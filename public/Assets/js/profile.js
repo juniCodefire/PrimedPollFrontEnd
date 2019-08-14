@@ -1,9 +1,8 @@
-
-
 function _(str) {
     return document.querySelector(str);
 }
 loadbtn();
+
 function loadbtn() {
     console.log("this is js");
     _("#package").innerHTML = ``;
@@ -22,8 +21,8 @@ function loadbtn() {
 }
 
 
-setInterval( function () {
-loadbtn();
+setInterval(function () {
+    loadbtn();
 }, 3000)
 ////
 $(document).ready(function () {
@@ -32,41 +31,41 @@ $(document).ready(function () {
     let offset = 5;
     let key = "open";
 
-const triggerStaticFeeds = () => {
-       $("#feed_loader").show();
-       var settings = {
-        "url": "https://polledapp.herokuapp.com/api/feeds",
-        "method": "GET",
-        "headers": {
-            "Authorization": "Bearer " + token,
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        "timeout": 0,
-    };
-    $.ajax(settings).done(function (response) {
-        if (response) {
-            console.log(response);
-            $("#feed_loader").hide();
-            var feedsData = response.data.feeds;
+    const triggerStaticFeeds = () => {
+        $("#feed_loader").show();
+        var settings = {
+            "url": "https://polledapp.herokuapp.com/api/feeds",
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "timeout": 0,
+        };
+        $.ajax(settings).done(function (response) {
+            if (response) {
+                console.log(response);
+                $("#feed_loader").hide();
+                var feedsData = response.data.feeds;
 
-            feeds.push(feedsData);
-            loadFeeds();
-        }
-    });
+                feeds.push(feedsData);
+                loadFeeds();
+            }
+        });
 
-}
-const triggerDynamicFeeds = () => {
-    key = "close";
-   var settings = {
-    "url": `https://polledapp.herokuapp.com/api/feeds/${offset}`,
-    "method": "GET",
-    "headers": {
-        "Authorization": "Bearer " + token,
-        "Content-Type": "application/x-www-form-urlencoded"
-    },
-    "timeout": 0,
-    };
-    console.log(settings);
+    }
+    const triggerDynamicFeeds = () => {
+        key = "close";
+        var settings = {
+            "url": `https://polledapp.herokuapp.com/api/feeds/${offset}`,
+            "method": "GET",
+            "headers": {
+                "Authorization": "Bearer " + token,
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            "timeout": 0,
+        };
+        console.log(settings);
         $.ajax(settings).done(function (response) {
             if (response) {
                 console.log(response);
@@ -83,20 +82,20 @@ const triggerDynamicFeeds = () => {
                 offset = response.data.new_offset;
                 key = "open";
             }
-        }).fail( function(err) {
-          console.log(err);
-          if (err) {
-            $(".dynamic_feed_loader").hide();
-            key = "open";
-          }
+        }).fail(function (err) {
+            console.log(err);
+            if (err) {
+                $(".dynamic_feed_loader").hide();
+                key = "open";
+            }
 
         });
 
-}
+    }
 
-const loadFeeds = () => {
-    if (feeds != []) {
-        $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 open_new_poll" style="margin-top:30px;">
+    const loadFeeds = () => {
+        if (feeds != []) {
+            $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 open_new_poll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
                  <h4 style="font-weight:bold; font-size:20px; cursor:pointer; margin-left:20px; margin-top:10px;">
@@ -107,10 +106,10 @@ const loadFeeds = () => {
             </div>
           </div>`);
 
-    for (var v = 0; v < feeds.length; v++) {
-        for (var i = 0; i < feeds[v].length; i++) {
-              let wrapImage = `${feeds[v][i].image_link}${feeds[v][i].image}`;
-              $(`#feeds_box`).append(`
+            for (var v = 0; v < feeds.length; v++) {
+                for (var i = 0; i < feeds[v].length; i++) {
+                    let wrapImage = `${feeds[v][i].image_link}${feeds[v][i].image}`;
+                    $(`#feeds_box`).append(`
                 <div class="col-lg-12 col-sm-12 mt-2 mb-2">
                     <div class="card card-post card-post--aside card-post--1" id="poll-card">
                         <div class="col-11 ml-1">
@@ -131,8 +130,8 @@ const loadFeeds = () => {
                 </div>
             `);
 
-            for (let j = 0; j < feeds[v][i].option.length; j++) {
-                $(`#options_box${feeds[v][i].poll_id}`).append(`
+                    for (let j = 0; j < feeds[v][i].option.length; j++) {
+                        $(`#options_box${feeds[v][i].poll_id}`).append(`
                   <div class="ec_poll-answers mt-2 col-11">
                     <div class="ec_poll-answers mt-2 col-11">
                       <div class="custom-control custom-radio">
@@ -142,48 +141,55 @@ const loadFeeds = () => {
                     </div>
                     </div>`);
 
-                $(document).on('click', '.poll1option', function () {
-                    var option_data = $(this).data("selectedoption");
-                });
+                        $(document).on('click', '.poll1option', function () {
+                            var option_data = $(this).data("selectedoption");
+                        });
 
+                    }
+                }
             }
-        }
-    }
-     $(`#feeds_box`).append(`
+            $(`#feeds_box`).append(`
          <div class="d-flex justify-content-center feed_loader_2" style="height: 3vh;">
            <div class="spinner-grow juni_spin dynamic_feed_loader" role="status"></div>
            <span class="dynamic_spin_text dynamic_feed_loader">Loading more feeds please wait...</span>
          </div>
      `)
-    }else{
-        $("#feeds_box").html(`
+        } else {
+            $("#feeds_box").html(`
               <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
                  <p> You have no feed at this time, you can start by creating a poll
                   <span  ${onclick="location.href='new-poll.html'"}>Create Poll</span><p>
               </div>
         `);
+        }
     }
-}
-     //Onscroll Event to load more feeds
-    $('#feeds_box').on('scroll', function() {
-       // console.log($(this).scrollTop());
-       // console.log($('#feeds_box').position().top);
-       // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
-      if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight){
+    //Onscroll Event to load more feeds
+    $('#feeds_box').on('scroll', function () {
+        // console.log($(this).scrollTop());
+        // console.log($('#feeds_box').position().top);
+        // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
+        if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
             $(".dynamic_feed_loader").show();
             if (key == "open") {
-               triggerDynamicFeeds();
-           }else{
+                triggerDynamicFeeds();
+            } else {
                 $(".dynamic_spin_text").css('margin-left', '-100px');
                 $(".dynamic_spin_text").html("Loading please wait");
-           }
+            }
 
-       }else{
-           $(".dynamic_spin_text").html("Loading more feeds please wait...");
-       }
+        } else {
+            $(".dynamic_spin_text").html("Loading more feeds please wait...");
+        }
     });
     triggerStaticFeeds();
 });
-$(document).on('click', '.open_new_poll', function() {
-  location.replace('new-poll.html');
+$(document).on('click', '.open_new_poll', function () {
+    location.replace('new-poll.html');
+});
+$(document).on('click', '.open_feeds', function () {
+    console.log('yerry')
+    location.replace('user-feed.html');
+});
+$(document).on('click', '.open_profile', function () {
+    location.replace('user-profile-lite.html');
 });

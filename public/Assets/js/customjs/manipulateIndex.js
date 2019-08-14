@@ -31,12 +31,14 @@ console.log(paramOnSession, paramPermit)
 //   let onSession = ;
 // }
 
-if (usernameURL !== "")
-{
-    if (paramPermit || paramOnSession)
-    {
-        permission = paramPermit;
-        onSession = paramOnSession;
+if (usernameURL !== "") {
+    if (paramPermit || paramOnSession) {
+        if (paramPermit == 1) {
+            permission = paramPermit;
+            onSession = paramOnSession;
+        } else {
+            location.replace(`${ window.origin }/Users/signin.html`);
+        }
     }
 
     root.innerHTML = publicProfile;
@@ -49,16 +51,13 @@ if (usernameURL !== "")
 
     fetch(api)
         .then(response => response.json())
-        .then(response =>
-        {
+        .then(response => {
 
             displayData(response.data)
 
-        }).catch(error =>
-        {
+        }).catch(error => {
             console.log(error);
-            if (error)
-            {
+            if (error) {
                 root.innerHTML = error404;
                 $(".publicPreloader").fadeOut("slow");
                 console.log(error.status)

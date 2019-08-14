@@ -16,8 +16,9 @@ const displayData = ({ user, interest, polls, pollCount, onSession, imageLink, i
 
     //Insert The user Data Into the Profile Page
     //Insert the Image
+    console.log(imageProp.widthThumb);
     const image = `${ imageLink }${ imageProp.widthThumb },${ imageProp.imageStyle },${ imageProp.aspectRatio },${ imageProp.cropType2 }/${ user.image }`;
-
+    
     profileImage.innerHTML = `
                     <img data-toggle="modal" data-target="#imageModal" class="rounded-circle user_photo"
                     src=${ image }
