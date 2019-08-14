@@ -1,10 +1,8 @@
-
-
 $.ajaxSetup({
     statusCode: {
-        401: function ()
-        {
+        401: function () {
             // Redirec the to the login page.
+            localStorage.removeItem('user_id');
             localStorage.removeItem('token');
             localStorage.removeItem('user_firstname');
             localStorage.removeItem('user_lastname');
@@ -19,13 +17,11 @@ $.ajaxSetup({
         }
     }
 });
-window.addEventListener('load', function ()
-{
+window.addEventListener('load', function () {
     // var status = document.getElementById("status");
     // var log = document.getElementById("log");
 
-    function updateOnlineStatus (event)
-    {
+    function updateOnlineStatus(event) {
         console.log(event.type);
         var condition = navigator.onLine ? "online" : "offline";
 
@@ -33,19 +29,16 @@ window.addEventListener('load', function ()
         // status.innerHTML = condition.toUpperCase();
         //
         // log.insertAdjacentHTML("beforeend", "Event: " + event.type + "; Status: " + condition);
-        if (condition == "online")
-        {
+        if (condition == "online") {
             swal({
-                title: "You are online!",
-                icon: "info",
-                button: "Refresh!",
-            })
-                .then((value) =>
-                {
+                    title: "You are online!",
+                    icon: "info",
+                    button: "Refresh!",
+                })
+                .then((value) => {
                     window.location.reload(true);
                 });
-        } else
-        {
+        } else {
             swal({
                 title: "Oops, You are offline!",
                 icon: "error",
@@ -57,8 +50,8 @@ window.addEventListener('load', function ()
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
 });
-var mailme = function ()
-{
+var mailme = function () {
+    localStorage.removeItem('user_id');
     localStorage.removeItem('token');
     localStorage.removeItem('user_firstname');
     localStorage.removeItem('user_lastname');
@@ -71,8 +64,7 @@ var mailme = function ()
     location.replace("../Users/signin.html");
 }
 
-window.addEventListener('error', function (e)
-{
+window.addEventListener('error', function (e) {
     var ie = window.event || {};
     var errMsg = e.message || ie.errorMessage || "404 error on " + window.location;
     var errSrc = (e.filename || ie.errorUrl) + ': ' + (e.lineno || ie.errorLine);
