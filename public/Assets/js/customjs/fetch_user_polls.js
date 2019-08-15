@@ -5,11 +5,20 @@ let offset = 20;
 let key = "open";
 let steps = 4;
 
+const parsedUrl = new URL(window.location.href);
+const getSearchParam = parsedUrl.searchParams;
+let interest_id = getSearchParam.get("interest_id");
+
 const triggerStaticFeeds = () =>
 {
     $("#feed_loader").show();
+    var url_link = `${ baseUrl }api/feeds`;
+        if(interest_id) {
+            url_link = `${ baseUrl }api/single/feeds/${interest_id}`;
+        }
+        console.log(url_link);
     var settings = {
-        "url": `${ baseUrl }api/feeds`,
+        "url": `${url_link}`,
         "method": "GET",
         "headers": {
             "Authorization": "Bearer " + token,
@@ -27,14 +36,21 @@ const triggerStaticFeeds = () =>
             feeds.push(...feedsData);
             loadFeeds();
         }
+    }).fail(function (err) {
+        console.log(err);
     });
 
 }
 const triggerDynamicFeeds = () =>
 {
     key = "close";
-    var settings = {
-        "url": `${ baseUrl }api/feeds/${ offset }`,
+    var url_link = `${ baseUrl }api/feeds/${ offset }`;
+    if(interest_id) {
+        url_link = `${ baseUrl }api/single/feeds/${interest_id}/${ offset }`;
+    }
+    
+    settings = {
+        "url": `${url_link}`,
         "method": "GET",
         "headers": {
             "Authorization": "Bearer " + token,

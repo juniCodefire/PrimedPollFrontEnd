@@ -12,25 +12,6 @@ let paramPermit = getSearchParam.get("permission");
 let paramOnSession = getSearchParam.get("on_session");
 console.log(paramOnSession, paramPermit)
 
-// const parsedUrl = new URL(window.location.href);
-
-// const team_id = parsedUrl.searchParams.get("team_id");
-// if (searchValue == prime && location.search == this_user)
-// {
-//     permission = prime;
-//     onSession = this_user;
-// }
-
-// const permission =
-//
-// const token = location.getItem('token');
-// const permission = location.getItem('permission');
-// console.log(token);
-// if (token != "" && permission) {
-//   let permission = 1;
-//   let onSession = ;
-// }
-
 if (usernameURL !== "") {
     if (paramPermit || paramOnSession) {
         if (paramPermit == 1) {
