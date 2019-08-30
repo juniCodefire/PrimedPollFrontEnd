@@ -2,6 +2,11 @@ const usernameURL = location.hash;
 const preloader = document.querySelector('.back_bar-1');
 const seprecon = document.querySelector('.se-pre-con');
 const username = usernameURL.substr(1);
+const storeUser = localStorage.getItem('username');
+if (`@${username}` === storeUser) {
+   window.location.replace(`${window.location.origin}/Users/user-profile-lite.html`);
+}
+
 let permission = 0;
 let onSession = 0;
 const parsedUrl = new URL(window.location.href);

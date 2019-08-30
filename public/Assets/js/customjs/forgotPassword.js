@@ -2,6 +2,7 @@
 //Api To Reset The password Code
 
 const forgotpassForm = document.querySelector("#forgotPass-form");
+const se_pre = document.querySelector(".se-pre");
 let statusCode;
 const customAlert = (value) => {
     return swal(value);
@@ -13,6 +14,7 @@ const status = (response) => {
     return response.json();
 }
 const processApiResponse = (data, email = "", errorText = "") => {
+    se_pre.style.display = "none";
     if (!data.ok) {
         let text;
         switch (JSON.stringify(statusCode)) {
@@ -26,7 +28,8 @@ const processApiResponse = (data, email = "", errorText = "") => {
                 text = `Email not sent, please try again!`;
                 break;
             default:
-                customAlert(`An email has been sent to ${email}, follow link to reset password!`);
+               customAlert(`An email has been sent to ${email}, follow link to reset password!`);
+               return true;
         }
         errorText.innerHTML = text;
         console.log(data);
@@ -36,7 +39,7 @@ const processApiResponse = (data, email = "", errorText = "") => {
 }
 const sendRecoverCode = (event) => {
     event.preventDefault();
-    console.log(event);
+    se_pre.style.display = "block";
     //Send to the email check and Send Code Api
     const url = `${baseUrl}api/password/reset`;
     console.log(event.target[0])

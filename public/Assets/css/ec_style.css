@@ -84,7 +84,7 @@ body {
 
 .ec_auth-body {
     height: 100vh;
-    background-image: linear-gradient(90deg, #f58731 0%, #f58731 35%, rgba(255, 255, 255) 0%);
+    background-image: linear-gradient(90deg, #f58731 0%, #f58731 35%, rgb(255, 255, 255) 0%);
     background-size: 100%;
     position: relative;
 

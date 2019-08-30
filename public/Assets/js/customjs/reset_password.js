@@ -2,6 +2,8 @@
 //Api To Reset The password Code
 //Get The token form the url 
 const resetpassForm = document.querySelector("#resetPass-form");
+const se_pre = document.querySelector(".se-pre");
+
 let statusCode;
 const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
@@ -22,6 +24,7 @@ const status = (response) => {
     return response.json();
 }
 const processApiResponse = (data, errorText = "") => {
+    se_pre.style.display = "none";
     if (!data.ok) {
         let text;
         switch (JSON.stringify(statusCode)) {
@@ -39,12 +42,14 @@ const processApiResponse = (data, errorText = "") => {
                 setTimeout(() => {
                     location.href = `${ window.location.origin }/Users/signin.html`;
                 }, 5000);
+                return
         }
         errorText.innerHTML = text;
     }
 }
 const sendRecoverCode = (event) => {
     event.preventDefault();
+    se_pre.style.display = "block";
     //Send to the email check and Send Code Api
     const url = `${baseUrl}api/password/change`;
     const password = event.target[0].value;

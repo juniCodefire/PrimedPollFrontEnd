@@ -1,6 +1,6 @@
 
 
-const feeds = [];
+let feeds = [];
 let offset = 20;
 let key = "open";
 let steps = 4;
@@ -9,9 +9,11 @@ const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
 let interest_id = getSearchParam.get("interest_id");
 
-const triggerStaticFeeds = () =>
-{
+const triggerStaticFeeds = (loader) =>
+{   
+    if (loader == true) {
     $("#feed_loader").show();
+    }
     var url_link = `${ baseUrl }api/feeds`;
         if(interest_id) {
             url_link = `${ baseUrl }api/single/feeds/${interest_id}`;
@@ -134,7 +136,8 @@ const loadFeeds = () =>
                             </div>
                             <div class="col-12 ec_poll-misc mt-3">
                                 <span class="text-muted col-6">29 February 2019</span>
-                                <span class="text-muted col-6">Votes: ${votes_count }</span>
+                                <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i>: ${votes_count }</span>
+                                <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-users" aria-hidden="true"></i>: ${votes_count }</span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id }"
                                 data-selected-vote="${ poll_id }" data-vote-status="${ vote_status }" data-poll-owner="${ poll_owner_id }"
                                  style="margin-bottom:10px; cursor:pointer;" data-toggle="popover" title="Not allowed!" data-content="Please select an option to vote">Vote!
@@ -149,8 +152,9 @@ const loadFeeds = () =>
                 $(`#voteBtn${ poll_id }`).css('background', 'lightgreen');
             }
             //Here we map the options for the polls
+            $(`#options_box${ poll_id }`).html(``);
             option.map(opt =>
-            {
+            {   
                 const { option_id, option } = opt;
                 $(`#options_box${ poll_id }`).append(`
                    <div class="ec_poll-answers mt-2 col-11">
@@ -227,9 +231,18 @@ const loadFeeds = () =>
                 voteTrigger(option_id, check_poll_id, poll_owner_id);
             } else
             {
-                // $(function () {
-                //   $('[data-toggle="popover"]').popover();
-                // })
+                const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'center',
+                  showConfirmButton: false,
+                  timer: 3000
+                })
+
+                Toast.fire({
+                  type: 'error',
+                  background: 'darkgray',
+                  title: '<span style="color:white;">You need to select an option first to vote!</span>'
+                })
                 console.log('You need to select an option first to vote!');
             }
         });
@@ -266,4 +279,4 @@ $('#feeds_box').on('scroll', function ()
         $(".dynamic_spin_text").html("Loading more feeds please wait...");
     }
 });
-triggerStaticFeeds();
+triggerStaticFeeds(loader=true);

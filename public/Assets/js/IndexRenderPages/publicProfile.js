@@ -195,14 +195,16 @@ const publicProfile =
                                         
                                         </div>
                                     <div class="user-poll-stats row text-center">
-                                        <div class="col-6 asked-poll">
-                                            <span class="color-brand">Followers</span><br>
-                                            <span class="color-grey  google-font-commom">12k</span>
-                                        </div>
-                                        <div class="col-6 answered-poll">
-                                            <span class="color-brand">Following</span><br>
-                                            <span class="color-grey  google-font-commom">1.4k</span>
-                                        </div>
+                                       <div class="col-6 asked-poll">
+                                            <span data-target="#listFollowersModal" data-toggle="modal" class="color-brand">Followers</span><br>
+                                            <span data-target="#listFollowersModal" data-toggle="modal"
+                                              class="color-grey  google-font-commom">12k</span>
+                                          </div>
+                                          <div class="col-6 answered-poll">
+                                            <span data-target="#listFollowingModal" data-toggle="modal" class="color-brand">Following</span><br>
+                                            <span data-target="#listFollowingModal" data-toggle="modal"
+                                              class="color-grey  google-font-commom">1.4k</span>
+                                          </div>
                                         <div class="col-6 asked-poll">
                                             <span class="color-brand">Asked Polls</span><br>
                                             <span class="color-grey  google-font-commom">106</span>
@@ -327,4 +329,39 @@ const publicProfile =
                 </div>
             </div>
         </div>
+         <!-- This is the modal to view followers -->
+          <div class="modal fade" id="listFollowersModal" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content mx-auto">
+                <div class="modal-body pt-2">
+                  <div class="col-12 modal-data row">
+                    <h6 class="col-6 color-brand">Followers</h6>
+                    <h6 class="ml-auto color-brand google-font-commom" data-count-followers>12k</h6>
+                  </div>
+                  <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-followers>
+                    <!--All Follower Box-->
+                      <div class="preload_feeds preload_follow" role="status"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- This is the modal to view following -->
+          <div class="modal fade" id="listFollowingModal" role="dialog" aria-labelledby="" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content mx-auto">
+                <div class="modal-body pt-2">
+                  <div class="col-12 modal-data row">
+                    <h6 class="col-6 color-brand">Following</h6>
+                    <h6 class="ml-auto color-brand google-font-commom" data-count-following>1207</h6>
+                  </div>
+                  <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-following>
+                      <!--All Following Box -->
+                        <div class="preload_feeds preload_follow" role="status"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
  `;

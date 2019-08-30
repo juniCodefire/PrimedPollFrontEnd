@@ -134,3 +134,8 @@ $(document).on('click', '.open_feeds', function () {
 $(document).on('click', '.open_profile', function () {
     location.replace('user-profile-lite.html');
 });
+
+//Triger the the function to get the following and followers
+  let id01 = localStorage.getItem('user_id');
+  let username01 = localStorage.getItem('username');
+  all_follower(pass="?permission=1&on_session=", id01, username01)

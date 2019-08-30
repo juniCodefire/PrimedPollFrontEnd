@@ -429,6 +429,21 @@ body::-webkit-scrollbar-thumb {
   border:none; float:right;
   width:47.5%;
 }
+.go-back {
+      text-align: right;
+    float: right;
+    display: block;
+    right: 10px;
+    margin-top: -10px;
+    position: absolute;
+}
+.site_formt_color {
+   color: #f58731 !important;
+   text-decoration: none;
+}
+.ec_poll-misc:hover span {
+  color: #f58731 !important;
+}
 @media (max-width: 900px) {
   .feed_loader_2 {
     margin-bottom: 50px;

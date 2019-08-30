@@ -1,6 +1,7 @@
 const displayData = ({ user, interest, polls, pollCount, onSession, imageLink, imageProp, following }) =>
 {
-
+all_follower(pass="?follow=true&offline=", user.id, user.username)
+    localStorage.setItem("stuff", [user.id, user.username]);         
     const profileImage = document.querySelector('#profileImage');
     const profileUsername = document.querySelector('#profileUsername');
     const profileBio = document.querySelector('#profileBio');
