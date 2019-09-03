@@ -1,4 +1,3 @@
-
 //Show case Name]
 var pre_user_firstname = user_firstname.charAt(0).toUpperCase() + user_firstname.slice(1);
 var pre_user_lastname = user_lastname.charAt(0).toUpperCase() + user_lastname.slice(1)
@@ -29,22 +28,19 @@ $("#feEmail").val(user_email);
 $("#fePhone").val(user_phone);
 $("#fedob").val(user_dob);
 
-if (!user_bio == "")
-{
+if (!user_bio == "") {
     $("#bioText").val(user_bio);
     $("#member_bio").html(user_bio);
 }
 
 
-setInterval(function ()
-{
+setInterval(function () {
     $('.alert_default').hide();
 }, 10000);
 
 let del_control_key = "open";
 
-const loadProfile = () =>
-{
+const loadProfile = () => {
 
     var settings = {
         "url": `${ baseUrl }api/user/interest`,
@@ -55,10 +51,8 @@ const loadProfile = () =>
         },
         "timeout": 0,
     };
-    $.ajax(settings).done(function (response)
-    {
-        if (response)
-        {
+    $.ajax(settings).done(function (response) {
+        if (response) {
             console.log(response);
             $(".preload_interest").hide();
 
@@ -69,8 +63,7 @@ const loadProfile = () =>
                        Add New <i class='fa fa-plus check_interest'></i>
                     </p>
                 </div>`);
-            for (var i = 0; i < response.length; i++)
-            {
+            for (var i = 0; i < response.length; i++) {
                 let interest_title = response[i].title.charAt(0).toUpperCase() + response[i].title.slice(1);
                 let interest_hanger = `
                           <p class="interest_input" id="interest_title" style='font-size:10px;'>
@@ -90,8 +83,7 @@ const loadProfile = () =>
                             </p>
                         </div>
                         `);
-                if (interest_title > 12)
-                {
+                if (interest_title > 12) {
                     $(`#interest_holder${ response[i].id }`).removeClass('col-lg-3');
                     $(`#interest_holder${ response[i].id }`).addClass('col-lg-4');
                 }
@@ -102,21 +94,17 @@ const loadProfile = () =>
 }
 
 //This pops up the modal that add new interest
-$(document).on('click', '#add_interest', function ()
-{
+$(document).on('click', '#add_interest', function () {
     $("#newInterestModal").modal("toggle");
 });
 
-$(document).on('click', '#manage_interest_add', function ()
-{
+$(document).on('click', '#manage_interest_add', function () {
     $("#manageInterestModal").modal("toggle");
     $("#newInterestModal").modal("toggle");
 });
 
-$(document).on('click', '.interest_holder', function ()
-{
-    if (del_control_key == close)
-    {
+$(document).on('click', '.interest_holder', function () {
+    if (del_control_key == close) {
         return $("#alert_wait").html("Please wait a recent action is taking place!");
     }
     let interest_title = $(this).data(`interesttitle`);
@@ -129,13 +117,25 @@ $(document).on('click', '.interest_holder', function ()
 });
 //This redirwct the user to his specific interest fields
 
-$(document).on('click', '#manage_see_feeds', function ()
-{
+$(document).on('click', '#manage_see_feeds', function () {
     let interest_id = $(`#id_holder`).val();
     window.open(`user-feed.html?interest_id=${ interest_id }`, '_self');
     // location.replace();
 
 });
-
-
 loadProfile();
+$(document).on('click', '.open_new_poll', function () {
+    location.replace('new-poll.html');
+});
+$(document).on('click', '.open_feeds', function () {
+    console.log('yerry')
+    location.replace('user-feed.html');
+});
+$(document).on('click', '.open_profile', function () {
+    location.replace('user-profile-lite.html');
+});
+
+//Triger the the function to get the following and followers
+  let id01 = localStorage.getItem('user_id');
+  let username01 = localStorage.getItem('username');
+  all_follower(pass="?permission=1&on_session=", id01, username01)

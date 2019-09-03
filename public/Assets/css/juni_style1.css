@@ -148,7 +148,6 @@ display:none;
   width: 50%;
 }
 .user-page-interests {
-  height: 30vh;
   overflow: auto;
 }
 .public_profile_interest {
@@ -336,6 +335,9 @@ body::-webkit-scrollbar-thumb {
 .user_photo {
     transition: 1s all ease;
 }
+.nav-item {
+  cursor: pointer !important;
+}
 .large-image {
   width: 100%;
   height: 100%;
@@ -426,6 +428,21 @@ body::-webkit-scrollbar-thumb {
   background:#f58731; font-weight: bold; font-size: 20px;
   border:none; float:right;
   width:47.5%;
+}
+.go-back {
+      text-align: right;
+    float: right;
+    display: block;
+    right: 10px;
+    margin-top: -10px;
+    position: absolute;
+}
+.site_formt_color {
+   color: #f58731 !important;
+   text-decoration: none;
+}
+.ec_poll-misc:hover span {
+  color: #f58731 !important;
 }
 @media (max-width: 900px) {
   .feed_loader_2 {

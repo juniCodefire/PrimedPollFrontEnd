@@ -2,40 +2,48 @@ const usernameURL = location.hash;
 const preloader = document.querySelector('.back_bar-1');
 const seprecon = document.querySelector('.se-pre-con');
 const username = usernameURL.substr(1);
+const storeUser = localStorage.getItem('username');
+if (`@${username}` === storeUser) {
+   window.location.replace(`${window.location.origin}/Users/user-profile-lite.html`);
+}
+
 let permission = 0;
-let onSession = 'primedpolloff';
+let onSession = 0;
+const parsedUrl = new URL(window.location.href);
+const getSearchParam = parsedUrl.searchParams;
 
-// const permission =
-//
-// const token = location.getItem('token');
-// const permission = location.getItem('permission');
-// console.log(token);
-// if (token != "" && permission) {
-//   let permission = 1;
-//   let onSession = ;
-// }
+//Get Permission 
+let paramPermit = getSearchParam.get("permission");
+let paramOnSession = getSearchParam.get("on_session");
+console.log(paramOnSession, paramPermit)
 
-if (usernameURL !== "")
-{
+if (usernameURL !== "") {
+    if (paramPermit || paramOnSession) {
+        if (paramPermit == 1) {
+            permission = paramPermit;
+            onSession = paramOnSession;
+        } else {
+            location.replace(`${ window.origin }/Users/signin.html`);
+        }
+    }
+
     root.innerHTML = publicProfile;
     //Get the required variaables
 
 
     //Call the Api That Check The Username and also emit reletive info
     const api = `${ baseHome }api/profile/${ permission }/${ onSession }/${ username }`;
+    console.log(api)
 
     fetch(api)
         .then(response => response.json())
-        .then(response =>
-        {
+        .then(response => {
 
             displayData(response.data)
 
-        }).catch(error =>
-        {
+        }).catch(error => {
             console.log(error);
-            if (error)
-            {
+            if (error) {
                 root.innerHTML = error404;
                 $(".publicPreloader").fadeOut("slow");
                 console.log(error.status)

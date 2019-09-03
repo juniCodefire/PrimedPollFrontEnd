@@ -25,7 +25,6 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
     //call the APi function
     postData(`${ baseUrl }api/${ poll_id }/vote`, {option_id, poll_owner_id})
       .then(data => {
-
         if (data.check === 1) {
           $(`#voteBtn${ data.vote.poll_id }`).html('Unvote');
           $(`#voteBtn${ data.vote.poll_id }`).show();
@@ -43,7 +42,8 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
           $(`#preload_vote${ data.unvote.poll_id }`).hide();
           reSetAttr.dataset.voteStatus = false;
         }
-
+        feeds = [];
+        triggerStaticFeeds(loader=false);
       })
       .catch(error => {
         if (error) {

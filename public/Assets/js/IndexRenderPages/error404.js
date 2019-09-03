@@ -1,14 +1,6 @@
 
 const error404 =
   `<!--Public Preloader-->
-	<section class="back_bar-1">
-		<div class="back_bar-2">
-			<div class="bar">
-				<div class="circle"></div>
-				<!--<p class="preloader_text">Loading...</p>-->
-			</div>
-		</div>
-	</section>
     <div class="container-fluid">
     <div class="row">
       <!-- End Main Sidebar -->
