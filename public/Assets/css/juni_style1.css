@@ -444,6 +444,17 @@ body::-webkit-scrollbar-thumb {
 .ec_poll-misc:hover span {
   color: #f58731 !important;
 }
+
+.voter-name{
+  height: 9vh;
+}
+.voter-name p{
+  font-style: 18px;
+  font-weight: bold;
+}
+.voter-username span{
+  font-size: 12px;
+}
 @media (max-width: 900px) {
   .feed_loader_2 {
     margin-bottom: 50px;
