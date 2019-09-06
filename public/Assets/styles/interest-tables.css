@@ -28,3 +28,13 @@
 	padding:1.5px 8px;
 	cursor: pointer;
 }
+.delete-user-btn{
+	max-height:20px;
+	border:0;
+	border-radius: 3px;
+	background-color: red;
+	color:white;
+	font-size: 12px;
+	padding:1.5px 8px;
+	cursor: pointer;
+}
