@@ -8,9 +8,15 @@
   overflow-y: hidden;
   z-index: 9999999999;
 }
+.empty-div {
+  width: 100%;
+  height:  50vh;
+  background: url("../images/empty.svg") center no-repeat #fff;
+  background-size: 300px 300px;
+}
 .back_bar-2 {
   background: lightgrey;
-    width: 100%;
+  width: 100%;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -446,7 +452,6 @@ body::-webkit-scrollbar-thumb {
 }
 
 .voter-name{
-  height: 9vh;
 }
 .voter-name p{
   font-style: 18px;
@@ -454,6 +459,14 @@ body::-webkit-scrollbar-thumb {
 }
 .voter-username span{
   font-size: 12px;
+}
+.individual-voter img{
+  height: 8vh;
+  width: 8vh;
+  border-radius: 50%;
+}
+.individual-voter button{
+  border-radius: 20px;
 }
 @media (max-width: 900px) {
   .feed_loader_2 {

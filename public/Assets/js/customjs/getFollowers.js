@@ -36,7 +36,7 @@ const getFollowers = (pass, {followers, image_link}) => {
               let usernameLink = `${pass}${follower.id}#${follower.username.substring(1, follower.username.length)}`;
               getFollowersBox.innerHTML += `
                 <div class="follow-stat-box col-3 mt-2">
-                  <div class="col-12 border text-center">
+                  <div class="col-12 border text-center py-2">
                     <a class="site_formt_color" href="${window.location.origin}${usernameLink}">
                         <img src="${ image_link }${ follower.image }" alt="${ follower.first_name } ${ follower.last_name } class="mt-2 border">
                     <p class="mb-0"><b>${follower.first_name} ${follower.last_name}</b></p>
@@ -58,9 +58,9 @@ const getFollowing = (pass, {following, image_link}) => {
               let usernameLink = `${pass}${followin.id}#${followin.username.substring(1, followin.username.length)}`;
             getFollowingBox.innerHTML += `
               <div class="follow-stat-box col-3 mt-2">
-                <div class="col-12 border text-center">
-                  <a class="site_formt_color" href="${window.location.origin}${usernameLink}">
-                      <img src="${ image_link }${ followin.image }" alt="${ followin.first_name } ${ followin.last_name } class="mt-2 border">
+                <div class="col-12 border text-center py-2">
+                  <a class="mt-2 site_formt_color" href="${window.location.origin}${usernameLink}">
+                      <img src="${ image_link }${ followin.image }" alt="${ followin.first_name } ${ followin.last_name } class="border">
                   <p class="mb-0"><b>${followin.first_name} ${followin.last_name}</b></p>
                   <span class="pb-2"><small>${followin.username}</small></span>
                   </a>

@@ -43,7 +43,7 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
           reSetAttr.dataset.voteStatus = false;
         }
         feeds = [];
-        triggerStaticFeeds(loader=false);
+        // triggerStaticFeeds(loader=false);
       })
       .catch(error => {
         if (error) {
