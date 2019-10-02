@@ -29,9 +29,9 @@
 
 <body class="h-100">
   <!--Preloader Bloder -->
-  <div class="se-pre-con">
+  <!-- <div class="se-pre-con">
     <p align='center'></p>
-  </div>
+  </div> -->
   <!-- End -->
   <div class="container-fluid">
     <div class="row">
@@ -232,17 +232,23 @@
               </div>
               <div class="ml-3 animated fadeInDown collapse row" id="imagePollCollapse">
                   <div class="fancy-card card-body row col-12">
-                    <div class="col-3 border-right">
-                        <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                        <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                    </div>
-                    <div class="col-3 border-right">
-                        <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                        <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                    </div>
-                    <div class="col-3 border-right">
-                        <input type="file" name="inputImage" id="inputImage" class="inputfile" />
-                        <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
+                    <div id="data-img-display" class="row mx-0 px-0 col-12 poll_img_box">
+                        <div class="col-3 border-right">
+                            <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
+                            <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
+                        </div>
+                       <!-- <div class="col-4 px-1">
+                            <i style="color:tomato; position: absolute; right: 0; font-size:20px;" class="fa fa-close mr-4 mt-1"></i>
+                            <div class="col-12 px-0" style="height: 138px;">
+                              <img style="border-radius: 10px; width: 100%; height:100%;" class="" src="../Assets/img/gallery/thumb-1.jpg">
+                            </div>
+                        </div>
+                        <div class="col-4 px-1">
+                            <i style="color:tomato; position: absolute; right: 0; font-size:20px;" class="fa fa-close mr-4 mt-1"></i>
+                            <div class="col-12" style="height: 138px;">
+                              <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br></label>
+                            </div>
+                        </div> -->
                     </div>
                   </div>
                 </div>
@@ -251,6 +257,7 @@
               <div class="spinner-grow" role="status" style="color:#f58731;" id="add_interest_spin"></div>
             </div>
             <div class="add_interest_spin">Creating Poll...</div>
+            <p id="data-option-conflit" style="color: tomato; display: none;" >Text options and image options cannot be selected together, please use only one!</p>
             <button type="submit" style="background-color:#f58731; border-color:#f58731; color: white; " class="btn btn-primary btn-brand mt-3"
               id="add_interest_btn" disabled>
               Submit
