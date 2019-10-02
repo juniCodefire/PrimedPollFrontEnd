@@ -55,8 +55,8 @@ $(document).ready(function () {
             return false;
         }
             if(images.length > 0) {
-                var options = new FormData();
-                images.map(function (x) {
+                options = new FormData();
+                options = images.map(function (x) {
                     return options.append("option", x);
                 });
 
@@ -68,6 +68,7 @@ $(document).ready(function () {
                 });
             }
             console.log(options);
+           
 
 
         // $(".add_poll_alert_box").hide();
