@@ -1,7 +1,8 @@
 $(document).ready(function () {
     //Declare the option array global
     let options = [];
-
+    let allowOptions = true;
+    let allowComments = true;
     $("#addInterest").on('submit', function (e) {
         e.preventDefault();
         let user_interest_id = $("#user_interest_id").val();
@@ -159,4 +160,34 @@ $(document).ready(function () {
     $(document).on('click', '.addFastPoll', function() {
           $("#newPollModal").modal("toggle");
     });
+    const allowCommentsDiv = document.querySelector('#allow_comments_div');
+    const allowOptionsDiv = document.querySelector('#allow_options_div');
+    const fillOptionsDiv = document.querySelector('#fill_options_div')
+    $("#allow_comments").on('change', function(e){
+        const commentsCheck = e.target || e.srcElement;
+
+        if(commentsCheck.checked) {
+            allowComments = true;
+            console.log(allowComments)
+            allowOptionsDiv.classList.remove('d-none')
+        }else {
+            allowComments = false;
+            console.log(allowComments)
+            allowOptionsDiv.classList.add('d-none')
+        }
+    })
+    $("#allow_options").on('change', function(e){
+        const optionsCheck = e.target || e.srcElement;
+
+        if(optionsCheck.checked) {
+            allowOptions = true;
+            console.log(allowOptions)
+            fillOptionsDiv.classList.remove('d-none')
+        }else {
+            allowOptions = false;
+            console.log(allowOptions)
+            fillOptionsDiv.classList.add('d-none')
+        }
+    })
 });
+

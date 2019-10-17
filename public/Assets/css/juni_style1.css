@@ -246,6 +246,10 @@ body::-webkit-scrollbar-thumb {
     left: 50%;
     top: 50%;
 }
+.feed_loader_1 {
+    left: 50%;
+    top: 50%;
+}
 .upload_spin {
   display: none;
 }
@@ -471,6 +475,9 @@ body::-webkit-scrollbar-thumb {
 }
 }
 @media (max-width: 768px){
+  .voter-data p{
+    margin-top: 0px !important;
+  }
     #phone_btn {
       display: block;
     }

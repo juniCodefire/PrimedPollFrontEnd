@@ -102,16 +102,16 @@ const loadFeeds = () =>
     if (feeds != [])
     {
         console.log(feeds);
-        $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
-            <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
-                 <br>
-                 <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
-                 What do you want ask... ?
-                 <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> New Poll</span>
-                 </h4>
-                 <br>
-            </div>
-          </div>`);
+        // $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
+        //     <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
+        //          <br>
+        //          <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
+        //          What do you want ask... ?
+        //          <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> New Poll</span>
+        //          </h4>
+        //          <br>
+        //     </div>
+        //   </div>`);
 
         //map all Feeds from the feeds array
         feeds.map((feed, i) =>
