@@ -4,6 +4,7 @@ let feeds = [];
 let offset = 20;
 let key = "open";
 let steps = 4;
+let poll_id;
 
 const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
@@ -199,6 +200,7 @@ const loadFeeds = () =>
               </div>
             </div>
         `)
+        
         $(document).on('click', '#poll_users', function (e)
         {
             //display a modal for show all users who voted

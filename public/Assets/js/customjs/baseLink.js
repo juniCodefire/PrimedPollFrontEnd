@@ -1,4 +1,5 @@
-const baseUrl = `https://polledapp.herokuapp.com/`;
+// const baseUrl = `https://polledapp.herokuapp.com/`;
+const baseUrl = `http://localhost:8500/`;
 const siteTitle = `Primed Poll`;
 const siteLogo = `<img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../Assets/images/01.png" alt="">`;
 
