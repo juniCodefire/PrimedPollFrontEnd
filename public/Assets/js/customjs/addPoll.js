@@ -2,6 +2,7 @@ $(document).ready(function () {
     //Declare the option array global
     let options = [];
     let images = [];
+    let option_type;
 
 
     $("#addInterest").on('submit', function (e) {
@@ -54,60 +55,62 @@ $(document).ready(function () {
             $("#question_err").show();
             return false;
         }
+        var formData = new FormData();
             if(images.length > 0) {
-                options = new FormData();
-                options = images.map(function (x) {
-                    return options.append("option", x);
+                console.log('i')
+                option_type = "image";
+                images.map(function (image) {
+                    formData.append('options[]', image);
                 });
-
+                console.log(formData.getAll('options[]'))
             }else {
-                options = options.map(function (x) {
-                    return {
-                        "option": x
-                    }
+                console.log('t')
+                option_type = "text";
+                options.map(function (option) {
+                    formData.append('options[]', option);
                 });
             }
-            console.log(options);
-           
+            formData.append('question', pollQuestion);
+            formData.append('startdate', startdate);
+            formData.append('expirydate', expirydate);
+            formData.append('option_type', option_type);
 
+            
+        $(".add_poll_alert_box").hide();
+        $(".add_interest_spin").css('display', 'flex');
+        $("#add_interest_btn").hide();
+        var settings = {
+            "url": `${baseUrl}api/${user_interest_id}/poll`,
+            "method": "POST",
+            "timeout": 0,
+            "dataType": 'json',
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "headers": {
+                "Authorization": "Bearer " + token
+            },
+            "data": formData
+        };
+        console.log(settings);
+        $.ajax(settings).done(function (response) {
+            console.log(response);
 
-        // $(".add_poll_alert_box").hide();
-        // $(".add_interest_spin").css('display', 'flex');
-        // $("#add_interest_btn").hide();
-        // var settings = {
-        //     "url": `${baseUrl}api/${user_interest_id}/poll`,
-        //     "method": "POST",
-        //     "timeout": 0,
-        //     "headers": {
-        //         "Authorization": "Bearer " + token,
-        //         "Content-Type": "application/x-www-form-urlencoded"
-        //     },
-        //     "data": {
-        //         "question": pollQuestion,
-        //         "startdate": startdate,
-        //         "expirydate": expirydate,
-        //         "options": options
-        //     }
-        // };
-        // console.log(settings);
-        // $.ajax(settings).done(function (response) {
-        //     console.log(response);
+            $(".add_interest_spin").css('display', 'none');
+            $("#add_interest_btn").show();
+            $(".add_poll_alert_box").show();
+            $('#addInterest')[0].reset();
+            $(".option_all").html(``);
+            options = [];
+            $(".join_option").attr("disabled", false);
+            $("#written_option").attr("disabled", false);
+            $("#written_option").attr('placeholder', 'Type in your option');
 
-        //     $(".add_interest_spin").css('display', 'none');
-        //     $("#add_interest_btn").show();
-        //     $(".add_poll_alert_box").show();
-        //     $('#addInterest')[0].reset();
-        //     $(".option_all").html(``);
-        //     options = [];
-        //     $(".join_option").attr("disabled", false);
-        //     $("#written_option").attr("disabled", false);
-        //     $("#written_option").attr('placeholder', 'Type in your option');
-
-        // }).fail(function (err) {
-        //     console.log(err);
-        //     $(".add_interest_spin").css('display', 'none');
-        //     $("#add_interest_btn").show();
-        // });
+        }).fail(function (err) {
+            console.log(err);
+            $(".add_interest_spin").css('display', 'none');
+            $("#add_interest_btn").show();
+        });
 
     });
 
@@ -184,7 +187,8 @@ $(document).ready(function () {
 
             let imageFile = e.target;
             let values = Array.from(imageFile.files);
-               images.push(...values);
+                //Check the image is less than four
+                values.length > 4 ? console.log('Errro: image should be less than 4!') : images.push(...values);
                $("#data-img-display").html(`
                     <div id="data-img-add-btn" class="col-3 border-right">
                         <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
@@ -207,13 +211,10 @@ $(document).ready(function () {
                             </div>
                         `);
                     };
-                    console.log(i)
                     if(i == 3) {
                         const dataImgAddBtn = document.querySelector('#data-img-add-btn');
-                        console.log(dataImgAddBtn);
                         dataImgAddBtn.style.display = 'none';
                     } 
-                    console.log(i)
                     reader.readAsDataURL(image);
                   })                
                }
