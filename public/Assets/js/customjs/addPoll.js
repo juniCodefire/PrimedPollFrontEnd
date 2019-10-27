@@ -1,9 +1,20 @@
 $(document).ready(function () {
     //Declare the option array global
     let options = [];
+    let images = [];
+    let option_type;
+
 
     $("#addInterest").on('submit', function (e) {
         e.preventDefault();
+        console.log(options);
+        console.log(images);
+        if(options.length > 0 && images.length > 0){
+            console.log('kkkk')
+            $("#data-option-conflit").show();
+            return false;
+        }
+        $("#data-option-conflit").hide();
         let user_interest_id = $("#user_interest_id").val();
         let pollQuestion     = $("#pollQuestion").val();
         let startdate        = $("#startDate").val();
@@ -30,11 +41,13 @@ $(document).ready(function () {
             $("#date_err").show();
             return false;
         }
-        if (options.length < 2) {
-            $("#written_option").attr('placeholder', 'Your options must be 2 more!');
-            $("#written_option").addClass('written_option');
-            $("#textPollCollapse").show();
-            return false;
+        if(images.length == 0){
+            if (options.length < 2) {
+                $("#written_option").attr('placeholder', 'Your options must be 2 more!');
+                $("#written_option").addClass('written_option');
+                $("#textPollCollapse").show();
+                return false;
+            }
         }
         if (pollQuestion.length > 100 || pollQuestion.length < 5) {
             $("#question_err").html('Question must be below 100 or above 5 character lenght');
@@ -42,11 +55,27 @@ $(document).ready(function () {
             $("#question_err").show();
             return false;
         }
-        options = options.map(function (x) {
-            return {
-                "option": x
+        var formData = new FormData();
+            if(images.length > 0) {
+                console.log('i')
+                option_type = "image";
+                images.map(function (image) {
+                    formData.append('options[]', image);
+                });
+                console.log(formData.getAll('options[]'))
+            }else {
+                console.log('t')
+                option_type = "text";
+                options.map(function (option) {
+                    formData.append('options[]', option);
+                });
             }
-        });
+            formData.append('question', pollQuestion);
+            formData.append('startdate', startdate);
+            formData.append('expirydate', expirydate);
+            formData.append('option_type', option_type);
+
+            
         $(".add_poll_alert_box").hide();
         $(".add_interest_spin").css('display', 'flex');
         $("#add_interest_btn").hide();
@@ -54,16 +83,14 @@ $(document).ready(function () {
             "url": `${baseUrl}api/${user_interest_id}/poll`,
             "method": "POST",
             "timeout": 0,
+            "dataType": 'json',
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
             "headers": {
-                "Authorization": "Bearer " + token,
-                "Content-Type": "application/x-www-form-urlencoded"
+                "Authorization": "Bearer " + token
             },
-            "data": {
-                "question": pollQuestion,
-                "startdate": startdate,
-                "expirydate": expirydate,
-                "options": options
-            }
+            "data": formData
         };
         console.log(settings);
         $.ajax(settings).done(function (response) {
@@ -89,7 +116,8 @@ $(document).ready(function () {
 
     $(document).on('click', '.join_option', () => {
         let option_val = $("#written_option").val();
-
+        var test = (/\.(gif|jpg|jpeg|tiff|png)$/i).test(option_val)
+        if(!test){
         if (option_val.length > 25) {
             $("#written_option").val("");
             $("#written_option").attr('placeholder', 'Options must be below 30 character lenght');
@@ -127,6 +155,8 @@ $(document).ready(function () {
             $("#written_option").attr("disabled", true);
             $("#written_option").attr('placeholder', 'Only 4 options are allowed');
         }
+
+        }
     });
 
     $(document).on('click', '.delete-option-btn', function () {
@@ -153,6 +183,80 @@ $(document).ready(function () {
             $("#written_option").removeClass('written_option');
         }
     });
+    $(document).on('change', '#inputImage', function (e) {
+
+            let imageFile = e.target;
+            let values = Array.from(imageFile.files);
+                //Check the image is less than four
+                values.length > 4 ? console.log('Errro: image should be less than 4!') : images.push(...values);
+               $("#data-img-display").html(`
+                    <div id="data-img-add-btn" class="col-3 border-right">
+                        <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
+                        <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
+                    </div>
+                    `);
+               if (images){
+                 images.map((image, i)=> {
+                     var reader = new FileReader();
+             
+                    reader.onload = function (e)
+                    {
+
+                        $("#data-img-display").append(`
+                            <div class="col-3 px-1">
+                                <i data-image="${i}" style="color:tomato; position: absolute; right: 0; font-size:20px; z-index:99999;" class="fa fa-close mr-4 mt-1 img-delete-option-btn "></i>
+                                <div class="col-12 px-0" style="height: 138px;">
+                                <img style="border-radius: 10px; width: 100%; height:100%;" class="" src="${e.target.result }">
+                                </div>
+                            </div>
+                        `);
+                    };
+                    if(i == 3) {
+                        const dataImgAddBtn = document.querySelector('#data-img-add-btn');
+                        dataImgAddBtn.style.display = 'none';
+                    } 
+                    reader.readAsDataURL(image);
+                  })                
+               }
+    })
+//Image Delete Controll
+    $(document).on('click', '.img-delete-option-btn', function () {
+        var index = $(this).data('image');
+        images.splice(index, 1);
+
+        $("#data-img-display").html(`
+        <div id="data-img-add-btn" class="col-3 border-right">
+            <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
+            <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
+        </div>
+        `);
+       if (images){
+         images.map((image, i)=> {
+             var reader = new FileReader();
+     
+            reader.onload = function (e)
+            {
+
+                $("#data-img-display").append(`
+                    <div class="col-3 px-1">
+                        <i data-image="${i}" style="color:tomato; position: absolute; right: 0; font-size:20px; z-index:99999;" class="fa fa-close mr-4 mt-1 img-delete-option-btn "></i>
+                        <div class="col-12 px-0" style="height: 138px;">
+                        <img style="border-radius: 10px; width: 100%; height:100%;" class="" src="${e.target.result }">
+                        </div>
+                    </div>
+                `);
+            };
+            console.log(i)
+            if(i < 3) {
+                const dataImgAddBtn = document.querySelector('#data-img-add-btn');
+                console.log(dataImgAddBtn);
+                dataImgAddBtn.style.display = 'block';
+            } 
+            console.log(i)
+            reader.readAsDataURL(image);
+          })                
+       }
+    });
     $(document).on('click', '.close_add_poll_alert', function() {
          $(".add_poll_alert_box").hide();
     });
@@ -160,3 +264,4 @@ $(document).ready(function () {
           $("#newPollModal").modal("toggle");
     });
 });
+

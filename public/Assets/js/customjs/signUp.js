@@ -45,6 +45,7 @@ $(document).ready( function() {
         }).fail( function(err) {
 
           if (err) {
+						console.log(err);
             $(".juni_spin").hide();
             if (err.status === 422) {
               if (err.responseJSON.email) {

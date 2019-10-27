@@ -1,0 +1,191 @@
+
+.se-pre{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    background: url("../images/rippleloader.gif") center no-repeat rgba(8, 8, 8, 0.157);
+    background-size: 100px 100px;
+    display: none;
+}
+.se-pre p{
+    position: fixed;
+    left: 50%;
+    text-align: center;
+    top: 50%;
+    z-index: 9999999;
+    color: rgb(163,73,164);
+    font-weight: bold;
+    font-family: cursive;
+}
+.preload_interest{
+    position: absolute;
+    width: 95%;
+    max-height: 22vh !important;
+    border: none !important;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat !important;
+    background-size: 100px 100px !important;
+}
+
+.preload_update{
+    width: 100%;
+    height: 5vh;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat #fff;
+    background-size: 50px 50px;
+    display: none;
+}
+.preload_more_feeds{
+    width: 100%;
+    height: 5vh;
+    z-index: 999;
+    background: url("../images/rippleloader.gif") center no-repeat;
+    background-size: 50px 50px;
+    display: none;
+}
+.preload_vote {
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  background: url("../images/rippleloader.gif") rgba(0, 0, 0, 0.5) center no-repeat;
+  background-size: 50px 50px;
+  position: absolute;
+  border-radius: 10px;
+  display: none;
+}
+.double{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 999999999;
+    background: url("../images/rippleloader.gif") center no-repeat rgba(8, 8, 8, 0.157);
+    background-size: 100px 100px;
+    display: none;
+}
+.option_box1{
+    overflow-y: scroll;
+    width: 100%;
+    height: 46vh;
+    margin-bottom: 3%;
+}
+/*FireFox */
+.scroller {
+    overflow-y: scroll !important;
+    scrollbar-color: rgba(51, 50, 50, 0.384);
+    scrollbar-width: thin;
+    scroll-behavior: smooth !important;
+    cursor: pointer;
+}
+.scroller_x {
+    overflow-x: scroll !important;
+    scrollbar-color: rgba(51, 50, 50, 0.384);
+    scrollbar-width: thin;
+    scroll-behavior: smooth !important;
+    cursor: pointer;
+}
+
+.scroller::-webkit-scrollbar {
+    width: 5px;
+    overflow-y: scroll;
+    transition: 1s all ease;
+    scroll-behavior: smooth !important;
+    cursor: pointer;
+  }
+  /* Track */
+  .scroller::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+    display: none;
+  }
+  /* Handle */
+  .scroller::-webkit-scrollbar-thumb {
+    background: rgba(51, 50, 50, 0.384);
+    border-radius: 10px;
+    visibility: hidden;
+    cursor: pointer;
+    scroll-behavior: smooth !important;
+  }
+  /* Handle */
+  .scroller:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+    transform: scale(0.003);
+  }
+
+
+
+  .scroller_x::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+      cursor: pointer;
+    }
+
+    /* Track */
+    .scroller_x::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px grey;
+      border-radius: 10px;
+      display: none;
+    }
+    /* Handle */
+    .scroller_x::-webkit-scrollbar-thumb {
+      background: rgba(51, 50, 50, 0.384);
+      border-radius: 10px;
+      visibility: hidden;
+      cursor: pointer;
+      scroll-behavior: smooth !important;
+    }
+    /* Handle */
+    .scroller_x:hover::-webkit-scrollbar-thumb {
+      visibility: visible;
+      transform: scale(0.003);
+    }
+
+.option_box2{
+    overflow-y: scroll;
+    width: 100%;
+    height: 50vh;
+}
+.option{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px rgba(34, 34, 34, 0.384);
+    height: 10vh;
+    width:80%;
+    margin: auto;
+}
+.fa-user-circle{
+    margin-top: 55%;
+    font-size:40px;
+}
+.name{
+    margin-top:10%;
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: -2px;
+    text-align: left;
+}
+.follow{
+    border: 1px solid#f58731;
+    border-radius: 20px;
+    padding: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#f58731;
+    font-size: 10px;
+    float: right;
+
+   }
+.follow:hover{
+    background: #00000013;
+    color:#f58731;
+}
+a{
+    text-decoration: none !important;
+}
+p a{
+    color: black;
+
+}

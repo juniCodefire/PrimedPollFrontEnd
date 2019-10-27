@@ -1,0 +1,1 @@
+const baseHome = `https://polledapp.herokuapp.com/`;
