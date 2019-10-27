@@ -57,14 +57,12 @@ $(document).ready(function () {
         }
         var formData = new FormData();
             if(images.length > 0) {
-                console.log('i')
                 option_type = "image";
                 images.map(function (image) {
                     formData.append('options[]', image);
                 });
                 console.log(formData.getAll('options[]'))
             }else {
-                console.log('t')
                 option_type = "text";
                 options.map(function (option) {
                     formData.append('options[]', option);
@@ -190,7 +188,7 @@ $(document).ready(function () {
                 //Check the image is less than four
                 values.length > 4 ? console.log('Errro: image should be less than 4!') : images.push(...values);
                $("#data-img-display").html(`
-                    <div id="data-img-add-btn" class="col-3 border-right">
+                    <div id="data-img-add-btn" class="col-3 border-right import_img">
                         <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
                         <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
                     </div>
@@ -204,8 +202,8 @@ $(document).ready(function () {
 
                         $("#data-img-display").append(`
                             <div class="col-3 px-1">
-                                <i data-image="${i}" style="color:tomato; position: absolute; right: 0; font-size:20px; z-index:99999;" class="fa fa-close mr-4 mt-1 img-delete-option-btn "></i>
-                                <div class="col-12 px-0" style="height: 138px;">
+                                <i data-image="${i}" style="color:tomato; position: absolute; right: 0; cursor:pointer; font-size:20px; z-index:99999;" class="fa fa-close mr-4 mt-1 img-delete-option-btn "></i>
+                                <div class="col-12 px-0 img_placeholder">
                                 <img style="border-radius: 10px; width: 100%; height:100%;" class="" src="${e.target.result }">
                                 </div>
                             </div>

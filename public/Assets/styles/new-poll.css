@@ -13,12 +13,13 @@
 #textPollCollapse {
 	display: none;
 }
-
+.img_placeholder {
+	height: 138px;
+  }
 #imagePollCollapse {
 	display: none;
 
 }
-
 #imagePollCollapse .card {
 	min-height: 30vh;
 }
