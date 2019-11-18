@@ -4,6 +4,39 @@
 #poll-card #user-image {
   /* border-radius: 20px; */
 }
+
+#imagePollCollapse {
+	display: none;
+
+}
+
+#imagePollCollapse .card {
+	min-height: 10vh;
+}
+
+#inputImage {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.img_placeholder {
+  height: 100px;
+  width: 100%;
+}
+#imagePollCollapse label i {
+	font-size: 5vh;
+}
+.import_img {
+  font-size: 10px;
+  height: 15vh;
+}
+#imagePollCollapse img {
+	height: 50%;
+}
+
 .ec_poll-interest {
   float: right;
 }
