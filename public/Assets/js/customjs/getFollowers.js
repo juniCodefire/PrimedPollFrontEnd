@@ -35,7 +35,7 @@ const getFollowers = (pass, {followers, image_link}) => {
         followers.map((follower, i) => {
               let usernameLink = `${pass}${follower.id}#${follower.username.substring(1, follower.username.length)}`;
               getFollowersBox.innerHTML += `
-                <div class="follow-stat-box col-3 mt-2">
+                <div class="follow-stat-box px-1 col-6 col-md-4 col-xl-3 mt-2">
                   <div class="col-12 border text-center py-2">
                     <a class="site_formt_color" href="${window.location.origin}${usernameLink}">
                         <img src="${ image_link }${ follower.image }" alt="${ follower.first_name } ${ follower.last_name } class="mt-2 border">
@@ -57,7 +57,7 @@ const getFollowing = (pass, {following, image_link}) => {
         following.map((followin, i) => {
               let usernameLink = `${pass}${followin.id}#${followin.username.substring(1, followin.username.length)}`;
             getFollowingBox.innerHTML += `
-              <div class="follow-stat-box col-3 mt-2">
+              <div class="follow-stat-box px-1 col-6 col-md-4 col-xl-3 mt-2">
                 <div class="col-12 border text-center py-2">
                   <a class="mt-2 site_formt_color" href="${window.location.origin}${usernameLink}">
                       <img src="${ image_link }${ followin.image }" alt="${ followin.first_name } ${ followin.last_name } class="border">

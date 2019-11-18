@@ -178,6 +178,23 @@
   text-overflow: ellipsis;
   overflow: hidden;
 }
+.poll-images-box{
+  
+}
+.poll-image{
+  border-radius: 5px;
+  height: 20vh;
+}
+.poll-image img{
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selected-image{
+  border: 3px solid #f58731;
+}
 @media screen and (max-width:991px){
 	#follow-con{
 		display: none;

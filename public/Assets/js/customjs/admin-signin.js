@@ -39,40 +39,42 @@ signInFunc = (event) => {
             .then(response => errorHandler(response))
 
             .then(data => {
+                console.log(status)
                 console.log(data)
                 if (status == 404) {
                     Swal.fire({
                         title: '<h4>Sign In Error</h4>',
-                        html : `<p>${data.message}</p>`,
+                        html: `<p>${data.message}</p>`,
                         animation: true,
                         customClass: {
                             popup: 'animated fadeIn'
                         }
                     })
-                } else if (status == 422){
-                    
+                } else if (status == 422) {
+
                     Swal.fire({
                         title: '<h4>Sign In Error</h4>',
-                        html : `<p class="red-text" id="error422"></p>`,
+                        html: `<p class="red-text" id="error422"></p>`,
                         animation: true,
                         customClass: {
                             popup: 'animated fadeIn'
                         }
                     })
                     const error422 = document.querySelector('#error422')
-                    if (data.email){
+                    if (data.email) {
                         error422.innerHTML += `${data.email[0]}<br>`
                     }
-                    if (data.password){
+                    if (data.password) {
                         error422.innerHTML += `${data.password[0]}<br>`
                     }
 
                 }
-                const swalBtns = Array.from(document.querySelectorAll('.swal2-styled'));
-                swalBtns.map(swapBtn => swapBtn.classList.add('error-alert-btn'))
-                localStorage.setItem("adminInfo", JSON.stringify(data))
-                location.replace("index.html")
-                
+                else if (status == 200) {
+                    const swalBtns = Array.from(document.querySelectorAll('.swal2-styled'));
+                    swalBtns.map(swapBtn => swapBtn.classList.add('error-alert-btn'))
+                    localStorage.setItem("adminInfo", JSON.stringify(data))
+                    location.replace("index.html")
+                }
             })
             .catch(error => console.error(error))
     }
