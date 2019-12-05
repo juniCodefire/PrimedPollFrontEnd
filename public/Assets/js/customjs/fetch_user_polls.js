@@ -198,10 +198,14 @@ const loadFeeds = () => {
                         </div>`
                     );
                 } else if (option_type == 'image') {
+                  console.log(option_id)
                     $(`#options_box${poll_id}`).append(`
-                        <div class="col-6 col-md-3 mt-2 px-0">
+                        <div class="poll1Imageoption col-6 col-md-3 mt-2 px-0">
                             <div class="poll-image px-1">
-                                <img src="${image_link}${ option}" alt="">
+                                <img class="imageOption" src="${image_link}${ option}"
+                                data-selected-option-image-id="${option_id}" data-selected-poll-image-creator="${poll_owner_id}"
+                                data-selected-poll-image-id="${poll_id}"
+                                 alt="load error">
                             </div>
                         </div>
                     `
@@ -242,9 +246,21 @@ const loadFeeds = () => {
         });
         $(document).on('click', '.poll1option', function (e) {
             const optBtn = e.srcElement || e.target;
+            console.log(optBtn)
             option_id = Number(optBtn.dataset.selectedOptionId);
             poll_owner_id = Number(optBtn.dataset.selectedPollCreator);
-            poll_id = optBtn.dataset.selectedPollId;
+            poll_id =  Number(optBtn.dataset.selectedPollId);
+                console.log(option_id, poll_owner_id, poll_id )
+        });
+
+        $(document).on('click', '.poll1Imageoption', function (e) {
+            const optBtn = e.srcElement || e.target;
+            Array.from(document.querySelectorAll('.imageOption')).map(x => x.style.border = '0px');
+            option_id = Number(optBtn.dataset.selectedOptionImageId);
+            poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
+            poll_id =  Number(optBtn.dataset.selectedPollImageId);
+            optBtn.style.border = '3px solid #f58731';
+            console.log(option_id, poll_owner_id, poll_id )
         });
 
         $(document).on('click', '.voteBtn', function (e) {
@@ -254,7 +270,7 @@ const loadFeeds = () => {
             const vote_status = targetBtn.dataset.voteStatus;
             const owner_poll = targetBtn.dataset.pollOwner;
 
-            console.log(vote_status)
+            console.log(check_poll_id, vote_status, owner_poll)
             if (!isNaN(vote_status)) {
                 option_id = vote_status;
                 poll_owner_id = owner_poll;

@@ -25,7 +25,8 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
     //call the APi function
     postData(`${ baseUrl }api/${ poll_id }/vote`, {option_id, poll_owner_id})
       .then(data => {
-        if (data.check === 1) {
+        console.log(data)
+        // if (data.check === 1) {
           $(`#voteBtn${ data.vote.poll_id }`).html('Unvote');
           $(`#voteBtn${ data.vote.poll_id }`).show();
           $(`#voteBtn${ data.vote.poll_id }`).css('background', 'lightgreen');
@@ -33,15 +34,15 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
           $(`#answer${ option_id }`).css('color', '#f58731');
           $(`#preload_vote${ data.vote.poll_id }`).hide();
           reSetAttr.dataset.voteStatus = data.vote.option_id;
-        }else {
-          $(`#voteBtn${ data.unvote.poll_id }`).html('Vote');
-          $(`#voteBtn${ data.unvote.poll_id }`).show();
-          $(`#voteBtn${ data.unvote.poll_id }`).css('background', '#f58731');
-          $(`.poll1option${ data.unvote.poll_id }`).removeAttr('disabled');
-          $(`#answer${ option_id }`).css('color', '#868e96');
-          $(`#preload_vote${ data.unvote.poll_id }`).hide();
-          reSetAttr.dataset.voteStatus = false;
-        }
+        // }else {
+        //   $(`#voteBtn${ data.unvote.poll_id }`).html('Vote');
+        //   $(`#voteBtn${ data.unvote.poll_id }`).show();
+        //   $(`#voteBtn${ data.unvote.poll_id }`).css('background', '#f58731');
+        //   $(`.poll1option${ data.unvote.poll_id }`).removeAttr('disabled');
+        //   $(`#answer${ option_id }`).css('color', '#868e96');
+        //   $(`#preload_vote${ data.unvote.poll_id }`).hide();
+        //   reSetAttr.dataset.voteStatus = false;
+        // }
         feeds = [];
         // triggerStaticFeeds(loader=false);
       })
