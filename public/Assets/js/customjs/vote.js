@@ -27,13 +27,21 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
       .then(data => {
         console.log(data)
         // if (data.check === 1) {
-          $(`#voteBtn${ data.vote.poll_id }`).html('Unvote');
+          $(`#voteBtn${data.vote.poll_id}`).html('<i style="font-size:16px;" class="fa fas fa-check" aria-hidden="true"></i>');
+          $(`#voteBtn${data.vote.poll_id}`).css('background', 'lightgreen');
+          $(`#voteBtn${data.vote.poll_id}`).css('border-radius', '50%');
+          $(`#voteBtn${data.vote.poll_id}`).css('padding', '0');
+          $(`#voteBtn${data.vote.poll_id}`).css('width', '5vh');
+          $(`#voteBtn${data.vote.poll_id}`).css('height', '5vh');
+          $(`#voteBtn${data.vote.poll_id}`).attr('disabled');
+          $(`#voteBtn${data.vote.poll_id}`).attr('title', 'Voted');
           $(`#voteBtn${ data.vote.poll_id }`).show();
-          $(`#voteBtn${ data.vote.poll_id }`).css('background', 'lightgreen');
-          $(`.poll1option${ data.vote.poll_id }`).attr('disabled', 'disabled');
           $(`#answer${ option_id }`).css('color', '#f58731');
           $(`#preload_vote${ data.vote.poll_id }`).hide();
           reSetAttr.dataset.voteStatus = data.vote.option_id;
+          Array.from(document.querySelectorAll(`.pollImageOption${poll_id}`)).map(x => {
+              x.dataset.voteStatus = data.vote.option_id;
+          });
         // }else {
         //   $(`#voteBtn${ data.unvote.poll_id }`).html('Vote');
         //   $(`#voteBtn${ data.unvote.poll_id }`).show();

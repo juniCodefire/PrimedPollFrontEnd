@@ -1,7 +1,7 @@
 
 
 let feeds = [];
-let offset = 20;
+let offset = 10;
 let key = "open";
 let steps = 4;
 let poll_id;
@@ -12,13 +12,14 @@ let interest_id = getSearchParam.get("interest_id");
 
 const triggerStaticFeeds = (loader) => {
     if (loader == true) {
-        $("#feed_loader").show();
+        loadFeeds();
+        // $("#feed_loader").show();
     }
     var url_link = `${baseUrl}api/feeds`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}`;
     }
-    console.log(url_link);
+
     var settings = {
         "url": `${url_link}`,
         "method": "GET",
@@ -33,20 +34,24 @@ const triggerStaticFeeds = (loader) => {
             $("#feed_loader").hide();
             var feedsData = response.data.feeds;
 
-            feeds.push(...feedsData);
+            //Store in localStorage for offline fisrt
+            feeds = [];
+            localStorage.removeItem('stored_broswer_polls');
+            localStorage.setItem('stored_broswer_polls', JSON.stringify(feedsData));
             loadFeeds();
         }
     }).fail(function (err) {
-        console.log(err);
     });
 
 }
-const triggerDynamicFeeds = () => {
+const triggerDynamicFeeds = (reflex) => {
     key = "close";
+    $("#feeds_box")[0].scrollBy(0, reflex);
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
     }
+    console.log(url_link)
 
     settings = {
         "url": `${url_link}`,
@@ -59,22 +64,31 @@ const triggerDynamicFeeds = () => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
+
+          console.log(response)
             key = "open";
             steps = 4;
-            console.log(response);
             $(".dynamic_feed_loader").hide();
             let feedsData = response.data.scrolled_feeds;
 
             if (feedsData.length == 0) {
+                // $("#feeds_box")[0].clientHeight, $("#feeds_box")[0].scrollHeight;
                 $(".dynamic_feed_loader").hide();
                 return $(".dynamic_spin_text").html("No more feeds to load...");
+            }else {
+              //Store in localStorage for offline first
+              localStorage.removeItem('stored_broswer_polls');
+              console.log(feeds)
+              offset = response.data.new_offset;
+              feeds.push(...feedsData);
+              console.log(feeds)
+              localStorage.setItem('stored_broswer_polls', JSON.stringify(feeds));
+              feeds = [];
+              console.log(feeds)
+              loadFeeds();
             }
-            feeds.push(...feedsData);
-            loadFeeds();
-            offset = response.data.new_offset;
         }
     }).fail(function (err) {
-        console.log(err);
         if (err) {
             $(".dynamic_feed_loader").hide();
             key = "open";
@@ -88,10 +102,10 @@ const loadFeeds = () => {
     let option_id = null;
     let poll_owner_id = null;
     let poll_id = null;
-    console.log(poll_id);
-    console.log(feeds)
-    if (feeds != []) {
-        console.log(feeds);
+    const feedsData = JSON.parse(localStorage.getItem('stored_broswer_polls'));
+    if (feedsData != null ) {
+        feeds.push(...feedsData);
+              console.log(feeds)
         $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
@@ -108,7 +122,6 @@ const loadFeeds = () => {
             //Destrusturing feeds
             const { image_link, image, firstname, lastname, interest, poll, poll_id, poll_owner_id, option, poll_date, option_type, vote_status, votes_count } = feed;
             let wrapImage = `${image_link}${image}`;
-            console.log(poll_date);
             if (option_type == 'text') {
                 $(`#feeds_box`).append(`
                     <div class="col-lg-12 col-sm-12 mt-2 mb-2">
@@ -133,7 +146,7 @@ const loadFeeds = () => {
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}" data-poll-owner="${poll_owner_id}"
-                                style="margin-bottom:10px; cursor:pointer;" data-toggle="popover" title="Not allowed!" data-content="Please select an option to vote">Vote!
+                                style="margin-bottom:10px; cursor:pointer;" data-toggle="popover" title="Vote Poll!" data-content="Please select an option to vote">Vote!
                                 </button>
                             </div>
                         </div>
@@ -174,9 +187,16 @@ const loadFeeds = () => {
                 `)
             }
 
+            //Check if the user voted
             if (vote_status) {
-                $(`#voteBtn${poll_id}`).html('Unvote');
+                $(`#voteBtn${poll_id}`).html('<i style="font-size:16px;" class="fa fas fa-check" aria-hidden="true"></i>');
                 $(`#voteBtn${poll_id}`).css('background', 'lightgreen');
+                $(`#voteBtn${poll_id}`).css('border-radius', '50%');
+                $(`#voteBtn${poll_id}`).css('padding', '0');
+                $(`#voteBtn${poll_id}`).css('width', '5vh');
+                $(`#voteBtn${poll_id}`).css('height', '5vh');
+                $(`#voteBtn${poll_id}`).attr('disabled');
+                $(`#voteBtn${poll_id}`).attr('title', 'Voted');
             }
             //Here we map the options for the polls
             $(`#options_box${poll_id}`).html(``);
@@ -187,7 +207,7 @@ const loadFeeds = () => {
                     <div class="ec_poll-answers mt-2 col-11">
                         <div class="ec_poll-answers mt-2 col-11">
                         <div class="custom-control custom-radio">
-                            <input type="radio" id="poll1option${ option_id}" name="polloption" class="custom-control-input poll1option poll1option${poll_id}"
+                            <input  data-vote-status="${vote_status}" type="radio" id="poll1option${ option_id}" name="polloption" class="custom-control-input poll1option poll1option${poll_id}"
                             data-selected-option-id="${ option_id}" data-selected-poll-creator="${poll_owner_id}"
                             data-selected-poll-id="${ poll_id}" >
                             <label class="custom-control-label" for="poll1option${option_id}" id="answer${option_id}">
@@ -197,26 +217,35 @@ const loadFeeds = () => {
                         </div>
                         </div>`
                     );
+
+                    if (vote_status) {
+                        if (vote_status === option_id) {
+                            $(`#poll1option${option_id}`).attr('checked', 'true');
+                            // input:checked ~ .custom-control-label::before {
+                            //       /* background-color: #007bff; */
+                            //   }
+                            // $(`#answer${option_id}`).css('backgound-color', '#f58731 !important');
+                            // $(`#answer${option_id}`).css('color', '#f58731 !important');
+                        }
+                    }
+
                 } else if (option_type == 'image') {
-                  console.log(option_id)
                     $(`#options_box${poll_id}`).append(`
                         <div class="poll1Imageoption col-6 col-md-3 mt-2 px-0">
                             <div class="poll-image px-1">
-                                <img class="imageOption" src="${image_link}${ option}"
+                                <img data-vote-status="${vote_status}" id="optionImage${option_id}" class="imageOption pollImageOption${poll_id}" src="${image_link}${ option}"
                                 data-selected-option-image-id="${option_id}" data-selected-poll-image-creator="${poll_owner_id}"
                                 data-selected-poll-image-id="${poll_id}"
                                  alt="load error">
                             </div>
-                        </div>
-                    `
+                        </div>`
                     );
-                }
-                if (vote_status) {
-                    $(`.poll1option${poll_id}`).attr('disabled', 'disabled');
-                    if (vote_status === option_id) {
-                        $(`#poll1option${option_id}`).attr('checked', 'true');
-                        $(`#answer${option_id}`).css('color', '#f58731');
-                    }
+                    if (vote_status) {
+                          if (vote_status === option_id) {
+                              const optBtn = document.querySelector(`#optionImage${option_id}`);
+                              optBtn.style.border = '3px solid #f58731';
+                          }
+                      }
                 }
             })
             //Show the who to follow after every 5 iteration
@@ -246,31 +275,43 @@ const loadFeeds = () => {
         });
         $(document).on('click', '.poll1option', function (e) {
             const optBtn = e.srcElement || e.target;
-            console.log(optBtn)
-            option_id = Number(optBtn.dataset.selectedOptionId);
-            poll_owner_id = Number(optBtn.dataset.selectedPollCreator);
-            poll_id =  Number(optBtn.dataset.selectedPollId);
-                console.log(option_id, poll_owner_id, poll_id )
+
+            vote_status = optBtn.dataset.voteStatus;
+            if(isNaN(vote_status)) {
+              option_id = Number(optBtn.dataset.selectedOptionId);
+              poll_owner_id = Number(optBtn.dataset.selectedPollCreator);
+              poll_id =  Number(optBtn.dataset.selectedPollId);
+            }else {
+
+            }
         });
 
         $(document).on('click', '.poll1Imageoption', function (e) {
             const optBtn = e.srcElement || e.target;
-            Array.from(document.querySelectorAll('.imageOption')).map(x => x.style.border = '0px');
-            option_id = Number(optBtn.dataset.selectedOptionImageId);
-            poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
-            poll_id =  Number(optBtn.dataset.selectedPollImageId);
-            optBtn.style.border = '3px solid #f58731';
-            console.log(option_id, poll_owner_id, poll_id )
+            vote_status = optBtn.dataset.voteStatus;
+            Array.from(document.querySelectorAll('.imageOption')).map(x => {
+              const voteStatus = x.dataset.voteStatus;
+              if(isNaN(voteStatus)) {
+                x.style.border = '0px';
+              }
+            });
+            if(isNaN(vote_status)) {
+              option_id = Number(optBtn.dataset.selectedOptionImageId);
+              poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
+              poll_id =  Number(optBtn.dataset.selectedPollImageId);
+              optBtn.style.border = '3px solid #f58731';
+            }else {
+              const optBtn = document.querySelector(`#optionImage${vote_status}`);
+              optBtn.style.border = '3px solid #f58731';
+            }
         });
 
         $(document).on('click', '.voteBtn', function (e) {
             const targetBtn = e.srcElement || e.target;
-            console.log(targetBtn);
             const check_poll_id = targetBtn.dataset.selectedVote;
             const vote_status = targetBtn.dataset.voteStatus;
             const owner_poll = targetBtn.dataset.pollOwner;
 
-            console.log(check_poll_id, vote_status, owner_poll)
             if (!isNaN(vote_status)) {
                 option_id = vote_status;
                 poll_owner_id = owner_poll;
@@ -297,15 +338,20 @@ const loadFeeds = () => {
                     background: 'darkgray',
                     title: '<span style="color:white;">You need to select an option first to vote!</span>'
                 })
-                console.log('You need to select an option first to vote!');
             }
         });
     } else {
         $("#feeds_box").html(`
-              <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
-                 <p> You have no feed at this time, you can start by creating a poll
-                  <span  class="addFastPoll">Create Poll</span><p>
+          <div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
+              <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
+                   <br>
+                   <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
+                   You have no feed at this time, you can start by creating a poll...
+                   <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
+                   </h4>
+                   <br>
               </div>
+            </div>
         `);
     }
 }
@@ -316,13 +362,13 @@ $('#feeds_box').on('scroll', function () {
     // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
     if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
         console.log($("#feeds_box")[0].clientHeight);
+        const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 100);
         $(".dynamic_feed_loader").show();
         if (key == "open") {
-            triggerDynamicFeeds();
+            triggerDynamicFeeds(reflex);
         } else {
             $(".dynamic_spin_text").html("Loading please wait");
         }
-
     } else {
         $(".dynamic_spin_text").html("Loading more feeds please wait...");
     }
