@@ -1,9 +1,9 @@
 const toFollows = [];
-console.log(toFollows)
+
 const to_follow_box = document.querySelector('[data-follow-member]');
 //Declare a steps variable to jump the to_follow member
 const user_id = localStorage.getItem('user_id');
-console.log(user_id);
+
 
 //////////////////////////////////////////Follow Api Start Here \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 const api = `${ baseUrl }api/follow`;
@@ -16,7 +16,6 @@ fetch(api, {
   })
   .then(response => response.json())
   .then(data => {
-    console.log(data);
     toFollows.push(...data.to_follow);
     shuffleToFollowArray(toFollows);
     showToFollowMember(data.image_link);

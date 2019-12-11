@@ -4,6 +4,39 @@
 #poll-card #user-image {
   /* border-radius: 20px; */
 }
+
+#imagePollCollapse {
+	display: none;
+
+}
+
+#imagePollCollapse .card {
+	min-height: 10vh;
+}
+
+#inputImage {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.img_placeholder {
+  height: 100px;
+  width: 100%;
+}
+#imagePollCollapse label i {
+	font-size: 5vh;
+}
+.import_img {
+  font-size: 10px;
+  height: 15vh;
+}
+#imagePollCollapse img {
+	height: 50%;
+}
+
 .ec_poll-interest {
   float: right;
 }
@@ -144,6 +177,23 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+}
+.poll-images-box{
+  
+}
+.poll-image{
+  border-radius: 5px;
+  height: 20vh;
+}
+.poll-image img{
+  border-radius: 5px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.selected-image{
+  border: 3px solid #f58731;
 }
 @media screen and (max-width:991px){
 	#follow-con{

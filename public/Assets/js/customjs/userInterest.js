@@ -12,7 +12,6 @@ $(document).ready(function () {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-            console.log(response);
             $("#user_interest_loader").hide();
             $(".selectInterest").html(``);
             $(".selectInterest").removeAttr(`disabled`);
