@@ -206,27 +206,21 @@ const loadFeeds = () => {
                     $(`#options_box${poll_id}`).append(`
                     <div class="ec_poll-answers mt-2 col-11">
                         <div class="ec_poll-answers mt-2 col-11">
-                        <div class="custom-control custom-radio">
-                            <input  data-vote-status="${vote_status}" type="radio" id="poll1option${ option_id}" name="polloption" class="custom-control-input poll1option poll1option${poll_id}"
+                        <div class="custom-control custom-radio" data-poll-answered${poll_id}>
+                            <input data-vote-status="${vote_status}" type="radio" id="poll1option${option_id}" name="polloption" class="custom-control-input poll1option poll1option${poll_id}"
                             data-selected-option-id="${ option_id}" data-selected-poll-creator="${poll_owner_id}"
                             data-selected-poll-id="${ poll_id}" >
                             <label class="custom-control-label" for="poll1option${option_id}" id="answer${option_id}">
-                            ${ option}
+                              ${ option}
                             </label>
                         </div>
                         </div>
                         </div>`
                     );
 
-                    if (vote_status) {
-                        if (vote_status === option_id) {
-                            $(`#poll1option${option_id}`).attr('checked', 'true');
-                            // input:checked ~ .custom-control-label::before {
-                            //       /* background-color: #007bff; */
-                            //   }
-                            // $(`#answer${option_id}`).css('backgound-color', '#f58731 !important');
-                            // $(`#answer${option_id}`).css('color', '#f58731 !important');
-                        }
+                    if (vote_status == option_id) {
+                          const optBtn = document.querySelector(`#answer${option_id}`);
+                          optBtn.style.color = '#f58731';
                     }
 
                 } else if (option_type == 'image') {
