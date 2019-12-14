@@ -10,7 +10,7 @@ const publicProfile =
     `<!--Public Preloader-->
     <div class="publicPreloader">
        <main>
-       <p class="preloader_text">Loading..<span class="last-dot">.</span></p>
+       <p class="preloader_text">Loading...<span class="last-dot">.</span></p>
        </main>
     </div>
     <div class="container-fluid">
@@ -111,7 +111,7 @@ const publicProfile =
                                         </div>
                                         <div class="notification__content">
                                             <span class="notification__category">Analytics</span>
-                                            <p>Your website’s active users count increased by
+                                            <p>Your website’s active user count increased by
                                                 <span class="text-success text-semibold">28%</span> in the last
                                                 week.
                                                 Great job!</p>

@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title class="site_title">Sign Up | </title>
+    <title class="site_title">Sign Up | PrimedPoll</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
-    <link rel="stylesheet" href="../Assets/css/ec_style.css">
-    <link rel="stylesheet" href="../Assets/css/juni_style.css">
-    <link rel="stylesheet" href="../Assets/css/juni_style1.css">
-    <link rel="stylesheet" href="../Assets/css/favour.css">
-    <script type="text/javascript" src="../Assets/js/customjs/preloader.js"></script>
+    <link rel="stylesheet" href="../assets/css/ec_style.css">
+    <link rel="stylesheet" href="../assets/css/juni_style.css">
+    <link rel="stylesheet" href="../assets/css/juni_style1.css">
+    <link rel="stylesheet" href="../assets/css/favour.css">
+    <script type="text/javascript" src="../assets/js/customjs/preloader.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
@@ -25,51 +25,55 @@
     <!-- End -->
     <div class="container-fluid ec_auth-body">
         <div class="row">
-            <div class="col-md-3 col-sm-7  mt-2 site_name"></div>
+            <div class="col-md-3 col-lg-3 col-sm-6 mt-2 site_name"></div>
 
             <div class="se-pre">
                 <p align='center'></p>
             </div>
-
-            <div class="col-lg-6 col-md-8 col-sm-10 col-12 row ec_signup-form">
-                <form action="" class="col-12 ec_form ml-3 mt-5" id="signup-form">
+            <div class="col-lg-7 col-md-8 col-10 row ec_signup-form">
+                <form action="" class="col-12 ec_form mt-5" id="signup-form">
                     <p class="text-center ec_lg-text" style="color: #f58731; font-weight: bold;">Sign Up</p>
                     <div class="form-group row">
-                        <label for="email" class="text-white col-2 mt-2">Email</label>
-                        <div class=" ml-3 col-8">
+                        <!-- <label for="email" class="text-white col-2 mt-2 auth-text">Email</label> -->
+                        <div class="col-lg-7 col-11  mx-auto">
                             <input type="email" class="form-control form-control" id="ec_email" placeholder="joe@mail.com">
                             <p class="err_signup" id="juni_err_email"></p>
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="password" class="text-white col-2 mt-2">Password</label>
-                        <div class="ml-3 col-8">
+                      <!--   <label for="password" class="text-white col-2 mt-2 auth-text">Password</label> -->
+                        <div class="col-lg-7  col-11  mx-auto">
                             <input type="password" class="form-control form-control" id="ec_password" placeholder="Enter Password">
                             <p class="err_signup" id="juni_err_password"></p>
                         </div>
                     </div>
                     <div class="form-group ec_confirm_password row mb-0">
-                        <label for="ec_confirm_password" class="text-white col-2">Confirm Password</label>
-                        <div class="ml-3 col-8">
+                       <!--  <label for="ec_confirm_password" class="text-white col-2 auth-text">Confirm Password</label> -->
+                        <div class="col-lg-7  col-11  mx-auto">
                             <input type="password" class="form-control form-control" id="ec_confirm_password"
                                 placeholder="Password Again">
                         </div>
                     </div>
-                    <div class="form-check text-center">
-                        <input class="form-check-input" type="checkbox" name="tccheckbox" id="ec_checkbox" value="option1"
-                            unchecked>
-                        <label class="form-check-label ec_text-grey" for="ec_tccheckbox">
-                            <small>By clicking, you accept our terms and conditions</small>
+                    <div class="form-check">
+                        <label class="ec_med-text col-lg-7 col-12 offset-lg-2 offset-0 ec_text-grey">
+                            <p class="mb-0" style="font-size: 12px;">Please note: By signing up proves that you accept our terms and conditions <small ><a href="terms&aggrement.html"><b>Read More</b></a></small></p>
                         </label>
-
                     </div>
-                    <button class="btn ec_sign-in-btn col-8 px-0 mt-2 mb-2" type="submit">Sign Up Now </button>
-                    <div class="ec_sign-in-utilities row">
-                        <p class="ec_med-text col-7 offset-3 ec_text-grey">Already have an account? <a href="signin.html">Sign
-                                in here</a>
+                    <div class="col-lg-7 col-11  mx-auto px-1">
+                      <button class="btn ec_sign-in-btn col-12 mt-2 mb-2" type="submit">Sign Up Now </button>
+                    </div>
+                    <div class="ec_sign-in-utiliti row text-center">
+                        <p class="ec_med-text col-6 offset-3 ec_text-grey">
+                          Already have an account?
+                         <small><a href="signin.html"><b>Signin Here</b></a></small>
                         </p>
                     </div>
-
+                         <div class="col-12 row">
+                             <div class="col-lg-7 col-10  mx-auto text-center">
+                                <img src="../assets/images/facebook.svg" style="width:40px">
+                                <img src="../assets/images/google-plus.svg" style="width:40px">
+                            </div>
+                        </div>
                 </form>
             </div>
 
@@ -94,9 +98,9 @@
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
-    <script type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
-    <script type="text/javascript" src="../Assets/js/customjs/signUp.js"></script>
-    <script type="text/javascript" src="../Assets/js/customjs/token_verify.js"></script>
+    <script type="text/javascript" src="../assets/js/customjs/baseLink.js"></script>
+    <script type="text/javascript" src="../assets/js/customjs/signUp.js"></script>
+    <script type="text/javascript" src="../assets/js/customjs/token_verify.js"></script>
 
 </body>
 

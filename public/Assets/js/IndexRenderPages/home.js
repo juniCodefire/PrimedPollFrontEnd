@@ -51,8 +51,8 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 						</p>
 
 						<div class="input-wrap">
-							<button onclick="location.href='Users/signup.html'" class="btn btn-default col-2 mr-4">Sign Up</button>
-							<button onclick="location.href='Users/signin.html'" class="btn btn-secondary col-2">Log In</button>
+							<button onclick="location.href='user/signup.html'" class="btn btn-default col-2 mr-4">Sign Up</button>
+							<button onclick="location.href='user/signin.html'" class="btn btn-secondary col-2">Log In</button>
 						</div>
 						<h4 class="text-white">Top Interests</h4>
 

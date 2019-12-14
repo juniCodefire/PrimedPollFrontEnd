@@ -13,7 +13,7 @@ $.ajaxSetup({
             localStorage.removeItem('bio');
             localStorage.removeItem('username');
 
-            location.href = "../Users/signin.html";
+            location.href = "../user/signin.html";
         }
     }
 });
@@ -61,7 +61,7 @@ var mailme = function () {
     localStorage.removeItem('user_phone');
     localStorage.removeItem('bio');
     localStorage.removeItem('username');
-    location.replace("../Users/signin.html");
+    location.replace("../user/signin.html");
 }
 
 window.addEventListener('error', function (e) {

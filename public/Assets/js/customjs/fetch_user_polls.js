@@ -141,8 +141,8 @@ const loadFeeds = () => {
                             <div class="col-12 ec_poll-misc mt-3">
                                 <span class="text-muted col-6">${poll_date}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i>: ${votes_count}</span>
-                                <span id="poll_users" class="text-muted col-6" data-poll-passed-id="${poll_id}">
-                                    <i style="font-size:16px;" class="fa fa-users" aria-hidden="true"></i>
+                                <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                    <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}" data-poll-owner="${poll_owner_id}"
@@ -173,8 +173,8 @@ const loadFeeds = () => {
                                 <span class="text-muted col-6">${poll_date}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up"
                                     aria-hidden="true"></i>: ${votes_count}</span>
-                                <span id="poll_users" class="text-muted col-6" data-poll-passed-id="${poll_id}">
-                                <i style="font-size:16px;" class="fa fa-users" aria-hidden="true"></i>
+                                <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}"
@@ -259,12 +259,12 @@ const loadFeeds = () => {
             </div>
         `)
 
-        $(document).on('click', '#poll_users', function (e) {
-            //display a modal for show all users who voted
+        $(document).on('click', '#poll_user', function (e) {
+            //display a modal for show all user who voted
             $('#votedPollMemeberModal').modal("toggle");
             const spanElem = e.currentTarget;
             const poll_id = Number(spanElem.dataset.pollPassedId);
-            //show the users who voted
+            //show the user who voted
             votedUser(poll_id);
         });
         $(document).on('click', '.poll1option', function (e) {

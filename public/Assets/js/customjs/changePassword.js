@@ -1,5 +1,4 @@
-//Adding the user bio
-$(document).on('click', '#addPassword', function (e)
+//Adding the user bio $(document).on('click', '#addPassword', function (e)
 {
     e.preventDefault();
 

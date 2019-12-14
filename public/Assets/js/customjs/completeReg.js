@@ -102,7 +102,7 @@ $(document).ready(function () {
           localStorage.setItem('user_dob', user.dob);
           localStorage.setItem('user_phone', user.phone);
 
-          location.replace("../Users/user-profile-lite.html");
+          location.replace("../user/user-profile-lite.html");
         }
       }).fail(function (err) {
         if (err) {

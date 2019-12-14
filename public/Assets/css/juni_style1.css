@@ -145,13 +145,12 @@ display:none;
     font-family: cursive;
 }
 
-
 .site_name {
   width: 50%;
   height: 5vh;
 }
 .site_name img {
-  width: 50%;
+  width: 25vh;
 }
 .user-page-interests {
   overflow: auto;
@@ -472,12 +471,18 @@ body::-webkit-scrollbar-thumb {
 .individual-voter button{
   border-radius: 20px;
 }
+.auth-text {
+  font-size:15px;
+}
 @media (max-width: 900px) {
   .feed_loader_2 {
     margin-bottom: 50px;
   }
   .public_profile_interest {
   height:25vh;
+}
+.auth-text {
+  font-size:14px;
 }
 }
 @media (max-width: 768px){
@@ -488,8 +493,11 @@ body::-webkit-scrollbar-thumb {
       display: block;
     }
     .error_btn_redirect {
-  height: auto; width: 90%; margin: 0 auto;
-}
+      height: auto; width: 90%; margin: 0 auto;
+    }
+    .ec_auth-body {
+        background-image: linear-gradient(90deg, #f58731 0%, #f58731 40%, rgb(255, 255, 255) 0%);
+    }
     .juni_spin {
         color: #f58731;
         font-size: 150px;

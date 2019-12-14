@@ -1,7 +1,7 @@
 const adminInfo = JSON.parse(localStorage.getItem('adminInfo'))
-const usersList = document.querySelector('#usersList')
+const userList = document.querySelector('#userList')
 const token = adminInfo.data.token;
-fetch(`${baseUrl}api/admin/users`, {
+fetch(`${baseUrl}api/admin/user`, {
     method : 'GET',
     mode : 'cors',
     headers : {
@@ -13,7 +13,7 @@ fetch(`${baseUrl}api/admin/users`, {
     const userObject = data.data;
     console.log(userObject)
     userObject.map(user => {
-        usersList.innerHTML += `<tr >
+        userList.innerHTML += `<tr >
             <td>${user.id}</td>
             <td>${user.last_name}</td>
             <td>${user.first_name}</td>

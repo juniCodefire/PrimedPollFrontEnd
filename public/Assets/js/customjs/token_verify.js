@@ -3,14 +3,14 @@ $(document).ready( function() {
     const success = parsedUrl.searchParams.get("success");
 
     if (success == "new_member") {
-        $("#juni_info").html("Thank you for creating an account with us, an email has been sent to you with verification code to comfirm.");
+        $("#juni_info").html("Thank you for creating an account with us, a confirmation code has been sent to your email.");
     }else if (success == "polled_member") {
-        $("#juni_info").html("Welcome back! please enter the verifcation code sent to your mail to confirm account.");
+        $("#juni_info").html("Welcome back we miss you, your account needs confirmation please check email to confirm account.");
     }
 
 	$("#token_verify").on('submit', function(e) {
 		e.preventDefault();
-        $(".juni_spin").show();
+        $(".se-pre").show();
         $("#juni_info").hide();
 		var verifycode    = $("#verifycode").val();
 
@@ -25,18 +25,18 @@ $(document).ready( function() {
         $.ajax(settings).done(function (response) {
           if (response) {
 
-            $(".juni_spin").hide();
+          $(".se-pre").hide();
 
               if (response.verified == "true"){
                 localStorage.setItem('token', response.token);
-                location.replace("../Users/complete-registration.html");
+                location.replace("../user/complete-registration.html");
 
             }else if(response.verified == "done"){
                 $("#juni_err_verifytoken").html("Account verified already, try logging in.");
                 $("#juni_err_verifytoken").css('color', 'red');
 
                 setInterval(() => {
-                    location.replace("../Users/signin.html");
+                    location.replace("../user/signin.html");
                 }, 2000);
             }else{
                 $("#juni_err_verifytoken").html("Verificaion Code does not match.");
@@ -50,7 +50,7 @@ $(document).ready( function() {
         			if (err.responseJSON.verifycode) {
         				$("#juni_err_verifytoken").html(err.responseJSON.verifycode[0]);
         				$("#verifycode").addClass('err_signup_input');
-                        $(".juni_spin").hide();
+                      $(".se-pre").hide();
         			}
 
         		}

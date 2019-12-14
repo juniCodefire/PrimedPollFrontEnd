@@ -15,7 +15,7 @@ let verifycode = getSearchParam.get("verifycode");
 if (verifycode == '' || verifycode.length < 5) {
     customAlert(`Verify code is empty! or have an invalid character length`);
     setTimeout(() => {
-        location.href = `${ window.location.origin }/Users/signin.html`;
+        location.href = `${ window.location.origin }/user/signin.html`;
     }, 5000);
 }
 //Handle all fetch Api Error Here
@@ -40,7 +40,7 @@ const processApiResponse = (data, errorText = "") => {
             default:
                 customAlert(`New password created successfully!`);
                 setTimeout(() => {
-                    location.href = `${ window.location.origin }/Users/signin.html`;
+                    location.href = `${ window.location.origin }/user/signin.html`;
                 }, 5000);
                 return
         }

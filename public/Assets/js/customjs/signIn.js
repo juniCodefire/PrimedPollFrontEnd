@@ -57,7 +57,7 @@ $(document).ready(function () {
           localStorage.setItem('user_phone', user.phone);
           localStorage.setItem('bio', user.bio);
           localStorage.setItem('username', user.username);
-          location.replace("../Users/user-profile-lite.html");
+          location.replace("../user/user-profile-lite.html");
 
         }
       }).fail(function (err) {
@@ -80,9 +80,8 @@ $(document).ready(function () {
 
           if (err.status === 401) {
 
-            if (err.responseJSON.data.message == "Not confirmed yet") {
-
-              location.replace("../Users/confirmation.html?success=polled_member");
+            if (err.responseJSON.data.user_status == 0) {
+              location.replace("../user/confirmation.html?success=polled_member");
             }
           }
           if (err.status === 404) {

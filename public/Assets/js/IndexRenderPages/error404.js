@@ -37,7 +37,7 @@ const error404 =
               <div style="float:left; width: 5%; height: 50px;">
 
               </div>
-              <button type="button" class="btn btn-accent error_redirect-1" onclick="location.href='${ window.location.origin }/Users/signin.html'">
+              <button type="button" class="btn btn-accent error_redirect-1" onclick="location.href='${ window.location.origin }/user/signin.html'">
                 Login &rarr;</button>
             </div>
 
