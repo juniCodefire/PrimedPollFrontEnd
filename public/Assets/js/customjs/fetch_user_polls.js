@@ -31,7 +31,9 @@ const triggerStaticFeeds = (loader) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-            $("#feed_loader").hide();
+            slim_preloader(stop = true);
+           
+            // $("#feed_loader").hide();
             var feedsData = response.data.feeds;
 
             //Store in localStorage for offline fisrt
@@ -44,9 +46,8 @@ const triggerStaticFeeds = (loader) => {
     });
 
 }
-const triggerDynamicFeeds = (reflex) => {
-    key = "close";
-    $("#feeds_box")[0].scrollBy(0, reflex);
+const triggerDynamicFeeds = () => {
+    slim_preloader();
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
@@ -64,32 +65,30 @@ const triggerDynamicFeeds = (reflex) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-
-          console.log(response)
             key = "open";
             steps = 4;
             $(".dynamic_feed_loader").hide();
-            let feedsData = response.data.scrolled_feeds;
+            slim_preloader(stop = true);
 
+            let feedsData = response.data.scrolled_feeds;
             if (feedsData.length == 0) {
-                // $("#feeds_box")[0].clientHeight, $("#feeds_box")[0].scrollHeight;
-                $(".dynamic_feed_loader").hide();
-                return $(".dynamic_spin_text").html("No more feeds to load...");
+                $(".alert_default").show();
+                setTimeout(() => {
+                    $(".alert_default").hide();
+                }, 3000)
             }else {
               //Store in localStorage for offline first
               localStorage.removeItem('stored_broswer_polls');
-              console.log(feeds)
               offset = response.data.new_offset;
               feeds.push(...feedsData);
-              console.log(feeds)
               localStorage.setItem('stored_broswer_polls', JSON.stringify(feeds));
               feeds = [];
-              console.log(feeds)
               loadFeeds();
             }
         }
     }).fail(function (err) {
         if (err) {
+            slim_preloader(stop = true);
             $(".dynamic_feed_loader").hide();
             key = "open";
         }
@@ -141,8 +140,8 @@ const loadFeeds = () => {
                             <div class="col-12 ec_poll-misc mt-3">
                                 <span class="text-muted col-6">${poll_date}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i>: ${votes_count}</span>
-                                <span id="poll_users" class="text-muted col-6" data-poll-passed-id="${poll_id}">
-                                    <i style="font-size:16px;" class="fa fa-users" aria-hidden="true"></i>
+                                <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                    <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}" data-poll-owner="${poll_owner_id}"
@@ -173,8 +172,8 @@ const loadFeeds = () => {
                                 <span class="text-muted col-6">${poll_date}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up"
                                     aria-hidden="true"></i>: ${votes_count}</span>
-                                <span id="poll_users" class="text-muted col-6" data-poll-passed-id="${poll_id}">
-                                <i style="font-size:16px;" class="fa fa-users" aria-hidden="true"></i>
+                                <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}"
@@ -259,12 +258,12 @@ const loadFeeds = () => {
             </div>
         `)
 
-        $(document).on('click', '#poll_users', function (e) {
-            //display a modal for show all users who voted
+        $(document).on('click', '#poll_user', function (e) {
+            //display a modal for show all user who voted
             $('#votedPollMemeberModal').modal("toggle");
             const spanElem = e.currentTarget;
             const poll_id = Number(spanElem.dataset.pollPassedId);
-            //show the users who voted
+            //show the user who voted
             votedUser(poll_id);
         });
         $(document).on('click', '.poll1option', function (e) {
@@ -356,15 +355,14 @@ $('#feeds_box').on('scroll', function () {
     // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
     if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
         console.log($("#feeds_box")[0].clientHeight);
-        const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 100);
-        $(".dynamic_feed_loader").show();
+        const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 10);
+        // $(".dynamic_feed_loader").show();
+        console.log(reflex)
+        $("#feeds_box")[0].scrollBy(0, reflex);
         if (key == "open") {
-            triggerDynamicFeeds(reflex);
-        } else {
-            $(".dynamic_spin_text").html("Loading please wait");
+            key = "close";   
+            triggerDynamicFeeds();
         }
-    } else {
-        $(".dynamic_spin_text").html("Loading more feeds please wait...");
     }
 });
 triggerStaticFeeds(loader = true);

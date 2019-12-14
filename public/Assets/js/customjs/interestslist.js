@@ -136,11 +136,11 @@ viewInterestFunc = (event) => {
                 interestPollCon.innerHTML += `
             <div class="col-12 individual-poll border mt-2 row mx-0 px-0">
             <div class="col-2 poll-image text-center px-0">
-            <img class="mt-3 border" src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/${interestPoll.users.image}" alt="">
+            <img class="mt-3 border" src="https://res.cloudinary.com/getfiledata/image/upload/w_200,c_thumb,ar_4:4,g_face/${interestPoll.user.image}" alt="">
           </div>
           <div class="col-10 px-0">
             <div class="col-12 poll-name pt-2">
-              <span class="">${interestPoll.users.first_name} ${interestPoll.users.last_name} <a href="">${interestPoll.users.username}</a></span>
+              <span class="">${interestPoll.user.first_name} ${interestPoll.user.last_name} <a href="">${interestPoll.user.username}</a></span>
             </div>
             <div class="col-12 poll-question pt-2">
               <span class="mt-2">${interestPoll.question}</span>

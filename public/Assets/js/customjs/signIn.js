@@ -57,7 +57,14 @@ $(document).ready(function () {
           localStorage.setItem('user_phone', user.phone);
           localStorage.setItem('bio', user.bio);
           localStorage.setItem('username', user.username);
-          location.replace("../Users/user-profile-lite.html");
+
+          console.log(window)
+          //If server use the app sub domain 
+          if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com' || location.origin === 'https://app.primedpoll.com') {
+              location.replace(`${subDomain}user/feeds.html`);
+          }else {
+              location.replace("../user/feeds.html");
+          }
 
         }
       }).fail(function (err) {
@@ -80,13 +87,12 @@ $(document).ready(function () {
 
           if (err.status === 401) {
 
-            if (err.responseJSON.data.message == "Not confirmed yet") {
-
-              location.replace("../Users/confirmation.html?success=polled_member");
+            if (err.responseJSON.data.user_status == 0) {
+              location.replace("../user/confirmation.html?success=polled_member");
             }
           }
           if (err.status === 404) {
-            $("#juni_err_email").html("User Not Found");
+            $("#juni_err_email").html("Ops! This credential is invalid or does not exist");
             $("#ec_email").addClass('err_signup_input');
           }
         }

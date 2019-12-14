@@ -26,7 +26,7 @@ $(document).ready(function () {
             for (var i = 0; i < response.length; i++) {
                 $("#choosed_interest").append(`
                     <li class="nav-item">
-                        <a class="nav-link" href="user-feed.html?interest_id=${response[i].id}">
+                        <a class="nav-link" href="feeds.html?interest_id=${response[i].id}">
                         <span>${response[i].title.charAt(0).toUpperCase() + response[i].title.slice(1)}</span>
                         </a>
                     </li>

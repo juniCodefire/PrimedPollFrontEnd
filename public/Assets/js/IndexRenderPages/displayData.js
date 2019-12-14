@@ -129,13 +129,13 @@ all_follower(pass="?follow=true&offline=", user.id, user.username)
         profileNavLeft.style.display = 'none';
         profileSideBar.innerHTML = `
             <li class="nav-item" style="cursor:pointer;">
-            <a class="nav-link " onclick="location.href='${ window.location.origin }/Users/signup.html'">
+            <a class="nav-link " onclick="location.href='${ window.location.origin }/user/signup.html'">
                 <i class="material-icons">vertical_split</i>
                 <span>Sign Up</span>
             </a>
             </li>
             <li class="nav-item" style="cursor:pointer;">
-                <a class="nav-link " onclick="location.href='${ window.location.origin }/Users/signin.html'">
+                <a class="nav-link " onclick="location.href='${ window.location.origin }/user/signin.html'">
                     <i class="material-icons">vertical_split</i>
                     <span>Sign In</span>
                 </a>
@@ -155,7 +155,7 @@ all_follower(pass="?follow=true&offline=", user.id, user.username)
           </button>`;
         }
     }
-    followButton.innerHTML = `<button onclick="location.href='${ window.location.origin }/Users/signup.html?follow=${ user.username }'" type="button" class="btn btn-sm btn-pill btn-outline-brand mr-2">
+    followButton.innerHTML = `<button onclick="location.href='${ window.location.origin }/user/signup.html?follow=${ user.username }'" type="button" class="btn btn-sm btn-pill btn-outline-brand mr-2">
                         <i class="material-icons mr-1">person_add</i>Follow
                     </button>`;
 

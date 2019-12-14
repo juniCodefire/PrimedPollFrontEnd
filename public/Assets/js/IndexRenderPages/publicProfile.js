@@ -10,7 +10,7 @@ const publicProfile =
     `<!--Public Preloader-->
     <div class="publicPreloader">
        <main>
-       <p class="preloader_text">Loading..<span class="last-dot">.</span></p>
+       <p class="preloader_text">Loading...<span class="last-dot">.</span></p>
        </main>
     </div>
     <div class="container-fluid">
@@ -22,9 +22,9 @@ const publicProfile =
                 <div class="main-navbar">
                     <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0"
                         style="border:none;">
-                        <a class="navbar-brand w-100" style="line-height: 5px;">
-                            <div class="site_name public_site_name" style="width:60%; margin:auto;"></div>
-                        </a>
+                         <a class="navbar-brand w-100 mr-0 p-1" href="#">
+                           <div class="col-md-3 col-sm-7 site_name"></div>
+                         </a>
                         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
                             <i class="material-icons">&#xE5C4;</i>
                         </a>
@@ -50,27 +50,21 @@ const publicProfile =
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link " href="user-feed.html">
+                            <a class="nav-link " href="user/feeds.html">
                                 <i class="material-icons">vertical_split</i>
                                 <span>Your Feeds</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="new-poll.html">
+                            <a class="nav-link " href="user/new-poll.html">
                                 <i class="material-icons">note_add</i>
                                 <span>Create New Poll</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="user-profile-lite.html">
+                            <a class="nav-link active" href="user/profile.html">
                                 <i class="material-icons">person</i>
                                 <span>Your Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="errors.html">
-                                <i class="material-icons">error</i>
-                                <span>Errors</span>
                             </a>
                         </li>
                     </ul>
@@ -111,7 +105,7 @@ const publicProfile =
                                         </div>
                                         <div class="notification__content">
                                             <span class="notification__category">Analytics</span>
-                                            <p>Your website’s active users count increased by
+                                            <p>Your website’s active user count increased by
                                                 <span class="text-success text-semibold">28%</span> in the last
                                                 week.
                                                 Great job!</p>
@@ -142,7 +136,7 @@ const publicProfile =
                                         style="color:#f58731; font-weight:bold;"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-small" style="margin-left: -45px;">
-                                    <a class="dropdown-item" href="user-profile-lite.html">
+                                    <a class="dropdown-item" href="profile.html">
                                         <i class="material-icons">&#xE7FD;</i> Profile</a>
                                     <a class="dropdown-item" href="new-poll.html">
                                         <i class="fas fa-poll"></i> Create New Poll</a>

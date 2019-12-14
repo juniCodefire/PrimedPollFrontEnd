@@ -1,3 +1,13 @@
+
+const reboot = () => {
+    if(location.origin === 'https://app.primedpoll.com') {
+        location.replace(`https://primedpoll.com/user/signin.html`);
+    }else {
+         location.replace(`../user/signin.html`);
+    }
+}
+
+
 $.ajaxSetup({
     statusCode: {
         401: function () {
@@ -13,7 +23,8 @@ $.ajaxSetup({
             localStorage.removeItem('bio');
             localStorage.removeItem('username');
 
-            location.href = "../Users/signin.html";
+            reboot();
+           
         }
     }
 });
@@ -22,7 +33,6 @@ window.addEventListener('load', function () {
     // var log = document.getElementById("log");
 
     function updateOnlineStatus(event) {
-        console.log(event.type);
         var condition = navigator.onLine ? "online" : "offline";
 
         // status.className = condition;
@@ -61,7 +71,8 @@ var mailme = function () {
     localStorage.removeItem('user_phone');
     localStorage.removeItem('bio');
     localStorage.removeItem('username');
-    location.replace("../Users/signin.html");
+    
+    reboot();
 }
 
 window.addEventListener('error', function (e) {
@@ -71,26 +82,7 @@ window.addEventListener('error', function (e) {
     // mailme([errMsg, errSrc]);
 }, true);
 
-const slim_preloader = (stop = false) => {
-  let threshold = 0;
-  let timeLapse = 500;
-  let drawback = 2;
-  const preloader = document.querySelector('#slim_preloader');
-
-  const i = setInterval(() => {
-    threshold++;
-    if(threshold > 0  && threshold > drawback){
-      drawback = Math.floor(Math.random() * 10);
-      threshold = drawback + threshold;
-    }
-    if(drawback % 5) {
-      preloader.style.width = `${threshold}%`;
-    }
-    if(threshold > 100) {
-      clearInterval(i)
-        preloader.style.width = `0%`;
-        preloader.style.visbility = `hidden`;
-    }
-  }, timeLapse)
+//make url consitent
+if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com') {
+  location.replace(`https://app.primedpoll.com${location.pathname}`);
 }
-slim_preloader();

@@ -1,7 +1,7 @@
 // voter_view
-let voted_users = [];
+let voted_user = [];
 const votedUser = (poll_id) => {
-         voted_users = [];
+         voted_user = [];
 
         document.getElementById('voter_view').innerHTML = `
          <div data-user-voted-preloader class="preload_feeds preload_follow" role="status"></div>
@@ -21,25 +21,25 @@ const votedUser = (poll_id) => {
         }).then(response => response.json())
         .then(data => {
             console.log(data)
-            voted_users.push(...data.users);
-            console.log(voted_users);
+            voted_user.push(...data.user);
+            console.log(voted_user);
             show_votedUser(data)
         })
         .catch(err => console.log(err))
 }
 const show_votedUser = (data) => {
     console.log(data);
-    if (voted_users != '') {
+    if (voted_user != '') {
             document.getElementById('voter_view').innerHTML = "";
             const {image_link} = data;
             //w_200,c_thumb,ar_4:4,g_face/
-            voted_users.map(user => {
+            voted_user.map(user => {
             let {image, last_name, first_name, username, id} = user[0][0];
             console.log(image, last_name, first_name, username, id, user[1][0])
             
             //Public profile of user 
             if(localStorage.getItem('username') == username) {
-                usernameLink = `/Users/user-profile-lite.html`;
+                usernameLink = `/user/profile.html`;
             }else {
                 usernameLink = `?permission=1&on_session=${id}# `;
             }

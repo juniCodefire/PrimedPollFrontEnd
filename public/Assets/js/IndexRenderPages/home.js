@@ -13,19 +13,17 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 		<header id="header">
 			<div class="container">
 				<div class="row align-items-center justify-content-between d-flex">
-					<div class="col-md-3 site_name"></div>
+					<div class="col-md-3 site_name_2"></div>
 					<nav id="nav-menu-container" class="col-9">
 						<ul class="nav-menu float-right">
-							<li class="menu-active"><a href="index-2.html">Home</a></li>
+							<li class="menu-active"><a href="#">Home</a></li>
 							<li><a href="about.html">About</a></li>
 							<li><a href="courses.html">Interests</a></li>
-							<ul>
-								<li><a href="elements.html">Elements</a></li>
-							</ul>
-							<li class="menu-has-children"><a href="#">Blog</a>
+							<li class="menu-has-children"><a href="#">Stories</a>
 								<ul>
-									<li><a href="blog-home.html">Blog Home</a></li>
-									<li><a href="blog-single.html">Blog Details</a></li>
+									<li><a href="blog-home.html">Our Blog</a></li>
+									<li><a href="blog-single.html">Recent Update</a></li>
+									<li><a href="blog-single.html">Our Patners</a></li>
 								</ul>
 							</li>
 							<li><a href="contact.html">Contact</a></li>
@@ -51,8 +49,8 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 						</p>
 
 						<div class="input-wrap">
-							<button onclick="location.href='Users/signup.html'" class="btn btn-default col-2 mr-4">Sign Up</button>
-							<button onclick="location.href='Users/signin.html'" class="btn btn-secondary col-2">Log In</button>
+							<button onclick="location.href='user/signup.html'" class="btn btn-default col-2 mr-4">Sign Up</button>
+							<button onclick="location.href='user/signin.html'" class="btn btn-secondary col-2">Log In</button>
 						</div>
 						<h4 class="text-white">Top Interests</h4>
 

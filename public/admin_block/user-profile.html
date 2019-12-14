@@ -157,7 +157,7 @@
                   <span class="d-none d-md-inline-block" id="nav_name" style="color:#f58731; font-weight:bold;"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-small" style="margin-left: -45px;">
-                  <a class="dropdown-item" href="user-profile-lite.html">
+                  <a class="dropdown-item" href="profile.html">
                     <i class="material-icons">&#xE7FD;</i> Profile</a>
                   <a class="dropdown-item" href="new-poll.html">
                     <i class="fas fa-poll"></i> Create New Poll</a>
@@ -411,15 +411,15 @@
                     </div>
                   </div>
                   <!-- This is the modal to view followers -->
-                  <div style="z-index: 2768" class="modal fade" id="listFollowersModal" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal fade" id="listFollowersModal" role="dialog" aria-labelledby="" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content mx-auto col-10 col-lg-8">
-                        <div class="modal-body px-2 pt-2">
-                          <div class="col-12 modal-data row mx-auto">
+                      <div class="modal-content mx-auto">
+                        <div class="modal-body pt-2">
+                          <div class="col-12 modal-data row">
                             <h6 class="col-6 color-brand">Followers</h6>
                             <h6 class="ml-auto color-brand google-font-commom" data-count-followers>12k</h6>
                           </div>
-                          <div class="follow-stat-con px-0 mt-2 col-12 row scroller mx-0" data-get-followers>
+                          <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-followers>
                             <!--All Follower Box-->
                                <div class="preload_feeds preload_follow" role="status">
                                 </div>
@@ -430,15 +430,15 @@
                   </div>
 
                   <!-- This is the modal to view following -->
-                  <div style="z-index: 2768" class="modal fade" id="listFollowingModal" role="dialog" aria-labelledby="" aria-hidden="true">
+                  <div class="modal fade" id="listFollowingModal" role="dialog" aria-labelledby="" aria-hidden="true">
                     <div class="modal-dialog" role="document">
-                      <div class="modal-content mx-auto col-10 col-lg-8">
-                        <div class="modal-body px-2 pt-2">
-                          <div class="col-12 modal-data row mx-0">
+                      <div class="modal-content mx-auto">
+                        <div class="modal-body pt-2">
+                          <div class="col-12 modal-data row">
                             <h6 class="col-6 color-brand">Following</h6>
                             <h6 class="ml-auto color-brand google-font-commom" data-count-following>1207</h6>
                           </div>
-                          <div class="follow-stat-con px-0 mt-2 col-12 row scroller mx-0" data-get-following>
+                          <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-following>
                               <!--All Following Box -->
                                  <div class="preload_feeds preload_follow" role="status"></div>
                           </div>
@@ -449,8 +449,8 @@
                 </ul>
               </div>
             </div>
-            <div class="col-12 col-lg-8 container" style="height: 85vh;">
-              <div class="col-12 card card-small mb-4 scroller">
+            <div class="col-lg-8 container" style="height: 85vh;">
+              <div class="col-12 card card-small mb-4">
                 <div class="col-12 card-header row border-bottom pb-0 mx-auto">
                   <h6 class="col-6 m-0 color-brand">Account Details</h6>
                   <p class="col-6 text-right color-brand" id="feEmail"></p>
@@ -496,8 +496,8 @@
                           <div class="float-right" style="width:100%;">
                             <div class="preload_update update_profile_spin float-left" role="status">
                             </div>
-                            <button type="submit" class="btn btn-brand text-white float-right btnUpdate button-custom">
-                              Update Account
+                            <button style="background-color: red; color: white" type="submit" class="btn btn-brand text-white float-right btnBlock button-custom">
+                              Block User
                             </button>
                           </div>
 
@@ -537,7 +537,7 @@
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/baseLink.js"></script>
         <script src="../Assets/js/customjs/base.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
+        <!-- <script type="text/javascript" src="../Assets/js/customjs/global.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/getInterest.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/localStoreData.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/getFollowers.js"></script>
@@ -546,7 +546,7 @@
         <script type="text/javascript" src="../Assets/js/customjs/delete_interest.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/update_profile.js"></script>
         <script type="text/javascript" src="../Assets/js/customjs/changePassword.js"></script>
-        <script type="text/javascript" src="../Assets/js/customjs/changeUsername.js"></script>
+        <script type="text/javascript" src="../Assets/js/customjs/changeUsername.js"></script> -->
 </body>
 
 </html>

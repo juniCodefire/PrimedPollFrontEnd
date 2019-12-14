@@ -3,7 +3,7 @@ let feedsInfos = [];
 
 const displayFeeds = (results, preloaderFeeds, feedsBlock) =>
 {
-  //Thing to emmit out comments count, votes count, usersname
+  //Thing to emmit out comments count, votes count, username
   preloaderFeeds.style.display = "none";
 
     results.map((result, i) => {
@@ -64,8 +64,8 @@ const showFeeds = (id, preloaderFeeds, feedsBlock, refresh) =>
         .then(response => response.json())
         .then(response => {
           console.log(response)
-          feedsInfos.push(...response.data.usersfeeds);
-          displayFeeds(response.data.usersfeeds, preloaderFeeds, feedsBlock);
+          feedsInfos.push(...response.data.userfeeds);
+          displayFeeds(response.data.userfeeds, preloaderFeeds, feedsBlock);
         })
         .catch(error =>
         {

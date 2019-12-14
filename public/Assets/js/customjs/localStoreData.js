@@ -36,5 +36,5 @@ $(document).on('click', '.logout', function ()
   localStorage.removeItem('bio');
   localStorage.removeItem('username');
 
-  location.replace("../Users/signin.html");
+  location.replace("../user/signin.html");
 });

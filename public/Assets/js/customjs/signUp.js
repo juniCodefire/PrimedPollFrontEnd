@@ -3,7 +3,7 @@ $(document).ready( function() {
 	$("#signup-form").on('submit', function(e) {
 		e.preventDefault();
 
-		$(".juni_spin").show();
+    $(".se-pre").show();
 
 		var email            = $("#ec_email").val();
 		var password         = $("#ec_password").val();
@@ -37,16 +37,16 @@ $(document).ready( function() {
         };
         $.ajax(settings).done(function (response) {
           if (response) {
-              $(".juni_spin").hide();
+              $(".se-pre").hide();
               $("#reg_success").html(response.success);
               $('#signup-form')[0].reset();
-              location.replace("../Users/confirmation.html?success=new_member");
+              location.replace("../user/confirmation.html?success=new_member");
           }
         }).fail( function(err) {
 
           if (err) {
 						console.log(err);
-            $(".juni_spin").hide();
+            $(".se-pre").hide();
             if (err.status === 422) {
               if (err.responseJSON.email) {
                 $("#juni_err_email").html(err.responseJSON.email[0]);
