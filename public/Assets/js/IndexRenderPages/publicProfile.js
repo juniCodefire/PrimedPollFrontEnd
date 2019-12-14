@@ -50,7 +50,7 @@ const publicProfile =
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link " href="user-feed.html">
+                            <a class="nav-link " href="feeds.html">
                                 <i class="material-icons">vertical_split</i>
                                 <span>Your Feeds</span>
                             </a>
@@ -62,7 +62,7 @@ const publicProfile =
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="user-profile-lite.html">
+                            <a class="nav-link active" href="profile.html">
                                 <i class="material-icons">person</i>
                                 <span>Your Profile</span>
                             </a>
@@ -142,7 +142,7 @@ const publicProfile =
                                         style="color:#f58731; font-weight:bold;"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-small" style="margin-left: -45px;">
-                                    <a class="dropdown-item" href="user-profile-lite.html">
+                                    <a class="dropdown-item" href="profile.html">
                                         <i class="material-icons">&#xE7FD;</i> Profile</a>
                                     <a class="dropdown-item" href="new-poll.html">
                                         <i class="fas fa-poll"></i> Create New Poll</a>

@@ -119,7 +119,7 @@ $(document).on('click', '.interest_holder', function () {
 
 $(document).on('click', '#manage_see_feeds', function () {
     let interest_id = $(`#id_holder`).val();
-    window.open(`user-feed.html?interest_id=${ interest_id }`, '_self');
+    window.open(`feeds.html?interest_id=${ interest_id }`, '_self');
     // location.replace();
 
 });
@@ -129,10 +129,10 @@ $(document).on('click', '.open_new_poll', function () {
 });
 $(document).on('click', '.open_feeds', function () {
     console.log('yerry')
-    location.replace('user-feed.html');
+    location.replace('feeds.html');
 });
 $(document).on('click', '.open_profile', function () {
-    location.replace('user-profile-lite.html');
+    location.replace('profile.html');
 });
 
 //Triger the the function to get the following and followers

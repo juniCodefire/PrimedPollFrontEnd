@@ -57,7 +57,7 @@ $(document).ready(function () {
           localStorage.setItem('user_phone', user.phone);
           localStorage.setItem('bio', user.bio);
           localStorage.setItem('username', user.username);
-          location.replace("../user/user-profile-lite.html");
+          location.replace("../user/feeds.html");
 
         }
       }).fail(function (err) {
@@ -85,7 +85,7 @@ $(document).ready(function () {
             }
           }
           if (err.status === 404) {
-            $("#juni_err_email").html("User Not Found");
+            $("#juni_err_email").html("Ops! This credential is invalid or does not exist");
             $("#ec_email").addClass('err_signup_input');
           }
         }

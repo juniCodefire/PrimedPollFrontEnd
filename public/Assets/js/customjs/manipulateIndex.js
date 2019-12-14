@@ -4,7 +4,7 @@ const seprecon = document.querySelector('.se-pre-con');
 const username = usernameURL.substr(1);
 const storeUser = localStorage.getItem('username');
 if (`@${username}` === storeUser) {
-   window.location.replace(`${window.location.origin}/user/user-profile-lite.html`);
+   window.location.replace(`${window.location.origin}/user/profile.html`);
 }
 
 let permission = 0;

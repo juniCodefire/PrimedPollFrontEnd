@@ -188,8 +188,8 @@ $(document).on('click', '.open_new_poll', function () {
 });
 $(document).on('click', '.open_feeds', function () {
     console.log('yerry')
-    location.replace('user-feed.html');
+    location.replace('feeds.html');
 });
 $(document).on('click', '.open_profile', function () {
-    location.replace('user-profile-lite.html');
+    location.replace('profile.html');
 });

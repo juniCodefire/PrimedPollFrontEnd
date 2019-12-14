@@ -39,7 +39,7 @@ const show_votedUser = (data) => {
             
             //Public profile of user 
             if(localStorage.getItem('username') == username) {
-                usernameLink = `/user/user-profile-lite.html`;
+                usernameLink = `/user/profile.html`;
             }else {
                 usernameLink = `?permission=1&on_session=${id}# `;
             }

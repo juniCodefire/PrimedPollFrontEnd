@@ -31,7 +31,10 @@ const triggerStaticFeeds = (loader) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-            $("#feed_loader").hide();
+            const preloader = document.querySelector('#slim_preloader');
+            preloader.style.width = `0%`;
+            preloader.style.visbility = `hidden`;
+            // $("#feed_loader").hide();
             var feedsData = response.data.feeds;
 
             //Store in localStorage for offline fisrt
@@ -46,6 +49,7 @@ const triggerStaticFeeds = (loader) => {
 }
 const triggerDynamicFeeds = (reflex) => {
     key = "close";
+    slim_preloader();
     $("#feeds_box")[0].scrollBy(0, reflex);
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
@@ -64,7 +68,9 @@ const triggerDynamicFeeds = (reflex) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-
+            const preloader = document.querySelector('#slim_preloader');
+            preloader.style.width = `0%`;
+            preloader.style.visbility = `hidden`;
           console.log(response)
             key = "open";
             steps = 4;

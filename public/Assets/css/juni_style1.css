@@ -312,10 +312,19 @@ body::-webkit-scrollbar-thumb {
 .err_signup_input {
   border: 1px solid red;
 }
+.form-control:focus {
+  border-color: none !important;
+    box-shadow: 0 0 0 0.2rem #fde2ce !important;
+}
+.btn.focus, .btn:focus {
+   border-color: none !important;
+    box-shadow: 0 0 0 0.2rem #fde2ce !important;
+}
 .err_signup {
   color: tomato;
   font-size: 10px;
   padding-left: 10px;
+  font-weight: bold;
   margin: 0;
 }
 .written_option::placeholder {
