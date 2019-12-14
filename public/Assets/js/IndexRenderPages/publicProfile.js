@@ -22,9 +22,9 @@ const publicProfile =
                 <div class="main-navbar">
                     <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0"
                         style="border:none;">
-                        <a class="navbar-brand w-100" style="line-height: 5px;">
-                            <div class="site_name public_site_name" style="width:60%; margin:auto;"></div>
-                        </a>
+                         <a class="navbar-brand w-100 mr-0 p-1" href="#">
+                           <div class="col-md-3 col-sm-7 site_name"></div>
+                         </a>
                         <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
                             <i class="material-icons">&#xE5C4;</i>
                         </a>
@@ -50,27 +50,21 @@ const publicProfile =
                             </a>
                         </li> -->
                         <li class="nav-item">
-                            <a class="nav-link " href="feeds.html">
+                            <a class="nav-link " href="user/feeds.html">
                                 <i class="material-icons">vertical_split</i>
                                 <span>Your Feeds</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link " href="new-poll.html">
+                            <a class="nav-link " href="user/new-poll.html">
                                 <i class="material-icons">note_add</i>
                                 <span>Create New Poll</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" href="profile.html">
+                            <a class="nav-link active" href="user/profile.html">
                                 <i class="material-icons">person</i>
                                 <span>Your Profile</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link " href="errors.html">
-                                <i class="material-icons">error</i>
-                                <span>Errors</span>
                             </a>
                         </li>
                     </ul>

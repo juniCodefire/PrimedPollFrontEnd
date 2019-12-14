@@ -150,7 +150,15 @@ display:none;
   height: 5vh;
 }
 .site_name img {
-  width: 25vh;
+  width: 20vh;
+}
+
+.site_name_2 {
+  width: 50%;
+  height: 5vh;
+}
+.site_name_2 img {
+  width: 20vh;
 }
 .user-page-interests {
   overflow: auto;

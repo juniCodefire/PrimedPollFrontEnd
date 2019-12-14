@@ -57,7 +57,14 @@ $(document).ready(function () {
           localStorage.setItem('user_phone', user.phone);
           localStorage.setItem('bio', user.bio);
           localStorage.setItem('username', user.username);
-          location.replace("../user/feeds.html");
+
+          console.log(window)
+          //If server use the app sub domain 
+          if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com' || location.origin === 'https://app.primedpoll.com') {
+              location.replace(`${subDomain}user/feeds.html`);
+          }else {
+              location.replace("../user/feeds.html");
+          }
 
         }
       }).fail(function (err) {

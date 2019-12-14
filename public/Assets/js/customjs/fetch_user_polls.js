@@ -31,9 +31,8 @@ const triggerStaticFeeds = (loader) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-            const preloader = document.querySelector('#slim_preloader');
-            preloader.style.width = `0%`;
-            preloader.style.visbility = `hidden`;
+            slim_preloader(stop = true);
+           
             // $("#feed_loader").hide();
             var feedsData = response.data.feeds;
 
@@ -47,10 +46,8 @@ const triggerStaticFeeds = (loader) => {
     });
 
 }
-const triggerDynamicFeeds = (reflex) => {
-    key = "close";
+const triggerDynamicFeeds = () => {
     slim_preloader();
-    $("#feeds_box")[0].scrollBy(0, reflex);
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
@@ -68,34 +65,30 @@ const triggerDynamicFeeds = (reflex) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
-            const preloader = document.querySelector('#slim_preloader');
-            preloader.style.width = `0%`;
-            preloader.style.visbility = `hidden`;
-          console.log(response)
             key = "open";
             steps = 4;
             $(".dynamic_feed_loader").hide();
-            let feedsData = response.data.scrolled_feeds;
+            slim_preloader(stop = true);
 
+            let feedsData = response.data.scrolled_feeds;
             if (feedsData.length == 0) {
-                // $("#feeds_box")[0].clientHeight, $("#feeds_box")[0].scrollHeight;
-                $(".dynamic_feed_loader").hide();
-                return $(".dynamic_spin_text").html("No more feeds to load...");
+                $(".alert_default").show();
+                setTimeout(() => {
+                    $(".alert_default").hide();
+                }, 3000)
             }else {
               //Store in localStorage for offline first
               localStorage.removeItem('stored_broswer_polls');
-              console.log(feeds)
               offset = response.data.new_offset;
               feeds.push(...feedsData);
-              console.log(feeds)
               localStorage.setItem('stored_broswer_polls', JSON.stringify(feeds));
               feeds = [];
-              console.log(feeds)
               loadFeeds();
             }
         }
     }).fail(function (err) {
         if (err) {
+            slim_preloader(stop = true);
             $(".dynamic_feed_loader").hide();
             key = "open";
         }
@@ -362,15 +355,14 @@ $('#feeds_box').on('scroll', function () {
     // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
     if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
         console.log($("#feeds_box")[0].clientHeight);
-        const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 100);
-        $(".dynamic_feed_loader").show();
+        const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 10);
+        // $(".dynamic_feed_loader").show();
+        console.log(reflex)
+        $("#feeds_box")[0].scrollBy(0, reflex);
         if (key == "open") {
-            triggerDynamicFeeds(reflex);
-        } else {
-            $(".dynamic_spin_text").html("Loading please wait");
+            key = "close";   
+            triggerDynamicFeeds();
         }
-    } else {
-        $(".dynamic_spin_text").html("Loading more feeds please wait...");
     }
 });
 triggerStaticFeeds(loader = true);

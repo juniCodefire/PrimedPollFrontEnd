@@ -58,8 +58,19 @@ body {
 }
 
 .ec_lg-text {
-    font-size: 20px;
-    text-shadow: 2px 1px #934506;
+    font-size: 20px;  
+      color: #fff !important;
+      letter-spacing: 2px;
+      text-shadow: 
+        1px 0px 1px #f58731, 0px 1px rgb(0,0,0,0.2), 
+        2px 1px 1px #f58731, 1px 2px rgb(0,0,0,0.2),
+        2px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
+        1px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
+        1px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
+        2px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
+        2px 2px 1px #f58731;
+    /*color: white !important;
+    text-shadow: 2px 3px #f58731;*/
     /*color: #934506 !important; */
 }
 

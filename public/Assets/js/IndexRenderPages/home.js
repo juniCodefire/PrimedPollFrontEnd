@@ -13,7 +13,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 		<header id="header">
 			<div class="container">
 				<div class="row align-items-center justify-content-between d-flex">
-					<div class="col-md-3 site_name"></div>
+					<div class="col-md-3 site_name_2"></div>
 					<nav id="nav-menu-container" class="col-9">
 						<ul class="nav-menu float-right">
 							<li class="menu-active"><a href="#">Home</a></li>
