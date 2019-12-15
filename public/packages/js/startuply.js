@@ -364,7 +364,7 @@ Startuply = {
             data.ajax = true;
 
             $.ajax({
-                url: '/assets/mailchimp/inc/store-address.php',
+                url: '/primed_assets/mailchimp/inc/store-address.php',
                 data: data,
 
                 success: function(msg) {
@@ -950,7 +950,7 @@ Startuply = {
         event.preventDefault();
 
         $('.style-switcher-css').remove();
-        $('head').append('<link class="style-switcher-css" rel="stylesheet" type="text/css" href="assets/css/colors/' + colorName + '.css">');
+        $('head').append('<link class="style-switcher-css" rel="stylesheet" type="text/css" href="primed_assets/css/colors/' + colorName + '.css">');
     },
 
     styleSwitcherToggleAnimation: function (event, $el) {

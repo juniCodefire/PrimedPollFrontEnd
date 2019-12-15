@@ -21,7 +21,7 @@ const error404 =
             </form>
           </nav>
           <div class="col-md-3 site_name" style="height:0vh;">
-            <img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../Assets/images/01.png" alt=""></div>
+            <img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../primed_assets/images/01.png" alt=""></div>
         </div>
 
         <!-- / .main-navbar -->

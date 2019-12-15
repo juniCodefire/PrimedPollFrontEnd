@@ -74,7 +74,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 			<div class="container">
 				<div class="row align-items-center justify-content-center">
 					<div class="col-lg-5 col-md-6 about-left">
-						<img class="img-fluid" src="Assets/images/about.jpg" alt="">
+						<img class="img-fluid" src="primed_assets/images/about.jpg" alt="">
 					</div>
 					<div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
 						<h1>
@@ -306,7 +306,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 						<h4>Quick Links</h4>
 						<ul>
 							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Brand Assets</a></li>
+							<li><a href="#">Brand primed_assets</a></li>
 							<li><a href="#">Investor Relations</a></li>
 							<li><a href="#">Terms of Service</a></li>
 						</ul>
@@ -315,7 +315,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 						<h4>Features</h4>
 						<ul>
 							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Brand Assets</a></li>
+							<li><a href="#">Brand primed_assets</a></li>
 							<li><a href="#">Investor Relations</a></li>
 							<li><a href="#">Terms of Service</a></li>
 						</ul>
