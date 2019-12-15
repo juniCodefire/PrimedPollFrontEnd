@@ -49,8 +49,8 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 						</p>
 
 						<div class="input-wrap">
-							<button onclick="authIn('login')" class="btn btn-default col-2 mr-4">Sign Up</button>
-							<button onclick="authIn('signup')" class="btn btn-secondary col-2">Log In</button>
+							<button onclick="authIn('signup')" class="btn btn-default col-2 mr-4">Sign Up</button>
+							<button onclick="authIn('login')" class="btn btn-secondary col-2">Log In</button>
 						</div>
 						<h4 class="text-white">Top Interests</h4>
 

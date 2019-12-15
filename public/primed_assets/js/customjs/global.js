@@ -1,10 +1,6 @@
 
 const reboot = () => {
-    if(location.origin === 'https://app.primedpoll.com') {
-        location.replace(`https://primedpoll.com/user/signin.html`);
-    }else {
-         location.replace(`../user/signin.html`);
-    }
+    location.replace(`https://app.primedpoll.com/user/signin.html`);
 }
 
 
@@ -23,7 +19,7 @@ $.ajaxSetup({
             localStorage.removeItem('bio');
             localStorage.removeItem('username');
 
-            // reboot();
+            reboot();
            
         }
     }
@@ -72,7 +68,7 @@ var mailme = function () {
     localStorage.removeItem('bio');
     localStorage.removeItem('username');
     
-    // reboot();
+    reboot();
 }
 
 window.addEventListener('error', function (e) {
