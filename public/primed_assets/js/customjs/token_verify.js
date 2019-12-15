@@ -15,7 +15,7 @@ $(document).ready( function() {
 		var verifycode    = $("#verifycode").val();
 
 		 var settings = {
-          "url": `${baseUrl}api/register/verify`,
+          "url": `${baseUrl}api/verify`,
           "method": "POST",
           "timeout": 0,
           "data": {
