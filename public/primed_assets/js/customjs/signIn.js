@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
   $("#signin-form").on('submit', function (e) {
     e.preventDefault();
@@ -60,12 +61,7 @@ $(document).ready(function () {
 
           console.log(window)
           //If server use the app sub domain 
-          if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com' || location.origin === 'https://app.primedpoll.com') {
-              location.replace(`${subDomain}user/feeds.html`);
-          }else {
-              location.replace("../user/feeds.html");
-          }
-
+          location.replace("../user/feeds.html");
         }
       }).fail(function (err) {
         if (err) {
@@ -103,3 +99,93 @@ $(document).ready(function () {
 
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ // const iframeGenerate = () => {
+ //        const ifrm = document.createElement("iframe");
+ //        ifrm.setAttribute("src", "http://127.0.0.1:54578/user/feeds.html");
+ //        ifrm.style.width = "640px";
+ //        ifrm.style.height = "480px";
+ //        ifrm.style.display = "none";
+ //        document.body.appendChild(ifrm);
+ //        return ifrm;
+
+ //    }
+
+// const crossDomainTransfer = (data) => {
+// var domain = 'http://127.0.0.1:54578';
+// var myPopup = window.open(domain + '/user/feeds.html',"_self");
+
+// //periodical message sender
+// setInterval(function(){
+//   var message = 'Hello!  The time is: ' + (new Date().getTime());
+//   console.log('blog.local:  sending message:  ' + message);
+//   myPopup.postMessage(message,domain); //send the message and target URI
+// },6000);
+
+// }

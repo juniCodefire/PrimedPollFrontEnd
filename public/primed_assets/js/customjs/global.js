@@ -82,7 +82,29 @@ window.addEventListener('error', function (e) {
     // mailme([errMsg, errSrc]);
 }, true);
 
+
 //make url consitent
 if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com') {
   location.replace(`https://app.primedpoll.com${location.pathname}`);
+}else if(location.origin === 'https://app.primedpoll.com') {
+    window.onmessage = function(event) {
+        if(event.origin === 'https://primedpoll.com' || event.origin === 'https://www.primedpoll.com'){
+            console.log(event.data)
+        }
+    }
 }
+
+// window.addEventListener('message', function(event) {
+//     console.log(event)
+//     if(event.origin !== 'http://127.0.0.1:8080') return;
+//         console.log('message received:  ' + event.data,event);
+//         // event.source.postMessage('holla back youngin!',event.origin);
+//         localStorage.setItem('jjj', event.data)
+// },false);
+// const receiveMessage = (event) =>{
+//       console.log(event)
+//     if(event.origin === 'http://127.0.0.1:8080' || event.origin === 'https://www.primedpoll.com'){
+//         console.log(event)
+//     }
+// }
+// window.addEventListener("message", receiveMessage, false);

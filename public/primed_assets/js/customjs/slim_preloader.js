@@ -5,9 +5,7 @@ const slim_preloader = (stop = false) => {
   let threshold = 0;
   let timeLapse = 500;
   let drawback = 2;
-  console.log(preloader)
-
-  console.log(stop)
+  
  if(stop == true) {
      clearInterval(slim_loader)
      preloader.style.width = '0%';

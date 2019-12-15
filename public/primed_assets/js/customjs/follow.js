@@ -2,7 +2,6 @@
 
 const follow = (event, index, followBtns, baseUrl, token) => {
     event.preventDefault();
-    console.log(event);
     const element = event.srcElement || event.target;
     const id = element.dataset.followId;
     const api = `${ baseUrl }api/follow/${ id }`;
@@ -19,7 +18,6 @@ const follow = (event, index, followBtns, baseUrl, token) => {
         .then(response => response.json())
         .then(data => {
             twistBtn(data)
-            console.log(data);
         })
         .catch(error => console.log(error));
 }
@@ -37,8 +35,6 @@ const replaceFunc = (id, pass, check = null) => {
     const specificFollowBtns = Array.from(document.querySelectorAll(`.follow-btn${ id }`));
 
     const followBtn = document.querySelector(`#follow-id-1${ id }`);
-    console.log(followBtn)
-
     specificFollowDivs.map((specificFollowDiv, i) => {
         if (pass == 1) {
             specificFollowDiv.style.opacity = "0.5";
@@ -49,7 +45,6 @@ const replaceFunc = (id, pass, check = null) => {
 
     specificFollowBtns.map((specificFollowBtn, i) => {
         if (pass == 1) {
-            console.log('pee')
             specificFollowBtn.setAttribute('disabled', 'true');
             specificFollowBtn.style.cursor = "not-allowed";
         } else if (pass == 0) {
@@ -69,7 +64,6 @@ const replaceFunc = (id, pass, check = null) => {
 
 }
 const insertTracker = (id, statusVal = null) => {
-    console.log(toFollows);
     const arrayUpdater = (toFollow) => {
         toFollow.status = statusVal;
     }

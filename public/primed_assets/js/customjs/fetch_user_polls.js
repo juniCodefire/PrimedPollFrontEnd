@@ -52,8 +52,6 @@ const triggerDynamicFeeds = () => {
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
     }
-    console.log(url_link)
-
     settings = {
         "url": `${url_link}`,
         "method": "GET",
@@ -104,7 +102,6 @@ const loadFeeds = () => {
     const feedsData = JSON.parse(localStorage.getItem('stored_broswer_polls'));
     if (feedsData != null ) {
         feeds.push(...feedsData);
-              console.log(feeds)
         $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
@@ -354,10 +351,8 @@ $('#feeds_box').on('scroll', function () {
     // console.log($('#feeds_box').position().top);
     // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
     if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
-        console.log($("#feeds_box")[0].clientHeight);
         const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 10);
         // $(".dynamic_feed_loader").show();
-        console.log(reflex)
         $("#feeds_box")[0].scrollBy(0, reflex);
         if (key == "open") {
             key = "close";   

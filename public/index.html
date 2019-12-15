@@ -79,6 +79,7 @@
 	<script src="primed_assets/js/IndexRenderPages/displayData.js"></script>
 	<script src="primed_assets/js/customjs/manipulateIndex.js"></script>
 	<script type="text/javascript" src="./primed_assets/js/customjs/baseLink.js"></script>
+	<script src="primed_assets/js/customjs/domainHandler.js"></script>
 	<script type="bb85567b1ad0bcfe924e7aa9-text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
 	<script src="primed_assets/edujs/easing.min.js" type="bb85567b1ad0bcfe924e7aa9-text/javascript"></script>
 	<script src="primed_assets/edujs/hoverIntent.js" type="bb85567b1ad0bcfe924e7aa9-text/javascript"></script>
@@ -113,3 +114,8 @@
 </body>
 
 </html>
+<script type="text/javascript">
+	if(location.origin === 'https://app.primedpoll.com') {
+	  location.replace(`https://primedpoll.com`);
+	}
+</script>

@@ -55,12 +55,12 @@
                         <div class="ec_sign-in-utiliti row text-center">
                         <p class="ec_med-text col-6 offset-3 ec_text-grey">
                           Don't have an account?
-                         <small><a href="signup.html"><b>SignUp Here</b></a></small>
+                         <small><a style="color: #f58731; cursor: pointer;"  onclick="authIn('signup')"><b>SignUp Here</b></a></small>
                         </p>
                     </div>
                   <div class="ec_sign-in-utilities row">
-                        <p class="ec_med-text text-white go-back"><a
-                                class="col-12 ml-3 offset-2 offset-md-1 offset-lg-0" href="forget_password.html"
+                        <p class="ec_med-text text-white go-back"><a style="color: #f58731; cursor: pointer;" 
+                                class="col-12 ml-3 offset-2 offset-md-1 offset-lg-0" onclick="authIn('forgot')"
                                 ><i class="fa fa-arrow-circle-left" aria-hidden="true"></i><b>Forgot Password?</b></a></p>
                     </div>
                       <div class="col-12 row">
@@ -74,7 +74,7 @@
 
         </div>
     </div>
-
+    <script src="../primed_assets/js/customjs/domainHandler.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- jQuery Modal -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
