@@ -23,7 +23,7 @@ $.ajaxSetup({
             localStorage.removeItem('bio');
             localStorage.removeItem('username');
 
-            reboot();
+            // reboot();
            
         }
     }
@@ -72,7 +72,7 @@ var mailme = function () {
     localStorage.removeItem('bio');
     localStorage.removeItem('username');
     
-    reboot();
+    // reboot();
 }
 
 window.addEventListener('error', function (e) {
