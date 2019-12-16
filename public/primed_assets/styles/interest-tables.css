@@ -1,0 +1,100 @@
+body{
+	font-family: 'Nunito', sans-serif !important;
+}
+.interest-numbers{
+}
+.interests-list{
+    height: 70vh;
+	overflow-y: scroll;
+	font-size: 16px;
+}
+.users-list{
+    height: 70vh;
+    overflow-y: scroll;
+}
+.scrollable-white{
+	scrollbar-color:  black white;
+    scrollbar-width: thin;
+}
+.scrollable-black{
+	scrollbar-color:  white black;
+    scrollbar-width: thin;
+}
+.view-user-btn{
+	max-height:20px;
+	border:0;
+	border-radius: 3px;
+	background-color: green;
+	color:white;
+	font-size: 12px;
+	padding:1.5px 8px;
+	cursor: pointer;
+}
+.delete-user-btn{
+	max-height:20px;
+	border:0;
+	border-radius: 3px;
+	background-color: red;
+	color:white;
+	font-size: 12px;
+	padding:1.5px 8px;
+	cursor: pointer;
+}
+#viewInterestModal{
+	z-index: 5000;
+}
+#viewInterestModal .modal-dialog{
+	max-width: 100vw;
+}
+#viewInterestModal .modal-content{
+	width: 50vw;
+	height: 90vh;
+}
+.recent-polls-con{
+	max-height: 75vh;
+}
+.individual-poll{
+	border-radius: 10px;
+}
+.poll-image img{
+	height: 10vh;
+	width: 10vh;
+	border-radius: 50%;
+}
+.poll-name{
+	height: 4vh;
+}
+.poll-name span{
+	font-size: 16px;
+	font-weight: bold;
+}
+.poll-name span a{
+	font-size: 12px;
+	font-weight: 100;
+}
+.poll-question{
+	height: 5vh;
+	font-size: 12px;
+}
+.poll-question span{
+	font-size: 14px;
+}
+.poll-options{
+}
+.indiv-option{
+	height: 3vh;
+	border-radius: 5px;
+}
+.indiv-option span{
+	font-size: 12px;
+}
+.indiv-option .progress-bar{
+	height: 100%;
+	font-size: 14px;
+	background: #f58731;
+	color: white;
+	text-shadow: 1px 1px black;
+}
+.votes-value{
+	color: #f58731;
+}
