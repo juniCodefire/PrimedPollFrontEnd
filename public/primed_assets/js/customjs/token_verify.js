@@ -11,7 +11,6 @@ $(document).ready( function() {
 	$("#token_verify").on('submit', function(e) {
 		e.preventDefault();
         $(".se-pre").show();
-        $("#juni_info").hide();
 		var verifycode    = $("#verifycode").val();
 
 		 var settings = {
