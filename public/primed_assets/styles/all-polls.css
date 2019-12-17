@@ -69,42 +69,42 @@
   scrollbar-width: thin;
 }
 .scrollable-brand {
-  scrollbar-color: #f58731 white;
+  scrollbar-color: #f55330 white;
   scrollbar-width: thin;
 }
 .nav-link span {
   font-size: 14px;
 }
 .nav .sticky-top {
-  background-color: #f58731;
+  background-color: #f55330;
 }
 .nav .sticky-top span {
   color: white;
 }
 .brand-bg {
-  background-color: #f58731;
+  background-color: #f55330;
 }
 .text-brand {
-  color: #f58731;
+  color: #f55330;
 }
 .btn-brand {
-  background-color: #f58731;
-  border: 1px solid #f58731;
+  background-color: #f55330;
+  border: 1px solid #f55330;
   color: white;
 }
 .btn-brand:hover {
   background-color: white;
-  color: #f58731;
-  border: 1px solid #f58731;
+  color: #f55330;
+  border: 1px solid #f55330;
 }
 .btn-outline-brand {
-  color: #f58731;
-  border: 1px solid #f58731;
+  color: #f55330;
+  border: 1px solid #f55330;
 }
 .btn-outline-brand:hover {
-  background-color: #f58731;
+  background-color: #f55330;
   color: white;
-  border: 1px solid #f58731;
+  border: 1px solid #f55330;
 }
 #follow-con {
   max-height: 90vh;
@@ -120,7 +120,7 @@
   color: #5A6169;
 }
 .open_member_link span:hover {
-  color: #f58731;
+  color: #f55330;
 }
 .open_member_link small{
   color: #007bff;
@@ -133,7 +133,7 @@
   font-size: 16px;
 }
 .follow-user-name:hover {
-  color: #f58731;
+  color: #f55330;
 }
 .follow-box .btn-outline-brand {
   border-radius: 20px;
@@ -193,7 +193,7 @@
 }
 
 .selected-image{
-  border: 3px solid #f58731;
+  border: 3px solid #f55330;
 }
 @media screen and (max-width:991px){
 	#follow-con{

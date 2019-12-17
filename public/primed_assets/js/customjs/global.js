@@ -1,6 +1,10 @@
 
 const reboot = () => {
-    location.replace(`https://app.primedpoll.com/user/signin.html`);
+    if(location.origin === 'https://app.primedpoll.com') {
+        location.replace(`https://app.primedpoll.com/user/signin.html`);
+    }else {
+        location.replace('../user/signin.html');
+    }
 }
 
 
@@ -82,12 +86,6 @@ window.addEventListener('error', function (e) {
 //make url consitent
 if(location.origin === 'https://primedpoll.com' || location.origin === 'https://www.primedpoll.com') {
   location.replace(`https://app.primedpoll.com${location.pathname}`);
-}else if(location.origin === 'https://app.primedpoll.com') {
-    window.onmessage = function(event) {
-        if(event.origin === 'https://primedpoll.com' || event.origin === 'https://www.primedpoll.com'){
-            console.log(event.data)
-        }
-    }
 }
 
 // window.addEventListener('message', function(event) {

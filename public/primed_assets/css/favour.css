@@ -168,19 +168,19 @@
     text-align: left;
 }
 .follow{
-    border: 1px solid#f58731;
+    border: 1px solid#f55330;
     border-radius: 20px;
     padding: 5px;
     padding-left: 20px;
     padding-right: 20px;
-    color:#f58731;
+    color:#f55330;
     font-size: 10px;
     float: right;
 
    }
 .follow:hover{
     background: #00000013;
-    color:#f58731;
+    color:#f55330;
 }
 a{
     text-decoration: none !important;

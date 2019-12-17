@@ -57,7 +57,7 @@ const show_votedUser = (data) => {
                             <p class="mb-0 mt-3" style="color:#000;">${last_name} ${first_name}</p>
                         </div>
                         <div class="col-12 voter-username">
-                        <p class="mt-1" style="color:#f58731;">${username}</p>
+                        <p class="mt-1" style="color:#f55330;">${username}</p>
                         </div>
                     </a>
                 </div>

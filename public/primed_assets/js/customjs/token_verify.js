@@ -11,6 +11,7 @@ $(document).ready( function() {
 	$("#token_verify").on('submit', function(e) {
 		e.preventDefault();
         $(".se-pre").show();
+        console.log('hhhh')
 		var verifycode    = $("#verifycode").val();
 
 		 var settings = {
@@ -25,12 +26,13 @@ $(document).ready( function() {
           if (response) {
 
           $(".se-pre").hide();
+          console.log(response)
 
-              if (response.verified == "true"){
+            if (response.verified == "True"){
                 localStorage.setItem('token', response.token);
                 location.replace("../user/complete-registration.html");
 
-            }else if(response.verified == "done"){
+            }else if(response.verified == "Done"){
                 $("#juni_err_verifytoken").html("Account verified already, try logging in.");
                 $("#juni_err_verifytoken").css('color', 'red');
 
@@ -38,7 +40,7 @@ $(document).ready( function() {
                     location.replace("../user/signin.html");
                 }, 2000);
             }else{
-                $("#juni_err_verifytoken").html("Verificaion Code does not match.");
+                $("#juni_err_verifytoken").html(response.message);
                 $("#juni_err_verifytoken").css('color', 'red');
                 $("#verifycode").css('border', '1px solid red');
             }

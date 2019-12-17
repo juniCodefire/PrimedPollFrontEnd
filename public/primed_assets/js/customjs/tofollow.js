@@ -50,7 +50,7 @@ const showToFollowMember = (image_link) => {
                  <a href="${window.location.origin }${ usernameLink }" class="open_member_link">
                    <div style="line-height: 15px" class="mt-2">
                      <span class="follow-user-name">${first_name } ${ last_name }</span>
-                     <small style="color:#f58731;">${username }</small>
+                     <small style="color:#f55330;">${username }</small>
                    </div>
                  </a>
                </div>
@@ -112,7 +112,7 @@ const showToFollowMemberBtwFeeds = (image_link, steps = 4) => {
                 <span class="follow-user-name">${ first_name } ${ last_name }</span>
               </div>
               <div class="text-center fuid-box">
-                <small style="color:#f58731;">${ username }</small>
+                <small style="color:#f55330;">${ username }</small>
               </div>
             </a>
             <div class="text-center mt-2">

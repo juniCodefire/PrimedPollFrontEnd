@@ -100,7 +100,7 @@ $(document).ready(function () {
                  <br>
                  <h4 style="font-weight:bold; font-size:20px; cursor:pointer; margin-left:20px; margin-top:10px;">
                  What do you want ask... ?
-                 <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size: 20px;"></i> New Poll</span>
+                 <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size: 20px;"></i> New Poll</span>
                  </h4>
                  <br>
             </div>

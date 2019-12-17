@@ -6,7 +6,7 @@ const domain = 'https://primedpoll.com/' //home pages
 const subDomain = 'https://app.primedpoll.com/';
 const siteTitle = `PrimedPoll`;
 const siteLogo_1 = `<img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../primed_assets/images/01.png" alt="">`;
-const siteLogo_2 = `<img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../primed_assets/images/02.png" alt="">`;
+const siteLogo_2 = `<img onclick="location.href='${ window.location.origin }'" class="mt-2" src="../primed_assets/images/03.png" alt="">`;
 
 // // document.querySelector('.site_title').innerHTML += `${ siteTitle }`;
 const siteNames_1 = Array.from(document.querySelectorAll('.site_name'));

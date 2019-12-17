@@ -6,13 +6,13 @@ $(document).ready(function () {
     var check_exist = jQuery.inArray(cat_id, interests);
     if (check_exist != -1) {
       interests.splice(check_exist, 1);
-      $("#interest" + cat_id).css('background', '#f58731');
-      $("#interest" + cat_id).css('border-top', '1px solid #f58731');
+      $("#interest" + cat_id).css('background', '#f55330');
+      $("#interest" + cat_id).css('border-top', '1px solid #f55330');
       $("#check" + cat_id).hide();
     } else {
       interests.push(cat_id);
       $("#interest" + cat_id).css('background', 'grey');
-      $("#interest" + cat_id).css('border-top', '1px solid #f58731');
+      $("#interest" + cat_id).css('border-top', '1px solid #f55330');
       $("#check" + cat_id).show();
     }
 
@@ -40,6 +40,10 @@ $(document).ready(function () {
     var lastName = $("#lastName").val();
     var phoneNumber = $("#phoneNumber").val();
     var dob = $("#dob").val();
+    var gender = $("#gender").val();
+    var country = $("#country").val();
+
+
     $(".err_signup").css('color', 'white');
     if (firstName == "") {
       $("#juni_err_firstName").html('fisrtname cannot be empty');
@@ -61,14 +65,24 @@ $(document).ready(function () {
       $("#dob").addClass('err_signup_input');
       $(".se-pre").hide();
       return false;
-    } else {
+    } else if (gender == "") {
+      $("#juni_err_gender").html('Gender is required');
+      $("#gender").addClass('err_signup_input');
+      $(".se-pre").hide();
+      return false;
+    } else if (country == "") {
+      $("#juni_err_country").html('Country is required');
+      $("#country").addClass('err_signup_input');
+      $(".se-pre").hide();
+      return false;
+    }else {
 
       $(".err_signup").html('');
       $(".complete_inputs").removeClass('err_signup_input');
 
       interests = interests.map(function (x) {
         return {
-          "interest_id": x
+          "interest_ids": x
         }
       });
       console.log(interests);
@@ -85,6 +99,8 @@ $(document).ready(function () {
           "last_name": lastName,
           "phone": phoneNumber,
           "dob": dob,
+          "country": country,
+          "gender": gender,
           "interests": interests
         },
       };
@@ -100,11 +116,14 @@ $(document).ready(function () {
           localStorage.setItem('user_email', user.email);
           localStorage.setItem('user_image', wrapImage);
           localStorage.setItem('user_dob', user.dob);
+          localStorage.setItem('user_gender', user.gender);
+          localStorage.setItem('user_country', user.country);
           localStorage.setItem('user_phone', user.phone);
 
           location.replace("../user/profile.html");
         }
       }).fail(function (err) {
+        console.log(err)
         if (err) {
           $(".se-pre").hide();
           if (err.status === 422) {
@@ -124,6 +143,14 @@ $(document).ready(function () {
             if (err.responseJSON.dob) {
               $("#juni_err_dob").html(err.responseJSON.dob[0]);
               $("#dob").addClass('err_signup_input');
+            }
+            if (err.responseJSON.dob) {
+              $("#juni_err_gender").html(err.responseJSON.dob[0]);
+              $("#gender").addClass('err_signup_input');
+            }
+            if (err.responseJSON.dob) {
+              $("#juni_err_gender").html(err.responseJSON.dob[0]);
+              $("#gender").addClass('err_signup_input');
             }
 
           }

@@ -6,7 +6,8 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: "Lato", sans-serif;
 }
 .red-text{
     color: red;
@@ -15,7 +16,7 @@ body {
     height: 20px;
 }
 .error-alert-btn{
-    background-color: #f58731 !important;
+    background-color: #f55330 !important;
     color: white !important;
 }
 .shorten-text{
@@ -25,8 +26,8 @@ body {
   text-overflow: ellipsis;
 }
 .btn-brand {
-    background-color: #f58731;
-    border: 1px solid #f58731;
+    background-color: #f55330;
+    border: 1px solid #f55330;
     color: white;
 }
 .ec_banner-content {
@@ -34,19 +35,19 @@ body {
 }
 .btn-brand:hover {
     background-color: white;
-    color: #f58731;
-    border: 1px solid #f58731;
+    color: #f55330;
+    border: 1px solid #f55330;
 }
 
 .btn-outline-brand {
-    color: #f58731;
-    border: 1px solid #f58731;
+    color: #f55330;
+    border: 1px solid #f55330;
 }
 
 .btn-outline-brand:hover {
-    background-color: #f58731;
+    background-color: #f55330;
     color: white;
-    border: 1px solid #f58731;
+    border: 1px solid #f55330;
 }
 
 .ec_tiny-text {
@@ -61,17 +62,6 @@ body {
     font-size: 20px;  
       color: #fff !important;
       letter-spacing: 2px;
-      text-shadow: 
-        1px 0px 1px #f58731, 0px 1px rgb(0,0,0,0.2), 
-        2px 1px 1px #f58731, 1px 2px rgb(0,0,0,0.2),
-        2px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
-        1px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
-        1px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
-        2px 2px 1px #f58731, 1px 1px rgb(0,0,0,0.2),
-        2px 2px 1px #f58731;
-    /*color: white !important;
-    text-shadow: 2px 3px #f58731;*/
-    /*color: #934506 !important; */
 }
 
 .ec_text-grey {
@@ -79,7 +69,7 @@ body {
 }
 
 .ec_brand-bg {
-    background-color: #f58731;
+    background-color: #f55330;
 }
 
 .ec_white-bg {
@@ -87,7 +77,7 @@ body {
 }
 
 .ec_text-brand {
-    color: #f58731;
+    color: #f55330;
 }
 
 .ec_border-grey {
@@ -107,9 +97,11 @@ body {
 
 .ec_auth-body {
     height: 100vh;
-    background-image: linear-gradient(90deg, #f58731 0%, #f58731 33%, rgb(255, 255, 255) 0%);
-    background-size: 100%;
-    position: relative;
+
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../primed_assets/img/mountain-sky.jpg");
+  background-position: center;
+  background-size: cover;
 
 }
 
@@ -138,11 +130,14 @@ body {
     margin-bottom: 0%;
     border-radius: 5px;
 }
+.ec_signup-form input {
+   
+}
 
 .ec_sign-in-btn {
-    background-color: #f58731;
+    background-color: #f55330;
     color: white;
-    background-color: #f58731;
+    background-color: #f55330;
     color: white;
     /* border: 1px solid #ffffff; */
     /* box-shadow: 0 10px 15px rgba(0,0,0,0.2); */
@@ -151,24 +146,28 @@ body {
     font-weight: bold;
 }
 .ec_sign-in-btn:hover {
-    background-color: white;
-    color: #f58731;
-    border: 1px solid #f58731;
+
+    background-color: inherit;
+    color: ;
+    border: 1px solid ;
     /* box-shadow: 0 10px 15px rgba(0,0,0,0.2); */
     border-radius: 5px;
     transform:scale(1.003);
 }
 
 .ec_form input {
-    border-radius: 5px;
-    background: #fff !important;
+    background: inherit !important;
+    color: white !important;
+}
+.ec_form input::placeholder {
+    color: lightgray;
 }
 .ec_form a {
-    color: #f58731;
+    color: #f55330;
 }
 
 .ec_text-brand {
-    color: #f58731;
+    color: #f55330;
 }
 
 .ec_forgot-password {}
@@ -213,7 +212,7 @@ body {
 }
 
 .ec_border-brand {
-    border: 1px solid #f58731;
+    border: 1px solid #f55330;
 }
 
 .poll-listing {
@@ -221,7 +220,7 @@ body {
 }
 
 .poll-listing a[aria-selected="false"] {
-    color: #f58731;
+    color: #f55330;
 }
 
 .poll-listing a[aria-selected="true"] {
@@ -235,14 +234,14 @@ body {
 
 .interest {
     color: white;
-    background-color: #f58731;
+    background-color: #f55330;
     padding: 8px 0px;
     border-radius: 5px;
 }
 
 .edit-interest {
     color: white;
-    background-color: #f58731;
+    background-color: #f55330;
     padding: 8px 0px;
     border-radius: 5px;
 }
@@ -261,7 +260,7 @@ body {
 
 .bg-white {
     background-color: white;
-    border: 1px solid #f58731;
+    border: 1px solid #f55330;
 }
 
 .user-info input {
@@ -299,7 +298,7 @@ body {
 
 .auth-body {
     height: 100vh;
-    background-color: #f58731;
+    background-color: #f55330;
     background-size: 100%;
     position: relative;
     font-family: 'Slabo 27px', serif;
@@ -341,12 +340,12 @@ body {
 }
 
 .feeds-btn-nav:hover {
-    background-color: #f58731;
+    background-color: #f55330;
     color: #7a4318;
 }
 
 .feeds-btn-nav:focus {
-    background-color: #f58731;
+    background-color: #f55330;
     color: #7a4318;
 }
 
@@ -397,8 +396,8 @@ body {
 @media (max-width:900px) {
   .ec_signin-form button, .ec_signup-form button{
       background: #fff;
-      border:1px solid  #f58731;
-      color:  #f58731;
+      border:1px solid  #f55330;
+      color:  #f55330;
    }
 }
 

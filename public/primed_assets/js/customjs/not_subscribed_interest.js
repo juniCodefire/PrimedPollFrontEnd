@@ -106,12 +106,12 @@ $(document).on('click', '.get_interest_id', function ()
   {
     new_interests.splice(check_exist, 1);
     $(`#ns_interest${ ns_interest_id }`).css('background', '#ffffff');
-    $(`#ns_interest${ ns_interest_id }`).css('color', '#f58731');
-    $(`#ns_interest${ ns_interest_id }`).css('border-color', '#f58731');
+    $(`#ns_interest${ ns_interest_id }`).css('color', '#f55330');
+    $(`#ns_interest${ ns_interest_id }`).css('border-color', '#f55330');
   } else
   {
     new_interests.push(ns_interest_id);
-    $(`#ns_interest${ ns_interest_id }`).css('background', '#f58731');
+    $(`#ns_interest${ ns_interest_id }`).css('background', '#f55330');
     $(`#ns_interest${ ns_interest_id }`).css('color', 'white');
     $(`#ns_interest${ ns_interest_id }`).css('border-color', '#e6e6e6');
   }

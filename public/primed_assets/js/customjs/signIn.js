@@ -38,8 +38,6 @@ $(document).ready(function () {
       $.ajax(settings).done(function (response) {
         if (response.data.success) {
 
-          $("#reg_success").html(response.success);
-
           const token = response.data.token;
           const user = response.data.user;
 
@@ -59,7 +57,11 @@ $(document).ready(function () {
           localStorage.setItem('bio', user.bio);
           localStorage.setItem('username', user.username);
 
-          console.log(window)
+          console.log(response)
+          if(response.data.process == 'incompleted') {
+               console.log(response)
+            return location.replace("../user/complete-registration.html")
+          }
           //If server use the app sub domain 
           location.replace("../user/feeds.html");
         }

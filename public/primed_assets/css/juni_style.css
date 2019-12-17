@@ -35,16 +35,16 @@
 	width: 100%;
 }
 .juni_spin {
-	background: #f58731;
+	background: #f55330;
 	display: none;
 	margin: 0;
 }
 .juni_spin_verify_code {
-	background: #f58731;
+	background: #f55330;
 	display: none;
 }
 .get_reqeust_spin {
-	background: #f58731;
+	background: #f55330;
 	width: 80px;
 	height: 80px;	
 }
@@ -67,7 +67,7 @@
 .juni_interest_submit {
 	display: none;
 	width: 100%;
-	background-color: #f58731;
+	background-color: #f55330;
     color: white;
     margin-top: 2vh;
     border-radius: 20px;

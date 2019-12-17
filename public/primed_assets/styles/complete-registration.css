@@ -9,7 +9,7 @@ body{
 }
 .complete-details{
     min-height: 100vh;
-    background-color: #f58731;
+    background-color: #f55330;
     color:white;
 }
 .comp-form input{
@@ -30,7 +30,7 @@ body{
     text-decoration: none;
 }
 .interest{
-    background-color: #f58731;
+    background-color: #f55330;
 }
 .interest-words{
     color:white;
