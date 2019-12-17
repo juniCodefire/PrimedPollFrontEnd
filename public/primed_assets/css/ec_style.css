@@ -6,7 +6,8 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
+    font-family: "Lato", sans-serif;
 }
 .red-text{
     color: red;
@@ -61,17 +62,6 @@ body {
     font-size: 20px;  
       color: #fff !important;
       letter-spacing: 2px;
-      text-shadow: 
-        1px 0px 1px #f55330, 0px 1px rgb(0,0,0,0.2), 
-        2px 1px 1px #f55330, 1px 2px rgb(0,0,0,0.2),
-        2px 2px 1px #f55330, 1px 1px rgb(0,0,0,0.2),
-        1px 2px 1px #f55330, 1px 1px rgb(0,0,0,0.2),
-        1px 2px 1px #f55330, 1px 1px rgb(0,0,0,0.2),
-        2px 2px 1px #f55330, 1px 1px rgb(0,0,0,0.2),
-        2px 2px 1px #f55330;
-    /*color: white !important;
-    text-shadow: 2px 3px #f55330;*/
-    /*color: #934506 !important; */
 }
 
 .ec_text-grey {
@@ -107,9 +97,11 @@ body {
 
 .ec_auth-body {
     height: 100vh;
-    background-image: linear-gradient(90deg, #f55330 0%, #f55330 33%, rgb(255, 255, 255) 0%);
-    background-size: 100%;
-    position: relative;
+
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../primed_assets/img/mountain-sky.jpg");
+  background-position: center;
+  background-size: cover;
 
 }
 
@@ -138,6 +130,9 @@ body {
     margin-bottom: 0%;
     border-radius: 5px;
 }
+.ec_signup-form input {
+   
+}
 
 .ec_sign-in-btn {
     background-color: #f55330;
@@ -151,17 +146,21 @@ body {
     font-weight: bold;
 }
 .ec_sign-in-btn:hover {
-    background-color: white;
-    color: #f55330;
-    border: 1px solid #f55330;
+
+    background-color: inherit;
+    color: ;
+    border: 1px solid ;
     /* box-shadow: 0 10px 15px rgba(0,0,0,0.2); */
     border-radius: 5px;
     transform:scale(1.003);
 }
 
 .ec_form input {
-    border-radius: 5px;
-    background: #fff !important;
+    background: inherit !important;
+    color: white !important;
+}
+.ec_form input::placeholder {
+    color: lightgray;
 }
 .ec_form a {
     color: #f55330;

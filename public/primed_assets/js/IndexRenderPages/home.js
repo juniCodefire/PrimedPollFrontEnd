@@ -1,375 +1,119 @@
 const root = document.querySelector('#root');
 console.log('open')
-if ((location.pathname === '/' || location.pathname === '/index.html') && location.hash === "")
-{
+if ((location.pathname === '/' || location.pathname === '/index.html') && location.hash === "") {
 	console.log('open')
 
 	root.innerHTML =
-		`<!--Preloader Block -->
-		<div class="se-pre-con">
+		` <div class="se-pre-con">
 			<p align='center'></p>
-		</div>
-		<!-- Start Header Area -->
-		<header id="header">
-			<div class="container">
-				<div class="row align-items-center justify-content-between d-flex">
-					<div class="col-md-3 site_name_2"></div>
-					<nav id="nav-menu-container" class="col-9">
-						<ul class="nav-menu float-right">
-							<li class="menu-active"><a href="#">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="courses.html">Interests</a></li>
-							<li class="menu-has-children"><a href="#">Stories</a>
-								<ul>
-									<li><a href="blog-home.html">Our Blog</a></li>
-									<li><a href="blog-single.html">Recent Update</a></li>
-									<li><a href="blog-single.html">Our Patners</a></li>
-								</ul>
-							</li>
-							<li><a href="contact.html">Contact</a></li>
-						</ul>
-					</nav><!-- #nav-menu-container -->
-				</div>
-			</div>
-		</header>
-		<!-- End Header Area -->
+		 </div>
+		<div class="container-fluid">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light our-nav col-12">
+                <a class="navbar-brand ml-2" href="#">
+                    <img src="primed_assets/img/06.png" alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-
-		<!-- Start Banner Area -->
-		<section class="home-banner-area relative">
-			<div class="container">
-				<div class="row d-flex align-items-center justify-content-center">
-					<div class="banner-content ec_banner-content col-lg-8 col-md-12">
-						<h1 class="wow fadeIn" data-wow-duration="4s">Have a Question?<br> Let's help you figure out what people think!</h1>
-						<p class="text-white">
-							In the history of modern astronomy, there is probably no one greater leap forward than the building and launch
-							of
-							the space
-							telescope.
-						</p>
-
-						<div class="input-wrap">
-							<button onclick="authIn('signup')" class="btn btn-default col-2 mr-4">Sign Up</button>
-							<button onclick="authIn('login')" class="btn btn-secondary col-2">Log In</button>
-						</div>
-						<h4 class="text-white">Top Interests</h4>
-
-						<div class="courses pt-20">
-							<a href="#" data-wow-duration="1s" data-wow-delay=".3s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Politics</a>
-							<a href="#" data-wow-duration="1s" data-wow-delay=".6s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Fiction</a>
-							<a href="#" data-wow-duration="1s" data-wow-delay=".9s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">GOT</a>
-							<a href="#" data-wow-duration="1s" data-wow-delay="1.2s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Laughs
-							</a>
-							<a href="#" data-wow-duration="1s" data-wow-delay="1.5s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Tech</a>
-							<a href="#" data-wow-duration="1s" data-wow-delay="1.8s" class="primary-btn transparent mr-10 mb-10 wow fadeInDown">Nigeria
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Banner Area -->
-		<!-- Start About Area -->
-		<section class="about-area section-gap">
-			<div class="container">
-				<div class="row align-items-center justify-content-center">
-					<div class="col-lg-5 col-md-6 about-left">
-						<img class="img-fluid" src="primed_assets/images/about.jpg" alt="">
-					</div>
-					<div class="offset-lg-1 col-lg-6 offset-md-0 col-md-12 about-right">
-						<h1>
-							Over 2500 Courses <br> from 5 Platform
-						</h1>
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s
-								exciting to think
-								about setting up your own viewing station. In the life of any aspiring astronomer that it is time to buy that
-								first
-								telescope. It’s exciting to think about setting up your own viewing station.
-							</p>
-						</div>
-						<a href="courses.html" class="primary-btn">Explore Courses</a>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End About Area -->
-		<!-- Start Courses Area -->
-		<section class="courses-area section-gap">
-			<div class="container">
-				<div class="row align-items-center">
-					<div class="col-lg-5 about-right">
-						<h1>
-							This is Why <br> We have Solid Idea
-						</h1>
-						<div class="wow fadeIn" data-wow-duration="1s">
-							<p>
-								There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s
-								exciting to think
-								about setting up your own viewing station. In the life of any aspiring astronomer that it is time to buy that
-								first
-								telescope. It’s exciting to think about setting up your own viewing station.
-							</p>
-						</div>
-						<a href="courses.html" class="primary-btn white">Explore Courses</a>
-					</div>
-					<div class="offset-lg-1 col-lg-6">
-						<div class="courses-right">
-							<div class="row">
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									<ul class="courses-list">
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".1s">
-												<i class="fa fa-book"></i> Development
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".3s">
-												<i class="fa fa-book"></i> IT & Software
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".5s">
-												<i class="fa fa-book"></i> Photography
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".7s">
-												<i class="fa fa-book"></i> Language
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay=".9s">
-												<i class="fa fa-book"></i> Life Science
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay="1.1s">
-												<i class="fa fa-book"></i> Business
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInLeft" href="courses.html" data-wow-duration="1s" data-wow-delay="1.3s">
-												<i class="fa fa-book"></i> Socoal Science
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="col-lg-6 col-md-6 col-sm-12">
-									<ul class="courses-list">
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.3s">
-												<i class="fa fa-book"></i> Data Science
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay="1.1s">
-												<i class="fa fa-book"></i> Design
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay=".9s">
-												<i class="fa fa-book"></i> Training
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay=".7s">
-												<i class="fa fa-book"></i> Humanities
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay=".5s">
-												<i class="fa fa-book"></i> Marketing
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay=".3s">
-												<i class="fa fa-book"></i> Economics
-											</a>
-										</li>
-										<li>
-											<a class="wow fadeInRight" href="courses.html" data-wow-duration="1s" data-wow-delay=".1s">
-												<i class="fa fa-book"></i> Personal Dev
-											</a>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Courses Area -->
-		<!--Start Feature Area -->
-		<section class="feature-area">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-8">
-						<div class="section-title text-center">
-							<h1>Features That Make Us Hero</h1>
-							<p>
-								If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may
-								see some for
-								as low as $.17 each.
-							</p>
-						</div>
-					</div>
-				</div>
-				<div class="feature-inner row">
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-crown"></i>
-							<h4>Architecture</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-briefcase"></i>
-							<h4>Interior Design</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-medall-alt"></i>
-							<h4>Concept Design</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-key"></i>
-							<h4>Lifetime Access</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".1s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-files"></i>
-							<h4>Source File Included</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".3s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="feature-item">
-							<i class="ti-headphone-alt"></i>
-							<h4>Live Support</h4>
-							<div class="wow fadeIn" data-wow-duration="1s" data-wow-delay=".5s">
-								<p>
-									Lorem ipsum dolor sit amet consec tetur adipisicing elit, sed do eiusmod tempor incididunt labore.
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- End Feature Area -->
-
-		<!-- Start Footer Area -->
-		<footer class="footer-area section-gap">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-2 col-md-6 single-footer-widget">
-						<h4>Top Products</h4>
-						<ul>
-							<li><a href="#">Managed Website</a></li>
-							<li><a href="#">Manage Reputation</a></li>
-							<li><a href="#">Power Tools</a></li>
-							<li><a href="#">Marketing Service</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-2 col-md-6 single-footer-widget">
-						<h4>Quick Links</h4>
-						<ul>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Brand primed_assets</a></li>
-							<li><a href="#">Investor Relations</a></li>
-							<li><a href="#">Terms of Service</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-2 col-md-6 single-footer-widget">
-						<h4>Features</h4>
-						<ul>
-							<li><a href="#">Jobs</a></li>
-							<li><a href="#">Brand primed_assets</a></li>
-							<li><a href="#">Investor Relations</a></li>
-							<li><a href="#">Terms of Service</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-2 col-md-6 single-footer-widget">
-						<h4>Resources</h4>
-						<ul>
-							<li><a href="#">Guides</a></li>
-							<li><a href="#">Research</a></li>
-							<li><a href="#">Experts</a></li>
-							<li><a href="#">Agencies</a></li>
-						</ul>
-					</div>
-					<div class="col-lg-4 col-md-6 single-footer-widget">
-						<h4>Newsletter</h4>
-						<p>You can trust us. we only send promo offers,</p>
-						<div class="form-wrap" id="mc_embed_signup">
-							<form target="_blank" action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-							 method="get" class="form-inline">
-								<input class="form-control" name="EMAIL" placeholder="Your Email Address" onfocus="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = ''"
-								 onblur="if (!window.__cfRLUnblockHandlers) return false; this.placeholder = 'Your Email Address '" required=""
-								 type="email" data-cf-modified-bb85567b1ad0bcfe924e7aa9-="">
-								<button class="click-btn btn btn-default"><span class="lnr lnr-arrow-right"></span></button>
-								<div style="position: absolute; left: -5000px;">
-									<input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value="" type="text">
-								</div>
-
-								<div class="info"></div>
-							</form>
-						</div>
-					</div>
-				</div>
-				<div class="footer-bottom row align-items-center">
-					<p class="footer-text m-0 col-lg-8 col-md-12">
-						Copyright &copy;
-						<script>document.write(new Date().getFullYear());</script> All
-						rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://primedsoft.com/">PrimedSoft
-							Limited</a>
-					</p>
-					<div class="col-lg-4 col-md-12 footer-social">
-						<a href="#"><i class="fa fa-facebook"></i></a>
-						<a href="#"><i class="fa fa-twitter"></i></a>
-						<a href="#"><i class="fa fa-dribbble"></i></a>
-						<a href="#"><i class="fa fa-behance"></i></a>
-					</div>
-				</div>
-			</div>
-		</footer>
-		<!-- End Footer Area -->
-
-		<!-- ####################### Start Scroll to Top Area ####################### -->
-		<div id="back-top">
-			<a title="Go to Top" href="#"></a>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Home</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">About</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="carouselExampleIndicators" class="col-12 carousel slide landing-full px-0" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item first-slide active">
+                        <div class="col-12 col-md-8 mx-auto carousel-words text-center">
+                            <h1 class="mt-5">Do not wait- <span>Drop</span> your poll for a vote!</h1>
+                            <p class="quote mb-5"><i class="fa fas fa-quote-left"></i>Voting is super important, and
+                                your vote counts. <span class="quote-author">GloZell</span></p>
+                            <div class="landing-buttons col-12 col-md-6 mx-auto row mx-0 mt-3">
+                                <button onclick="authIn('signup')" class="btn col-12 col-md mx-2 mt-2 py-3 btn-white-outline">GET STARTED</button>
+                                <button  onclick="authIn('login')" class="btn col-12 col-md mx-2 mt-2 py-3 btn-blue-outline">LOGIN</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item second-slide">
+                        <!-- <div class="video-container">
+                            <video src="primed_assets/img/Avengers Endgame 2019 PROPER 720p WEB-DL x264 ESubs - MkvHub.Com.mkv" autoplay loop controls></video>
+                        </div> -->
+                        <div class="col-12 col-md-8 mx-auto carousel-words text-center">
+                            <h1 class="mt-5">Do not wait- <span>Drop</span> your poll for a vote!</h1>
+                            <p class="quote mb-5"><i class="fa fas fa-quote-left"></i>Voting is super important, and
+                                your vote counts. <span class="quote-author">GloZell</span></p>
+                            <div class="landing-buttons col-12 col-md-6 mx-auto row mx-0 mt-3">
+                                <button onclick="authIn('signup')" class="btn col-12 col-md mx-2 mt-2 py-3 mt-2 btn-white-outline">GET
+                                    STARTED</button>
+                                <button onclick="authIn('login')" class="btn col-12 col-md mx-2 mt-2 py-3 mt-2 btn-blue-outline">LOGIN</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item third-slide">
+                        <div class="col-12 col-md-8 mx-auto carousel-words text-center">
+                            <h1 class="mt-5">Do not wait- <span>Drop</span> your poll for a vote!</h1>
+                            <p class="quote mb-5"><i class="fa fas fa-quote-left"></i>Voting is super important, and
+                                your vote counts. <span class="quote-author">GloZell</span></p>
+                            <div class="landing-buttons col-12 col-md-6 mx-auto row mx-0 mt-3">
+                                <button  onclick="authIn('signup')" class="btn col-12 col-md mx-2 mt-2 py-3 btn-white-outline">GET STARTED</button>
+                                <button  onclick="authIn('login')" class="btn col-12 col-md mx-2 mt-2 py-3 btn-blue-outline">LOGIN</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 mb-5 row mx-0 mx-auto top-interests">
+                        <h5 class="text-center col-12">Top Interests</h5>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>Politics</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>Fiction</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>GOT</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>Laughs</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>Tech</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>Nigeria</span>
+                        </div>
+                        <div class="col mx-1 interest-con text-center">
+                            <span>TV</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a> -->
+            </div>
         </div>
-        <!-- ####################### End Scroll to Top Area ####################### -->
-
+    </div>
     `};

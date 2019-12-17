@@ -131,7 +131,7 @@ display:none;
     width: 100%;
     height: 100%;
     z-index: 999999999;
-    background: url("../images/rippleloader.gif") center no-repeat #fff;
+    background: url("../images/rippleloader.gif") center no-repeat #251f1e;
     background-size: 100px 100px;
 }
 .se-pre-con p{
@@ -511,9 +511,6 @@ body::-webkit-scrollbar-thumb {
     }
     .error_btn_redirect {
       height: auto; width: 90%; margin: 0 auto;
-    }
-    .ec_auth-body {
-        background-image: linear-gradient(90deg, #f55330 0%, #f55330 40%, rgb(255, 255, 255) 0%);
     }
     .juni_spin {
         color: #f55330;
