@@ -11,7 +11,7 @@ $(document).ready(function () {
       $("#check" + cat_id).hide();
     } else {
       interests.push(cat_id);
-      $("#interest" + cat_id).css('background', 'grey');
+      $("#interest" + cat_id).css('background', 'inherit');
       $("#interest" + cat_id).css('border-top', '1px solid #f55330');
       $("#check" + cat_id).show();
     }
