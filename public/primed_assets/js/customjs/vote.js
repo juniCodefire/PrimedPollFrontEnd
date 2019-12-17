@@ -36,7 +36,7 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
           $(`#voteBtn${data.vote.poll_id}`).attr('disabled');
           $(`#voteBtn${data.vote.poll_id}`).attr('title', 'Voted');
           $(`#voteBtn${ data.vote.poll_id }`).show();
-          $(`#answer${ option_id }`).css('color', '#f58731');
+          $(`#answer${ option_id }`).css('color', '#f55330');
           $(`#preload_vote${ data.vote.poll_id }`).hide();
           reSetAttr.dataset.voteStatus = data.vote.option_id;
           Array.from(document.querySelectorAll(`.pollImageOption${poll_id}`)).map(x => {
@@ -45,7 +45,7 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
         // }else {
         //   $(`#voteBtn${ data.unvote.poll_id }`).html('Vote');
         //   $(`#voteBtn${ data.unvote.poll_id }`).show();
-        //   $(`#voteBtn${ data.unvote.poll_id }`).css('background', '#f58731');
+        //   $(`#voteBtn${ data.unvote.poll_id }`).css('background', '#f55330');
         //   $(`.poll1option${ data.unvote.poll_id }`).removeAttr('disabled');
         //   $(`#answer${ option_id }`).css('color', '#868e96');
         //   $(`#preload_vote${ data.unvote.poll_id }`).hide();

@@ -72,7 +72,7 @@ all_follower(pass="?follow=true&offline=", user.id, user.username)
                     <div class="card col-12 card-post card-post--aside card-post--1 container-fluid"
                         id="poll-card">
                         <div class="recent-polls-card mb-3">
-                             <h5 style="text-align:center;color: #f58731; padding:100px;"> No Owned poll yet?</h5>
+                             <h5 style="text-align:center;color: #f55330; padding:100px;"> No Owned poll yet?</h5>
                         </div>
                     </div>
                 </div>

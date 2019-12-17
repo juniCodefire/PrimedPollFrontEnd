@@ -133,7 +133,7 @@ const publicProfile =
                                     role="button" aria-haspopup="true" aria-expanded="false">
                                     <span id="nav_image"></span>
                                     <span class="d-none d-md-inline-block" id="nav_name"
-                                        style="color:#f58731; font-weight:bold;"></span>
+                                        style="color:#f55330; font-weight:bold;"></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-small" style="margin-left: -45px;">
                                     <a class="dropdown-item" href="profile.html">

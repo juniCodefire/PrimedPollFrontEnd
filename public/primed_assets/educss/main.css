@@ -1782,7 +1782,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   color: #ffffff; }
 
 .home-banner-area {
-  background-image:linear-gradient(-90deg,  #f58731, #db650a), url(../images/people-dusk.jpg);
+  background-image:linear-gradient(-90deg,  #f55330, #db650a), url(../images/people-dusk.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top center;

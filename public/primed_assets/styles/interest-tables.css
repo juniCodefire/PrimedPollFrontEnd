@@ -91,10 +91,10 @@ body{
 .indiv-option .progress-bar{
 	height: 100%;
 	font-size: 14px;
-	background: #f58731;
+	background: #f55330;
 	color: white;
 	text-shadow: 1px 1px black;
 }
 .votes-value{
-	color: #f58731;
+	color: #f55330;
 }

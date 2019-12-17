@@ -27,7 +27,7 @@
 height: 10vh;
 width: 30%;
 margin: auto;
-background: #f58731;
+background: #f55330;
 text-align: center;
 font-weight: bold;
 color: white;
@@ -41,7 +41,7 @@ display:none;
   height: 2px;
   width: 50%;
   margin: 0 auto;
-  background: #f58731;
+  background: #f55330;
   margin-top: 250px;
 }
 
@@ -52,7 +52,7 @@ display:none;
   height: 60px;
   width: 60px;
   left: 0;
-  background: #f58731;
+  background: #f55330;
   border-radius: 30%;
   -webkit-animation: move 5s infinite;
 }
@@ -81,7 +81,7 @@ display:none;
   margin-left: -70px;
   margin-right: -70px;
   text-transform: uppercase;
-  color: #f58731;
+  color: #f55330;
   font-weight: bold;
   z-index: 9999;
 }
@@ -183,7 +183,7 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10px;
 }
 .button-custom {
-  background: #f58731;
+  background: #f55330;
   font-weight: bold;
   color:white;
   border: 1px solid #fff;
@@ -191,8 +191,8 @@ body::-webkit-scrollbar-thumb {
 .button-custom:hover {
   background: white;
   font-weight: bold;
-  border: 1px solid #f58731;
-  color:#f58731 !important;
+  border: 1px solid #f55330;
+  color:#f55330 !important;
 }
 #username {
   margin: 0;
@@ -277,7 +277,7 @@ body::-webkit-scrollbar-thumb {
   display: none;
 }
 .juni_spin {
-   color: #f58731;
+   color: #f55330;
    font-size: 150px;
    width: 50px;
    height: 50px;
@@ -442,16 +442,16 @@ body::-webkit-scrollbar-thumb {
 }
 .error_btn_redirect button:hover {
   background:#e6e6e6;
-  border: 1px solid #f58731;
-  color: #f58731;
+  border: 1px solid #f55330;
+  color: #f55330;
 }
 .error_redirect-1 {
-  background:#f58731; font-weight: bold;
+  background:#f55330; font-weight: bold;
   font-size: 20px; border:none; float: left;
   width:47.5%;
 }
 .error_redirect-2 {
-  background:#f58731; font-weight: bold; font-size: 20px;
+  background:#f55330; font-weight: bold; font-size: 20px;
   border:none; float:right;
   width:47.5%;
 }
@@ -464,11 +464,11 @@ body::-webkit-scrollbar-thumb {
     position: absolute;
 }
 .site_formt_color {
-   color: #f58731 !important;
+   color: #f55330 !important;
    text-decoration: none;
 }
 .ec_poll-misc:hover span {
-  color: #f58731 !important;
+  color: #f55330 !important;
 }
 
 .voter-name{
@@ -513,10 +513,10 @@ body::-webkit-scrollbar-thumb {
       height: auto; width: 90%; margin: 0 auto;
     }
     .ec_auth-body {
-        background-image: linear-gradient(90deg, #f58731 0%, #f58731 40%, rgb(255, 255, 255) 0%);
+        background-image: linear-gradient(90deg, #f55330 0%, #f55330 40%, rgb(255, 255, 255) 0%);
     }
     .juni_spin {
-        color: #f58731;
+        color: #f55330;
         font-size: 150px;
         width: 50px;
         height: 50px;

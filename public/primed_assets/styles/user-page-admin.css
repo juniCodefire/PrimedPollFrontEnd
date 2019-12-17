@@ -53,7 +53,7 @@
 	cursor: pointer;
 }
 /* .interest-selected{
-	background-color: #f58731;
+	background-color: #f55330;
 	color:white;
 }
 .interest-selected span{
@@ -111,7 +111,7 @@
 	border-radius: 10px;
   }
 .scroller-brand{
-	scrollbar-color:  #f58731 white;
+	scrollbar-color:  #f55330 white;
     scrollbar-width: thin;
 }
 .normal-weight{
@@ -121,7 +121,7 @@
 	font-weight: bold;
 }
 .color-brand{
-	color:#f58731;
+	color:#f55330;
 	margin: 0;
 	padding: 0;
 }
@@ -137,7 +137,7 @@
 }
 .btn-brand{
 	color: white;
-	background-color: #f58731;
+	background-color: #f55330;
 }
 .recent-polls-card img{
 	border-radius: 20px;
@@ -146,29 +146,29 @@
 	margin-left: 6vh;
 }
 .btn-outline-brand{
-	border:1px solid #f58731;
-	color: #f58731;
+	border:1px solid #f55330;
+	color: #f55330;
 	background-color: white;
 }
 .btn-outline-brand:hover{
 	color: white;
-	background-color: #f58731;
+	background-color: #f55330;
 }
 .user-page-interests div{
-	border: 1px solid #f58731;
+	border: 1px solid #f55330;
 	background-color:white;
-	color:#f58731;
+	color:#f55330;
 	font-weight: bold;
 	height: 25vh;
 }
 .update-interests div{
-	border: 1px solid #f58731;
+	border: 1px solid #f55330;
 	background-color:white;
-	color:#f58731;
+	color:#f55330;
 	font-weight: bold;
 }
 .nav-item a{
-	color:#f58731;
+	color:#f55330;
 }
 .vert-middle{
 	vertical-align: -moz-middle-with-baseline;

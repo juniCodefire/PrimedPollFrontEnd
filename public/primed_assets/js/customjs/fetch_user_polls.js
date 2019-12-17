@@ -107,7 +107,7 @@ const loadFeeds = () => {
                  <br>
                  <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
                  What do you want ask... ?
-                 <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> New Poll</span>
+                 <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> New Poll</span>
                  </h4>
                  <br>
             </div>
@@ -216,7 +216,7 @@ const loadFeeds = () => {
 
                     if (vote_status == option_id) {
                           const optBtn = document.querySelector(`#answer${option_id}`);
-                          optBtn.style.color = '#f58731';
+                          optBtn.style.color = '#f55330';
                     }
 
                 } else if (option_type == 'image') {
@@ -233,7 +233,7 @@ const loadFeeds = () => {
                     if (vote_status) {
                           if (vote_status === option_id) {
                               const optBtn = document.querySelector(`#optionImage${option_id}`);
-                              optBtn.style.border = '3px solid #f58731';
+                              optBtn.style.border = '3px solid #f55330';
                           }
                       }
                 }
@@ -289,10 +289,10 @@ const loadFeeds = () => {
               option_id = Number(optBtn.dataset.selectedOptionImageId);
               poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
               poll_id =  Number(optBtn.dataset.selectedPollImageId);
-              optBtn.style.border = '3px solid #f58731';
+              optBtn.style.border = '3px solid #f55330';
             }else {
               const optBtn = document.querySelector(`#optionImage${vote_status}`);
-              optBtn.style.border = '3px solid #f58731';
+              optBtn.style.border = '3px solid #f55330';
             }
         });
 
@@ -337,7 +337,7 @@ const loadFeeds = () => {
                    <br>
                    <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
                    You have no feed at this time, you can start by creating a poll...
-                   <span style="float: right; color:#f58731; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
+                   <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
                    </h4>
                    <br>
               </div>
