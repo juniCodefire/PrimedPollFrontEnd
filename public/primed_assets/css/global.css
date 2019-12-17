@@ -25,4 +25,25 @@
   background: #00b8d8;
   height: 5px;
 }
+.our-nav {
+  position: fixed;
+  z-index: 5;
+}
+.navbar-brand {
+  height: 6vh;
+  width: 10vw;
+}
+.navbar-brand img {
+  height: 100%;
+  width: 100%;
+}
+.our-nav .nav-item .nav-link {
+  color: white;
+}
+.our-nav .nav-item .nav-link:hover {
+  color: #f55330;
+}
+.our-nav .nav-item.active .nav-link{
+  color: white;
+}
 

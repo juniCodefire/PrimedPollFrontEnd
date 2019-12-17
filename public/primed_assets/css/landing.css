@@ -1,0 +1,133 @@
+.landing-full {
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+}
+.carousel-item {
+  min-height: 100vh;
+}
+.video-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.video-container video {
+  /* Make video to at least 100% wide and tall */
+  min-width: 100%;
+  min-height: 100%;
+
+  /* Setting width & height to auto prevents the browser from stretching or squishing the video */
+  width: auto;
+  height: auto;
+
+  /* Center the video */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.carousel-item.first-slide {
+  background: linear-gradient(
+      90deg,
+      /* rgba(255, 102, 0, 0.8),
+      rgba(189, 24, 122, 0.8) */
+        rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../../primed_assets/img/buildings-highrise.jpeg");
+  background-position: center;
+  background-size: cover;
+}
+.carousel-item.second-slide {
+  background: linear-gradient(
+      90deg,
+      /* rgba(255, 102, 0, 0.8),
+      rgba(189, 24, 122, 0.8) */
+        rgba(0, 0, 0, 0.7),
+      rgba(0, 0, 0, 0.7)
+    ),
+    url("../../primed_assets/img/sky.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.carousel-item.third-slide {
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../primed_assets/img/mountain-sky.jpg");
+  background-position: center;
+  background-size: cover;
+}
+.carousel-words {
+  margin-top: 35vh;
+  min-height: 60vh;
+  z-index: 2;
+}
+.carousel-words h1 {
+  color: white;
+}
+.carousel-words h1 span {
+  color: #f55330;
+}
+.carousel-words .quote {
+  color: white;
+  font-weight: bold;
+  font-style: italic;
+}
+.quote .quote-author {
+  color: #f55330;
+}
+.top-interests {
+  position: fixed;
+  bottom: 10vh;
+  left: 50vh;
+}
+.top-interests h5 {
+  color: white;
+}
+.interest-con {
+  border-bottom: 1px solid white;
+  border-radius: 0px;
+  cursor: pointer;
+}
+.interest-con:hover {
+  border-bottom: 3px solid #f55330;
+}
+.interest-con span {
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+.btn-white-outline {
+  color: white;
+  background: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid white;
+}
+.btn-white-outline:hover {
+  color: inherit;
+  background: white;
+}
+.btn-blue-outline {
+  color: #f55330;
+  background: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  border: 1px solid #f55330;
+}
+.btn-blue-outline:hover {
+  color: white;
+  background: #f55330;
+}
+.landing-buttons button {
+}
+
+@media screen and (max-width: 768px) {
+  .top-interests {
+    left: 0px;
+  }
+  .carousel-words {
+    margin-top: 10vh;
+  }
+}
