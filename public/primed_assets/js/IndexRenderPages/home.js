@@ -45,7 +45,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
                 <div class="carousel-inner">
                     <div class="carousel-item first-slide active">
                         <div class="col-12 col-md-8 mx-auto carousel-words text-center">
-                            <h1 class="mt-5">Do not wait- <span>Drop</span> your poll for a vote!</h1>
+                            <h1 class="mt-5">Have a <span>Question?</span><br> Let's help you figure out what people think!</h1>
                             <p class="quote mb-5"><i class="fa fas fa-quote-left"></i>Voting is super important, and
                                 your vote counts. <span class="quote-author">GloZell</span></p>
                             <div class="landing-buttons col-12 col-md-6 mx-auto row mx-0 mt-3">
