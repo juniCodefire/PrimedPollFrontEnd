@@ -46,4 +46,23 @@
 .our-nav .nav-item.active .nav-link{
   color: white;
 }
+.btn-brand {
+  background-color: #f55330;
+  border: 1px solid #f55330;
+  color: white;
+}
+.btn-brand:hover {
+  background-color: white;
+  color: #f55330;
+  border: 1px solid #f55330;
+}
+.btn-outline-brand {
+  color: #f55330;
+  border: 1px solid #f55330;
+}
+.btn-outline-brand:hover {
+  background-color: #f55330;
+  color: white;
+  border: 1px solid #f55330;
+}
 

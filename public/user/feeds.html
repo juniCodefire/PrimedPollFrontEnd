@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js h-100" lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -9,6 +10,7 @@
     content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
@@ -17,7 +19,8 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css'
     integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
-  <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="../primed_assets/styles/shards-dashboards.1.1.0.css">
+  <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0"
+    href="../primed_assets/styles/shards-dashboards.1.1.0.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="../primed_assets/styles/extras.1.1.0.min.css">
   <!-- <link rel="stylesheet" href="../primed_assets/styles/animated.css"> -->
@@ -48,7 +51,7 @@
         <div class="main-navbar brand-bg">
           <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
             <a class="navbar-brand w-100 mr-0 p-1" href="#">
-               <div class="col-md-3 col-sm-7 site_name"></div>
+              <div class="col-md-3 col-sm-7 site_name"></div>
             </a>
             <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">
               <i class="material-icons">&#xE5C4;</i>
@@ -177,7 +180,7 @@
           style="z-index: 99999;">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <div class="modal-body">
+              <div class="modal-body p-2">
                 <div class="form-group">
                   <div class="ml-1 border user-page-interests" id="not_subscribed_box">
                     <div class="col-12">
@@ -189,7 +192,7 @@
                             style="float: right; cursor: pointer; padding: 2px 20px 2px 20px;"><i style="color:tomato;"
                               class="fa fa-close" style="font-size:36px"></i></span>
                         </div>
-                        <h4 class="text-center">Create new poll</h4>
+                        <h5 class="text-center mt-3" style="color: #f55330;">Create new poll</h5>
                         <form class="mt-5" id='addInterest'>
                           <div class="form-group">
                             <div class="input-group mb-1">
@@ -202,18 +205,18 @@
                             </div>
                             <p id="interest_err" class="add_poll_err"></p>
                           </div>
-                          <div class="form-group">
+                          <div class="form-group" style=" font-family: 'Lato', sans-serif;">
                             <label for="pollQuestion">Poll Question</label>
                             <input type="text" class="form-control" id="pollQuestion"
                               placeholder="What do you want to ask?">
                             <p id="question_err" class="add_poll_err"></p>
                           </div>
                           <div class="form-group">
-                            <div class="form-group col-6 mb-2" style="float: left;">
+                            <div class="form-group col-6 pr-1 pl-0 mb-2" style="float: left;">
                               <label for="startDate">Start Date</label>
                               <input type="date" class="form-control" id="startDate">
                             </div>
-                            <div class="form-group col-6 mb-2" style="float: right;">
+                            <div class="form-group col-6 pl-1 pr-0 mb-2" style="float: right;">
                               <label for="dueDate">End Date</label>
                               <input type="date" class="form-control" id="dueDate">
                             </div>
@@ -221,19 +224,17 @@
                               <p id="date_err" class="add_poll_err"></p>
                             </div>
                           </div>
-                          <div class="container-fluid">
-                            <p>
-                              <button class="btn btn-outline-brand" id="textPollBtn" type="button"
-                                data-toggle="collapse" data-target="collapse" aria-expanded="false"
-                                aria-controls="collapseExample">
-                                Text Poll
-                              </button>
-                              <button class="btn btn-outline-brand" id="imagePollBtn" type="button" data-toggle="collapse"
-                                data-target="collapse" aria-expanded="false" aria-controls="collapseExample">
-                                Image Poll
-                              </button>
-                            </p>
-                            <div class="animated fadeInDown collapse row" id="textPollCollapse">
+                          <div class="col-12 row mx-0 px-0">
+                            <button class="btn btn-outline-brand mr-2" id="textPollBtn" type="button"
+                              data-toggle="collapse" data-target="collapse" aria-expanded="false"
+                              aria-controls="collapseExample">
+                              Text Poll
+                            </button>
+                            <button class="btn btn-outline-brand" id="imagePollBtn" type="button" data-toggle="collapse"
+                              data-target="collapse" aria-expanded="false" aria-controls="collapseExample">
+                              Image Poll
+                            </button>
+                            <div class="animated mt-3 col-12 fadeInDown collapse row" id="textPollCollapse">
                               <div class="card card-body">
                                 <div class="input-group mb-3 ">
                                   <input type="text" class="form-control" placeholder="Type in your option"
@@ -249,14 +250,15 @@
                                 </div>
                               </div>
                             </div>
-                            <div class="animated fadeIn collapse" id="imagePollCollapse">
+                            <div class="animated mt-3 col-12 fadeIn collapse" id="imagePollCollapse">
                               <div class="fancy-card row  mx-0 px-0 col-12">
                                 <div id="data-img-display" class="row mx-0 px-0 col-12 poll_img_box">
-                                    <div class="col-3 border-right import_img">
-                                        <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple/>
-                                        <label class="text-center mt-3" for="inputImage"><i class="material-icons">note_add</i><br>Click here to add an image</label>
-                                    </div>
-                                   <!-- <div class="col-4 px-1">
+                                  <div class="col-12 import_img">
+                                    <input type="file" name="inputImage" id="inputImage" class="inputfile" multiple />
+                                    <label class="text-center mt-3" for="inputImage"><i
+                                        class="material-icons">note_add</i><br>Click here to add an image</label>
+                                  </div>
+                                  <!-- <div class="col-4 px-1">
                                         <i style="color:tomato; position: absolute; right: 0; font-size:20px;" class="fa fa-close mr-4 mt-1"></i>
                                         <div class="col-12 px-0" style="height: 138px;">
                                           <img style="border-radius: 10px; width: 100%; height:100%;" class="" src="../primed_assets/img/gallery/thumb-1.jpg">
@@ -292,17 +294,120 @@
           </div>
         </div>
 
-          <!--Voted poll user-->
-        <div class="modal fade" id="votedPollMemeberModal" role="dialog" aria-labelledby="votedPollMemeberModal" aria-hidden="true"
-          style="z-index: 99999;">
+        <!--Voted poll user-->
+        <div class="modal fade" id="votedPollMemeberModal" role="dialog" aria-labelledby="votedPollMemeberModal"
+          aria-hidden="true" style="z-index: 99999;">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
               <div class="modal-body">
-                  <div class="voted-con px-0">
-                    <h5 class="text-center">Members who voted</h5>
-                    <div data-voted-holder class="voted-holder col-12" style="min-height: 50vh">
-                      <div class="individual-voter mx-0 mt-2" id="voter_view" style="min-height: 13vh">
-                          <div data-user-voted-preloader class="preload_feeds preload_follow" role="status"></div>
+                <div class="voted-con px-0">
+                  <h5 class="text-center">Members who voted</h5>
+                  <div data-voted-holder class="voted-holder col-12" style="min-height: 50vh">
+                    <div class="individual-voter mx-0 mt-2" id="voter_view" style="min-height: 13vh">
+                      <div data-user-voted-preloader class="preload_feeds preload_follow" role="status"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- View poll Modal -->
+        <div class="modal fade" id="viewPollModal" tabindex="-1" role="dialog" aria-labelledby="viewPollModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <!-- <div class="modal-header">
+                <h5 class="modal-title" id="viewPollModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div> -->
+              <div class="modal-body p-2">
+                <div class="col-12 row mx-0 view-poll-full mt-2">
+                  <div class="col-12 col-md-8 mb-5">
+                    <div class="col-12 poll-question-modal mt-4">
+                      <h4>Who was first to the moon?</h4>
+                    </div>
+                    <p class="col-12">Here are the results of this pole right now:</p>
+                    <div class="col-12 poll-options-modal px-0">
+                      <div class="option-stats col-12 mt-4 row mx-0">
+                        <h6 class="col-12 option-name mb-1">Russia</h6>
+                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="col-2">25%</span>
+                      </div>
+                      <div class="option-stats col-12 mt-4 row mx-0">
+                        <h6 class="col-12 option-name mb-1">China</h6>
+                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                          <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="0"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="col-2">10%</span>
+                      </div>
+                      <div class="option-stats user-choice col-12 mt-4 row mx-0">
+                        <h6 class="col-12 option-name mb-1">USA</h6>
+                        <div class="progress ec_border-brand col-10 px-0 mt-1" style="height: 10px">
+                          <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="6"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="col-2">60%</span>
+                      </div>
+                      <div class="option-stats col-12 mt-4 row mx-0">
+                        <h6 class="col-12 option-name mb-1">India</h6>
+                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                          <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
+                            aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <span class="col-2">5%</span>
+                      </div>
+                      <div class="col-12 mt-3 other-stats border-top pt-4">
+                        <p class="mb-1">Total Votes: 512</p>
+                        <p class="mb-1">Total Comments: 60</p>
+                        <p class="mb-1">Total Male Votes: 300</p>
+                        <p class="mb-1">Total Female Votes: 212</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12 col-md-4 mb-5">
+                    <div class="col-12 poll-owner-modal mt-4">
+                      <div class="poll-owner-image mx-auto">
+                        <img src="../primed_assets/img/girl-red.jpg" alt="">
+                      </div>
+                      <div class="col-12 px-0 text-center mb-3">
+                        <h5 class="poll-owner-name mt-2 mb-0">
+                          Jane Austen
+                        </h5>
+                        <span class="poll-owner-tag">@janeausten</span>
+                      </div>
+                      <div class="col-12 px-0 poll-owner-stats">
+                        <div class="col-12 row mx-0 px-0 mb-3">
+                          <div class="col-6 text-center">
+                            <p class="mb-0">Followers</p>
+                            <span>553</span>
+                          </div>
+                          <div class="col-6 text-center">
+                            <p class="mb-0">Following</p>
+                            <span>200</span>
+                          </div>
+                        </div>
+                        <div class="col-12 row mx-0 px-0">
+                          <div class="col-6 text-center">
+                            <p class="mb-0">Asked Polls</p>
+                            <span>553</span>
+                          </div>
+                          <div class="col-6 text-center">
+                            <p class="mb-0">Answered Polls</p>
+                            <span>200</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12 px-0 row mx-0 mt-4">
+                        <button class="btn btn-outline-brand col mx-1">View Profile</button>
+                        <button class="btn btn-brand col mx-1">Follow <i class="fa fas fa-follow"></i></button>
                       </div>
                     </div>
                   </div>
@@ -310,16 +415,14 @@
               </div>
             </div>
           </div>
+        </div>
         <!-- / .main-navbar -->
-        <main class=" col-12 row">
+        <main class=" col-12 row mx-0 px-0">
           <!-- End Page Header -->
           <div class="col-12 col-lg-12 row row slim_preloader_holder" id="slim_preloader_holder">
             <span class="slim_preloader" id="slim_preloader"></span>
           </div>
-          <div class="col-12 col-lg-8 scroller_x" id="feeds_box">
-            <div class="d-flex justify-content-center feed_loader" style="height: 3vh;">
-              <div class="double" id="feed_loader" role="status"></div>
-            </div>
+          <div class="col-12 col-lg-8 scroller_x feeds_box" id="feeds_box">
           </div>
           <!--Show Who to follow -->
           <div id="follow-con" class="scroller col-4 border-left">
@@ -338,10 +441,10 @@
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
-      </script>
+        </script>
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
         integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-      </script>
+        </script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
       <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
@@ -367,4 +470,5 @@
         new WOW().init();
       </script>
 </body>
+
 </html>
