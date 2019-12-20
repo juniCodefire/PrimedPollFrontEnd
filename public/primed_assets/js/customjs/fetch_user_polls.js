@@ -106,7 +106,7 @@ const loadFeeds = () => {
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                  <br>
                  <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
-                 What do you want ask... ?
+                 What do you want to ask... ?
                  <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> New Poll</span>
                  </h4>
                  <br>

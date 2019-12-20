@@ -65,9 +65,9 @@ const showToFollowMember = (image_link) => {
   } else {
     to_follow_box.innerHTML = `
           <div class="follow-box row border-bottom col-12 mt-3 ml-1 py-2">
-            <div class="col-5 pr-0">
+            <div class="col-12 text-center">
                 <div style="line-height: 15px" class="mt-2">
-                  <span class="follow-user-name">No Suggestion at the moment!</span>
+                  <span class="follow-user-name text-center">No Suggestion at the moment!</span>
                 </div>
             </div>
           </div>`;

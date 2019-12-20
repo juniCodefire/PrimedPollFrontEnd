@@ -80,12 +80,12 @@ $(document).ready(function () {
       $(".err_signup").html('');
       $(".complete_inputs").removeClass('err_signup_input');
 
-      interests = interests.map(function (x) {
+      interests_data = interests.map(function (x) {
         return {
-          "interest_ids": x
+          "interest_id": x
         }
       });
-      console.log(interests);
+      console.log(interests_data);
       var settings = {
         "url": `${baseUrl}api/complete/registration`,
         "method": "PUT",
@@ -101,13 +101,15 @@ $(document).ready(function () {
           "dob": dob,
           "country": country,
           "gender": gender,
-          "interests": interests
+          "interest_id": interests_data
         },
       };
+      console.log(settings)
       $.ajax(settings).done(function (response) {
         if (response) {
           $(".se-pre").hide();
           const user = response.user;
+          console.log(response)
           let wrapImage = response.image_link + user.image;
 
           localStorage.setItem('user_id', user.id);
@@ -120,10 +122,11 @@ $(document).ready(function () {
           localStorage.setItem('user_country', user.country);
           localStorage.setItem('user_phone', user.phone);
 
-          location.replace("../user/profile.html");
+          // location.replace("../user/profile.html");
         }
       }).fail(function (err) {
         console.log(err)
+        console.log(JSON.stringify(err.responseJSON.hint))
         if (err) {
           $(".se-pre").hide();
           if (err.status === 422) {

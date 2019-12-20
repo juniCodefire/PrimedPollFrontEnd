@@ -49,7 +49,6 @@ $(document).ready(function () {
           localStorage.setItem('user_id', user.id);
           localStorage.setItem('user_firstname', user.first_name);
           localStorage.setItem('user_lastname', user.last_name);
-          localStorage.setItem('user_lastname', user.last_name);
           localStorage.setItem('user_email', user.email);
           localStorage.setItem('user_image', wrapImage);
           localStorage.setItem('user_dob', user.dob);

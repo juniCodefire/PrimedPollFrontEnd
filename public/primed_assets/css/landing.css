@@ -54,7 +54,7 @@
 }
 .carousel-item.third-slide {
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-    url("../../primed_assets/img/mountain-sky.jpg");
+    url("../../primed_assets/img/mountain-sky-min.jpg");
   background-position: center;
   background-size: cover;
 }
