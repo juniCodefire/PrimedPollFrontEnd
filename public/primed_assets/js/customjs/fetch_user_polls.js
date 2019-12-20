@@ -140,6 +140,9 @@ const loadFeeds = () => {
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                     <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
+                                <span id="poll_view" data-toggle="modal" data-target="#viewPollModal" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                <i style="font-size:16px;" class="fa fa-eye" aria-hidden="true"></i>
+                                </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}" data-poll-owner="${poll_owner_id}"
                                 style="margin-bottom:10px; cursor:pointer;" data-toggle="popover" title="Vote Poll!" data-content="Please select an option to vote">Vote!
