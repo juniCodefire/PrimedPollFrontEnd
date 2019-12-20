@@ -213,3 +213,6 @@ body {
 	cursor: pointer;
 	text-decoration: underline;
 }
+.card-header {
+	border-radius: 10px;
+}

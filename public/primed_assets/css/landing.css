@@ -1,6 +1,6 @@
 .landing-full {
   min-height: 100vh;
-  font-family: "Lato", sans-serif;
+  font-family: "Lato", sans-serif !important;
 }
 .carousel-item {
   min-height: 100vh;
@@ -129,6 +129,6 @@
     bottom: 5vh;
   }
   .carousel-words {
-    margin-top: 10vh;
+    margin-top: 20vh;
   }
 }
