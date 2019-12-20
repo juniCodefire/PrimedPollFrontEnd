@@ -1,3 +1,6 @@
+body {
+  font-family: "Lato", sans-serif !important;
+}
 #poll-card {
   /* height:40vh; */
 }
@@ -86,25 +89,6 @@
 }
 .text-brand {
   color: #f55330;
-}
-.btn-brand {
-  background-color: #f55330;
-  border: 1px solid #f55330;
-  color: white;
-}
-.btn-brand:hover {
-  background-color: white;
-  color: #f55330;
-  border: 1px solid #f55330;
-}
-.btn-outline-brand {
-  color: #f55330;
-  border: 1px solid #f55330;
-}
-.btn-outline-brand:hover {
-  background-color: #f55330;
-  color: white;
-  border: 1px solid #f55330;
 }
 #follow-con {
   max-height: 90vh;
@@ -195,10 +179,70 @@
 .selected-image{
   border: 3px solid #f55330;
 }
+
+.main-sidebar .nav .nav-item .nav-link {
+  border-bottom: 1px solid #e6e6e6;
+}
+.main-sidebar .nav .nav-item .nav-link:hover {
+  border-right: 3px solid #f55330;
+}
+#viewPollModal {
+  z-index: 1080;
+}
+#viewPollModal .modal-dialog {
+  max-width: 90%;
+  margin-top: 10vh;
+}
+#viewPollModal .modal-dialog .modal-content {
+  min-height: 85vh;
+}
+.view-poll-full {
+  min-height: 80vh;
+}
+.view-poll-full h6 {
+  color: grey;
+}
+.view-poll-full .progress-bar {
+  background: grey;
+}
+.poll-question-modal h4{
+  color: grey;
+}
+.poll-owner-image {
+  height: 35vh;
+  width: 35vh;
+}
+.poll-owner-image img {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f55330;
+}
+.poll-owner-name {
+  color: grey;
+}
+.option-stats.user-choice span, .option-stats.user-choice h6 {
+  color: #f55330;
+}
+.option-stats.user-choice .progress-bar {
+  background: #f55330 !important;
+}
+/* .poll-owner-stats p {
+  color: #f55330;
+} */
 @media screen and (max-width:991px){
 	#follow-con{
 		display: none;
 	}
+}
+@media screen and (max-width:768px){
+	.feeds_box {
+		padding: 0px;
+  }
+  #viewPollModal .modal-dialog {
+    max-width: 100%;
+  }
 }
 @media screen and (min-width:992px){
 	.mobile-follow{

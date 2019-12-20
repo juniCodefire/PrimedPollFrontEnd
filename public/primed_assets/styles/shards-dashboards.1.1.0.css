@@ -2584,7 +2584,7 @@ a.badge {
     right: 0;
     color: #5A6169; }
 
-.progress {
+/* .progress {
   height: 0.625rem;
   font-size: 0.625rem;
   line-height: 0.625rem;
@@ -2613,7 +2613,7 @@ a.badge {
   background-size: 0.625rem 0.625rem; }
 
 .progress-bar-animated {
-  animation: progress-bar-stripes 1s linear infinite; }
+  animation: progress-bar-stripes 1s linear infinite; } */
 
 .list-group-small .list-group-item {
   padding: 0.625rem 1rem;

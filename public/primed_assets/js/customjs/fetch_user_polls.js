@@ -155,7 +155,7 @@ const loadFeeds = () => {
                         <div class="preload_vote float-right" id="preload_vote${ poll_id}" role="status">
                         </div>
                             <div class="col-12 ml-1">
-                                <img src="${ wrapImage}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
+                                <img src="${ wrapImage}" style="width:40px; font-weight:bold;" class="mt-3" id="user-image">
                                 <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${firstname + " " + lastname}</span>
                                 <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ interest}</a>
                             </div>
@@ -171,6 +171,9 @@ const loadFeeds = () => {
                                     aria-hidden="true"></i>: ${votes_count}</span>
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                 <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
+                                </span>
+                                <span id="poll_view" data-toggle="modal" data-target="#viewPollModal" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                <i style="font-size:16px;" class="fa fa-eye" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
                                 data-selected-vote="${ poll_id}" data-vote-status="${vote_status}"
@@ -335,7 +338,7 @@ const loadFeeds = () => {
           <div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
               <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                    <br>
-                   <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
+                   <h4 style="cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
                    You have no feed at this time, you can start by creating a poll...
                    <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
                    </h4>
