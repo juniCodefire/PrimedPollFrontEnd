@@ -58,7 +58,7 @@
             </a>
           </nav>
         </div>
-        <form action="#" class="main-sidebar__search border-rightw-100 d-sm-flex d-md-none d-lg-none">
+        <!-- <form action="#" class="main-sidebar__search border-rightw-100 d-sm-flex d-md-none d-lg-none">
           <div class="input-group input-group-seamless ml-3">
             <div class="input-group-prepend">
               <div class="input-group-text">
@@ -68,14 +68,14 @@
             <input class="navbar-search form-control" type="text" placeholder="Search for ksomething..."
               aria-label="Search">
           </div>
-        </form>
+        </form> -->
         <div class="nav-wrapper scroller_x">
           <ul class="nav flex-column">
             <li class="sticky-top hover-0">
               <span>
-                <i class="fa fa-search" style="position: absolute; margin-top:5%; margin-left:5%; color:#f55330;"></i>
-                <input type="text" name="" id="" class="form-control"
-                  style=" padding-left:15%; padding-right:20%; padding-bottom:4%;  border-top-color:#f55330; border-bottom-color:#f55330; border-radius:0px;"
+                <i class="fa fa-search" style="position: absolute; top: 3vh; left: 3vh; color:#f55330;"></i>
+                <input type="text" name="" id="" class="form-control pl-5 py-3"
+                  style="border-radius:0px;"
                   placeholder="Search Interest...">
               </span>
             </li>
@@ -163,7 +163,7 @@
                   </div>
                 </div>
                 <input class="navbar-search form-control" type="text" placeholder="Search poll ..." aria-label="Search"
-                  style="background: #e6e6e6; height: 40px; margin-top: 10px;">
+                  style="height: 40px; margin-top: 10px;">
               </div>
             </form>
             <nav class="nav" id="phone_btn">
@@ -332,37 +332,81 @@
                     </div>
                     <p class="col-12">Here are the results of this pole right now:</p>
                     <div class="col-12 poll-options-modal px-0">
-                      <div class="option-stats col-12 mt-4 row mx-0">
-                        <h6 class="col-12 option-name mb-1">Russia</h6>
-                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                          <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                      <!-- <div class="text-options-modal col-12 px-0">
+                        <div class="option-stats col-12 mt-4 row mx-0">
+                          <h6 class="col-12 option-name mb-1">Russia</h6>
+                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span class="col-2">25%</span>
                         </div>
-                        <span class="col-2">25%</span>
-                      </div>
-                      <div class="option-stats col-12 mt-4 row mx-0">
-                        <h6 class="col-12 option-name mb-1">China</h6>
-                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                          <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="0"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="option-stats col-12 mt-4 row mx-0">
+                          <h6 class="col-12 option-name mb-1">China</h6>
+                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                            <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="0"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span class="col-2">10%</span>
                         </div>
-                        <span class="col-2">10%</span>
-                      </div>
-                      <div class="option-stats user-choice col-12 mt-4 row mx-0">
-                        <h6 class="col-12 option-name mb-1">USA</h6>
-                        <div class="progress ec_border-brand col-10 px-0 mt-1" style="height: 10px">
-                          <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="6"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="option-stats user-choice col-12 mt-4 row mx-0">
+                          <h6 class="col-12 option-name mb-1">USA</h6>
+                          <div class="progress ec_border-brand col-10 px-0 mt-1" style="height: 10px">
+                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="6"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span class="col-2">60%</span>
                         </div>
-                        <span class="col-2">60%</span>
-                      </div>
-                      <div class="option-stats col-12 mt-4 row mx-0">
-                        <h6 class="col-12 option-name mb-1">India</h6>
-                        <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                          <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
-                            aria-valuemin="0" aria-valuemax="100"></div>
+                        <div class="option-stats col-12 mt-4 row mx-0">
+                          <h6 class="col-12 option-name mb-1">India</h6>
+                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
+                            <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
+                              aria-valuemin="0" aria-valuemax="100"></div>
+                          </div>
+                          <span class="col-2">5%</span>
                         </div>
-                        <span class="col-2">5%</span>
+                      </div> -->
+                      <div class="image-options-modal col-12 px-0 row mx-0">
+                        <div class="image-option px-0 col-6 col-md">
+                          <div class="image-option-stats row mx-0 my-5">
+                            <img src="../primed_assets/img/girl-red.jpg" alt="">
+                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                              <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-center col-2 px-1">10%</span>
+                          </div>
+                        </div>
+                        <div class="image-option px-0 col-6 col-md">
+                          <div class="image-option-stats row mx-0 my-5">
+                            <img class="selected" src="../primed_assets/img/girl-red.jpg" alt="">
+                            <div class="progress col-9 selected px-0 mt-1" style="height: 10px">
+                              <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-center col-2 px-1">60%</span>
+                          </div>
+                        </div>
+                        <div class="image-option px-0 col-6 col-md">
+                          <div class="image-option-stats row mx-0 my-5">
+                            <img src="../primed_assets/img/girl-red.jpg" alt="">
+                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-center col-2 px-1">25%</span>
+                          </div>
+                        </div>
+                        <div class="image-option px-0 col-6 col-md">
+                          <div class="image-option-stats row mx-0 my-5">
+                            <img src="../primed_assets/img/girl-red.jpg" alt="">
+                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                              <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
+                                aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <span class="text-center col-2 px-1">5%</span>
+                          </div>
+                        </div>
                       </div>
                       <div class="col-12 mt-3 other-stats border-top pt-4">
                         <p class="mb-1">Total Votes: 512</p>
@@ -422,6 +466,9 @@
           <div class="col-12 col-lg-12 row row slim_preloader_holder" id="slim_preloader_holder">
             <span class="slim_preloader" id="slim_preloader"></span>
           </div>
+          <form class="form-inline search-polls-mobile my-2 my-lg-0 col-12 d-none">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search polls..." aria-label="Search">
+          </form>
           <div class="col-12 col-lg-8 scroller_x feeds_box" id="feeds_box">
           </div>
           <!--Show Who to follow -->

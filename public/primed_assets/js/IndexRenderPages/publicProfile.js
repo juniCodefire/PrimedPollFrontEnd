@@ -192,20 +192,20 @@ const publicProfile =
                                        <div class="col-6 asked-poll">
                                             <span data-target="#listFollowersModal" data-toggle="modal" class="color-brand">Followers</span><br>
                                             <span data-target="#listFollowersModal" data-toggle="modal"
-                                              class="color-grey  google-font-commom">12k</span>
+                                              class="color-grey marck-text">12k</span>
                                           </div>
                                           <div class="col-6 answered-poll">
                                             <span data-target="#listFollowingModal" data-toggle="modal" class="color-brand">Following</span><br>
                                             <span data-target="#listFollowingModal" data-toggle="modal"
-                                              class="color-grey  google-font-commom">1.4k</span>
+                                              class="color-grey marck-text">1.4k</span>
                                           </div>
                                         <div class="col-6 asked-poll">
                                             <span class="color-brand">Asked Polls</span><br>
-                                            <span class="color-grey  google-font-commom">106</span>
+                                            <span class="color-grey marck-text">106</span>
                                         </div>
                                         <div class="col-6 answered-poll">
                                             <span class="color-brand">Answered Polls</span><br>
-                                            <span class="color-grey  google-font-commom">419</span>
+                                            <span class="color-grey marck-text">419</span>
                                         </div>
                                     </div>
                                     <ul class="list-group bio-field list-group-flush">
@@ -330,7 +330,7 @@ const publicProfile =
                 <div class="modal-body pt-2">
                   <div class="col-12 modal-data row">
                     <h6 class="col-6 color-brand">Followers</h6>
-                    <h6 class="ml-auto color-brand google-font-commom" data-count-followers>12k</h6>
+                    <h6 class="ml-auto color-brandmarck-text" data-count-followers>12k</h6>
                   </div>
                   <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-followers>
                     <!--All Follower Box-->
@@ -348,7 +348,7 @@ const publicProfile =
                 <div class="modal-body pt-2">
                   <div class="col-12 modal-data row">
                     <h6 class="col-6 color-brand">Following</h6>
-                    <h6 class="ml-auto color-brand google-font-commom" data-count-following>1207</h6>
+                    <h6 class="ml-auto color-brandmarck-text" data-count-following>1207</h6>
                   </div>
                   <div class="follow-stat-con mt-2 col-12 border row scroller" data-get-following>
                       <!--All Following Box -->

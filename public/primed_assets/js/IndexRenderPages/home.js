@@ -10,7 +10,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
 		<div class="container-fluid">
         <div class="row">
             <nav class="navbar navbar-expand-lg navbar-light our-nav col-12">
-                <a class="navbar-brand ml-2" href="#">
+                <a class="navbar-brand ml-2 py-1" href="#">
                     <img src="primed_assets/img/06.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -36,7 +36,7 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
                     </ul>
                 </div>
             </nav>
-            <div id="carouselExampleIndicators" class="col-12 carousel slide landing-full px-0" data-ride="carousel">
+            <div id="carouselExampleIndicators" class="col-12 carousel slide landing-full px-0" data-ride="carousel" data-interval="false">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
