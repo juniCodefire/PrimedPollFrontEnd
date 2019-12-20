@@ -126,6 +126,7 @@
 @media screen and (max-width: 768px) {
   .top-interests {
     left: 0px;
+    bottom: 5vh;
   }
   .carousel-words {
     margin-top: 10vh;
