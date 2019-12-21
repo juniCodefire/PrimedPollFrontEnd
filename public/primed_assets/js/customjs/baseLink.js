@@ -1,5 +1,5 @@
-const baseUrl = `http://localhost:2400/`;
-// const baseUrl = `https://polledapp.herokuapp.com/`;
+// const baseUrl = `http://localhost:2400/`;
+const baseUrl = `https://polledapp.herokuapp.com/`;
 
 // const baseUrl = `https://api.primedpoll.com/`; //api url
 const domain = 'https://primedpoll.com/' //home pages
