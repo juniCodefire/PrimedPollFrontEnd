@@ -6,7 +6,7 @@
 	margin: 0;
 }
 .err_signup_input {
-	border: 1px solid red;
+	border: 1px solid red !important;
 }
 .err_signup_color{
 	color: red;
@@ -70,7 +70,7 @@
 	background-color: #f55330;
     color: white;
     margin-top: 2vh;
-    border-radius: 20px;
+    border-radius: 5px;
      font-weight: bold;
 }
 .check_interest {
@@ -93,6 +93,9 @@
 	 #proceed_box {
 	   width: 40%;
 	 }
+	 .juni_interest_submit {
+		margin-bottom: 25vh;
+	}
 }
 @media screen and (max-width: 767px) {
   .mid_spin {

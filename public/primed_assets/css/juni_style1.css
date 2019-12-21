@@ -364,7 +364,7 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 0 0 0.2rem #fde2ce !important;
 }
 .err_signup {
-  color: tomato;
+  color: red !important;
   font-size: 10px;
   padding-left: 10px;
   font-weight: bold;

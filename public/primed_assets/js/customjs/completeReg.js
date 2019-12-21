@@ -15,8 +15,6 @@ $(document).ready(function () {
       $("#interest" + cat_id).css('border-top', '1px solid #f55330');
       $("#check" + cat_id).show();
     }
-
-    console.log(interests);
     if (interests.length == 0) {
       $("#show_total_interest").hide();
     } else {
@@ -38,13 +36,14 @@ $(document).ready(function () {
 
     var firstName = $("#firstName").val();
     var lastName = $("#lastName").val();
+    var countryCode = $("#countryCode").val();
     var phoneNumber = $("#phoneNumber").val();
     var dob = $("#dob").val();
     var gender = $("#gender").val();
     var country = $("#country").val();
 
-
-    $(".err_signup").css('color', 'white');
+    $(".err_signup").html('');
+    $("#firstName, #lastname, #country, #phoneNumber, #dob, #gender").removeClass('err_signup_input');
     if (firstName == "") {
       $("#juni_err_firstName").html('fisrtname cannot be empty');
       $("#firstName").addClass('err_signup_input');
@@ -55,13 +54,18 @@ $(document).ready(function () {
       $("#lastname").addClass('err_signup_input');
       $(".se-pre").hide();
       return false;
+    }  else if (country == "") {
+      $("#juni_err_country").html('Country is required');
+      $("#country").addClass('err_signup_input');
+      $(".se-pre").hide();
+      return false;
     } else if (phoneNumber == "") {
-      $("#juni_err_phoneNumber").html('phoneNumber cannot be empty');
+      $("#juni_err_phoneNumber").html('PhoneNumber cannot be empty');
       $("#phoneNumber").addClass('err_signup_input');
       $(".se-pre").hide();
       return false;
     } else if (dob == "") {
-      $("#juni_err_dob").html('date of birth is required');
+      $("#juni_err_dob").html('Date of birth is required');
       $("#dob").addClass('err_signup_input');
       $(".se-pre").hide();
       return false;
@@ -70,15 +74,7 @@ $(document).ready(function () {
       $("#gender").addClass('err_signup_input');
       $(".se-pre").hide();
       return false;
-    } else if (country == "") {
-      $("#juni_err_country").html('Country is required');
-      $("#country").addClass('err_signup_input');
-      $(".se-pre").hide();
-      return false;
     }else {
-
-      $(".err_signup").html('');
-      $(".complete_inputs").removeClass('err_signup_input');
 
       interests_data = interests.map(function (x) {
         return {
@@ -97,11 +93,11 @@ $(document).ready(function () {
         "data": {
           "first_name": firstName,
           "last_name": lastName,
-          "phone": phoneNumber,
+          "phone": countryCode + phoneNumber,
           "dob": dob,
           "country": country,
           "gender": gender,
-          "interest_id": interests_data
+          "interest_ids": interests_data
         },
       };
       console.log(settings)
@@ -109,7 +105,6 @@ $(document).ready(function () {
         if (response) {
           $(".se-pre").hide();
           const user = response.user;
-          console.log(response)
           let wrapImage = response.image_link + user.image;
 
           localStorage.setItem('user_id', user.id);
@@ -121,16 +116,17 @@ $(document).ready(function () {
           localStorage.setItem('user_gender', user.gender);
           localStorage.setItem('user_country', user.country);
           localStorage.setItem('user_phone', user.phone);
+          localStorage.setItem('bio', user.bio);
+          localStorage.setItem('username', user.username);
+          location.replace("../user/feeds.html");
 
-          // location.replace("../user/profile.html");
+          location.replace("../user/feeds.html");
         }
       }).fail(function (err) {
         console.log(err)
-        console.log(JSON.stringify(err.responseJSON.hint))
         if (err) {
           $(".se-pre").hide();
           if (err.status === 422) {
-            $(".err_signup").css('color', 'white');
             if (err.responseJSON.first_name) {
               $("#juni_err_firstName").html(err.responseJSON.first_name[0]);
               $("#firstName").addClass('err_signup_input');
@@ -147,12 +143,12 @@ $(document).ready(function () {
               $("#juni_err_dob").html(err.responseJSON.dob[0]);
               $("#dob").addClass('err_signup_input');
             }
-            if (err.responseJSON.dob) {
+            if (err.responseJSON.gender) {
               $("#juni_err_gender").html(err.responseJSON.dob[0]);
               $("#gender").addClass('err_signup_input');
             }
-            if (err.responseJSON.dob) {
-              $("#juni_err_gender").html(err.responseJSON.dob[0]);
+            if (err.responseJSON.country) {
+              $("#juni_err_country").html(err.responseJSON.dob[0]);
               $("#gender").addClass('err_signup_input');
             }
 

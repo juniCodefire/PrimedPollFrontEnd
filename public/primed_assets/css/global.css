@@ -1,3 +1,19 @@
+textarea:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 0px 0 #ddd !important;
+}
+
+
 .scroller{
     overflow-y: scroll;
 }
@@ -18,12 +34,12 @@
 
 .slim_preloader_holder {
   width: 100%;
-  height: 5px;
+  height: 3px;
 }
 
 .slim_preloader {
   background: #00b8d8;
-  height: 5px;
+  height: 3px;
 }
 .our-nav {
   position: fixed;
@@ -70,4 +86,23 @@
 }
 .bold {
   font-weight: bold;
+}
+
+.search-poll-sty {
+  color: white !important;
+  font-weight: bold;
+  outline: 0 !important;
+  background: inherit;
+  border-bottom: 2px solid white !important;
+
+}
+.search-poll-sty::placeholder {
+  color: white;
+  
+}
+
+.search-poll-sty:focus {
+  border: 0px !important;
+  background: inherit;
+  border-bottom: 2px solid white !important;
 }

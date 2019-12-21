@@ -46,23 +46,24 @@ $(document).ready(function () {
 
           localStorage.setItem('token', token);
 
-          localStorage.setItem('user_id', user.id);
-          localStorage.setItem('user_firstname', user.first_name);
-          localStorage.setItem('user_lastname', user.last_name);
-          localStorage.setItem('user_email', user.email);
-          localStorage.setItem('user_image', wrapImage);
-          localStorage.setItem('user_dob', user.dob);
-          localStorage.setItem('user_phone', user.phone);
-          localStorage.setItem('bio', user.bio);
-          localStorage.setItem('username', user.username);
-
           console.log(response)
           if(response.data.process == 'incompleted') {
-               console.log(response)
-            return location.replace("../user/complete-registration.html")
+            location.replace("../user/complete-registration.html")
+          }else {
+                localStorage.setItem('user_id', user.id);
+                localStorage.setItem('user_firstname', user.first_name);
+                localStorage.setItem('user_lastname', user.last_name);
+                localStorage.setItem('user_email', user.email);
+                localStorage.setItem('user_image', wrapImage);
+                localStorage.setItem('user_dob', user.dob);
+                localStorage.setItem('user_phone', user.phone);
+                localStorage.setItem('user_gender', user.gender);
+                localStorage.setItem('user_country', user.country);
+                localStorage.setItem('bio', user.bio);
+                localStorage.setItem('username', user.username);
+                location.replace("../user/feeds.html");
           }
-          //If server use the app sub domain 
-          location.replace("../user/feeds.html");
+
         }
       }).fail(function (err) {
         if (err) {
