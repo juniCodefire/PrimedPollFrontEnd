@@ -1,0 +1,72 @@
+body{
+	height:100vh;
+	font-family: "Lato", sans-serif;
+}
+.navbar-toggler{
+	background-color: white;
+}
+.our-nav {
+  position: fixed;
+  z-index: 5;
+}
+.navbar-brand {
+  height: 6vh;
+  width: 10vw;
+}
+.navbar-brand img {
+  height: 100%;
+  width: 100%;
+}
+.our-nav .nav-item .nav-link {
+  color: white;
+}
+.our-nav .nav-item .nav-link:hover {
+  color: #f55330;
+}
+.our-nav .nav-item.active .nav-link{
+  color: white;
+}
+.main-body{
+	min-height:100vh;
+}
+.contact-box{
+	min-height:80vh;
+	margin-top:14vh;
+	box-shadow: 5px 5px 10px 10px rgba(0,0,0,0.2);
+}
+.map-area iframe{
+	height:100%;
+	width:100%;
+	border-top:1px solid silver !important;
+}
+.form-text{
+	color:#2E2EFE !important;
+}
+.btn-primary{
+	background:#190707 !important;
+	border:0;
+}
+.btn-primary:hover {
+  color:#f55330;
+}
+/*.inner-company-logo{
+	height:35vh;
+	z-index:99;
+	position:fixed;
+	position:absolute;
+	top:20vh;
+	left:10vw;
+}
+.inner-company-logo img{
+	height:100%;
+	width:100%;
+	opacity:0.06;
+}*/
+
+@media only screen and (max-width: 768px) {
+    .map-area iframe{
+    	min-height:75vh;
+    }
+ }
+
+}
