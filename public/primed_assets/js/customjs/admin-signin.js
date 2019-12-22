@@ -73,7 +73,7 @@ signInFunc = (event) => {
                     const swalBtns = Array.from(document.querySelectorAll('.swal2-styled'));
                     swalBtns.map(swapBtn => swapBtn.classList.add('error-alert-btn'))
                     localStorage.setItem("adminInfo", JSON.stringify(data))
-                    location.replace("index.html")
+                    location.replace("interests.html")
                 }
             })
             .catch(error => console.error(error))
