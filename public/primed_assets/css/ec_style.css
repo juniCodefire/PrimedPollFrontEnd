@@ -151,7 +151,7 @@ body {
 .ec_sign-in-btn:hover {
 
     background-color: inherit;
-    color: ;
+    color: white  ;
     border: 1px solid ;
     /* box-shadow: 0 10px 15px rgba(0,0,0,0.2); */
     border-radius: 5px;
@@ -263,7 +263,6 @@ body {
 
 .bg-white {
     background-color: white;
-    border: 1px solid #f55330;
 }
 
 .user-info input {
@@ -334,8 +333,6 @@ body {
     background-color: inherit;
     cursor: pointer;
 }
-
-.feeds-nav {}
 
 .feeds-btn-nav {
     margin-top: 2vh;

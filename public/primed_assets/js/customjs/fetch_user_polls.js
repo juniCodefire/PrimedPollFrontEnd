@@ -5,19 +5,23 @@ let offset = 10;
 let key = "open";
 let steps = 4;
 let poll_id;
+let interest_id = null;
 
 const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
-let interest_id = getSearchParam.get("interest_id");
+interest_id = getSearchParam.get("interest_id");
 
-const triggerStaticFeeds = (loader) => {
-    if (loader == true) {
-        loadFeeds();
-        // $("#feed_loader").show();
-    }
+const triggerStaticFeeds = (query = null) => {
+    loadFeeds();
     var url_link = `${baseUrl}api/feeds`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}`;
+    }
+    if (query && interest_id == null) {
+        url_link = `${baseUrl}api/feeds?search_poll=${query}`;
+    }
+    if (query && interest_id != null) {
+        url_link = `${baseUrl}api/single/feeds/${interest_id}?search_poll=${query}`;
     }
 
     var settings = {
@@ -32,6 +36,9 @@ const triggerStaticFeeds = (loader) => {
     $.ajax(settings).done(function (response) {
         if (response) {
             slim_preloader(stop = true);
+            search_preloaders.map(search_preloader => {
+                search_preloader.style.visibility = 'hidden';
+            })
            
             // $("#feed_loader").hide();
             var feedsData = response.data.feeds;
@@ -40,18 +47,29 @@ const triggerStaticFeeds = (loader) => {
             feeds = [];
             localStorage.removeItem('stored_broswer_polls');
             localStorage.setItem('stored_broswer_polls', JSON.stringify(feedsData));
-            loadFeeds();
+            loadFeeds(query);
         }
     }).fail(function (err) {
+        console.log(err)
+        search_preloaders.map(search_preloader => {
+            search_preloader.style.visibility = 'hidden';
+        })
     });
 
 }
-const triggerDynamicFeeds = () => {
+const triggerDynamicFeeds = (query = null) => {
     slim_preloader();
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
     }
+    if (query && interest_id == null) {
+        url_link = `${baseUrl}api/feeds/${offset}?search_poll=${query}`;
+    }
+    if (query && interest_id != null) {
+        url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}?search_poll=${query}`;
+    }
+
     settings = {
         "url": `${url_link}`,
         "method": "GET",
@@ -67,21 +85,21 @@ const triggerDynamicFeeds = () => {
             steps = 4;
             $(".dynamic_feed_loader").hide();
             slim_preloader(stop = true);
-
+            
             let feedsData = response.data.scrolled_feeds;
             if (feedsData.length == 0) {
                 $(".alert_default").show();
                 setTimeout(() => {
                     $(".alert_default").hide();
                 }, 3000)
-            }else {
-              //Store in localStorage for offline first
-              localStorage.removeItem('stored_broswer_polls');
-              offset = response.data.new_offset;
-              feeds.push(...feedsData);
-              localStorage.setItem('stored_broswer_polls', JSON.stringify(feeds));
-              feeds = [];
-              loadFeeds();
+            } else {
+                //Store in localStorage for offline first
+                localStorage.removeItem('stored_broswer_polls');
+                offset = response.data.new_offset;
+                feeds.push(...feedsData);
+                localStorage.setItem('stored_broswer_polls', JSON.stringify(feeds));
+                feeds = [];
+                loadFeeds(query);
             }
         }
     }).fail(function (err) {
@@ -95,12 +113,13 @@ const triggerDynamicFeeds = () => {
 
 }
 
-const loadFeeds = () => {
+const loadFeeds = (query) => {
     let option_id = null;
     let poll_owner_id = null;
     let poll_id = null;
     const feedsData = JSON.parse(localStorage.getItem('stored_broswer_polls'));
-    if (feedsData != null ) {
+
+    if (feedsData.length > 0) {
         feeds.push(...feedsData);
         $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
@@ -136,7 +155,7 @@ const loadFeeds = () => {
                             </div>
                             <div class="col-12 ec_poll-misc mt-3">
                                 <span class="text-muted col-6">${poll_date}</span>
-                                <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i>: ${votes_count}</span>
+                                <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i> ${votes_count}</span>
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                     <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
@@ -171,7 +190,7 @@ const loadFeeds = () => {
                             <div class="col-12 ec_poll-misc mt-3">
                                 <span class="text-muted col-6">${poll_date}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up"
-                                    aria-hidden="true"></i>: ${votes_count}</span>
+                                    aria-hidden="true"></i> ${votes_count}</span>
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                 <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
@@ -221,15 +240,15 @@ const loadFeeds = () => {
                     );
 
                     if (vote_status == option_id) {
-                          const optBtn = document.querySelector(`#answer${option_id}`);
-                          optBtn.style.color = '#f55330';
+                        const optBtn = document.querySelector(`#answer${option_id}`);
+                        optBtn.style.color = '#f55330';
                     }
 
                 } else if (option_type == 'image') {
                     $(`#options_box${poll_id}`).append(`
                         <div class="poll1Imageoption col-6 col-md-3 mt-2 px-0">
                             <div class="poll-image px-1">
-                                <img data-vote-status="${vote_status}" id="optionImage${option_id}" class="imageOption pollImageOption${poll_id}" src="${image_link}${ option}"
+                                <img data-vote-status="${vote_status}" id="optionImage${option_id}" class="imageOption pollImageOption${poll_id}" src="${image_link}${option}"
                                 data-selected-option-image-id="${option_id}" data-selected-poll-image-creator="${poll_owner_id}"
                                 data-selected-poll-image-id="${poll_id}"
                                  alt="load error">
@@ -237,11 +256,11 @@ const loadFeeds = () => {
                         </div>`
                     );
                     if (vote_status) {
-                          if (vote_status === option_id) {
-                              const optBtn = document.querySelector(`#optionImage${option_id}`);
-                              optBtn.style.border = '3px solid #f55330';
-                          }
-                      }
+                        if (vote_status === option_id) {
+                            const optBtn = document.querySelector(`#optionImage${option_id}`);
+                            optBtn.style.border = '3px solid #f55330';
+                        }
+                    }
                 }
             })
             //Show the who to follow after every 5 iteration
@@ -273,11 +292,11 @@ const loadFeeds = () => {
             const optBtn = e.srcElement || e.target;
 
             vote_status = optBtn.dataset.voteStatus;
-            if(isNaN(vote_status)) {
-              option_id = Number(optBtn.dataset.selectedOptionId);
-              poll_owner_id = Number(optBtn.dataset.selectedPollCreator);
-              poll_id =  Number(optBtn.dataset.selectedPollId);
-            }else {
+            if (isNaN(vote_status)) {
+                option_id = Number(optBtn.dataset.selectedOptionId);
+                poll_owner_id = Number(optBtn.dataset.selectedPollCreator);
+                poll_id = Number(optBtn.dataset.selectedPollId);
+            } else {
 
             }
         });
@@ -286,19 +305,19 @@ const loadFeeds = () => {
             const optBtn = e.srcElement || e.target;
             vote_status = optBtn.dataset.voteStatus;
             Array.from(document.querySelectorAll('.imageOption')).map(x => {
-              const voteStatus = x.dataset.voteStatus;
-              if(isNaN(voteStatus)) {
-                x.style.border = '0px';
-              }
+                const voteStatus = x.dataset.voteStatus;
+                if (isNaN(voteStatus)) {
+                    x.style.border = '0px';
+                }
             });
-            if(isNaN(vote_status)) {
-              option_id = Number(optBtn.dataset.selectedOptionImageId);
-              poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
-              poll_id =  Number(optBtn.dataset.selectedPollImageId);
-              optBtn.style.border = '3px solid #f55330';
-            }else {
-              const optBtn = document.querySelector(`#optionImage${vote_status}`);
-              optBtn.style.border = '3px solid #f55330';
+            if (isNaN(vote_status)) {
+                option_id = Number(optBtn.dataset.selectedOptionImageId);
+                poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
+                poll_id = Number(optBtn.dataset.selectedPollImageId);
+                optBtn.style.border = '3px solid #f55330';
+            } else {
+                const optBtn = document.querySelector(`#optionImage${vote_status}`);
+                optBtn.style.border = '3px solid #f55330';
             }
         });
 
@@ -337,18 +356,22 @@ const loadFeeds = () => {
             }
         });
     } else {
-        $("#feeds_box").html(`
-          <div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
-              <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
-                   <br>
-                   <h4 style="cursor:pointer; margin-left:20px; margin-top:10px; font-size:15px;">
-                   You have no feed at this time, you can start by creating a poll...
-                   <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
-                   </h4>
-                   <br>
-              </div>
-            </div>
-        `);
+        let text;
+        query == null ? text = 'You have no feed at this time, you can start by creating a poll...'
+                      : text = 'No search result was found relating to your poll, please try again...?';
+
+            $("#feeds_box").html(`
+                <div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
+                    <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
+                        <br>
+                        <h4 style="font-weight:bold; cursor:pointer; margin-left:20px; margin-top:10px; font-size:12px;">
+                        ${text}
+                        <span style="float: right; color:#f55330; margin-right:20px;"><i class="fas fa-poll" style="font-size:15px;"></i> Create Poll</span>
+                        </h4>
+                        <br>
+                    </div>
+                </div>
+            `)
     }
 }
 //Onscroll Event to load more feeds
@@ -361,9 +384,9 @@ $('#feeds_box').on('scroll', function () {
         // $(".dynamic_feed_loader").show();
         $("#feeds_box")[0].scrollBy(0, reflex);
         if (key == "open") {
-            key = "close";   
+            key = "close";
             triggerDynamicFeeds();
         }
     }
 });
-triggerStaticFeeds(loader = true);
+triggerStaticFeeds();

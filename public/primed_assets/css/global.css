@@ -87,7 +87,7 @@ input[type=number]:focus,
 .bold {
   font-weight: bold;
 }
-
+/* big screen search bar */
 .search-poll-sty {
   color: white !important;
   font-weight: bold;
@@ -105,4 +105,48 @@ input[type=number]:focus,
   border: 0px !important;
   background: inherit;
   border-bottom: 2px solid white !important;
+}
+.search_preloader {
+  visibility: hidden;
+}
+.search_interest_preloader {
+  visibility: hidden;
+}
+
+/*Small screen */
+
+.small-search-poll-sty {
+  color: #f55330 !important;
+  font-weight: bold;
+  outline: 0 !important;
+  background: inherit;
+  border-bottom: 2px solid #f55330 !important;
+
+}
+.small-search-poll-sty::placeholder {
+  color: #f55330;
+  
+}
+
+.small-search-poll-sty:focus {
+  border: 0px !important;
+  background: inherit;
+  border-bottom: 2px solid #f55330 !important;
+}
+[data-search-interest-query] {
+  border:0px !important;
+}
+@media (max-width:768px) {
+
+  .data-search-big {
+      display: none;
+  }
+
+}
+@media (min-width:768px) {
+
+  #phone_btn {
+      display: none !important;
+  }
+
 }

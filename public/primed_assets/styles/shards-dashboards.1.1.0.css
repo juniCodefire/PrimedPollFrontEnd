@@ -4115,7 +4115,8 @@ a.text-accent:hover, a.text-accent:focus {
   .main-navbar .navbar > * {
     display: flex; }
   .main-navbar .navbar .nav-link {
-    min-width: 3.75rem; }
+    min-width: 3rem;
+  }
   .main-navbar .navbar .notifications {
     position: relative; }
     @media (max-width: 767.98px) {

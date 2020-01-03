@@ -74,9 +74,16 @@
             <li class="sticky-top hover-0">
               <span>
                 <i class="fa fa-search" style="position: absolute; top: 3vh; left: 3vh; color:#f55330;"></i>
-                <input type="text" name="" id="" class="form-control pl-5 py-3"
-                  style="border-radius:0px;"
-                  placeholder="Search Interest...">
+                <span class="mr-1 mt-3 search_interest_preloader " style="position: absolute; right: 0; top: 50;" data-search_interest_preloader>
+                  <img style="width: 40px;" src="../primed_assets/images/search_load.gif"/>
+                </span>
+                <input type="text" name="" 
+                    id="find_interest" 
+                    data-search-interest-query
+                    class="form-control pl-5 py-3"
+                    style="border-radius:0px;"
+                    placeholder="Find Interest...">
+
               </span>
             </li>
             <li class="nav-item">
@@ -94,12 +101,12 @@
       <main class="main-content col-lg-10 col-md-9 col-sm-12 p-0 offset-lg-2 offset-md-3">
         <div class="main-navbar sticky-top bg-white">
           <!-- Main Navbar -->
-          <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 flex-row-reverse brand-bg">
+          <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0 border-0 flex-row-reverse brand-bg">
             <ul class="navbar-nav flex-row">
-              <li class="feeds-nav">
+              <li class="feeds-nav" style="">
                 <button class="feeds-btn-nav btn btn-outline-secondary border-0 ec_med-text addFastPoll"
-                  style="color: white; font-size: 20px;">
-                  <i class="fas fa-poll" style="font-size: 20px;"></i> New Poll
+                  style="color: white; font-size: 15px;">
+                  <i class="fas fa-poll" style="font-size: 15px;"></i> New Poll
                 </button>
               </li>
               <li class="nav-item dropdown notifications">
@@ -156,22 +163,27 @@
               </li>
             </ul>
             <form action="#" class="main-navbar__search d-none d-md-flex d-lg-flex col-lg-6">
-              <div class="input-group input-group-seamless ml-1">
+              <div class="input-group input-group-seamless ml-1 data-search-big">
                 <div class="input-group-prepend">
                   <div class="input-group-text">
                     <i class="fas fa-search text-white"></i>
                   </div>
                 </div>
-                <input class="search-poll-sty navbar-search form-control"
-                       data-search-poll
-                       type="text" placeholder="Search poll ..." aria-label="Search"
+                <input class="search-poll-sty navbar-search form-control search-poll-query"
+                       type="text"
+                       placeholder="Search a poll ..." aria-label="Search"
                        style="height: 40px; margin-top: 10px;">
+                <div class="input-group-append search_preloader">
+                  <span class="input-group-text text-white">
+                    <img src="../primed_assets/images/search_load.gif"/>
+                  </span>
+                </div>
               </div>
             </form>
             <nav class="nav" id="phone_btn">
-              <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-left"
+              <a href="#" class="nav-link nav-link-icon toggle-sidebar d-md-inline d-lg-none text-center border-none"
                 data-toggle="collapse" data-target=".header-navbar" aria-expanded="false" aria-controls="header-navbar">
-                <i class="material-icons">&#xE5D2;</i>
+                <i class="material-icons" style="color:white;">&#xE5D2;</i>
               </a>
             </nav>
           </nav>
@@ -194,6 +206,9 @@
                             style="float: right; cursor: pointer; padding: 2px 20px 2px 20px;"><i style="color:tomato;"
                               class="fa fa-close" style="font-size:36px"></i></span>
                         </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
                         <h5 class="text-center mt-3" style="color: #f55330;">Create new poll</h5>
                         <form class="mt-5" id='addInterest'>
                           <div class="form-group">
@@ -320,12 +335,12 @@
           aria-hidden="true">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
-              <!-- <div class="modal-header">
-                <h5 class="modal-title" id="viewPollModalLabel">Modal title</h5>
+              <div class="modal-header border-0">
+                <h5 class="modal-title" id="viewPollModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
-              </div> -->
+              </div>
               <div class="modal-body p-2">
                 <div class="col-12 row mx-0 view-poll-full mt-2">
                   <div class="col-12 col-md-8 mb-5">
@@ -468,8 +483,25 @@
           <div class="col-12 col-lg-12 row row slim_preloader_holder" id="slim_preloader_holder">
             <span class="slim_preloader" id="slim_preloader"></span>
           </div>
-          <form class="form-inline search-polls-mobile my-2 my-lg-0 col-12 d-none">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search polls..." aria-label="Search">
+          
+          <form action="#" class="form-inline search-polls-mobile my-2 my-lg-0 col-12 d-none">
+            <div class="input-group input-group-seamless ml-1">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search text-black mt-2" style="color: #f55330;"></i>
+                </div>
+              </div>
+              <input class="small-search-poll-sty navbar-search form-control search-poll-query"
+                   
+                     type="text"
+                     placeholder="Search a poll ..." aria-label="Search"
+                     style="height: 40px; margin-top: 10px;">
+              <div class="input-group-append search_preloader">
+                <span class="input-group-text text-black">
+                  <img src="../primed_assets/images/search_load.gif"/>
+                </span>
+              </div>
+            </div>
           </form>
           <div class="col-12 col-lg-8 scroller_x feeds_box" id="feeds_box">
           </div>
@@ -514,6 +546,7 @@
       <script type="text/javascript" src="../primed_assets/js/customjs/userInterest.js"></script>
       <script type="text/javascript" src="../primed_assets/js/customjs/addPoll.js"></script>
       <script type="text/javascript" src="../primed_assets/js/customjs/vote.js"></script>
+      <script type="text/javascript" src="../primed_assets/js/customjs/search_manipulate.js"></script>
       <script src="../primed_assets/js/wow.min.js"></script>
       <script>
         new WOW().init();

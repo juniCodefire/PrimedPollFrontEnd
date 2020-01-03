@@ -25,13 +25,13 @@ if ((location.pathname === '/' || location.pathname === '/index.html') && locati
                             <a class="nav-link" href="#">Home</a>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">About</a>
+                            <a class="nav-link" href="about.html">About</a>
                         </li>
                         <li class="nav-item mx-3">
                             <a class="nav-link" href="#">Blog</a>
                         </li>
                         <li class="nav-item mx-3">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link" href="contact.html">Contact</a>
                         </li>
                     </ul>
                 </div>
