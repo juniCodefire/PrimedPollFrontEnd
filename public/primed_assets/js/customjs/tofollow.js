@@ -38,27 +38,29 @@ const showToFollowMember = (image_link) => {
         status
       } = toFollow;
       //follow-user-image col-9 mx-auto px-0
-      const usernameLink = `?permission=1&on_session=${user_id}#${username.substr(1, username.length - 1)}`;
-      to_follow_box.innerHTML += `
-             <div id='follow${id}' class="follow-box row border-bottom col-12 mt-3 ml-1 py-2 follow${id}">
-               <div class="col-3 px-0">
-                 <div class="follow-user-image col-9">
-                    <a href="${window.location.origin }${ usernameLink }"><img style="width:50px; font-weigh:bold;" id="user-image" src="${ image_link }${ image }" alt="${ first_name } ${ last_name }"></a>
+      if(username != null) {
+            const usernameLink = `?permission=1&on_session=${user_id}#${username.substr(1, username.length - 1)}`;
+            to_follow_box.innerHTML += `
+               <div id='follow${id}' class="follow-box row border-bottom col-12 mt-3 ml-1 py-2 follow${id}">
+                 <div class="col-3 px-0">
+                   <div class="follow-user-image col-9">
+                      <a href="${window.location.origin }${ usernameLink }"><img style="width:50px; font-weigh:bold;" id="user-image" src="${ image_link }${ image }" alt="${ first_name } ${ last_name }"></a>
+                   </div>
+                 </div>
+                 <div class="col-5 pr-0">
+                   <a href="${window.location.origin }${ usernameLink }" class="open_member_link">
+                     <div style="line-height: 15px" class="mt-2">
+                       <span class="follow-user-name">${first_name } ${ last_name }</span>
+                       <small style="color:#f55330;">${username }</small>
+                     </div>
+                   </a>
+                 </div>
+                 <div class="col-4 px-0">
+                   <button class="btn btn-outline-brand col-12 mt-2 follow-id-1 follow-btn${id}" data-follow-id="${id }" id="follow-id-1${id }">Follow</button>
                  </div>
                </div>
-               <div class="col-5 pr-0">
-                 <a href="${window.location.origin }${ usernameLink }" class="open_member_link">
-                   <div style="line-height: 15px" class="mt-2">
-                     <span class="follow-user-name">${first_name } ${ last_name }</span>
-                     <small style="color:#f55330;">${username }</small>
-                   </div>
-                 </a>
-               </div>
-               <div class="col-4 px-0">
-                 <button class="btn btn-outline-brand col-12 mt-2 follow-id-1 follow-btn${id}" data-follow-id="${id }" id="follow-id-1${id }">Follow</button>
-               </div>
-             </div>
-          `;
+            `;
+      }
 
     });
 
@@ -97,35 +99,37 @@ const showToFollowMemberBtwFeeds = (image_link, steps = 4) => {
         status
       } = toFollow;
       //follow-user-image col-9 mx-auto px-0
-      const usernameLink = `?permission=1&on_session=${user_id}#${username.substr(1, username.length - 1)}`;
+      if(username != null) {
+          const usernameLink = `?permission=1&on_session=${user_id}#${username.substr(1, username.length - 1)}`;
 
-      to_follow_block.innerHTML += `
-        <div class="follow-box-2 wow fadeInRight col-4 border-right follow${id}" >
-          <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
-            <a href="${window.location.origin }${ usernameLink }">
-            <img class="" src="${ image_link }${ image }" alt="${ first_name } ${ last_name }" style="">
-            </a>
-          </div>
-          <div class="col-12" style="">
-           <a href="${window.location.origin }${ usernameLink }" class="open_member_link">
-              <div style="" class="text-center fun-box">
-                <span class="follow-user-name">${ first_name } ${ last_name }</span>
+          to_follow_block.innerHTML += `
+            <div class="follow-box-2 wow fadeInRight col-4 border-right follow${id}" >
+              <div class="col-12 px-0 follow-user-image-2 text-center mt-3">
+                <a href="${window.location.origin }${ usernameLink }">
+                <img class="" src="${ image_link }${ image }" alt="${ first_name } ${ last_name }" style="">
+                </a>
               </div>
-              <div class="text-center fuid-box">
-                <small style="color:#f55330;">${ username }</small>
+              <div class="col-12" style="">
+              <a href="${window.location.origin }${ usernameLink }" class="open_member_link">
+                  <div style="" class="text-center fun-box">
+                    <span class="follow-user-name">${ first_name } ${ last_name }</span>
+                  </div>
+                  <div class="text-center fuid-box">
+                    <small style="color:#f55330;">${ username }</small>
+                  </div>
+                </a>
+                <div class="text-center mt-2">
+                  <button class="btn btn-brand follow-id-2 follow-btn${id}" data-status-${id} data-follow-id="${ id }">Follow</button>
+                </div>
               </div>
-            </a>
-            <div class="text-center mt-2">
-              <button class="btn btn-brand follow-id-2 follow-btn${id}" data-status-${id} data-follow-id="${ id }">Follow</button>
             </div>
-          </div>
-        </div>
-      `;
+          `;
 
-      if (status == 1) {
-        document.querySelector(`[data-status-${ id }]`).textContent = "Unfollow";
-      } else {
-        document.querySelector(`[data-status-${ id }]`).textContent = "Follow";
+        if (status == 1) {
+          document.querySelector(`[data-status-${ id }]`).textContent = "Unfollow";
+        } else {
+          document.querySelector(`[data-status-${ id }]`).textContent = "Follow";
+        }
       }
     })
   }
