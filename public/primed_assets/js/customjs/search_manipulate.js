@@ -4,13 +4,14 @@ const search_preloaders = Array.from(document.querySelectorAll('.search_preloade
 const search_interest_preloader = document.querySelector('[data-search_interest_preloader]');
 
 const searchPollManipulate = (event) => {
-    const query = event.target.value;
+    query = event.target.value;
 
     search_preloaders.map(search_preloader => {
         search_preloader.style.visibility = 'visible';
     })
   
     setTimeout(() => {
+        offset = 10;
         triggerStaticFeeds(query);
     }, 500)
    

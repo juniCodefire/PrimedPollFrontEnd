@@ -6,12 +6,19 @@ let key = "open";
 let steps = 4;
 let poll_id;
 let interest_id = null;
+let query = null;
+
+//Load More default Limit tracker
+let load_more = 2000;
 
 const parsedUrl = new URL(window.location.href);
 const getSearchParam = parsedUrl.searchParams;
 interest_id = getSearchParam.get("interest_id");
 
 const triggerStaticFeeds = (query = null) => {
+    if(query == ''){
+        query = null;
+    }
     loadFeeds();
     var url_link = `${baseUrl}api/feeds`;
     if (interest_id) {
@@ -23,6 +30,7 @@ const triggerStaticFeeds = (query = null) => {
     if (query && interest_id != null) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}?search_poll=${query}`;
     }
+    console.log(query, url_link)
 
     var settings = {
         "url": `${url_link}`,
@@ -35,11 +43,12 @@ const triggerStaticFeeds = (query = null) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
+          
             slim_preloader(stop = true);
             search_preloaders.map(search_preloader => {
                 search_preloader.style.visibility = 'hidden';
             })
-           
+
             // $("#feed_loader").hide();
             var feedsData = response.data.feeds;
 
@@ -57,8 +66,12 @@ const triggerStaticFeeds = (query = null) => {
     });
 
 }
-const triggerDynamicFeeds = (query = null) => {
+const triggerDynamicFeeds = () => {
     slim_preloader();
+    if(query == ''){
+        query = null;
+    }      
+    $("[data-load-more-feeds]").css('display', 'none');
     var url_link = `${baseUrl}api/feeds/${offset}`;
     if (interest_id) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}`;
@@ -69,7 +82,7 @@ const triggerDynamicFeeds = (query = null) => {
     if (query && interest_id != null) {
         url_link = `${baseUrl}api/single/feeds/${interest_id}/${offset}?search_poll=${query}`;
     }
-
+    console.log(query, url_link)
     settings = {
         "url": `${url_link}`,
         "method": "GET",
@@ -81,13 +94,15 @@ const triggerDynamicFeeds = (query = null) => {
     };
     $.ajax(settings).done(function (response) {
         if (response) {
+            console.log(response)
             key = "open";
             steps = 4;
             $(".dynamic_feed_loader").hide();
             slim_preloader(stop = true);
-            
+
             let feedsData = response.data.scrolled_feeds;
             if (feedsData.length == 0) {
+
                 $(".alert_default").show();
                 setTimeout(() => {
                     $(".alert_default").hide();
@@ -117,9 +132,10 @@ const loadFeeds = (query) => {
     let option_id = null;
     let poll_owner_id = null;
     let poll_id = null;
+
     const feedsData = JSON.parse(localStorage.getItem('stored_broswer_polls'));
 
-    if (feedsData.length > 0) {
+    if (feedsData != null) {
         feeds.push(...feedsData);
         $(`#feeds_box`).html(`<div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
             <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
@@ -135,7 +151,33 @@ const loadFeeds = (query) => {
         //map all Feeds from the feeds array
         feeds.map((feed, i) => {
             //Destrusturing feeds
-            const { image_link, image, firstname, lastname, interest, poll, poll_id, poll_owner_id, option, poll_date, option_type, vote_status, votes_count } = feed;
+            const {
+                    poll, image_link, vote_count_male, vote_count_female, owner_followers_count, owner_following_count,
+                    owner_created_poll_count, owner_voted_poll_count, owner_comment_count
+            } = feed;
+
+           const {
+                    id: poll_id, question, option_type, startdate, expirydate, created_at, updated_at,
+                    votes_count, users, interest, options, vote_status: vote_status_pack
+            } = poll;
+
+           const {
+                id: interest_id, title
+            } = interest;
+
+           const {
+                id:  poll_owner_id, first_name, last_name, username, image,
+            } = users;
+
+            //Check if there is a vote status for vote
+            let vote_status;
+            if(vote_status_pack.length > 0) {
+                vote_status = vote_status_pack[0].option_id;
+            }else {
+                vote_status = null;
+            }
+    
+
             let wrapImage = `${image_link}${image}`;
             if (option_type == 'text') {
                 $(`#feeds_box`).append(`
@@ -145,21 +187,39 @@ const loadFeeds = (query) => {
                             </div>
                             <div class="col-12 ml-1">
                                 <img src="${ wrapImage}" style="width:40px; font-weigh:bold;" class="mt-3" id="user-image">
-                                <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${firstname + " " + lastname}</span>
-                                <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ interest}</a>
+                                <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${first_name + " " + last_name} <span style="font-size:10px; color:#f55330; opacity: 0.4;">${username}</span></span>
+                                <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ title }</a>
                             </div>
                             <div class="col-10 ec_poll-questiocol-10 ec_poll-question mt-2">
-                                <span class="ec_med-text" style="font-weight:bold;">${ poll + " ?"}</span>
+                                <span class="ec_med-text" style="font-weight:bold;">${ question} ?</span>
                             </div>
                             <div id="options_box${ poll_id}">
                             </div>
                             <div class="col-12 ec_poll-misc mt-3">
-                                <span class="text-muted col-6">${poll_date}</span>
+                                <span class="text-muted col-6">${created_at}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up" aria-hidden="true"></i> ${votes_count}</span>
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                     <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
-                                <span id="poll_view" data-toggle="modal" data-target="#viewPollModal" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+                                <span class="text-muted col-6 poll_view"  id="poll_view" data-poll-view${poll_id}
+                                        data-poll-passed-id="${poll_id}"
+                                        data-option-type="${option_type}"
+                                        data-owner-firstname="${first_name}"
+                                        data-owner-lastname="${last_name}"
+                                        data-owner-username="${username}"
+                                        data-owner-image="${wrapImage}"
+                                        data-question="${question} ?"
+                                        data-options='${JSON.stringify(options)}'
+                                        data-vote-count="${votes_count}"
+                                        data-vote-count-male="${vote_count_male}"
+                                        data-vote-count-female="${vote_count_female}"
+                                        data-owner-followers-count="${owner_followers_count}"
+                                        data-owner-following-count="${owner_following_count}"
+                                        data-owner-created-poll-count="${owner_created_poll_count}"
+                                        data-owner-voted-poll-count="${owner_voted_poll_count}"
+                                        data-comment-count="${owner_comment_count}"
+                                 >
+                               
                                 <i style="font-size:16px;" class="fa fa-eye" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
@@ -178,23 +238,41 @@ const loadFeeds = (query) => {
                         </div>
                             <div class="col-12 ml-1">
                                 <img src="${ wrapImage}" style="width:40px; font-weight:bold;" class="mt-3" id="user-image">
-                                <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${firstname + " " + lastname}</span>
-                                <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ interest}</a>
+                                <span class="mt-5 ml-2 card-name" style="font-weight:bold; font-size:15px;">${first_name + " " + last_name} <span style="font-size:10px; color:#f55330;  opacity: 0.4;">${username}</span></span>
+                                <a href="#" class="card-post_category badge badge-info mt-3 mr-1 ec_poll-interest" >${ title }</a>
                             </div>
                             <div class="col-10 ec_poll-questiocol-10 ec_poll-question mt-2">
-                                <span class="ec_med-text" style="font-weight:bold;">${ poll + " ?"}</span>
+                                <span class="ec_med-text" style="font-weight:bold;">${ question + " ?"}</span>
                             </div>
                             <div class="col-10 mx-auto poll-images-box row mx-0 px-0 mt-2" id="options_box${ poll_id}">
 
                             </div>
                             <div class="col-12 ec_poll-misc mt-3">
-                                <span class="text-muted col-6">${poll_date}</span>
+                                <span class="text-muted col-6">${created_at}</span>
                                 <span class="text-muted col-6"><i style="font-size:16px;" class="fa fa-thumbs-up"
                                     aria-hidden="true"></i> ${votes_count}</span>
                                 <span id="poll_user" class="text-muted col-6" data-poll-passed-id="${poll_id}">
                                 <i style="font-size:16px;" class="fa fa-user" aria-hidden="true"></i>
                                 </span>
-                                <span id="poll_view" data-toggle="modal" data-target="#viewPollModal" class="text-muted col-6" data-poll-passed-id="${poll_id}">
+
+                                <span class="text-muted col-6 poll_view" id="poll_view" data-poll-view${poll_id}
+                                      data-poll-passed-id="${poll_id}"
+                                      data-option-type="${option_type}"
+                                      data-owner-firstname="${first_name}"
+                                      data-owner-lastname="${last_name}"
+                                      data-owner-username="${username}"
+                                      data-owner-image="${wrapImage}"
+                                      data-question="${question} ?"
+                                      data-options='${JSON.stringify(options)}'
+                                      data-vote-count="${votes_count}"
+                                      data-vote-count-male="${vote_count_male}"
+                                      data-vote-count-female="${vote_count_female}"
+                                      data-owner-followers-count="${owner_followers_count}"
+                                      data-owner-following-count="${owner_following_count}"
+                                      data-owner-created-poll-count="${owner_created_poll_count}"
+                                      data-owner-voted-poll-count="${owner_voted_poll_count}"
+                                      data-comment-count="${owner_comment_count}"
+                                      >
                                 <i style="font-size:16px;" class="fa fa-eye" aria-hidden="true"></i>
                                 </span>
                                 <button type="submit" class="btn brand-bg text-white float-right voteBtn" id="voteBtn${poll_id}"
@@ -218,11 +296,13 @@ const loadFeeds = (query) => {
                 $(`#voteBtn${poll_id}`).css('height', '5vh');
                 $(`#voteBtn${poll_id}`).attr('disabled');
                 $(`#voteBtn${poll_id}`).attr('title', 'Voted');
+            } else {
+                $(`[data-poll-view${poll_id}]`).css('visibility', 'hidden');
             }
             //Here we map the options for the polls
             $(`#options_box${poll_id}`).html(``);
-            option.map(opt => {
-                const { option_id, option } = opt;
+            options.map(opt => {
+                const { id: option_id, option } = opt;
                 if (option_type == 'text') {
                     $(`#options_box${poll_id}`).append(`
                     <div class="ec_poll-answers mt-2 col-11">
@@ -288,6 +368,9 @@ const loadFeeds = (query) => {
             //show the user who voted
             votedUser(poll_id);
         });
+
+      
+        
         $(document).on('click', '.poll1option', function (e) {
             const optBtn = e.srcElement || e.target;
 
@@ -301,7 +384,7 @@ const loadFeeds = (query) => {
             }
         });
 
-        $(document).on('click', '.poll1Imageoption', function (e) {
+        $(document).on('click', '.imageOption', function (e) {
             const optBtn = e.srcElement || e.target;
             vote_status = optBtn.dataset.voteStatus;
             Array.from(document.querySelectorAll('.imageOption')).map(x => {
@@ -311,15 +394,18 @@ const loadFeeds = (query) => {
                 }
             });
             if (isNaN(vote_status)) {
+              
                 option_id = Number(optBtn.dataset.selectedOptionImageId);
                 poll_owner_id = Number(optBtn.dataset.selectedPollImageCreator);
                 poll_id = Number(optBtn.dataset.selectedPollImageId);
                 optBtn.style.border = '3px solid #f55330';
             } else {
+                
                 const optBtn = document.querySelector(`#optionImage${vote_status}`);
                 optBtn.style.border = '3px solid #f55330';
             }
         });
+
 
         $(document).on('click', '.voteBtn', function (e) {
             const targetBtn = e.srcElement || e.target;
@@ -358,9 +444,9 @@ const loadFeeds = (query) => {
     } else {
         let text;
         query == null ? text = 'You have no feed at this time, you can start by creating a poll...'
-                      : text = 'No search result was found relating to your poll, please try again...?';
+            : text = 'No search result was found relating to your poll, please try again...?';
 
-            $("#feeds_box").html(`
+        $("#feeds_box").html(`
                 <div class="col-lg-12 col-sm-12 mt-2 mb-10 addFastPoll" style="margin-top:30px;">
                     <div class="card card-post card-post--aside card-post--1 poll_box" id="poll-card">
                         <br>
@@ -379,14 +465,35 @@ $('#feeds_box').on('scroll', function () {
     // console.log($(this).scrollTop());
     // console.log($('#feeds_box').position().top);
     // var formatter = $("#feeds_box")[0].scrollHeight - $(this).scrollTop();
+    //Track when to show the load more btn
+
+    if ($("#feeds_box")[0].scrollTop > load_more) {
+      
+        $("[data-load-more-feeds]").css('display', 'block');
+    }
+
     if ($("#feeds_box")[0].scrollHeight - $("#feeds_box")[0].scrollTop === $("#feeds_box")[0].clientHeight) {
+
         const reflex = $("#feeds_box")[0].clientHeight - ($("#feeds_box")[0].clientHeight + 10);
         // $(".dynamic_feed_loader").show();
+      
+        $("[data-load-more-feeds]").css('display', 'none');
+        load_more = load_more + 2000;
         $("#feeds_box")[0].scrollBy(0, reflex);
         if (key == "open") {
             key = "close";
             triggerDynamicFeeds();
         }
+    }
+});
+
+//Load more feeds with click event
+$('[data-load-more-feeds]').on('click', function () {
+
+    load_more = load_more + 2000;
+    if (key == "open") {
+        key = "close";
+        triggerDynamicFeeds();
     }
 });
 triggerStaticFeeds();

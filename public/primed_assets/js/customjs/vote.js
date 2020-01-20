@@ -29,6 +29,7 @@ const voteTrigger = (option_id,  poll_id,  poll_owner_id) => {
         // if (data.check === 1) {
           $(`#voteBtn${data.vote.poll_id}`).html('<i style="font-size:16px;" class="fa fas fa-check" aria-hidden="true"></i>');
           $(`#voteBtn${data.vote.poll_id}`).css('background', 'lightgreen');
+          $(`[data-poll-view${data.vote.poll_id}]`).css('visibility', 'visible');
           $(`#voteBtn${data.vote.poll_id}`).css('border-radius', '50%');
           $(`#voteBtn${data.vote.poll_id}`).css('padding', '0');
           $(`#voteBtn${data.vote.poll_id}`).css('width', '5vh');

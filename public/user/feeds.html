@@ -45,6 +45,12 @@
       style="position: absolute; color: #e6e6e6; text-shadow: 2px 1px #00b8d8; bottom: 0; z-index: 999999; border-radius: 5px; background: rgb(0,0,0,0.4);">
       No More feeds found to load, please try again later...
     </div>
+
+    <!--Load more feeds btn-->
+    <div class="alert alert-secondary animated pulse" role="alert" data-load-more-feeds
+      style="position: absolute; animation: pulse 2s infinite; cursor: pointer; color: #e6e6e6; text-shadow: 2px 1px #00b8d8; bottom: 0; z-index: 999999; border-radius: 5px; background: rgb(0,0,0,0.4);">
+      Load More Feeds...
+    </div>
     <div class="row">
       <!-- Main Sidebar -->
       <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
@@ -74,15 +80,12 @@
             <li class="sticky-top hover-0">
               <span>
                 <i class="fa fa-search" style="position: absolute; top: 3vh; left: 3vh; color:#f55330;"></i>
-                <span class="mr-1 mt-3 search_interest_preloader " style="position: absolute; right: 0; top: 50;" data-search_interest_preloader>
-                  <img style="width: 40px;" src="../primed_assets/images/search_load.gif"/>
+                <span class="mr-1 mt-3 search_interest_preloader " style="position: absolute; right: 0; top: 50;"
+                  data-search_interest_preloader>
+                  <img style="width: 40px;" src="../primed_assets/images/search_load.gif" />
                 </span>
-                <input type="text" name="" 
-                    id="find_interest" 
-                    data-search-interest-query
-                    class="form-control pl-5 py-3"
-                    style="border-radius:0px;"
-                    placeholder="Find Interest...">
+                <input type="text" name="" id="find_interest" data-search-interest-query class="form-control pl-5 py-3"
+                  style="border-radius:0px;" placeholder="Find Interest...">
 
               </span>
             </li>
@@ -169,13 +172,11 @@
                     <i class="fas fa-search text-white"></i>
                   </div>
                 </div>
-                <input class="search-poll-sty navbar-search form-control search-poll-query"
-                       type="text"
-                       placeholder="Search a poll ..." aria-label="Search"
-                       style="height: 40px; margin-top: 10px;">
+                <input class="search-poll-sty navbar-search form-control search-poll-query" type="text"
+                  placeholder="Search a poll ..." aria-label="Search" style="height: 40px; margin-top: 10px;">
                 <div class="input-group-append search_preloader">
                   <span class="input-group-text text-white">
-                    <img src="../primed_assets/images/search_load.gif"/>
+                    <img src="../primed_assets/images/search_load.gif" />
                   </span>
                 </div>
               </div>
@@ -345,130 +346,99 @@
                 <div class="col-12 row mx-0 view-poll-full mt-2">
                   <div class="col-12 col-md-8 mb-5">
                     <div class="col-12 poll-question-modal mt-4">
-                      <h4>Who was first to the moon?</h4>
+                      <h4 data-poll-question-modal>Who was first to the moon?</h4>
                     </div>
                     <p class="col-12">Here are the results of this pole right now:</p>
                     <div class="col-12 poll-options-modal px-0">
-                      <!-- <div class="text-options-modal col-12 px-0">
-                        <div class="option-stats col-12 mt-4 row mx-0">
-                          <h6 class="col-12 option-name mb-1">Russia</h6>
-                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span class="col-2">25%</span>
+                        <!-- Options fo a single poll -->
+                        <div data-poll-option-text-modal class="text-options-modal col-12 px-0">
                         </div>
-                        <div class="option-stats col-12 mt-4 row mx-0">
-                          <h6 class="col-12 option-name mb-1">China</h6>
-                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                            <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="0"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span class="col-2">10%</span>
-                        </div>
-                        <div class="option-stats user-choice col-12 mt-4 row mx-0">
-                          <h6 class="col-12 option-name mb-1">USA</h6>
-                          <div class="progress ec_border-brand col-10 px-0 mt-1" style="height: 10px">
-                            <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="6"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span class="col-2">60%</span>
-                        </div>
-                        <div class="option-stats col-12 mt-4 row mx-0">
-                          <h6 class="col-12 option-name mb-1">India</h6>
-                          <div class="progress col-10 px-0 mt-1" style="height: 10px">
-                            <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
-                              aria-valuemin="0" aria-valuemax="100"></div>
-                          </div>
-                          <span class="col-2">5%</span>
-                        </div>
-                      </div> -->
-                      <div class="image-options-modal col-12 px-0 row mx-0">
-                        <div class="image-option px-0 col-6 col-md">
-                          <div class="image-option-stats row mx-0 my-5">
-                            <img src="../primed_assets/img/girl-red.jpg" alt="">
-                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
-                              <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                        <div  data-poll-option-image-modal class="image-options-modal col-12 px-0 row mx-0">
+                          <div class="image-option px-0 col-6 col-md">
+                            <div class="image-option-stats row mx-0 my-5">
+                              <img src="../primed_assets/img/girl-red.jpg" alt="">
+                              <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                                <div class="progress-bar" role="progressbar" style="width: 10%;" aria-valuenow="10"
+                                  aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <span class="text-center col-2 px-1">10%</span>
                             </div>
-                            <span class="text-center col-2 px-1">10%</span>
                           </div>
-                        </div>
-                        <div class="image-option px-0 col-6 col-md">
-                          <div class="image-option-stats row mx-0 my-5">
-                            <img class="selected" src="../primed_assets/img/girl-red.jpg" alt="">
-                            <div class="progress col-9 selected px-0 mt-1" style="height: 10px">
-                              <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="image-option px-0 col-6 col-md">
+                            <div class="image-option-stats row mx-0 my-5">
+                              <img class="selected" src="../primed_assets/img/girl-red.jpg" alt="">
+                              <div class="progress col-9 selected px-0 mt-1" style="height: 10px">
+                                <div class="progress-bar" role="progressbar" style="width: 60%;" aria-valuenow="60"
+                                  aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <span class="text-center col-2 px-1">60%</span>
                             </div>
-                            <span class="text-center col-2 px-1">60%</span>
                           </div>
-                        </div>
-                        <div class="image-option px-0 col-6 col-md">
-                          <div class="image-option-stats row mx-0 my-5">
-                            <img src="../primed_assets/img/girl-red.jpg" alt="">
-                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
-                              <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="image-option px-0 col-6 col-md">
+                            <div class="image-option-stats row mx-0 my-5">
+                              <img src="../primed_assets/img/girl-red.jpg" alt="">
+                              <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                                <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25"
+                                  aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <span class="text-center col-2 px-1">25%</span>
                             </div>
-                            <span class="text-center col-2 px-1">25%</span>
                           </div>
-                        </div>
-                        <div class="image-option px-0 col-6 col-md">
-                          <div class="image-option-stats row mx-0 my-5">
-                            <img src="../primed_assets/img/girl-red.jpg" alt="">
-                            <div class="progress col-9 px-0 mt-1" style="height: 10px">
-                              <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
-                                aria-valuemin="0" aria-valuemax="100"></div>
+                          <div class="image-option px-0 col-6 col-md">
+                            <div class="image-option-stats row mx-0 my-5">
+                              <img src="../primed_assets/img/girl-red.jpg" alt="">
+                              <div class="progress col-9 px-0 mt-1" style="height: 10px">
+                                <div class="progress-bar" role="progressbar" style="width: 5%;" aria-valuenow="5"
+                                  aria-valuemin="0" aria-valuemax="100"></div>
+                              </div>
+                              <span class="text-center col-2 px-1">5%</span>
                             </div>
-                            <span class="text-center col-2 px-1">5%</span>
                           </div>
                         </div>
-                      </div>
                       <div class="col-12 mt-3 other-stats border-top pt-4">
-                        <p class="mb-1">Total Votes: 512</p>
-                        <p class="mb-1">Total Comments: 60</p>
-                        <p class="mb-1">Total Male Votes: 300</p>
-                        <p class="mb-1">Total Female Votes: 212</p>
+                        <p class="mb-1">Total Votes: <span data-poll-total-vote-modal> 512</span></p>
+                        <p class="mb-1">Total Male Votes: <span data-poll-total-male-vote-modal> 300</span></p>
+                        <p class="mb-1">Total Female Votes: <span data-poll-total-female-vote-modal> 212</span></p>
+                        <p class="mb-1">Total Comments: <span data-poll-comment-count-modal> 60</span></p>
                       </div>
                     </div>
                   </div>
                   <div class="col-12 col-md-4 mb-5">
                     <div class="col-12 poll-owner-modal mt-4">
                       <div class="poll-owner-image mx-auto">
-                        <img src="../primed_assets/img/girl-red.jpg" alt="">
+                        <img data-owner-image-modal src="../primed_assets/img/girl-red.jpg" alt="poll owner image">
                       </div>
                       <div class="col-12 px-0 text-center mb-3">
-                        <h5 class="poll-owner-name mt-2 mb-0">
+                        <h5 class="poll-owner-name mt-2 mb-0" data-owner-name-modal>
                           Jane Austen
                         </h5>
-                        <span class="poll-owner-tag">@janeausten</span>
+                        <span class="poll-owner-tag" data-owner-username-modal>@janeausten</span>
                       </div>
                       <div class="col-12 px-0 poll-owner-stats">
                         <div class="col-12 row mx-0 px-0 mb-3">
                           <div class="col-6 text-center">
                             <p class="mb-0">Followers</p>
-                            <span>553</span>
+                            <span data-owner-follower-modal>553</span>
                           </div>
                           <div class="col-6 text-center">
                             <p class="mb-0">Following</p>
-                            <span>200</span>
+                            <span data-owner-following-modal>200</span>
                           </div>
                         </div>
                         <div class="col-12 row mx-0 px-0">
                           <div class="col-6 text-center">
                             <p class="mb-0">Asked Polls</p>
-                            <span>553</span>
+                            <span data-asked-poll>553</span>
                           </div>
                           <div class="col-6 text-center">
                             <p class="mb-0">Answered Polls</p>
-                            <span>200</span>
+                            <span data-answered-poll>200</span>
                           </div>
                         </div>
                       </div>
                       <div class="col-12 px-0 row mx-0 mt-4">
-                        <button class="btn btn-outline-brand col mx-1">View Profile</button>
-                        <button class="btn btn-brand col mx-1">Follow <i class="fa fas fa-follow"></i></button>
+                        <button class="btn btn-outline-brand col mx-1" data-poll-view-profile>View Profile</button>
+                        <button class="btn btn-brand col mx-1" data-poll-view-follow>Follow <i class="fa fas fa-follow"></i></button>
                       </div>
                     </div>
                   </div>
@@ -483,7 +453,7 @@
           <div class="col-12 col-lg-12 row row slim_preloader_holder" id="slim_preloader_holder">
             <span class="slim_preloader" id="slim_preloader"></span>
           </div>
-          
+
           <form action="#" class="form-inline search-polls-mobile my-2 my-lg-0 col-12 d-none">
             <div class="input-group input-group-seamless ml-1">
               <div class="input-group-prepend">
@@ -491,14 +461,11 @@
                   <i class="fas fa-search text-black mt-2" style="color: #f55330;"></i>
                 </div>
               </div>
-              <input class="small-search-poll-sty navbar-search form-control search-poll-query"
-                   
-                     type="text"
-                     placeholder="Search a poll ..." aria-label="Search"
-                     style="height: 40px; margin-top: 10px;">
+              <input class="small-search-poll-sty navbar-search form-control search-poll-query" type="text"
+                placeholder="Search a poll ..." aria-label="Search" style="height: 40px; margin-top: 10px;">
               <div class="input-group-append search_preloader">
                 <span class="input-group-text text-black">
-                  <img src="../primed_assets/images/search_load.gif"/>
+                  <img src="../primed_assets/images/search_load.gif" />
                 </span>
               </div>
             </div>
@@ -547,6 +514,7 @@
       <script type="text/javascript" src="../primed_assets/js/customjs/addPoll.js"></script>
       <script type="text/javascript" src="../primed_assets/js/customjs/vote.js"></script>
       <script type="text/javascript" src="../primed_assets/js/customjs/search_manipulate.js"></script>
+      <script type="text/javascript" src="../primed_assets/js/customjs/showPollOnModal.js"></script>
       <script src="../primed_assets/js/wow.min.js"></script>
       <script>
         new WOW().init();
